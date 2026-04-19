@@ -1,13 +1,13 @@
 ---
 name: TIGRIS Playtest Rubric
 slug: playtest-rubric
-version: 2.3.0
-rubric_version: v2.3
+version: 2.4.0
+rubric_version: v2.4
 bet_version: parliament
 author: TIGRIS
 created: 2026-04-19
 updated: 2026-04-19
-supersedes: v2.1 (added I-parliament-03 anchor-adjacency GATE check; 5 axis adoptions at v2.3 event)
+supersedes: v2.3 (added Vaccarino persona; v2.3.1 adjacency chart patch; panel now 8 designers)
 ---
 
 # TIGRIS Playtest Rubric — v2.0 (Parliament shape)
@@ -145,6 +145,8 @@ Preserved from v1.0 unchanged.
 
 ## Changelog
 
+- **v2.4.0** — 2026-04-19 — Adopted I-facets-03 + I-dominion-04 (Vaccarino persona). Panel now 8 designers. A4/A5/B3 now advocated. Pre-Scythe (cycle 3 rate-limit consumed).
+- **v2.3.1** — 2026-04-19 — Adjacency chart patch (I-te-01 + I-facets-01 + I-facets-02). Canonical chart at `personas/adjacency-chart.md` with 17 adjacencies.
 - **v2.3.0** — 2026-04-19 — Adopted I-parliament-03 (anchor-adjacency partner GATE check). Bumped to v2.3 consolidating 5 axis adoptions from Dominion session (B5, A6, A2, B1, D4) + protocol amendment. Dominion provided positive counter-example showing GATE passes naturally when personas coordinate. Rate-limit consumed for cycle 2.
 - **v2.1.0** — 2026-04-19 — Adopted I-parliament-01 (FORCED-ENGAGEMENT micro-phase). New stake states: hold-explicit, retire-explicit, silent-retire. `ignored` no longer a terminal state. Source: Parliament game #1 surfaced 48% ignore rate. Rate-limited adoption per innovation log protocol (1 per 2-game cycle).
 - **v2.0.0** — 2026-04-19 — Replaces v1.0 rubric with Parliament-shape (stakes, argument, amendment). 24-axis Pool in `axis-pool.md`. v1.0 scores remain at v1.0; no retro-scoring.

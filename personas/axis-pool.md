@@ -180,33 +180,36 @@ Columns: **Earned / Refuted / Contested / Ignored** counts are cumulative across
 | A1 Elegance | 0 | 0 | 2 | 0 | live | v1.0 carry; contested P + Dominion |
 | A2 Decision Density | 2 | 0 | 0 | 1 | **adopted** | FACETS earned + Dominion earned (LAST-CALL). |
 | A3 Interaction | 0 | 1 | 2 | 1 | live | Self-refuted FACETS; contested P+Dominion |
-| A4 Variance Calibration | 0 | 0 | 0 | 0 | live | Never drafted 4x — I-facets-03 cluster strengthening |
-| A5 Downtime / Pacing | 0 | 0 | 0 | 0 | live | Never drafted 4x |
+| A4 Variance Calibration | 0 | 0 | 0 | 0 | live (advocate: Vaccarino) | Scythe first draft ever (Vaccarino 1d — weak-defended). |
+| A5 Downtime / Pacing | 0 | 0 | 0 | 0 | live | Scythe first draft ever (Feld fallback 1d — weak-defended). |
 | A6 Teachability | 2 | 0 | 1 | 0 | **adopted** | FACETS earned + Dominion earned (LAST-CALL). |
-| A7 Emergence / Replayability | 1 | 0 | 1 | 0 | queued-for-adoption | Dominion first earning (2d + 1cw). |
+| A7 Emergence / Replayability | 2 | 0 | 1 | 0 | **adopted** | Dominion + Scythe earned. 8th adoption event (v2.5). |
 | B1 System Gearing | 0 | 0 | 0 | 0 | live | weak-defended in Parliament (1 defend, not 2) |
 | B2 Catastrophe Pressure | 0 | 0 | 0 | 1 | live | ignored in Parliament |
 | B3 Conversion Chain Depth | 0 | 0 | 0 | 0 | live | undrafted in Parliament (Knizia passed) |
 | B1 System Gearing | 2 | 0.5 | 0 | 0 | **adopted** | T&E earned + Dominion earned (LAST-CALL). FACETS retire-explicit doesn't block. |
 | B2 Catastrophe Pressure | 1 | 1.0 | 0 | 1 | live (contested cross-game) | Earned T&E; retire-explicit FACETS + Dominion. |
-| B3 Conversion Chain Depth | 0 | 0 | 0 | 0 | live (never drafted 4x) | I-facets-03 cluster strengthening |
+| B3 Conversion Chain Depth | 0 | 0 | 0 | 0 | live (advocate: Vaccarino) | Scythe first draft ever (Vaccarino hold-explicit). |
 | B4 Information Transparency Cost | 2 | 0 | 0 | 0 | **adopted** | Still-adopted; Dominion hold-explicit. |
 | B5 Architectural Novelty | 2 | 0.5 | 0 | 0 | **adopted** | P earned + Dominion earned (anchor vindication). T&E retire-explicit doesn't block. |
 | C1 Tension Budget | 0 | 0 | 0 | 2 | live | 4 games without active engagement |
 | C2 Minimum-Score Shape | 3 | 0.5 | 0 | 0 | **adopted** | Adopted; Dominion retire-explicit (diagnostic-low) adds minor refute |
 | C3 Scarcity Bite | 0 | 1 | 0 | 1 | queued-for-retirement | Dominion hold-explicit; no new evidence |
-| C4 Engine-Garden Dependency | 1 | 1.5 | 1 | 0 | **live (reversed from retirement)** | Dominion earned (2d+1cw) reverses P refute + FACETS retire-explicit |
+| C4 Engine-Garden Dependency | 2 | 1.5 | 1 | 0 | **adopted** | Dominion + Scythe earned. 11th adoption (v2.5). Retirement reversal permanently confirmed. |
 | C5 Anti-Catch-up Pressure | 0 | 1 | 2 | 0 | queued-for-retirement | Dominion hold-explicit |
 | C6 Point-Salad Incommensurability | 1 | 1.0 | 0 | 1 | live (contested) | Dominion retire-explicit adds refute to FACETS earning |
 | C7 Action-Menu Clarity | 0 | 0 | 0 | 0 | live | Dominion +1 collision win |
 | C8 First-Turn Compression | 0 | 0.5 | 0 | 1 | live | Dominion hold-explicit |
-| D1 Family-to-Expert Scaling | 1 | 0 | 0 | 2 | queued-for-adoption | Dominion first earning (K-K 2 defends) |
-| D2 Spatial-Interaction Presence | 1 | 1.0 | 0 | 1 | live (contested cross-game) | Dominion retire-explicit |
-| D3 Count-Robustness | 0 | 0 | 0 | 0 | live | Dominion +1 defend (3p session) |
+| D1 Family-to-Expert Scaling | 2 | 0 | 0 | 2 | **adopted** | Dominion + Scythe (LAST-CALL) earned. 9th adoption (v2.5). |
+| D2 Spatial-Interaction Presence | 2 | 1.0 | 0 | 1 | **adopted** | T&E + Scythe earned. 10th adoption (v2.5). |
+| D3 Count-Robustness | 1 | 0 | 0 | 0 | queued-for-adoption | Scythe first earning (Stegmaier anchor). |
 | D4 Late-Game Lock-in Point | 2 | 0 | 0 | 1 | **adopted** | FACETS earned + Dominion earned. |
 
 ## Changelog
 
+- **v2.5.0** — 2026-04-19 — **Scythe (game #5) completed.** 4 adoptions (A7, D1, D2, C4) bring Pool to 11 adopted axes / 24 (46%). First-ever drafts of A4, A5, B3 validated Vaccarino persona introduction. D3 queued-for-adoption. No retirements. 4 new innovations (I-scythe-01..04); I-parliament-02 Scoring Multiplier cluster strengthens to 2 instances. v2.3 anchor-adjacency GATE passed naturally (Stegmaier+K-K).
+- **v2.4.0** — 2026-04-19 — **Vaccarino persona added** (8th designer; resolves I-facets-03 + I-dominion-04). Primary advocate for A4 Variance Calibration, A5 Downtime-Pacing, B3 Conversion Chain Depth (previously never-drafted across 4 games). Panel now 8 designers; 8×3=24 drafts fully saturate the 24-axis Pool, ending the never-drafted pattern. Cycle 3 rate-limit consumed.
+- **v2.3.1** — 2026-04-19 — Adjacency chart patch. Adopted I-te-01 (B2↔C5), I-facets-01 (C6↔A6), I-facets-02 (A2↔A6). Canonical chart now at `personas/adjacency-chart.md`. 17 adjacencies total. Low-risk patch outside rate limit.
 - **v2.3.0** — 2026-04-19 — Dominion (game #4) completed. **5 axis adoptions** (B5 Architectural Novelty, A6 Teachability, A2 Decision Density, B1 System Gearing, D4 Late-Game Lock-in Point) — largest single-session event in TIGRIS history. **I-parliament-03 adopted** as protocol amendment: GATE now requires anchor axis to have cross-player adjacency partner. C4 Engine-Garden Dependency **retirement reversal** — moved from queued-for-retirement to live via Dominion earning. Third consecutive 0% silent-retire. 4 new innovations logged (I-dominion-01 through I-dominion-04).
 - **v2.2.1** — 2026-04-19 — FACETS (game #3) ledger update. No adoption or retirement triggered; 4 new axes queued-for-adoption (A6, A2, D4, C6 each with 1 earning). 3 queued-for-adoption stalled (B1, B2, D2 earned T&E, retire-explicit FACETS). 1 queued-for-retirement tightened (C4 now at 1.5 cumulative refute weight). Second consecutive 0% silent-retire session. 6 new innovations logged (I-facets-01 through I-facets-04, plus I-te-02 and I-parliament-03 cluster updates).
 - **v2.2.0** — 2026-04-19 — **First ADOPTION events.** T&E (game #2) completed. C2 Minimum-Score Shape and B4 Information-Transparency-Cost both earned across Parliament + T&E → adopted to permanent pool. 3 axes queued-for-adoption (B1, B2, D2); 3 queued-for-retirement (C3, C4, C5) but none triggered retirement yet. 0% silent-retire rate validates v2.1 FORCED-ENGAGEMENT. Four innovations logged (I-te-01 through I-te-03, plus I-parliament-03 cluster update).

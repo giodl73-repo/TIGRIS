@@ -66,10 +66,12 @@ No weighted aggregate. Stakes are individual assertions attacked or defended one
 
 ## Personas
 
-7 designers: Knizia, Rosenberg, Feld, Lacerda, Chvátil, Kramer-Kiesling, Stegmaier.
+**8 designers** (v2.4): Knizia, Rosenberg, Feld, Lacerda, Chvátil, Kramer-Kiesling, Stegmaier, Vaccarino.
 5 player lenses: Engine-Builder, Interactionist, AP-Prone, Thematic, Fresh-Face.
 
-Each persona's `preferred_axes` (in frontmatter) lists 6 ranked axes they'd draft from the Pool. Overlaps between persona preferences are designed — Knizia and K-K both want Elegance; they can't both get it.
+Each persona's `preferred_axes` (in frontmatter) lists 6-8 ranked axes they'd draft from the Pool. Overlaps between persona preferences are designed — Knizia and K-K both want Elegance; they can't both get it.
+
+With 8 designers × 3 drafts = 24 drafts vs 24-axis Pool, every axis gets advocated every game (the never-drafted pattern from games 1-4 is closed by Vaccarino's A4/A5/B3 coverage).
 
 ## Directory map (v2.0)
 
