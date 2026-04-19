@@ -25,7 +25,7 @@ CONCEPT → DESIGN → TIER-A [STAKES] → [GATE] → TIER-B [ARGUMENT] → TIER
 
 Reviews of existing games start at TIER-A (DESIGN imports published rules). Reviews of TIGRIS-internal artifacts (specs, skills, persona additions) run the same Parliament procedure with designers only (no player lenses on processes).
 
-## Frontmatter contract (v2.0)
+## Frontmatter contract (v2.6)
 
 Every generated file:
 
@@ -36,14 +36,24 @@ slug:
 game: <NNNN-slug>                 # omit for non-game artifacts
 stage: concept|design|tierA|tierB|tierC|handoff|panel
 version: <semver>
-rubric_version: v2.0
-bet_version: parliament           # v2.0 field — which architectural bet this commits to
+rubric_version: v2.6
+bet_version: parliament
 author: <persona-slug or human>
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
 sources: []
+
+# Review-mode games only (imported published games):
+bgg_id: <integer>                 # REQUIRED for review-mode; see reference/bgg.md
+bgg_url: https://boardgamegeek.com/boardgame/<id>
+canonical_edition: <edition>
+game_designer: <name>
+game_first_published: <year> (<publisher>)
+review_type: imported-review
 ---
 ```
+
+**BGG is the TIGRIS bible for published games.** Every review-mode game carries a `bgg_id`. Full reference + IDs for ~50 candidate games in `reference/bgg.md`. Originals designed by TIGRIS omit `bgg_id` until published.
 
 ## Forbidden vocabulary
 

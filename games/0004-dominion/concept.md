@@ -15,6 +15,8 @@ review_type: imported-review
 game_designer: Donald X. Vaccarino
 game_first_published: 2008 (Rio Grande Games)
 canonical_edition: Rio Grande 2nd printing (2016)
+bgg_id: 36218
+bgg_url: https://boardgamegeek.com/boardgame/36218
 ---
 
 # Dominion — Concept (imported for review)
