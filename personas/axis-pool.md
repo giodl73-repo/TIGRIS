@@ -72,7 +72,7 @@ These axes survived the v1.0 → v2.0 transition unchanged. `Thematic Integratio
 **Anchor 10:** 50+ plays still reveal new strategic veins; meta evolves.
 **State:** live.
 
-## Band B — Euro-specific (5 axes, new in v2.0)
+## Band B — Euro-specific (6 axes, v2.6 adds B6 Scoring Multiplier Dependency)
 
 Added in response to v1.0 panel consensus (Lacerda RC4, Chvátil RC1, Feld RC1). These axes fail the re-skin test — they are specifically Euro-tradition concerns.
 
@@ -100,6 +100,14 @@ Added in response to v1.0 panel consensus (Lacerda RC4, Chvátil RC1, Feld RC1).
 **Definition:** Structural bet distinct from predecessor designs. Remove the signature mechanic — is any other game indistinguishable?
 **Anchor 10:** The game's core architecture has no sibling; copycats are obvious (Through the Ages's ledger, Tzolk'in's gears, Galaxy Trucker's real-time build).
 **State:** live. **Primary advocate:** Chvátil.
+
+### B6. Scoring Multiplier Dependency (**NEW v2.6**)
+**Definition:** Do endgame points depend multiplicatively on choices made across multiple subsystems, forcing balance across them?
+**Anchor 0**: single-track VP (raw sum, no multipliers).
+**Anchor 5**: one or two multipliers present (e.g., Scythe's popularity band on final scoring).
+**Anchor 10**: multiple stacking multipliers define the scoring space (Puerto Rico: Residence × plantations, Guild Hall × production-buildings, etc.).
+**State:** live. **Primary advocate:** Rosenberg. Secondary: Vaccarino.
+**Adoption source:** I-parliament-02 cluster (Parliament multiplier + Scythe popularity bands + Puerto Rico endgame buildings = 3 cluster instances).
 
 ## Band C — Persona-signature (8 axes, new in v2.0)
 
@@ -189,16 +197,16 @@ Columns: **Earned / Refuted / Contested / Ignored** counts are cumulative across
 | B3 Conversion Chain Depth | 0 | 0 | 0 | 0 | live | undrafted in Parliament (Knizia passed) |
 | B1 System Gearing | 2 | 0.5 | 0 | 0 | **adopted** | T&E earned + Dominion earned (LAST-CALL). FACETS retire-explicit doesn't block. |
 | B2 Catastrophe Pressure | 1 | 1.0 | 0 | 1 | live (contested cross-game) | Earned T&E; retire-explicit FACETS + Dominion. |
-| B3 Conversion Chain Depth | 0 | 0 | 0 | 0 | live (advocate: Vaccarino) | Scythe first draft ever (Vaccarino hold-explicit). |
+| B3 Conversion Chain Depth | 1 | 0 | 0 | 0 | queued-for-adoption | **PR first earning** (Vaccarino, 2 defends). Corn→Indigo→Sugar→Tobacco→Coffee chain canonical. |
 | B4 Information Transparency Cost | 2 | 0 | 0 | 0 | **adopted** | Still-adopted; Dominion hold-explicit. |
 | B5 Architectural Novelty | 2 | 0.5 | 0 | 0 | **adopted** | P earned + Dominion earned (anchor vindication). T&E retire-explicit doesn't block. |
-| C1 Tension Budget | 0 | 0 | 0 | 2 | live | 4 games without active engagement |
+| C1 Tension Budget | 1 | 0 | 0 | 2 | queued-for-adoption | Puerto Rico first earning (Knizia anchor, 3 defends). Dormant 5 games prior. |
 | C2 Minimum-Score Shape | 3 | 0.5 | 0 | 0 | **adopted** | Adopted; Dominion retire-explicit (diagnostic-low) adds minor refute |
-| C3 Scarcity Bite | 0 | 1 | 0 | 1 | queued-for-retirement | Dominion hold-explicit; no new evidence |
+| C3 Scarcity Bite | 1 | 1 | 0 | 1 | queued-for-adoption | **PR first earning** (3 defends) — reverses queued-for-retirement. Mixed history. |
 | C4 Engine-Garden Dependency | 2 | 1.5 | 1 | 0 | **adopted** | Dominion + Scythe earned. 11th adoption (v2.5). Retirement reversal permanently confirmed. |
-| C5 Anti-Catch-up Pressure | 0 | 1 | 2 | 0 | queued-for-retirement | Dominion hold-explicit |
+| C5 Anti-Catch-up Pressure | 0 | 3 | 2 | 0 | **RETIRED v2.6** | **First retirement event.** PR retire-explicit + self-refute. Cumulative weight 3.0. |
 | C6 Point-Salad Incommensurability | 1 | 1.0 | 0 | 1 | live (contested) | Dominion retire-explicit adds refute to FACETS earning |
-| C7 Action-Menu Clarity | 0 | 0 | 0 | 0 | live | Dominion +1 collision win |
+| C7 Action-Menu Clarity | 1 | 0 | 0 | 0 | queued-for-adoption | PR LAST-CALL earning (K-K, 9/9 roles-clear). |
 | C8 First-Turn Compression | 0 | 0.5 | 0 | 1 | live | Dominion hold-explicit |
 | D1 Family-to-Expert Scaling | 2 | 0 | 0 | 2 | **adopted** | Dominion + Scythe (LAST-CALL) earned. 9th adoption (v2.5). |
 | D2 Spatial-Interaction Presence | 2 | 1.0 | 0 | 1 | **adopted** | T&E + Scythe earned. 10th adoption (v2.5). |
@@ -207,6 +215,7 @@ Columns: **Earned / Refuted / Contested / Ignored** counts are cumulative across
 
 ## Changelog
 
+- **v2.6.0** — 2026-04-19 — **Puerto Rico (game #6) completed.** First retirement event (**C5 Anti-Catch-up Pressure** — cumulative refute 3.0 across P+Scythe+PR). First new-axis adoption post-v2.0 bet: **B6 Scoring Multiplier Dependency** added to Pool from I-parliament-02 3-cluster. 4 first-earnings queued-for-adoption (C1, C3, B3, C7). Pool now **25 axes total, 24 active (C5 retired)**. Rosenberg gains B6 as primary advocate. Knizia's first fallback draft (A5). 5th consecutive 0% silent-retire.
 - **v2.5.0** — 2026-04-19 — **Scythe (game #5) completed.** 4 adoptions (A7, D1, D2, C4) bring Pool to 11 adopted axes / 24 (46%). First-ever drafts of A4, A5, B3 validated Vaccarino persona introduction. D3 queued-for-adoption. No retirements. 4 new innovations (I-scythe-01..04); I-parliament-02 Scoring Multiplier cluster strengthens to 2 instances. v2.3 anchor-adjacency GATE passed naturally (Stegmaier+K-K).
 - **v2.4.0** — 2026-04-19 — **Vaccarino persona added** (8th designer; resolves I-facets-03 + I-dominion-04). Primary advocate for A4 Variance Calibration, A5 Downtime-Pacing, B3 Conversion Chain Depth (previously never-drafted across 4 games). Panel now 8 designers; 8×3=24 drafts fully saturate the 24-axis Pool, ending the never-drafted pattern. Cycle 3 rate-limit consumed.
 - **v2.3.1** — 2026-04-19 — Adjacency chart patch. Adopted I-te-01 (B2↔C5), I-facets-01 (C6↔A6), I-facets-02 (A2↔A6). Canonical chart now at `personas/adjacency-chart.md`. 17 adjacencies total. Low-risk patch outside rate limit.
