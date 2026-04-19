@@ -171,35 +171,38 @@ Axes that each carry a specific designer's voice. A draft on one of these is an 
 
 ## Rubric Ledger (live state)
 
-As games complete TIER-C, this section records adoption/retirement history. For v2.0 launch: all 24 axes begin `live`. After Parliament runs, expect 3–6 axes to be marked `adopted` and 0–2 `retired` (first-game adoption patterns based on marathon's similar v1.0→v1.1 transition).
+As games complete TIER-C, this section records adoption/retirement history. **Parliament (game #1) complete — 21 axes have first-game records.** Thresholds: ≥ 2 earned across ≥ 2 games → `adopted`; ≥ 2 refuted across ≥ 2 games → `retired`. Game #2 (expected: Tigris & Euphrates) will trigger first adoptions/retirements for queued axes.
 
-| Axis | First drafted by | Adopted | Retired | Contested | Note |
-|---|---|---|---|---|---|
-| A1 Elegance | — | — | — | — | carried from v1.0 |
-| A2 Decision Density | — | — | — | — | carried from v1.0 |
-| A3 Interaction | — | — | — | — | carried from v1.0 |
-| A4 Variance Calibration | — | — | — | — | carried from v1.0 |
-| A5 Downtime / Pacing | — | — | — | — | carried from v1.0 |
-| A6 Teachability | — | — | — | — | carried from v1.0 |
-| A7 Emergence / Replayability | — | — | — | — | carried from v1.0 |
-| B1 System Gearing | — | — | — | — | new in v2.0 |
-| B2 Catastrophe Pressure | — | — | — | — | new in v2.0 |
-| B3 Conversion Chain Depth | — | — | — | — | new in v2.0 |
-| B4 Information Transparency Cost | — | — | — | — | new in v2.0 |
-| B5 Architectural Novelty | — | — | — | — | new in v2.0 |
-| C1 Tension Budget | — | — | — | — | new in v2.0 |
-| C2 Minimum-Score Shape | — | — | — | — | new in v2.0 |
-| C3 Scarcity Bite | — | — | — | — | new in v2.0 |
-| C4 Engine-Garden Dependency | — | — | — | — | new in v2.0 |
-| C5 Anti-Catch-up Pressure | — | — | — | — | new in v2.0 |
-| C6 Point-Salad Incommensurability | — | — | — | — | new in v2.0 |
-| C7 Action-Menu Clarity | — | — | — | — | new in v2.0 |
-| C8 First-Turn Compression | — | — | — | — | new in v2.0 |
-| D1 Family-to-Expert Scaling | — | — | — | — | new in v2.0 |
-| D2 Spatial-Interaction Presence | — | — | — | — | new in v2.0 |
-| D3 Count-Robustness | — | — | — | — | new in v2.0 |
-| D4 Late-Game Lock-in Point | — | — | — | — | new in v2.0 |
+Columns: **Earned / Refuted / Contested / Ignored** counts are cumulative across games (value = game-count in that state).
+
+| Axis | Earned | Refuted | Contested | Ignored | Status | Note |
+|---|---:|---:|---:|---:|---|---|
+| A1 Elegance | 0 | 0 | 1 | 0 | live | v1.0 carry; contested in Parliament via K-K collision |
+| A2 Decision Density | 0 | 0 | 0 | 1 | live | v1.0 carry; ignored in Parliament |
+| A3 Interaction | 0 | 0 | 0 | 1 | live | v1.0 carry; ignored in Parliament |
+| A4 Variance Calibration | 0 | 0 | 0 | 0 | live | v1.0 carry; undrafted in Parliament |
+| A5 Downtime / Pacing | 0 | 0 | 0 | 0 | live | v1.0 carry; undrafted in Parliament |
+| A6 Teachability | 0 | 0 | 1 | 0 | live | v1.0 carry; contested via Lacerda collision |
+| A7 Emergence / Replayability | 0 | 0 | 1 | 0 | live | v1.0 carry; contested via Chvátil collision |
+| B1 System Gearing | 0 | 0 | 0 | 0 | live | weak-defended in Parliament (1 defend, not 2) |
+| B2 Catastrophe Pressure | 0 | 0 | 0 | 1 | live | ignored in Parliament |
+| B3 Conversion Chain Depth | 0 | 0 | 0 | 0 | live | undrafted in Parliament (Knizia passed) |
+| B4 Information Transparency Cost | 1 | 0 | 0 | 0 | queued-for-adoption | earned by Lacerda in Parliament; one more earning → adopted |
+| B5 Architectural Novelty | 1 | 0 | 0 | 0 | queued-for-adoption | earned by Chvátil in Parliament; validates the v2.0 bet |
+| C1 Tension Budget | 0 | 0 | 0 | 1 | live | ignored in Parliament |
+| C2 Minimum-Score Shape | 1 | 0 | 0 | 0 | queued-for-adoption | anchor axis in Parliament — Knizia earned 3 defends; one more game confirms |
+| C3 Scarcity Bite | 0 | 0 | 0 | 1 | live | ignored in Parliament |
+| C4 Engine-Garden Dependency | 0 | 1 | 0 | 0 | queued-for-retirement | Rosenberg's stake refuted in Parliament |
+| C5 Anti-Catch-up Pressure | 0 | 1 | 0 | 0 | queued-for-retirement | Feld self-refuted in Parliament |
+| C6 Point-Salad Incommensurability | 0 | 0 | 0 | 1 | live | ignored in Parliament |
+| C7 Action-Menu Clarity | 0 | 0 | 0 | 0 | live | weak-defended in Parliament (1 collision win, needs 2 marks total) |
+| C8 First-Turn Compression | 0 | 0 | 0 | 1 | live | ignored in Parliament |
+| D1 Family-to-Expert Scaling | 0 | 0 | 0 | 1 | live | ignored in Parliament |
+| D2 Spatial-Interaction Presence | 0 | 0 | 0 | 1 | live | ignored in Parliament |
+| D3 Count-Robustness | 0 | 0 | 0 | 0 | live | weak-defended in Parliament (first engaged at 3p session) |
+| D4 Late-Game Lock-in Point | 0 | 0 | 0 | 1 | live | ignored in Parliament |
 
 ## Changelog
 
+- **v2.0.1** — 2026-04-19 — Parliament game #1 complete. Ledger populated: 3 axes queued-for-adoption (C2, B5, B4), 2 queued-for-retirement (C4, C5), 3 contested, 10 ignored. No adoptions or retirements triggered (requires ≥ 2 games). Three amendment candidates logged in `personas/playtest-innovations.md`.
 - **v2.0.0** — 2026-04-19 — Pool introduced. 24 axes. `Thematic Integration` from v1.0 retired pre-launch (panel consensus). Forward-only versioning reset: v2.0 is a bet change, not a rubric change; all v1.0 scores remain locked against v1.0 and are NOT re-scored against v2.0. The Pool is a new rubric, not an amended one.
