@@ -4,16 +4,15 @@ slug: kramer-kiesling
 role: designer-persona
 tradition: euro
 signature_works: [Tikal, Torres, Mexica, Java, Coal Baron, Azul, Azul Stained Glass, Asara, The Palaces of Carrara, The Princes of Florence]
-rubric_weights:
-  elegance: 1.4
-  decision_density: 1.0
-  interaction: 1.2
-  thematic_integration: 0.8
-  variance_calibration: 0.8
-  downtime_pacing: 1.0
-  teachability: 1.4
-  emergence_replayability: 0.4
-rubric_version: v1.0
+preferred_axes:
+  - action-menu-clarity           # C7 — K-K-primary
+  - family-to-expert-scaling      # D1 — K-K-primary
+  - spatial-interaction-presence  # D2 — K-K-primary
+  - elegance                      # A1
+  - teachability                  # A6
+  - interaction                   # A3
+rubric_version: v2.0
+bet_version: parliament
 author: TIGRIS
 created: 2026-04-19
 updated: 2026-04-19

@@ -1,31 +1,43 @@
-# TIGRIS — House Rules for Claude
+# TIGRIS — House Rules for Claude (v2.0)
 
-A Claude-Code-driven factory for Euro-tradition board games. Designs new games and reviews existing ones through the same pipeline. Sibling to marathon (D&D), puzzlehunt, chronicle, rmm, artisan.
+A Claude-Code-driven factory for Euro-tradition board games. Designs new games and reviews existing ones through the same pipeline. Sibling to marathon (D&D), puzzlehunt, chronicle (LUCIA), rmm, artisan (CERES).
 
-Spec: `docs/specs/2026-04-19-tigris-design.md` (read it before doing anything non-trivial).
+**Source of truth:** `docs/specs/2026-04-19-tigris-v2.0-design.md` (the Parliament restructure). Read before doing anything non-trivial.
+
+**v1.0 spec** at `docs/specs/2026-04-19-tigris-design.md` is superseded. v1.0 scores are locked and not re-scored against v2.0.
+
+## The architectural bet
+
+**TIGRIS is an adversarial review system.** Designer personas don't converge on consensus — they plant incompatible stakes from a shared Pool and the factory's output is the record of their argument. Amendments to the rubric are *won*, not proposed.
+
+Three consequences:
+- No shared rubric at scoring time. Each persona drafts 3 axes per game from a 24-axis Pool (`personas/axis-pool.md`).
+- Three phases are cognitively distinct: **STAKES** (drafting+assertion) → **ARGUMENT** (attack/defend/collide under narrated play) → **AMENDMENT** (deterministic adoption/retirement).
+- The rubric evolves via play record, not user approval.
 
 ## The pipeline
 
 ```
-CONCEPT → DESIGN → TIER-A → [GATE] → TIER-B → PANEL → INNOVATE → HANDOFF
+CONCEPT → DESIGN → TIER-A [STAKES] → [GATE] → TIER-B [ARGUMENT] → TIER-C [AMENDMENT] → HANDOFF
          (skip for reviews)          ↑
-                                     └─ gate fail → revise DESIGN, re-run TIER-A
+                                     └─ gate fail → revise DESIGN or re-draft
 ```
 
-Reviews (of existing games or of TIGRIS itself) start at TIER-A or at PANEL depending on what's being evaluated. The pipeline is the same; originals run every stage.
+Reviews of existing games start at TIER-A (DESIGN imports published rules). Reviews of TIGRIS-internal artifacts (specs, skills, persona additions) run the same Parliament procedure with designers only (no player lenses on processes).
 
-## Frontmatter contract
+## Frontmatter contract (v2.0)
 
-Every generated file starts with YAML frontmatter:
+Every generated file:
 
 ```yaml
 ---
-name: <human-readable title>
-slug: <hyphenated>
-game: <NNNN-slug>                  # omit for non-game artifacts (rubric, personas, spec)
-stage: concept|design|tierA|tierB|panel|innovate|handoff
+name:
+slug:
+game: <NNNN-slug>                 # omit for non-game artifacts
+stage: concept|design|tierA|tierB|tierC|handoff|panel
 version: <semver>
-rubric_version: v1.0               # the rubric version scored against
+rubric_version: v2.0
+bet_version: parliament           # v2.0 field — which architectural bet this commits to
 author: <persona-slug or human>
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
@@ -35,45 +47,70 @@ sources: []
 
 ## Forbidden vocabulary
 
-See `personas/forbidden-words.md`. Short version: no "fun", "well-designed", "solid", "great game". Every claim must name (a) which rubric axis, (b) which persona/lens, (c) which player count or game-state.
+See `personas/forbidden-words.md`. No "fun", "well-designed", "solid", "great game". Every claim names (a) axis, (b) persona, (c) player count or moment-anchor.
 
-## Rubric
+**v2.0 additions:** Stakes are described only as *earned*, *refuted*, *contested*, *ignored*, or *collided*. "Consensus" as an evaluative frame is banned — the factory produces well-formed disagreement.
 
-Eight axes, v1.0. See `personas/playtest-rubric.md`. Forward-only versioning: when amended, old scores lock at their rubric version.
+## Rubric (v2.0)
 
-| # | Axis | Short definition |
+**24 axes in a Pool**, 4 bands (A/B/C/D). See `personas/axis-pool.md` for full definitions. Each persona has a `preferred_axes` list in their frontmatter; drafting forces contention where preferences overlap.
+
+No weighted aggregate. Stakes are individual assertions attacked or defended one at a time.
+
+| Band | Theme | Count |
 |---|---|---|
-| 1 | Elegance | Rule-count-to-depth ratio |
-| 2 | Decision Density | Meaningful choices per turn |
-| 3 | Interaction | Player-to-player impact |
-| 4 | Thematic Integration | Mechanics ↔ theme coherence |
-| 5 | Variance Calibration | Luck scaled to game length |
-| 6 | Downtime / Pacing | Wait between turns |
-| 7 | Teachability | Rules → first-turn friction |
-| 8 | Emergence / Replayability | Strategy space diversity |
-
-Per-cell verdicts on weighted aggregate: `win` ≥ 7.0 · `marginal` 4.0–6.9 · `fail` < 4.0.
+| A | Carried from v1.0 | 7 |
+| B | Euro-specific (System Gearing, Catastrophe Pressure, etc.) | 5 |
+| C | Persona-signature (Tension Budget, Scarcity Bite, etc.) | 8 |
+| D | Family / accessibility | 4 |
 
 ## Personas
 
-Seven designer voices + five player lenses. Full roster in `personas/designers/` and `personas/player-lenses/`. Each persona has a `rubric_weights` vector (sum = 8.0) that reshapes the 8-axis scoring.
+7 designers: Knizia, Rosenberg, Feld, Lacerda, Chvátil, Kramer-Kiesling, Stegmaier.
+5 player lenses: Engine-Builder, Interactionist, AP-Prone, Thematic, Fresh-Face.
 
-## Directory map
+Each persona's `preferred_axes` (in frontmatter) lists 6 ranked axes they'd draft from the Pool. Overlaps between persona preferences are designed — Knizia and K-K both want Elegance; they can't both get it.
 
-- `docs/specs/` — design docs (this project's spec, future amendments)
-- `games/NNNN-<slug>/` — one directory per game (new or review)
-- `personas/` — designer roster, player lenses, rubric, innovation log, forbidden words
-- `skills/` — Claude Code skills (`tigris-panel`, `tigris-innovate`, etc.)
-- `reference/` — cached rules, designer research, community archives
-- `scripts/` — seeded RNG and other deterministic utilities
+## Directory map (v2.0)
+
+- `docs/specs/` — spec docs (v1.0 archival, v2.0 current)
+- `docs/specs/reviews/` — panel reviews of TIGRIS-internal artifacts
+- `games/NNNN-<slug>/` — one directory per game (Parliament is 0001)
+- `personas/`
+  - `axis-pool.md` — the 24-axis Pool + Rubric Ledger (forward-only)
+  - `playtest-rubric.md` — Parliament-shape mechanics (stakes/argument/amendment)
+  - `playtest-innovations.md` — append-only, `trigger_pattern` field
+  - `forbidden-words.md` — vocabulary discipline
+  - `designers/` + `player-lenses/` — persona files with preferred_axes
+- `skills/` — Claude Code skills (`tigris-panel` executes the full Parliament procedure in Phase 1)
+- `reference/` — cached rules, designer research
+- `scripts/` — seeded RNG
 
 ## Session discipline
 
-- Read the latest `handoff.md` (game-level) or `TRACKER.md` (project-level) before starting work.
+- Read `TRACKER.md` before any session.
 - End every substantive session with a handoff document for the game worked on.
-- The innovation log is append-only. Amendments to the rubric bump its version; old scores never re-score.
-- YAGNI aggressively. Don't build a skill until you've manually done its job twice and felt the friction.
+- Innovation log is append-only. Amendments to axes are deterministic (argument record evidence).
+- **YAGNI aggressively.** Don't build a skill until you've done its job twice manually and felt friction.
 
-## Anchor rule
+## Anchor rule (v2.0)
 
-Before any Phase 2 skill is built, Tigris & Euphrates must have a complete review in `games/0001-tigris-and-euphrates/` with all pipeline stages executed. This is the calibration lap — it's how we know the rubric and personas are doing real work.
+Before any Phase 2 skill is built, **Parliament** (`games/0001-parliament/`) must have a complete Parliament-procedure review with all pipeline stages executed. Parliament is both:
+- The first game the factory produces (originals path).
+- The first review the factory conducts on itself (reviews path — Parliament reviews Parliament).
+
+T&E (`games/0002-tigris-and-euphrates/`) becomes anchor #2 once Parliament passes.
+
+## Success criteria for a review (per game)
+
+From `personas/playtest-rubric.md`:
+- ≥ 5 earned stakes across the panel
+- ≥ 2 earned on Band B or C axes
+- ≥ 1 clean collision resolution
+- ≥ 1 axis promoted (adopted) OR retired
+
+Fewer than 5 earned = personas aren't arguing. No Band B/C earnings = personas read as interchangeable. No collisions = argument isn't live. No promotion/retirement = rubric isn't evolving. Any of the four failing is a v2.1 blocker.
+
+## Sibling-repo glossary
+
+Every term inherited from marathon / puzzlehunt / chronicle / rmm / artisan is defined at first mention in the v2.0 spec §3. If writing a new doc that introduces a sibling-inherited term, add its definition to the glossary in the v2.0 spec.

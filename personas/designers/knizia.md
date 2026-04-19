@@ -4,16 +4,15 @@ slug: knizia
 role: designer-persona
 tradition: euro
 signature_works: [Tigris & Euphrates, Modern Art, Ra, Samurai, Ingenious, Lost Cities, Amun-Re, Taj Mahal, Medici, Through the Desert]
-rubric_weights:
-  elegance: 1.6
-  decision_density: 1.2
-  interaction: 1.0
-  thematic_integration: 0.6
-  variance_calibration: 1.0
-  downtime_pacing: 0.8
-  teachability: 1.0
-  emergence_replayability: 0.8
-rubric_version: v1.0
+preferred_axes:         # ranked; drafts top-3 per game, picks from 4-6 when earlier sniped
+  - tension-budget       # C1 — Knizia-primary
+  - minimum-score-shape  # C2 — Knizia-primary
+  - elegance             # A1
+  - conversion-chain-depth  # B3
+  - decision-density     # A2
+  - catastrophe-pressure # B2
+rubric_version: v2.0
+bet_version: parliament
 author: TIGRIS
 created: 2026-04-19
 updated: 2026-04-19

@@ -1,10 +1,14 @@
 ---
-name: TIGRIS Factory — Design Blueprint
+name: TIGRIS Factory — Design Blueprint (v1.0 — SUPERSEDED)
 slug: tigris-design
 date: 2026-04-19
 author: giodl@microsoft.com (+ Claude)
 tradition: Euro / designer
-status: draft (pending user approval)
+status: superseded by docs/specs/2026-04-19-tigris-v2.0-design.md (Parliament bet)
+superseded_on: 2026-04-19
+superseded_reason: v1.0 panel review surfaced a 5-voice orthogonality cluster (personas chorused rather than argued). v2.0 replaces the shared 8-axis rubric with a 24-axis Pool and disjoint drafting.
+rubric_version: v1.0
+bet_version: chorus
 supersedes: none
 inherits_from:
   - C:\src\marathon (7-stage pipeline, innovation log, seed tracker, player lenses)
@@ -13,6 +17,10 @@ inherits_from:
   - C:\src\artisan (tiered simulation stack, matrix format, scale-as-axis)
   - C:\src\rmm (signal-artifact discipline, handoff continuity)
 ---
+
+> **This v1.0 spec has been superseded** by `docs/specs/2026-04-19-tigris-v2.0-design.md` (the Parliament restructure). See `docs/specs/reviews/2026-04-19-tigris-design/SUMMARY.md` for the panel review that triggered the restructure, and `personas/playtest-innovations.md` for the full amendment history. v1.0 is kept in the repo as history — do not use it as a current reference.
+
+
 
 # TIGRIS — A Board Game Factory
 

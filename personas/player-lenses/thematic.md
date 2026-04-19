@@ -3,16 +3,15 @@ name: The Thematic Immersionist
 slug: thematic
 role: player-lens
 archetype: story-first player
-rubric_weights:
-  elegance: 0.6
-  decision_density: 0.8
-  interaction: 1.0
-  thematic_integration: 2.2
-  variance_calibration: 1.0
-  downtime_pacing: 0.8
-  teachability: 0.8
-  emergence_replayability: 0.8
-rubric_version: v1.0
+preferred_axes:
+  - architectural-novelty          # B5 — thematic-lens primary (post-v2: theme lives in structure, not paint)
+  - catastrophe-pressure           # B2
+  - interaction                    # A3
+  - information-transparency-cost  # B4
+  - engine-garden-dependency       # C4
+  - variance-calibration           # A4
+rubric_version: v2.0
+bet_version: parliament
 author: TIGRIS
 created: 2026-04-19
 updated: 2026-04-19

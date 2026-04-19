@@ -4,16 +4,15 @@ slug: rosenberg
 role: designer-persona
 tradition: euro
 signature_works: [Agricola, Le Havre, Caverna, A Feast for Odin, Glass Road, Hallertau, Fields of Arle, Bohnanza, Patchwork]
-rubric_weights:
-  elegance: 1.0
-  decision_density: 1.4
-  interaction: 1.0
-  thematic_integration: 0.8
-  variance_calibration: 0.8
-  downtime_pacing: 0.8
-  teachability: 0.8
-  emergence_replayability: 1.4
-rubric_version: v1.0
+preferred_axes:
+  - scarcity-bite                 # C3 — Rosenberg-primary
+  - engine-garden-dependency      # C4 — Rosenberg-primary
+  - late-game-lock-in-point       # D4
+  - conversion-chain-depth        # B3
+  - emergence-replayability       # A7
+  - decision-density              # A2
+rubric_version: v2.0
+bet_version: parliament
 author: TIGRIS
 created: 2026-04-19
 updated: 2026-04-19

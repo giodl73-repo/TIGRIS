@@ -4,16 +4,15 @@ slug: stegmaier
 role: designer-persona
 tradition: euro
 signature_works: [Scythe, Viticulture, Charterstone, Wingspan (publisher), Libertalia (reprint), Pendulum, Red Rising, Apiary, Tapestry, Expeditions]
-rubric_weights:
-  elegance: 1.2
-  decision_density: 0.8
-  interaction: 0.8
-  thematic_integration: 1.0
-  variance_calibration: 1.0
-  downtime_pacing: 1.0
-  teachability: 1.8
-  emergence_replayability: 0.4
-rubric_version: v1.0
+preferred_axes:
+  - count-robustness          # D3 — Stegmaier-primary
+  - first-turn-compression    # C8 — Stegmaier-primary
+  - teachability              # A6 — his hallmark
+  - action-menu-clarity       # C7
+  - elegance                  # A1
+  - downtime-pacing           # A5
+rubric_version: v2.0
+bet_version: parliament
 author: TIGRIS
 created: 2026-04-19
 updated: 2026-04-19

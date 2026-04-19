@@ -4,16 +4,15 @@ slug: chvatil
 role: designer-persona
 tradition: euro
 signature_works: [Through the Ages, Galaxy Trucker, Dungeon Petz, Codenames, Mage Knight, Tzolk'in, Space Alert, Pictomania, Dungeon Lords]
-rubric_weights:
-  elegance: 1.0
-  decision_density: 1.2
-  interaction: 1.0
-  thematic_integration: 1.2
-  variance_calibration: 1.0
-  downtime_pacing: 1.0
-  teachability: 0.6
-  emergence_replayability: 1.0
-rubric_version: v1.0
+preferred_axes:
+  - architectural-novelty    # B5 — Chvátil-primary
+  - interaction              # A3
+  - catastrophe-pressure     # B2
+  - system-gearing           # B1
+  - emergence-replayability  # A7
+  - variance-calibration     # A4
+rubric_version: v2.0
+bet_version: parliament
 author: TIGRIS
 created: 2026-04-19
 updated: 2026-04-19
