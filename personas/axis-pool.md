@@ -187,23 +187,27 @@ Columns: **Earned / Refuted / Contested / Ignored** counts are cumulative across
 | B1 System Gearing | 0 | 0 | 0 | 0 | live | weak-defended in Parliament (1 defend, not 2) |
 | B2 Catastrophe Pressure | 0 | 0 | 0 | 1 | live | ignored in Parliament |
 | B3 Conversion Chain Depth | 0 | 0 | 0 | 0 | live | undrafted in Parliament (Knizia passed) |
-| B4 Information Transparency Cost | 1 | 0 | 0 | 0 | queued-for-adoption | earned by Lacerda in Parliament; one more earning → adopted |
-| B5 Architectural Novelty | 1 | 0 | 0 | 0 | queued-for-adoption | earned by Chvátil in Parliament; validates the v2.0 bet |
-| C1 Tension Budget | 0 | 0 | 0 | 1 | live | ignored in Parliament |
-| C2 Minimum-Score Shape | 1 | 0 | 0 | 0 | queued-for-adoption | anchor axis in Parliament — Knizia earned 3 defends; one more game confirms |
-| C3 Scarcity Bite | 0 | 0 | 0 | 1 | live | ignored in Parliament |
-| C4 Engine-Garden Dependency | 0 | 1 | 0 | 0 | queued-for-retirement | Rosenberg's stake refuted in Parliament |
-| C5 Anti-Catch-up Pressure | 0 | 1 | 0 | 0 | queued-for-retirement | Feld self-refuted in Parliament |
-| C6 Point-Salad Incommensurability | 0 | 0 | 0 | 1 | live | ignored in Parliament |
-| C7 Action-Menu Clarity | 0 | 0 | 0 | 0 | live | weak-defended in Parliament (1 collision win, needs 2 marks total) |
-| C8 First-Turn Compression | 0 | 0 | 0 | 1 | live | ignored in Parliament |
-| D1 Family-to-Expert Scaling | 0 | 0 | 0 | 1 | live | ignored in Parliament |
-| D2 Spatial-Interaction Presence | 0 | 0 | 0 | 1 | live | ignored in Parliament |
-| D3 Count-Robustness | 0 | 0 | 0 | 0 | live | weak-defended in Parliament (first engaged at 3p session) |
-| D4 Late-Game Lock-in Point | 0 | 0 | 0 | 1 | live | ignored in Parliament |
+| B1 System Gearing | 1 | 0 | 0 | 0 | queued-for-adoption | earned in T&E (2d + 1cw). One more earning → adopted. |
+| B2 Catastrophe Pressure | 1 | 0 | 0 | 1 | queued-for-adoption | ignored in Parliament, earned in T&E (3 marks). |
+| B3 Conversion Chain Depth | 0 | 0 | 0 | 0 | live | undrafted in both games (Knizia has it in prefs #4 but goes elegance in round 3). |
+| B4 Information Transparency Cost | 2 | 0 | 0 | 0 | **adopted** | Earned Parliament + earned T&E (LAST-CALL). First adoption event. |
+| B5 Architectural Novelty | 1 | 0.5 | 0 | 0 | live (contested) | Earned Parliament + retire-explicit T&E. Contested cross-game. |
+| C1 Tension Budget | 1 | 0 | 0 | 1 | live | Ignored in Parliament; weak-defended in T&E. |
+| C2 Minimum-Score Shape | 2 | 0 | 0 | 0 | **adopted** | Earned Parliament (3d) + earned T&E (LAST-CALL). **Knizia's anchor axis across both games. First adoption.** |
+| C3 Scarcity Bite | 0 | 1 | 0 | 1 | queued-for-retirement | Ignored in Parliament; refuted in T&E (LAST-CALL failed). |
+| C4 Engine-Garden Dependency | 0 | 1 | 1 | 0 | queued-for-retirement | Refuted Parliament + contested T&E (1d + 1 collision loss). |
+| C5 Anti-Catch-up Pressure | 0 | 1 | 0 | 0 | queued-for-retirement | Refuted Parliament (self) + weak-defended T&E. |
+| C6 Point-Salad Incommensurability | 0 | 0.5 | 0 | 1 | live | Ignored Parliament + retire-explicit T&E (0.5 refute). |
+| C7 Action-Menu Clarity | 0 | 0 | 0 | 0 | live | Weak-defended Parliament (1 collision) + hold-explicit T&E. |
+| C8 First-Turn Compression | 0 | 0.5 | 0 | 1 | live | Ignored Parliament + retire-explicit T&E. |
+| D1 Family-to-Expert Scaling | 0 | 0 | 0 | 1 | live | Ignored Parliament + hold-explicit T&E. |
+| D2 Spatial-Interaction Presence | 1 | 0 | 0 | 1 | queued-for-adoption | Ignored Parliament + earned T&E (2d + 1cw). |
+| D3 Count-Robustness | 0 | 0 | 0 | 0 | live | Weak-defended both games; not yet cumulated. |
+| D4 Late-Game Lock-in Point | 0 | 0 | 0 | 1 | live | Ignored Parliament + weak-defended T&E. |
 
 ## Changelog
 
+- **v2.2.0** — 2026-04-19 — **First ADOPTION events.** T&E (game #2) completed. C2 Minimum-Score Shape and B4 Information-Transparency-Cost both earned across Parliament + T&E → adopted to permanent pool. 3 axes queued-for-adoption (B1, B2, D2); 3 queued-for-retirement (C3, C4, C5) but none triggered retirement yet. 0% silent-retire rate validates v2.1 FORCED-ENGAGEMENT. Four innovations logged (I-te-01 through I-te-03, plus I-parliament-03 cluster update).
 - **v2.1.0** — 2026-04-19 — I-parliament-01 adopted into rubric (FORCED-ENGAGEMENT micro-phase). See `personas/playtest-rubric.md` v2.1 changelog. Ledger unchanged; this is a protocol amendment, not a pool amendment. Rubric_version bumps v2.0.1 → v2.1 for all future games.
 - **v2.0.1** — 2026-04-19 — Parliament game #1 complete. Ledger populated: 3 axes queued-for-adoption (C2, B5, B4), 2 queued-for-retirement (C4, C5), 3 contested, 10 ignored. No adoptions or retirements triggered (requires ≥ 2 games). Three amendment candidates logged in `personas/playtest-innovations.md`.
 - **v2.0.0** — 2026-04-19 — Pool introduced. 24 axes. `Thematic Integration` from v1.0 retired pre-launch (panel consensus). Forward-only versioning reset: v2.0 is a bet change, not a rubric change; all v1.0 scores remain locked against v1.0 and are NOT re-scored against v2.0. The Pool is a new rubric, not an amended one.

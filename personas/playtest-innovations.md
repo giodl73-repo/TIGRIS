@@ -184,7 +184,49 @@ Parliament (game #1) completed 2026-04-19. Four new innovations logged.
 
 ## Adopted amendments (v2.x era)
 
-- **I-parliament-01 → v2.1** — FORCED-ENGAGEMENT micro-phase. Adopted 2026-04-19 before game #2. Rate-limit consumed for this 2-game cycle.
+- **I-parliament-01 → v2.1** — FORCED-ENGAGEMENT micro-phase. Adopted 2026-04-19 before game #2. Rate-limit consumed. Validated by T&E (0% silent-retire vs Parliament's 48% ignore rate).
+
+## Adopted axes (v2.x era)
+
+- **C2 Minimum-Score Shape → v2.2** — Knizia's anchor. Earned in Parliament (3 defends) + earned in T&E (LAST-CALL). First adoption event (2026-04-19).
+- **B4 Information-Transparency-Cost → v2.2** — Lacerda-primary. Earned in Parliament (1d+1cw) + earned in T&E (LAST-CALL). Second adoption event (2026-04-19).
+
+## Game #2 (T&E) innovations
+
+### I-te-01 — New adjacency: Catastrophe Pressure ↔ Anti-Catch-up Pressure
+
+- **Dimension:** adjacency chart
+- **Trigger pattern:** `new_adjacency_surfaced`
+- **Source:** T&E Turn 5
+- **Supporting voices:** Chvátil, Feld (both stakes fired simultaneously)
+- **Status:** candidate (low-risk, adoptable as v2.2.1 patch outside rate-limit)
+
+### I-te-02 — Identical drafts across games
+
+- **Dimension:** draft protocol
+- **Trigger pattern:** `identical_drafts_across_games`
+- **Source:** Parliament + T&E draft comparison — bit-identical 21-axis picks
+- **Supporting voices:** observational
+- **Status:** candidate (awaiting 3rd game to see if pattern breaks naturally)
+
+### I-te-03 — FORCED-ENGAGEMENT fix validated
+
+- **Dimension:** protocol validation
+- **Trigger pattern:** `protocol_amendment_validated`
+- **Source:** T&E vs Parliament comparison (0% vs 48%)
+- **Status:** adopted (log entry)
+
+## I-parliament-03 cluster update
+
+- **Status:** candidate → **proposed-amendment** (2026-04-19)
+- **Note:** Second instance logged in T&E (Knizia's C2 again without B3 collision partner). Now clusters. Scheduled for adoption after game #3 completes rate-limit cycle.
+
+## Amendment-adopted summary
+
+| Cycle | Adopted | Triggered by |
+|---|---|---|
+| 1 (Parliament → T&E) | I-parliament-01 | 48% ignore rate flagged in Parliament |
+| 2 (T&E → game #3) | TBD — likely I-parliament-03 | 2 instances of anchor-adjacency pattern |
 
 ## Bet version history
 
