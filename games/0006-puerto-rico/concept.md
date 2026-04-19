@@ -15,6 +15,8 @@ review_type: imported-review
 game_designer: Andreas Seyfarth
 game_first_published: 2002 (Alea / Rio Grande)
 canonical_edition: Rio Grande 2002
+bgg_id: 3076
+bgg_url: https://boardgamegeek.com/boardgame/3076
 ---
 
 # Puerto Rico — Concept (imported for review)

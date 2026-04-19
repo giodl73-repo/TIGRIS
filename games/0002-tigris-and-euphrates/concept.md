@@ -15,6 +15,8 @@ review_type: imported-review
 game_designer: Reiner Knizia
 game_first_published: 1997 (Hans im Glück)
 canonical_edition: Fantasy Flight Games 2015 reprint (used as rules source for this review)
+bgg_id: 42
+bgg_url: https://boardgamegeek.com/boardgame/42
 ---
 
 # T&E — Concept (imported for review)

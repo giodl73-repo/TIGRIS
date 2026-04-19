@@ -15,6 +15,8 @@ review_type: imported-review
 game_designer: Jamey Stegmaier
 game_first_published: 2016 (Stonemaier Games)
 canonical_edition: Stonemaier 2016 base game
+bgg_id: 169786
+bgg_url: https://boardgamegeek.com/boardgame/169786
 ---
 
 # Scythe — Concept (imported for review)
