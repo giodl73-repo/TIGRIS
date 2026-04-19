@@ -6,6 +6,7 @@ Per-artifact pipeline state. Most recent rows on top.
 
 | Version | Date | Bet | Summary | Proposed by |
 |---|---|---|---|---|
+| v2.1 | 2026-04-19 | parliament | FORCED-ENGAGEMENT micro-phase adopted (I-parliament-01). New states: hold-explicit, retire-explicit, silent-retire. Ignored no longer terminal. | Parliament anchor (48% ignore rate in game #1) |
 | v2.0 | 2026-04-19 | parliament | Adversarial-stakes architecture. 24-axis Pool; personas draft 3 each; stakes earned/refuted/contested/ignored/collided. | v1.0 panel review (5-voice chorus cluster) |
 | v1.0 | 2026-04-19 | chorus (superseded) | 8 flat axes, per-persona weight vectors, weighted-aggregate scoring. | original spec |
 

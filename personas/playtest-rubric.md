@@ -1,13 +1,13 @@
 ---
 name: TIGRIS Playtest Rubric
 slug: playtest-rubric
-version: 2.0.0
-rubric_version: v2.0
+version: 2.1.0
+rubric_version: v2.1
 bet_version: parliament
 author: TIGRIS
 created: 2026-04-19
 updated: 2026-04-19
-supersedes: v1.0 (8 flat axes, weighted aggregate per persona)
+supersedes: v2.0 (added FORCED-ENGAGEMENT micro-phase; ignored→silent-retire penalty strengthened)
 ---
 
 # TIGRIS Playtest Rubric — v2.0 (Parliament shape)
@@ -67,6 +67,39 @@ At pre-declared moments during narrated play (turn 1, turn 5, mid-game, late-gam
 
 Attacks and defenses are written into `playtests/PT<NN>-argument.md` with specific turn-numbers and rule-citations. Vagueness is banned per `personas/forbidden-words.md`.
 
+### FORCED-ENGAGEMENT micro-phase (v2.1)
+
+**Inserted between the penultimate and final moment-anchor of every Argument phase.** Addresses the ignored-stake problem surfaced by Parliament game #1 (I-parliament-01: 48% ignore rate). No stake may reach end-of-game with zero engagement; each persona must resolve still-silent stakes before the final anchor.
+
+For each drafted stake that has 0 marks (0 defends + 0 refutes + 0 collisions) at the end of the penultimate anchor, the owning persona must declare one of:
+
+- **HOLD-EXPLICIT** — stake still applies despite no in-game evidence. Persona cites what they expected to see and why it didn't materialize. Costs 1 stake token (prestige reservation). At endgame, hold-explicit stakes count for 0 points but do **not** trigger silence penalty.
+- **RETIRE-EXPLICIT** — stake was wrong or poorly-timed for this subject/game. Persona names the miscalibration. Refunds 1 stake token. Axis accumulates 0.5 refute-marks (half weight toward the retirement threshold).
+- **LAST-CALL-STAKE** — persona re-stakes on the final round at **double token weight** (minimum 2 tokens). The axis gets one more round to earn. If it fails to earn at final-round, the double tokens are lost and 1 refute-mark is added.
+
+Any stake still at 0-marks after FORCED-ENGAGEMENT (i.e., the persona declined to make any declaration) becomes **silent-retire** at endgame:
+
+- **Silent-retire penalty:** −3 points per silent-retire axis (replacing v2.0's 0 penalty for ignored).
+- **3+ silent-retires in a single game** → persona is flagged as a retirement candidate. At 3+ flags across games, the persona retires from future drafts (superseded by a new persona per §5.3 of spec).
+
+**Expected effect:** ignore rate drops from ~48% (Parliament game #1) to below 20% in future games. Personas who cannot engage their own drafts have less place on the panel.
+
+### Stake state updates (v2.1)
+
+The four v2.0 states are joined by two new v2.1 states:
+
+| State | Definition | Amendment contribution |
+|---|---|---|
+| earned | Defended ≥ 2; no unrefuted refute | +1 toward adoption (≥ 2 earned across ≥ 2 games) |
+| contested | Both defends and refutes across moments | neutral |
+| refuted | Refuted ≥ 2; no successful defense | +1 toward retirement |
+| **hold-explicit** (v2.1) | FORCED-ENGAGEMENT hold; no play evidence | neutral; persona paid prestige token |
+| **retire-explicit** (v2.1) | FORCED-ENGAGEMENT retire; persona concedes | +0.5 toward retirement |
+| **silent-retire** (v2.1) | Ignored through FORCED-ENGAGEMENT | +1 toward retirement; −3 points; persona-retirement flag |
+| ignored | 0 marks (pre-FORCED-ENGAGEMENT only — v2.1 eliminates this state for post-engagement stakes) | counts toward silent-retire if not addressed |
+
+`ignored` as a final state is no longer possible in v2.1 — every stake has a classification by end-of-game.
+
 ## Amendment protocol (deterministic)
 
 At TIER-C, for each stake in the game's record:
@@ -111,5 +144,6 @@ Preserved from v1.0 unchanged.
 
 ## Changelog
 
+- **v2.1.0** — 2026-04-19 — Adopted I-parliament-01 (FORCED-ENGAGEMENT micro-phase). New stake states: hold-explicit, retire-explicit, silent-retire. `ignored` no longer a terminal state. Source: Parliament game #1 surfaced 48% ignore rate. Rate-limited adoption per innovation log protocol (1 per 2-game cycle).
 - **v2.0.0** — 2026-04-19 — Replaces v1.0 rubric with Parliament-shape (stakes, argument, amendment). 24-axis Pool in `axis-pool.md`. v1.0 scores remain at v1.0; no retro-scoring.
 - **v1.0** — superseded. See `docs/specs/2026-04-19-tigris-design.md` and `docs/specs/reviews/2026-04-19-tigris-design/` for the v1.0 panel that produced this restructure.
