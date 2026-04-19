@@ -186,6 +186,7 @@ Parliament (game #1) completed 2026-04-19. Four new innovations logged.
 
 - **I-parliament-01 → v2.1** — FORCED-ENGAGEMENT micro-phase. Adopted 2026-04-19 before game #2. Rate-limit consumed cycle 1. Validated across T&E+FACETS+Dominion (0% silent-retire 3 games running vs Parliament's 48%).
 - **I-parliament-03 → v2.3** — Anchor-axis adjacency-partner GATE check. Adopted 2026-04-19 after Dominion. Rate-limit consumed cycle 2. Cluster evidence: 3 instances (P, T&E, FACETS) + 1 positive counter-example (Dominion).
+- **I-te-01 + I-facets-01 + I-facets-02 → v2.3.1** — Adjacency chart updates. Consolidated into `personas/adjacency-chart.md` as canonical source. Low-risk patch; outside rate limit. Adopted 2026-04-19.
 
 ## Adopted axes (v2.x era)
 
@@ -314,13 +315,12 @@ Total adopted axes: **7 of 24 Pool** (29%). After 4 games.
 - **Status:** candidate (observational)
 - **Note:** Dominion produced 5 adoptions in one session. Pattern: games that hit many rubric dimensions produce adoption bursts. Game-selection matters — reviewing diverse games is more ledger-productive than reviewing similar ones.
 
-### I-dominion-04 — Vaccarino persona candidate
+### I-dominion-04 — Vaccarino persona
 
 - **Dimension:** persona roster
 - **Trigger pattern:** `persona_gap_identified`
 - **Source:** Dominion review — Chvátil proxied but lens-mismatch identifiable
-- **Status:** candidate
-- **Note:** Vaccarino's design emphasis (card design, combo engineering) differs from Chvátil's (structural novelty). A Vaccarino persona with preferred axes B5, C4, C7, A1 could cover deck-building-style games more authentically. Combined with I-facets-03, adding an 8th persona addresses both undrafted axes (A4/A5/B3) and lens gaps.
+- **Status:** **ADOPTED in v2.4** — Vaccarino persona added at `personas/designers/vaccarino.md`. Signatures: Dominion, 13 expansions, Kingdom Builder, card-level elegance, randomized setup, shuffle-variance-as-resource. Preferred_axes cover A4, A5, B3, B5, C4, C7, A1, A2 — authentic deck-building lens.
 
 ## Amendment-adopted summary
 
@@ -328,7 +328,7 @@ Total adopted axes: **7 of 24 Pool** (29%). After 4 games.
 |---|---|---|
 | 1 (P → T&E) | I-parliament-01 (v2.1 FORCED-ENGAGEMENT) | 48% ignore rate in P |
 | 2 (FACETS → Dominion) | I-parliament-03 (v2.3 anchor-adjacency GATE) | 3 cluster instances + positive counter-example |
-| 3 (game #5 → #6) | TBD — likely I-facets-03 (Vaccarino persona OR retire undrafted axes) | 4 instances of never-drafted A4/A5/B3 |
+| 3 (pre-Scythe) | **I-facets-03 + I-dominion-04 (v2.4 Vaccarino persona)** | 4 instances never-drafted + Dominion lens-gap |
 
 ## Bet version history
 
