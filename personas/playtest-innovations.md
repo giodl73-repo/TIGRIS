@@ -184,12 +184,20 @@ Parliament (game #1) completed 2026-04-19. Four new innovations logged.
 
 ## Adopted amendments (v2.x era)
 
-- **I-parliament-01 → v2.1** — FORCED-ENGAGEMENT micro-phase. Adopted 2026-04-19 before game #2. Rate-limit consumed. Validated by T&E (0% silent-retire vs Parliament's 48% ignore rate).
+- **I-parliament-01 → v2.1** — FORCED-ENGAGEMENT micro-phase. Adopted 2026-04-19 before game #2. Rate-limit consumed cycle 1. Validated across T&E+FACETS+Dominion (0% silent-retire 3 games running vs Parliament's 48%).
+- **I-parliament-03 → v2.3** — Anchor-axis adjacency-partner GATE check. Adopted 2026-04-19 after Dominion. Rate-limit consumed cycle 2. Cluster evidence: 3 instances (P, T&E, FACETS) + 1 positive counter-example (Dominion).
 
 ## Adopted axes (v2.x era)
 
 - **C2 Minimum-Score Shape → v2.2** — Knizia's anchor. Earned in Parliament (3 defends) + earned in T&E (LAST-CALL). First adoption event (2026-04-19).
 - **B4 Information-Transparency-Cost → v2.2** — Lacerda-primary. Earned in Parliament (1d+1cw) + earned in T&E (LAST-CALL). Second adoption event (2026-04-19).
+- **B5 Architectural Novelty → v2.3** — Chvátil-primary. Earned Parliament + Dominion (anchor). Third adoption (2026-04-19 Dominion).
+- **A6 Teachability → v2.3** — Stegmaier-primary. Earned FACETS + Dominion (LAST-CALL). Fourth adoption.
+- **A2 Decision Density → v2.3** — Feld-primary. Earned FACETS + Dominion (LAST-CALL). Fifth adoption.
+- **B1 System Gearing → v2.3** — Lacerda-primary. Earned T&E + Dominion (LAST-CALL). Sixth adoption.
+- **D4 Late-Game Lock-in Point → v2.3** — shared (Rosenberg/Lacerda). Earned FACETS + Dominion. Seventh adoption.
+
+Total adopted axes: **7 of 24 Pool** (29%). After 4 games.
 
 ## Game #2 (T&E) innovations
 
@@ -267,13 +275,60 @@ Parliament (game #1) completed 2026-04-19. Four new innovations logged.
 
 ### I-te-02 — Identical drafts across games
 
-- **Status update:** candidate (2 instances) → **proposed-amendment** (3 instances after FACETS)
-- **Note:** Awaiting user decision on direction (accept / force perturbation / context-sensitive preferences / new persona).
+- **Status update:** proposed-amendment (3 instances) → **closed observational** (Dominion broke the pattern — Lacerda fell through preferences to A7). Pattern is not universal; no amendment needed.
 
 ### I-parliament-03 — Anchor-axis without collision partner
 
-- **Status update:** proposed-amendment (2 instances) → **ready-for-adoption** (3 instances after FACETS)
-- **Note:** Parliament (Knizia C2), T&E (Knizia C2), FACETS (Feld C6 partner was same-player). Three consecutive anchor-without-partner situations. Next rate-limit cycle should adopt the GATE-check amendment that requires anchor-axis to have ≥ 1 cross-player collision partner drafted.
+- **Status:** **ADOPTED in v2.3** (2026-04-19, Dominion session).
+- **GATE amendment:** "Anchor adjacency partner present — the anchor axis has at least one semantically-adjacent axis drafted by a DIFFERENT persona."
+- **Applied:** forward-only. Dominion retrospectively PASSES; P, T&E, FACETS would have required re-draft but are locked at their versions.
+
+### I-facets-03 — Systematically undrafted axes (A4, A5, B3)
+
+- **Status update:** candidate (3 instances) → **proposed-amendment** (4 instances after Dominion).
+- **Scheduled for cycle 3 adoption.** Likely fix: add a "Vaccarino" or "Referee" persona whose preferences include A4/A5/B3; OR retire these axes from Pool. See I-dominion-04 for the Vaccarino candidate.
+
+## Dominion (game #4) innovations
+
+### I-dominion-01 — First cross-player anchor collision
+
+- **Dimension:** bet validation
+- **Trigger pattern:** `anchor_collision_occurred`
+- **Source:** Dominion Turn 10 (B5↔A7 collision, Chvátil vs Lacerda)
+- **Status:** adopted (log entry)
+- **Note:** First time across 4 games that anchor axis and its adjacency partner were drafted by different personas, enabling cross-player anchor collision. Outcome: 3-2 for A7. Validates I-parliament-03's adoption — cross-player partners produce informative collisions.
+
+### I-dominion-02 — Retirement reversal handled cleanly
+
+- **Dimension:** protocol validation
+- **Trigger pattern:** `retirement_reversal_via_earning`
+- **Source:** C4 Engine-Garden trajectory (P refuted → T&E contested → FACETS retire-explicit → Dominion earned)
+- **Status:** adopted (log entry)
+- **Note:** Ledger protocol handled rehabilitation correctly. No special logic needed; normal thresholds + new earning moved C4 from queued-for-retirement back to live.
+
+### I-dominion-03 — Cluster-adoption pattern
+
+- **Dimension:** ledger dynamics
+- **Trigger pattern:** `multi_axis_adoption_event`
+- **Source:** Dominion (5 adoptions)
+- **Status:** candidate (observational)
+- **Note:** Dominion produced 5 adoptions in one session. Pattern: games that hit many rubric dimensions produce adoption bursts. Game-selection matters — reviewing diverse games is more ledger-productive than reviewing similar ones.
+
+### I-dominion-04 — Vaccarino persona candidate
+
+- **Dimension:** persona roster
+- **Trigger pattern:** `persona_gap_identified`
+- **Source:** Dominion review — Chvátil proxied but lens-mismatch identifiable
+- **Status:** candidate
+- **Note:** Vaccarino's design emphasis (card design, combo engineering) differs from Chvátil's (structural novelty). A Vaccarino persona with preferred axes B5, C4, C7, A1 could cover deck-building-style games more authentically. Combined with I-facets-03, adding an 8th persona addresses both undrafted axes (A4/A5/B3) and lens gaps.
+
+## Amendment-adopted summary
+
+| Cycle | Adopted | Triggered by |
+|---|---|---|
+| 1 (P → T&E) | I-parliament-01 (v2.1 FORCED-ENGAGEMENT) | 48% ignore rate in P |
+| 2 (FACETS → Dominion) | I-parliament-03 (v2.3 anchor-adjacency GATE) | 3 cluster instances + positive counter-example |
+| 3 (game #5 → #6) | TBD — likely I-facets-03 (Vaccarino persona OR retire undrafted axes) | 4 instances of never-drafted A4/A5/B3 |
 
 ## Bet version history
 

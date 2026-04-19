@@ -1,13 +1,13 @@
 ---
 name: TIGRIS Playtest Rubric
 slug: playtest-rubric
-version: 2.1.0
-rubric_version: v2.1
+version: 2.3.0
+rubric_version: v2.3
 bet_version: parliament
 author: TIGRIS
 created: 2026-04-19
 updated: 2026-04-19
-supersedes: v2.0 (added FORCED-ENGAGEMENT micro-phase; ignored→silent-retire penalty strengthened)
+supersedes: v2.1 (added I-parliament-03 anchor-adjacency GATE check; 5 axis adoptions at v2.3 event)
 ---
 
 # TIGRIS Playtest Rubric — v2.0 (Parliament shape)
@@ -120,6 +120,7 @@ GATE runs between TIER-A (Stakes) and TIER-B (Argument). Pass requires:
 1. **Anchor stake viable.** The designer-declared anchor-persona's anchor-axis has not been pre-staked better by another persona on the same target count.
 2. **Draft coverage.** The drafted axes collectively cover ≥ 3 of the 4 Bands (A/B/C/D).
 3. **≥ 1 collision candidate.** At least two personas' drafted axes are semantically adjacent enough that argument can produce a collision. A fully orthogonal draft has nothing to argue about.
+4. **Anchor adjacency partner present (v2.3 — I-parliament-03).** The anchor axis has at least one semantically-adjacent axis drafted by a DIFFERENT persona than the anchor. Without a cross-player partner, the anchor's collision potential is zero, and its earning relies entirely on direct defenses. If the anchor persona happens to draft both the anchor axis AND its adjacency partner (same-player situation), GATE fails — unless the anchor has no other drafted adjacency option at all (explicit exemption). Applies forward-only; prior games locked at their version.
 
 Failed GATE forces re-draft (if axis scarcity caused the problem) or design revision (if the design is too narrow to admit collision).
 
@@ -144,6 +145,7 @@ Preserved from v1.0 unchanged.
 
 ## Changelog
 
+- **v2.3.0** — 2026-04-19 — Adopted I-parliament-03 (anchor-adjacency partner GATE check). Bumped to v2.3 consolidating 5 axis adoptions from Dominion session (B5, A6, A2, B1, D4) + protocol amendment. Dominion provided positive counter-example showing GATE passes naturally when personas coordinate. Rate-limit consumed for cycle 2.
 - **v2.1.0** — 2026-04-19 — Adopted I-parliament-01 (FORCED-ENGAGEMENT micro-phase). New stake states: hold-explicit, retire-explicit, silent-retire. `ignored` no longer a terminal state. Source: Parliament game #1 surfaced 48% ignore rate. Rate-limited adoption per innovation log protocol (1 per 2-game cycle).
 - **v2.0.0** — 2026-04-19 — Replaces v1.0 rubric with Parliament-shape (stakes, argument, amendment). 24-axis Pool in `axis-pool.md`. v1.0 scores remain at v1.0; no retro-scoring.
 - **v1.0** — superseded. See `docs/specs/2026-04-19-tigris-design.md` and `docs/specs/reviews/2026-04-19-tigris-design/` for the v1.0 panel that produced this restructure.
