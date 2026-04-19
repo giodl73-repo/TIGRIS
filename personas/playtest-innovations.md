@@ -149,8 +149,8 @@ Parliament (game #1) completed 2026-04-19. Four new innovations logged.
 - **Source:** games/0001-parliament/
 - **Supporting voices:** Stegmaier (success-criterion miss), Knizia (self-observed), Feld (self-observed)
 - **Scope:** universal
-- **Status:** candidate (awaiting game #2 cluster confirmation; queued for rate-limited adoption)
-- **Note:** 10 of 21 drafted stakes (48%) never engaged in argument. Panel produced rich collisions on a subset of axes while the rest sat idle. Proposal: forced-engagement micro-phase between R3 and R4, OR 2× silence penalty, OR declare-defendable stake at draft-end.
+- **Status:** **ADOPTED** (2026-04-19, rubric v2.0 → v2.1) — rate-limit budget consumed for this 2-game cycle
+- **Note:** 10 of 21 drafted stakes (48%) never engaged in argument. Panel produced rich collisions on a subset of axes while the rest sat idle. Adopted fix: FORCED-ENGAGEMENT micro-phase inserted between penultimate and final moment-anchor. Each still-ignored stake must resolve to HOLD-EXPLICIT (1-token cost), RETIRE-EXPLICIT (+0.5 refute, token refund), or LAST-CALL-STAKE (double-weight final-round stake). Stakes still at 0-marks become `silent-retire` (-3 pts, +1 toward retirement, persona-retirement flag at 3+ per game). See `personas/playtest-rubric.md` v2.1 changelog.
 
 ### I-parliament-02 — Scoring Multiplier Dependency (new axis candidate)
 
@@ -182,9 +182,9 @@ Parliament (game #1) completed 2026-04-19. Four new innovations logged.
 - **Status:** adopted (as a log entry, not a protocol change) — v2.0 bet validates itself on first run
 - **Note:** The v1.0 panel flagged "zero novel architectural bet." The v2.0 bet (Parliament) claimed architectural novelty. In v2.0's first use, Architectural Novelty as an axis earned the second-strongest reviewer-stake record (3 marks). The claim produced its own evidence.
 
-## Adopted amendments (v2.0 era)
+## Adopted amendments (v2.x era)
 
-None yet under v2.0. I-parliament-01 is the current candidate for rate-limited adoption (1 per 2-game cycle) before game #2.
+- **I-parliament-01 → v2.1** — FORCED-ENGAGEMENT micro-phase. Adopted 2026-04-19 before game #2. Rate-limit consumed for this 2-game cycle.
 
 ## Bet version history
 

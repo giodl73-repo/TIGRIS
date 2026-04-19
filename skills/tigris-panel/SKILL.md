@@ -87,8 +87,9 @@ If pass: proceed to Step 4. If fail: return to user with specific failure mode a
    - Each persona reviews their stake(s) applicable at this moment.
    - Each persona may declare: **hold**, **attack <other>**, **defend**, or **collide-with <other>**.
    - Attacks require cited evidence; defenses require cited evidence; collisions require adjacency argument.
-3. Record every action in `playtests/PT<NN>-argument.md` with moment-anchors (turn numbers or section numbers).
-4. At game end, classify each stake: earned / contested / refuted / ignored.
+3. **FORCED-ENGAGEMENT (v2.1)** — inserted between the penultimate and final moment-anchor. For each drafted stake with 0 marks at this point, the owning persona must declare one of: HOLD-EXPLICIT (cost 1 token), RETIRE-EXPLICIT (refund 1 token, +0.5 refute mark), or LAST-CALL-STAKE (double tokens on final round). Stakes still at 0-marks after this phase become `silent-retire` at endgame (−3 points, +1 toward retirement, persona-retirement flag at 3+ in a game).
+4. Record every action in `playtests/PT<NN>-argument.md` with moment-anchors (turn numbers or section numbers).
+5. At game end, classify each stake: earned / contested / refuted / hold-explicit / retire-explicit / silent-retire. The `ignored` state is no longer terminal in v2.1.
 
 ### Step 5 — TIER-C: AMENDMENT (deterministic pass)
 
