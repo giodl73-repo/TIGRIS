@@ -187,26 +187,27 @@ Columns: **Earned / Refuted / Contested / Ignored** counts are cumulative across
 | B1 System Gearing | 0 | 0 | 0 | 0 | live | weak-defended in Parliament (1 defend, not 2) |
 | B2 Catastrophe Pressure | 0 | 0 | 0 | 1 | live | ignored in Parliament |
 | B3 Conversion Chain Depth | 0 | 0 | 0 | 0 | live | undrafted in Parliament (Knizia passed) |
-| B1 System Gearing | 1 | 0 | 0 | 0 | queued-for-adoption | earned in T&E (2d + 1cw). One more earning → adopted. |
-| B2 Catastrophe Pressure | 1 | 0 | 0 | 1 | queued-for-adoption | ignored in Parliament, earned in T&E (3 marks). |
-| B3 Conversion Chain Depth | 0 | 0 | 0 | 0 | live | undrafted in both games (Knizia has it in prefs #4 but goes elegance in round 3). |
-| B4 Information Transparency Cost | 2 | 0 | 0 | 0 | **adopted** | Earned Parliament + earned T&E (LAST-CALL). First adoption event. |
-| B5 Architectural Novelty | 1 | 0.5 | 0 | 0 | live (contested) | Earned Parliament + retire-explicit T&E. Contested cross-game. |
-| C1 Tension Budget | 1 | 0 | 0 | 1 | live | Ignored in Parliament; weak-defended in T&E. |
-| C2 Minimum-Score Shape | 2 | 0 | 0 | 0 | **adopted** | Earned Parliament (3d) + earned T&E (LAST-CALL). **Knizia's anchor axis across both games. First adoption.** |
-| C3 Scarcity Bite | 0 | 1 | 0 | 1 | queued-for-retirement | Ignored in Parliament; refuted in T&E (LAST-CALL failed). |
-| C4 Engine-Garden Dependency | 0 | 1 | 1 | 0 | queued-for-retirement | Refuted Parliament + contested T&E (1d + 1 collision loss). |
-| C5 Anti-Catch-up Pressure | 0 | 1 | 0 | 0 | queued-for-retirement | Refuted Parliament (self) + weak-defended T&E. |
-| C6 Point-Salad Incommensurability | 0 | 0.5 | 0 | 1 | live | Ignored Parliament + retire-explicit T&E (0.5 refute). |
-| C7 Action-Menu Clarity | 0 | 0 | 0 | 0 | live | Weak-defended Parliament (1 collision) + hold-explicit T&E. |
-| C8 First-Turn Compression | 0 | 0.5 | 0 | 1 | live | Ignored Parliament + retire-explicit T&E. |
-| D1 Family-to-Expert Scaling | 0 | 0 | 0 | 1 | live | Ignored Parliament + hold-explicit T&E. |
-| D2 Spatial-Interaction Presence | 1 | 0 | 0 | 1 | queued-for-adoption | Ignored Parliament + earned T&E (2d + 1cw). |
-| D3 Count-Robustness | 0 | 0 | 0 | 0 | live | Weak-defended both games; not yet cumulated. |
-| D4 Late-Game Lock-in Point | 0 | 0 | 0 | 1 | live | Ignored Parliament + weak-defended T&E. |
+| B1 System Gearing | 1 | 0.5 | 0 | 0 | queued-for-adoption (stalled) | T&E earned (2d+1cw); FACETS retire-explicit (0.5r). |
+| B2 Catastrophe Pressure | 1 | 0.5 | 0 | 1 | queued-for-adoption (stalled) | Ignored P; earned T&E (3 marks); retire-explicit FACETS (0.5r). |
+| B3 Conversion Chain Depth | 0 | 0 | 0 | 0 | live (never drafted) | Undrafted 3x. I-facets-03 candidate. |
+| B4 Information Transparency Cost | 2 | 0 | 0 | 0 | **adopted** | Earned P + earned T&E (LAST-CALL). First adoption. Continues to hold in FACETS. |
+| B5 Architectural Novelty | 1 | 0.5 | 0 | 0 | live (contested) | Earned P + retire-explicit T&E + hold FACETS. |
+| C1 Tension Budget | 1 | 0 | 0 | 2 | live | Ignored P; weak T&E; hold FACETS. 0 active engagement across 3 games. |
+| C2 Minimum-Score Shape | 3 | 0 | 0 | 0 | **adopted** | Earned all 3 games. Knizia's anchor across P+T&E; diagnostic-low stake in FACETS also earned via 3 defends. |
+| C3 Scarcity Bite | 0 | 1 | 0 | 1 | queued-for-retirement | Ignored P; refuted T&E (LAST-CALL fail); weak FACETS. |
+| C4 Engine-Garden Dependency | 0 | 1.5 | 1 | 0 | queued-for-retirement | Refuted P + contested T&E + retire-explicit FACETS (0.5r). 1.5 cumulative — close to retirement threshold. |
+| C5 Anti-Catch-up Pressure | 0 | 1 | 2 | 0 | queued-for-retirement | Self-refuted P; contested T&E; collision-loss FACETS. |
+| C6 Point-Salad Incommensurability | 1 | 0.5 | 0 | 1 | queued-for-adoption | Ignored P + retire-explicit T&E + **earned FACETS (Feld anchor vindicated, 3 marks)**. |
+| C7 Action-Menu Clarity | 0 | 0 | 0 | 0 | live | Weak/weak/weak across 3 games. |
+| C8 First-Turn Compression | 0 | 0.5 | 0 | 1 | live | Ignored P + retire-explicit T&E + hold FACETS. |
+| D1 Family-to-Expert Scaling | 0 | 0 | 0 | 2 | live | Ignored/hold/hold across 3. |
+| D2 Spatial-Interaction Presence | 1 | 0.5 | 0 | 1 | queued-for-adoption (stalled) | Ignored P + earned T&E + retire-explicit FACETS (0.5r). |
+| D3 Count-Robustness | 0 | 0 | 0 | 0 | live | Weak/weak/weak (first active defend in FACETS 3p session). |
+| D4 Late-Game Lock-in Point | 1 | 0 | 0 | 1 | queued-for-adoption | Ignored P + weak T&E + **earned FACETS (Rosenberg, 2 marks)**. |
 
 ## Changelog
 
+- **v2.2.1** — 2026-04-19 — FACETS (game #3) ledger update. No adoption or retirement triggered; 4 new axes queued-for-adoption (A6, A2, D4, C6 each with 1 earning). 3 queued-for-adoption stalled (B1, B2, D2 earned T&E, retire-explicit FACETS). 1 queued-for-retirement tightened (C4 now at 1.5 cumulative refute weight). Second consecutive 0% silent-retire session. 6 new innovations logged (I-facets-01 through I-facets-04, plus I-te-02 and I-parliament-03 cluster updates).
 - **v2.2.0** — 2026-04-19 — **First ADOPTION events.** T&E (game #2) completed. C2 Minimum-Score Shape and B4 Information-Transparency-Cost both earned across Parliament + T&E → adopted to permanent pool. 3 axes queued-for-adoption (B1, B2, D2); 3 queued-for-retirement (C3, C4, C5) but none triggered retirement yet. 0% silent-retire rate validates v2.1 FORCED-ENGAGEMENT. Four innovations logged (I-te-01 through I-te-03, plus I-parliament-03 cluster update).
 - **v2.1.0** — 2026-04-19 — I-parliament-01 adopted into rubric (FORCED-ENGAGEMENT micro-phase). See `personas/playtest-rubric.md` v2.1 changelog. Ledger unchanged; this is a protocol amendment, not a pool amendment. Rubric_version bumps v2.0.1 → v2.1 for all future games.
 - **v2.0.1** — 2026-04-19 — Parliament game #1 complete. Ledger populated: 3 axes queued-for-adoption (C2, B5, B4), 2 queued-for-retirement (C4, C5), 3 contested, 10 ignored. No adoptions or retirements triggered (requires ≥ 2 games). Three amendment candidates logged in `personas/playtest-innovations.md`.
