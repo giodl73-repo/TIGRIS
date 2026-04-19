@@ -225,8 +225,55 @@ Parliament (game #1) completed 2026-04-19. Four new innovations logged.
 
 | Cycle | Adopted | Triggered by |
 |---|---|---|
-| 1 (Parliament → T&E) | I-parliament-01 | 48% ignore rate flagged in Parliament |
-| 2 (T&E → game #3) | TBD — likely I-parliament-03 | 2 instances of anchor-adjacency pattern |
+| 1 (Parliament → T&E) | I-parliament-01 (v2.1 FORCED-ENGAGEMENT) | 48% ignore rate flagged in Parliament |
+| 2 (FACETS → game #4) | TBD — likely I-parliament-03 | 3 instances of anchor-adjacency pattern (now ready-for-adoption) |
+
+## Game #3 (FACETS) innovations
+
+### I-facets-01 — New adjacency: C6 Point-Salad ↔ A6 Teachability
+
+- **Dimension:** adjacency chart
+- **Trigger pattern:** `new_adjacency_surfaced`
+- **Source:** FACETS Turn 8 collision
+- **Supporting voices:** Feld, Stegmaier
+- **Scope:** universal
+- **Status:** candidate (low-risk; adoptable as adjacency-chart-patch outside rate-limit)
+
+### I-facets-02 — New adjacency: A2 Decision Density ↔ A6 Teachability
+
+- **Dimension:** adjacency chart
+- **Trigger pattern:** `new_adjacency_surfaced`
+- **Source:** FACETS Turn 4 collision
+- **Supporting voices:** Feld, Stegmaier
+- **Status:** candidate
+
+### I-facets-03 — Systematically undrafted axes (A4, A5, B3)
+
+- **Dimension:** pool curation
+- **Trigger pattern:** `axes_never_drafted`
+- **Source:** 3-game draft history
+- **Supporting voices:** observational
+- **Status:** candidate — proposed options: retire axes, reassign advocacy, or add a new "Referee/Tournament Player" persona with A4/A5/B3 preferences.
+
+### I-facets-04 — Self-refutation validates factory self-correction
+
+- **Dimension:** bet validation
+- **Trigger pattern:** `self_refutation_by_evidence`
+- **Source:** Chvátil A3 Interaction self-refutation at FACETS Turn 8
+- **Supporting voices:** Chvátil; context I-parliament-04 + I-te-03
+- **Status:** adopted (log entry) — second self-refutation across 3 games; bet validation strengthens.
+
+## Cluster status updates (2026-04-19)
+
+### I-te-02 — Identical drafts across games
+
+- **Status update:** candidate (2 instances) → **proposed-amendment** (3 instances after FACETS)
+- **Note:** Awaiting user decision on direction (accept / force perturbation / context-sensitive preferences / new persona).
+
+### I-parliament-03 — Anchor-axis without collision partner
+
+- **Status update:** proposed-amendment (2 instances) → **ready-for-adoption** (3 instances after FACETS)
+- **Note:** Parliament (Knizia C2), T&E (Knizia C2), FACETS (Feld C6 partner was same-player). Three consecutive anchor-without-partner situations. Next rate-limit cycle should adopt the GATE-check amendment that requires anchor-axis to have ≥ 1 cross-player collision partner drafted.
 
 ## Bet version history
 

@@ -6,6 +6,7 @@ Per-artifact pipeline state. Most recent rows on top.
 
 | Version | Date | Bet | Summary | Proposed by |
 |---|---|---|---|---|
+| v2.2.1 | 2026-04-19 | parliament | FACETS ledger update. 4 new queued-for-adoption axes (A6, A2, D4, C6); C4 tightened to 1.5 refute weight. 6 new innovations. | FACETS anchor review |
 | v2.2 | 2026-04-19 | parliament | **First axis adoptions**: C2 Minimum-Score Shape, B4 Information-Transparency-Cost. Both earned in Parliament + T&E. | T&E anchor review |
 | v2.1 | 2026-04-19 | parliament | FORCED-ENGAGEMENT micro-phase adopted (I-parliament-01). New states: hold-explicit, retire-explicit, silent-retire. Ignored no longer terminal. | Parliament anchor (48% ignore rate in game #1) |
 | v2.0 | 2026-04-19 | parliament | Adversarial-stakes architecture. 24-axis Pool; personas draft 3 each; stakes earned/refuted/contested/ignored/collided. | v1.0 panel review (5-voice chorus cluster) |
@@ -17,7 +18,8 @@ Per-artifact pipeline state. Most recent rows on top.
 |---|---|---|---|---|---|---|
 | 0001-parliament | **parliament-complete** | HANDOFF | v2.0.1 | 2026-04-19 | 3 / 2 / 4 | Anchor game #1 done. Success criteria: 3/4 pass, 1 fails (≥5-earned → ignore rate 48%). 3 axes queued-for-adoption, 2 queued-for-retirement. Bet validated: Architectural Novelty earned 3 marks. |
 | 0002-tigris-and-euphrates | **parliament-complete** | HANDOFF | v2.2 | 2026-04-19 | 5 / 1 / 2 | Anchor game #2 done. All 4 success criteria pass. 0% silent-retire (v2.1 fix validated). **Two adoptions**: C2 Min-Score, B4 Transparency-Cost. 3 queued-for-adoption, 3 queued-for-retirement. |
-| 0003-agricola | *queued* | — | — | — | — | Anchor #3. Rosenberg-on-Rosenberg; should trigger B1/B2/D2 adoptions and surface first retirements. |
+| 0003-facets | **parliament-complete** | HANDOFF | v2.2.1 | 2026-04-19 | 5 / 1 / 3 | Game #3 (original). Feld-anchor jewel game with 6 incommensurable scoring functions. Criteria 1-3 pass; 4 fails transiently (0 adoptions this game). 0% silent-retire. 4 new axes queued-for-adoption (A6, A2, D4, C6). Skills /tigris-concept, /tigris-design, /tigris-amendment first-used. |
+| 0004-agricola | *queued* | — | — | — | — | Anchor #4. Rosenberg-on-Rosenberg. Expected: reverse queued-for-retirement C3/C4 via strong scarcity/engine-garden earnings; complete cycle-2 (I-parliament-03 adoption). |
 
 ## Meta-reviews (reviews of TIGRIS itself, not a game)
 
@@ -29,17 +31,23 @@ Per-artifact pipeline state. Most recent rows on top.
 ## Active amendments (v2.x era)
 
 Parliament (game #1) innovations:
-- **I-parliament-01** — Ignored-stake protocol. **ADOPTED v2.1** (2026-04-19). Validated by T&E (0% silent-retire).
+- **I-parliament-01** — Ignored-stake protocol. **ADOPTED v2.1** (2026-04-19). Validated by T&E + FACETS (0% silent-retire across 2 games).
 - **I-parliament-02** — Scoring Multiplier Dependency (new axis). Candidate (1 instance). Awaiting Scythe/Wingspan.
-- **I-parliament-03** — Anchor-adjacency GATE check. **PROPOSED-AMENDMENT** (2 instances now clustered). Scheduled for next rate-limit cycle.
+- **I-parliament-03** — Anchor-adjacency GATE check. **READY-FOR-ADOPTION** (3 instances clustered after FACETS). Next rate-limit cycle.
 - **I-parliament-04** — Architectural Novelty bet validation. Adopted log entry.
 
 T&E (game #2) innovations:
-- **I-te-01** — B2↔C5 adjacency chart update. Candidate; low-risk, could adopt as v2.2.1 patch.
-- **I-te-02** — Identical drafts across games. Observational candidate.
-- **I-te-03** — FORCED-ENGAGEMENT fix validation. Adopted log entry.
+- **I-te-01** — B2↔C5 adjacency chart update. Candidate.
+- **I-te-02** — Identical drafts across games. **PROPOSED-AMENDMENT** (3 instances). User decision needed.
+- **I-te-03** — FORCED-ENGAGEMENT fix validation. Adopted log entry (strengthened by FACETS).
 
-Rate-limit status: 1 adopted per 2-game cycle. Cycle 1 consumed by I-parliament-01. Cycle 2 likely consumed by I-parliament-03 after game #3.
+FACETS (game #3) innovations:
+- **I-facets-01** — C6↔A6 new adjacency. Candidate.
+- **I-facets-02** — A2↔A6 new adjacency. Candidate.
+- **I-facets-03** — Systematically undrafted axes (A4, A5, B3). Candidate — pool curation decision.
+- **I-facets-04** — Self-refutation bet validation. Adopted log entry.
+
+Rate-limit status: 1 adopted per 2-game cycle. Cycle 1 consumed by I-parliament-01. Cycle 2 expected to close at game #4 with I-parliament-03 adoption.
 
 ## Session log
 
@@ -50,3 +58,5 @@ Rate-limit status: 1 adopted per 2-game cycle. Cycle 1 consumed by I-parliament-
 | 2026-04-19 | S03 | Parliament anchor run | Full pipeline: STAKES → GATE (pass) → ARGUMENT (4 collisions, 3 earned, 2 refuted, 10 ignored) → AMENDMENT (v2.0.1, 3 queued-for-adoption, 2 queued-for-retirement) → HANDOFF. Bet validated. |
 | 2026-04-19 | S04 | v2.1 patch | I-parliament-01 adopted. FORCED-ENGAGEMENT micro-phase. Push to GitHub. |
 | 2026-04-19 | S05 | T&E anchor #2 run | Full pipeline. All 4 success criteria pass. 5 earned / 1 refuted / 3 retire-explicit / 2 collisions / 0 silent-retire. **First adoptions: C2, B4.** v2.1 fix validated. Rubric → v2.2. |
+| 2026-04-19 | S06 | Build skills | /tigris-concept, /tigris-design, /tigris-amendment authored. |
+| 2026-04-19 | S07 | FACETS game #3 run | Original Feld-anchor jewel game. Full pipeline via new skills. 5 earned / 1 refuted / 4 retire-explicit / 3 collisions / 0 silent-retire. Rubric → v2.2.1. 4 new queued-for-adoption. Second self-refutation. |
