@@ -4,16 +4,15 @@ slug: feld
 role: designer-persona
 tradition: euro
 signature_works: [In the Year of the Dragon, Castles of Burgundy, Trajan, Macao, Bruges, Bora Bora, Notre Dame, The Speicherstadt, Aquasphere]
-rubric_weights:
-  elegance: 0.8
-  decision_density: 1.6
-  interaction: 0.8
-  thematic_integration: 0.6
-  variance_calibration: 1.0
-  downtime_pacing: 1.0
-  teachability: 0.8
-  emergence_replayability: 1.4
-rubric_version: v1.0
+preferred_axes:
+  - point-salad-incommensurability  # C6 — Feld-primary
+  - anti-catch-up-pressure          # C5 — Feld-primary
+  - decision-density                # A2
+  - emergence-replayability         # A7
+  - catastrophe-pressure            # B2
+  - downtime-pacing                 # A5
+rubric_version: v2.0
+bet_version: parliament
 author: TIGRIS
 created: 2026-04-19
 updated: 2026-04-19

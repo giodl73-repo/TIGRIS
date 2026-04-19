@@ -3,16 +3,15 @@ name: The Engine-Builder
 slug: engine-builder
 role: player-lens
 archetype: long-horizon optimizer
-rubric_weights:
-  elegance: 1.2
-  decision_density: 1.4
-  interaction: 0.4
-  thematic_integration: 0.6
-  variance_calibration: 0.6
-  downtime_pacing: 1.4
-  teachability: 0.6
-  emergence_replayability: 1.8
-rubric_version: v1.0
+preferred_axes:
+  - emergence-replayability   # A7 — engine-lens primary
+  - engine-garden-dependency  # C4
+  - decision-density          # A2
+  - conversion-chain-depth    # B3
+  - downtime-pacing           # A5
+  - elegance                  # A1
+rubric_version: v2.0
+bet_version: parliament
 author: TIGRIS
 created: 2026-04-19
 updated: 2026-04-19

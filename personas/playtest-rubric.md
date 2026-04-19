@@ -1,140 +1,115 @@
 ---
 name: TIGRIS Playtest Rubric
 slug: playtest-rubric
-version: 1.0.0
-rubric_version: v1.0
+version: 2.0.0
+rubric_version: v2.0
+bet_version: parliament
 author: TIGRIS
 created: 2026-04-19
 updated: 2026-04-19
+supersedes: v1.0 (8 flat axes, weighted aggregate per persona)
 ---
 
-# TIGRIS Playtest Rubric — v1.0
+# TIGRIS Playtest Rubric — v2.0 (Parliament shape)
 
-Eight axes. Each scored 0–10. Axes are weighted per persona / lens via their `rubric_weights` vector (sum = 8.0).
+**v2.0 is not an amendment of v1.0 — it is a new rubric under a new architectural bet.** v1.0 scores remain locked at v1.0 and are *not* re-scored here. The Parliament bet (see `docs/specs/2026-04-19-tigris-v2.0-design.md`) replaces flat-axis consensus scoring with an adversarial stake-and-argument procedure.
 
-Cell verdicts apply to the **weighted aggregate** of a persona's 8 axis scores at a single player-count:
-- `win` — aggregate ≥ 7.0
-- `marginal` — aggregate 4.0–6.9
-- `fail` — aggregate < 4.0
+For axis definitions see `personas/axis-pool.md` — the pool of 24 axes from which personas draft.
 
-GATE (from spec §7.4): proceed to Tier-B when ≥ 50% of cells are marginal-or-better, the anchor-persona cell is `win`, and no axis scores ≤ 3 across ≥ 3 personas at the target player count.
+## The rubric is a game
 
-## The eight axes
+A review is produced by playing a three-phase game between the designer-personas (and optionally player-lenses) seated at the table. The phases are cognitively distinct:
 
-### 1. Elegance
+1. **STAKES (TIER-A)** — each persona *drafts* axes from the Pool and plants stake scores against the design.
+2. **ARGUMENT (TIER-B)** — stakes are attacked, defended, or collide during a narrated playthrough.
+3. **AMENDMENT (TIER-C)** — the mechanical pass that promotes earned stakes and retires refuted ones, updating the Pool.
 
-**Definition:** Rule-count-to-depth ratio. How much strategic space does each rule create?
+There is no weighted aggregate. There is no consensus score. The output is the record of the argument.
 
-- 0: Rulebook bloats; each rule adds less than one distinct strategic concept.
-- 2: Rules outnumber the concepts they support.
-- 5: Rules match depth (one rule, one concept).
-- 7: Rules compress into more depth than the rulebook's page count suggests.
-- 10: Rule count understates depth; emergent complexity the rules didn't spell out (e.g., T&E's catastrophe triggers).
+## Stake states
 
-**Diagnostic test:** Can you summarize what the game is *about* strategically in fewer words than it takes to teach the rules?
+Each stake has one of four final states after Argument:
 
-### 2. Decision Density
+| State | Definition | Effect at Amendment |
+|---|---|---|
+| **Earned** | Defended at ≥ 2 moments during Argument; no unrefuted refutation. | Contributes toward axis adoption (≥ 2 earned across ≥ 2 games → `adopted`). |
+| **Contested** | Defended *and* refuted in different moments. | Recorded in ledger; does not count toward adoption or retirement. |
+| **Refuted** | Refuted at ≥ 2 moments; no successful defense. | Contributes toward axis retirement (≥ 2 refuted across ≥ 2 games → `retired`). |
+| **Ignored** | No attacks, no defenses, no collisions. | The silent failure mode — a stake nobody cared about. Counts against the persona (3+ ignored stakes in a game → consider retiring this persona from future drafts). |
 
-**Definition:** Meaningful choices per turn.
+Collisions (two personas' stakes on semantically-adjacent axes resolved simultaneously) produce *both* players a defense credit on their stake plus a shared "collision marker" that is the strongest signal of live argument in the record.
 
-- 0: Many turns auto-resolve or have a dominant action.
-- 3: One interesting decision every 2–3 turns.
-- 5: About one real decision per turn.
-- 7: Every turn presents a multi-axis choice (which action, which target, which cost).
-- 10: Every turn *and* every sub-decision is live; no wasted pip, no dead space.
+## Draft protocol
 
-**Diagnostic test:** What percentage of turns could a reasonable AI play with <1 second of thought? If >20%, density is low.
+See `personas/axis-pool.md` for full draft rules. Summary:
 
-### 3. Interaction
+- 7 designer personas + optional 5 player lenses at the table.
+- 3 rounds × 7+ personas = ≥ 21 drafts per game.
+- Snake order; anchor-persona (designer-declared) drafts last round-1, first round-2.
+- Each persona drafts **3 axes per game**.
+- A retired axis costs 2 draft-slots (a persona claiming a retired axis is staking prestige on the argument having changed).
+- No axis drafted twice in the same game.
 
-**Definition:** Player-to-player impact.
+## Stake scoring protocol
 
-- 0: Multiplayer solitaire. Each player optimizes their own board with no cross-influence.
-- 3: Shared resources; indirect competition only.
-- 5: Indirect competition for contested spots plus occasional direct actions.
-- 7: Direct confrontation is common and drives the game arc.
-- 10: The game *is* the interaction. Remove opponents and the game has no content (e.g., auction games, T&E conflicts).
+Once drafted, a persona assigns their axis a score 0–10 at each target player count, with a one-sentence justification naming a specific rule or mechanic. **The score is the stake.** No weighted aggregate. No per-cell verdict at this stage — the verdict comes from Argument.
 
-**Diagnostic test:** How does the game change when a player plays well vs. poorly? If it only affects their own score, interaction is low.
+Anchor descriptors (0/5/10) for each axis are defined in `personas/axis-pool.md`.
 
-### 4. Thematic Integration
+## Argument protocol
 
-**Definition:** Mechanics ↔ theme coherence.
+At pre-declared moments during narrated play (turn 1, turn 5, mid-game, late-game, end — plus any persona-flagged moment):
 
-- 0: Theme is paint over a generic mechanic; re-skinnable without loss.
-- 3: Theme rhymes loosely with mechanics.
-- 5: Mechanics and theme rhyme plausibly.
-- 7: Theme predicts mechanics (a newcomer could guess half the rules from the theme).
-- 10: Mechanics **are** the theme (e.g., Agricola's feeding pressure *is* medieval subsistence; T&E's aspect-balance *is* civilization).
+- **Hold** — persona affirms their stake still applies; no opposed action.
+- **Attack** — persona argues another persona's stake is weak at this moment. Requires citing what their own lens sees that the opposing stake misses. Attacked persona must defend (cite rule/mechanic) or concede.
+- **Defend** — persona fortifies their own stake by citing evidence from current play state.
+- **Collide** — two personas with semantically-adjacent stakes at this moment resolve simultaneously: whichever persona's stake better matches the moment earns a collision credit; the other takes a single-moment refutation.
 
-**Diagnostic test:** Strip the theme and replace with abstract labels. Does the game still make sense as a system? If yes, low. If no, high.
+Attacks and defenses are written into `playtests/PT<NN>-argument.md` with specific turn-numbers and rule-citations. Vagueness is banned per `personas/forbidden-words.md`.
 
-### 5. Variance Calibration
+## Amendment protocol (deterministic)
 
-**Definition:** Luck scaled to game length.
+At TIER-C, for each stake in the game's record:
 
-- 0: Randomness dominates skilled play over a full arc.
-- 3: Luck drives outcomes more often than skill.
-- 5: Luck early, skill late. Standard Euro calibration.
-- 7: Luck is a resource players actively manage.
-- 10: Every random element has a mitigation tool; variance creates strategy space rather than noise.
+1. Classify final state (earned / contested / refuted / ignored).
+2. Update the Rubric Ledger in `personas/axis-pool.md` with per-game state counts.
+3. Trigger adoption / retirement:
+   - **Adopt** if ≥ 2 earned states across ≥ 2 different games → mark `adopted`, bump rubric to v2.1+.
+   - **Retire** if ≥ 2 refuted states across ≥ 2 different games → mark `retired`.
+4. Log all new innovations (see §7 of v2.0 spec + `personas/playtest-innovations.md`).
 
-**Diagnostic test:** If two equally-skilled players play 10 times, how lopsided can the series be? 10–0 = over-luck. 6–4 = calibrated.
+No user approval required; the argument record is the evidence. User override is possible but explicit.
 
-### 6. Downtime / Pacing
+## GATE thresholds (before TIER-B)
 
-**Definition:** Wait between meaningful player activity.
+GATE runs between TIER-A (Stakes) and TIER-B (Argument). Pass requires:
 
-- 0: >5 minutes of pure observation between meaningful decisions for an average player.
-- 3: Noticeable downtime, especially at higher counts.
-- 5: Moderate pacing, AP-tolerant.
-- 7: Turns are short or overlapping; little dead time.
-- 10: Turns interleave. There is no downtime — players always have a live decision (e.g., simultaneous drafting, real-time layers).
+1. **Anchor stake viable.** The designer-declared anchor-persona's anchor-axis has not been pre-staked better by another persona on the same target count.
+2. **Draft coverage.** The drafted axes collectively cover ≥ 3 of the 4 Bands (A/B/C/D).
+3. **≥ 1 collision candidate.** At least two personas' drafted axes are semantically adjacent enough that argument can produce a collision. A fully orthogonal draft has nothing to argue about.
 
-**Diagnostic test:** Average wait time from end-of-your-turn to beginning-of-your-next-turn at 4p. Factor out AP players.
+Failed GATE forces re-draft (if axis scarcity caused the problem) or design revision (if the design is too narrow to admit collision).
 
-### 7. Teachability
+## Success criteria for a panel review (per game)
 
-**Definition:** Rules → first-turn friction.
+A Parliament review succeeds when:
 
-- 0: Rulebook must be referenced mid-game on the first play; cannot be taught verbally.
-- 3: Teach takes >30 min or requires a reference sheet for every player.
-- 5: Can play after one thorough read; occasional rule check.
-- 7: Can teach verbally in 10–15 minutes.
-- 10: Can teach in under 10 minutes; first-turn decisions are comprehensible without errata.
+- ≥ 5 stakes earn `earned` status across the full panel.
+- ≥ 2 of those earned stakes are on Band B (Euro-specific) or Band C (persona-signature) axes — i.e., the personas are distinguishable.
+- ≥ 1 collision resolves cleanly (not into mutual ignored-state).
+- The amendment pass promotes ≥ 1 axis to `adopted` OR retires ≥ 1 axis.
 
-**Diagnostic test:** Time to first meaningful turn with a new player. If longer than 15 minutes, teachability ≤ 5.
+If fewer than 5 stakes earn, the rubric is too consensus-seeking (personas aren't arguing). If no Band-B/C stakes earn, the personas are being read as interchangeable. If no collisions resolve, the argument isn't happening. If no promotion/retirement, the rubric isn't evolving. Each failure is a v2.1 blocker.
 
-### 8. Emergence / Replayability
+## Forward-only versioning
 
-**Definition:** Strategy space diversity across plays.
+Preserved from v1.0 unchanged.
 
-- 0: Solved game. One dominant opener; most games play out the same way.
-- 3: Two or three paths, all variants of the same core strategy.
-- 5: Several distinct strategies; opening varies by table.
-- 7: Genuinely different arcs across plays; no solved state after 10 plays.
-- 10: 50+ plays still reveal new strategic veins; meta evolves over the life of a play group.
-
-**Diagnostic test:** After 10 plays, can a veteran predict the winning strategy before turn 3? If yes, emergence is low.
-
-## Scoring protocol
-
-A persona scoring a game on these axes must:
-1. Read the design.md and any referenced rules.
-2. For each axis, give a score 0–10, plus a one-sentence justification grounded in a specific rule or mechanic.
-3. Use only the diagnostic language from `personas/forbidden-words.md`.
-4. Compute the weighted aggregate using their `rubric_weights` vector.
-5. Produce a cell verdict per player-count evaluated.
-
-## Amendment protocol (forward-only)
-
-When the innovation log clusters 2+ entries in the same dimension across ≥ 2 games:
-1. The cluster proposes an amendment in `personas/playtest-innovations.md`.
-2. User approves or rejects.
-3. If approved, the amendment is added here with a new version number (v1.1, v1.2, …).
-4. Prior scores stay locked at their original `rubric_version`. They are **not** retro-adjusted.
-5. Subsequent games score against the new version.
+- v2.0 → v2.1 bump occurs the first time any axis is `adopted` or `retired`.
+- v2.x scores lock to their scoring version. No retro-adjustment.
+- A new architectural bet (v3.0) would similarly lock v2.x scores — a *bet change* is a larger event than an *amendment*.
 
 ## Changelog
 
-- **v1.0** — 2026-04-19 — Initial rubric per spec `docs/specs/2026-04-19-tigris-design.md`.
+- **v2.0.0** — 2026-04-19 — Replaces v1.0 rubric with Parliament-shape (stakes, argument, amendment). 24-axis Pool in `axis-pool.md`. v1.0 scores remain at v1.0; no retro-scoring.
+- **v1.0** — superseded. See `docs/specs/2026-04-19-tigris-design.md` and `docs/specs/reviews/2026-04-19-tigris-design/` for the v1.0 panel that produced this restructure.

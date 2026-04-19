@@ -3,16 +3,15 @@ name: The AP-Prone
 slug: ap-prone
 role: player-lens
 archetype: analysis-paralysis patient
-rubric_weights:
-  elegance: 1.4
-  decision_density: 0.4
-  interaction: 0.6
-  thematic_integration: 0.8
-  variance_calibration: 0.8
-  downtime_pacing: 1.4
-  teachability: 1.6
-  emergence_replayability: 1.0
-rubric_version: v1.0
+preferred_axes:
+  - teachability                   # A6 — AP-lens primary
+  - action-menu-clarity            # C7
+  - elegance                       # A1
+  - downtime-pacing                # A5
+  - information-transparency-cost  # B4 (staked LOW when game has high info cost)
+  - minimum-score-shape            # C2
+rubric_version: v2.0
+bet_version: parliament
 author: TIGRIS
 created: 2026-04-19
 updated: 2026-04-19

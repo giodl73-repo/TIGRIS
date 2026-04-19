@@ -3,16 +3,15 @@ name: The Interactionist
 slug: interactionist
 role: player-lens
 archetype: direct-confrontation seeker
-rubric_weights:
-  elegance: 0.8
-  decision_density: 1.0
-  interaction: 2.2
-  thematic_integration: 1.0
-  variance_calibration: 1.2
-  downtime_pacing: 0.6
-  teachability: 0.4
-  emergence_replayability: 0.8
-rubric_version: v1.0
+preferred_axes:
+  - interaction                   # A3 — interactionist-primary
+  - spatial-interaction-presence  # D2
+  - catastrophe-pressure          # B2
+  - anti-catch-up-pressure        # C5
+  - variance-calibration          # A4
+  - decision-density              # A2
+rubric_version: v2.0
+bet_version: parliament
 author: TIGRIS
 created: 2026-04-19
 updated: 2026-04-19

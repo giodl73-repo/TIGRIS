@@ -4,16 +4,15 @@ slug: lacerda
 role: designer-persona
 tradition: euro
 signature_works: [Lisboa, Vinhos, The Gallerist, Kanban EV, On Mars, Escape Plan, CO2, Weather Machine]
-rubric_weights:
-  elegance: 0.6
-  decision_density: 1.2
-  interaction: 1.0
-  thematic_integration: 1.6
-  variance_calibration: 0.6
-  downtime_pacing: 0.6
-  teachability: 0.4
-  emergence_replayability: 2.0
-rubric_version: v1.0
+preferred_axes:
+  - system-gearing                # B1 — Lacerda-primary
+  - information-transparency-cost # B4 — Lacerda-primary
+  - late-game-lock-in-point       # D4
+  - architectural-novelty         # B5
+  - emergence-replayability       # A7
+  - decision-density              # A2
+rubric_version: v2.0
+bet_version: parliament
 author: TIGRIS
 created: 2026-04-19
 updated: 2026-04-19

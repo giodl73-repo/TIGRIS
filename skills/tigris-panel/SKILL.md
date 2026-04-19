@@ -1,160 +1,203 @@
 ---
 name: tigris-panel
-description: Run the TIGRIS panel review on a game (full designer roster + player lenses) or on a spec/process artifact (designer roster only). Produces one review file per persona + a weighted SUMMARY.md. Use when a game has passed Tier-A GATE and is ready for panel, or when reviewing a TIGRIS-internal artifact (spec, rubric change, skill).
+description: Run a TIGRIS Parliament review — the three-phase adversarial procedure (Stakes / Argument / Amendment) that produces a review-as-game-record for a board game or a TIGRIS-internal artifact. Invoked after a game's DESIGN is complete or a spec is ready for scrutiny. Outputs: tierA-stakes.md, playtests/PT*-argument.md, panel/SUMMARY.md, amendments.md.
 ---
 
-# tigris-panel
+# tigris-panel — Parliament procedure
 
-Execute a panel review on an artifact. Two modes:
+## 60-second quickstart
 
-- **game-review** — for a game under `games/NNNN-<slug>/`. Invokes the full roster: 7 designer personas + 5 player lenses. Outputs to `games/NNNN-<slug>/panel/`.
-- **spec-review** — for a TIGRIS-internal artifact (spec doc, rubric amendment, skill proposal). Invokes designer personas only (player lenses review *games*, not processes). Outputs to `docs/specs/reviews/<artifact-slug>/`.
+```
+You:    "Run tigris-panel on games/0001-parliament/"
+Claude: [reads design.md, axis-pool.md, personas/, forbidden-words.md]
+        [dispatches 7 designer personas to DRAFT 3 axes each in snake order]
+        [writes games/0001-parliament/tierA-stakes.md]
+        [reports: "21 stakes drafted, GATE passed — 3 collision candidates identified"]
+        [runs ARGUMENT phase: narrated playthrough with attacks/defends/collisions]
+        [writes games/0001-parliament/playtests/PT01-argument.md]
+        [runs AMENDMENT phase deterministically]
+        [writes games/0001-parliament/amendments.md + updates axis-pool.md]
+        [writes panel/SUMMARY.md]
+        [reports: "review complete — 5 earned, 2 refuted, 1 collision, 1 axis adopted"]
+```
 
-## When to invoke
+First invocation of the session, Claude should also announce "using tigris-panel to run the Parliament review on <artifact>" before reading anything.
 
-- A game has produced a PASS verdict in `tierA-sim.md` and moved past GATE → `game-review`.
-- An original TIGRIS design doc (spec, amendment, new skill) is written and wants panel scrutiny before adoption → `spec-review`.
-- Never invoke on a draft that hasn't been committed — the review must attach to a specific version.
+## What this skill does
+
+Executes the three-phase Parliament procedure defined in `docs/specs/2026-04-19-tigris-v2.0-design.md` §8.3–8.6. Produces an argument-record, not a consensus document.
+
+Two modes:
+
+- **game-review** — artifact is under `games/NNNN-<slug>/`; full roster (7 designers + optional 5 lenses); output under `games/<slug>/`.
+- **spec-review** — artifact is under `docs/specs/` or `personas/` or `skills/`; designers only (lenses don't parliament on processes); output under `docs/specs/reviews/<artifact-slug>/` with the same Parliament shape.
 
 ## Preconditions
 
-- The artifact exists and has YAML frontmatter with `slug`, `stage`, `version`, `rubric_version`.
-- The seven designer personas exist at `personas/designers/*.md`.
-- For game-review, the five player lenses exist at `personas/player-lenses/*.md`.
-- The rubric matching `rubric_version` is the current v1.0 (or whatever is in `personas/playtest-rubric.md`).
-- The forbidden-words guide exists at `personas/forbidden-words.md`.
+- Artifact exists and has YAML frontmatter with `slug`, `stage`, `version`, `rubric_version: v2.0`.
+- All 7 designer personas exist at `personas/designers/*.md` with `preferred_axes` field populated.
+- `personas/axis-pool.md` exists and has 24 live-or-adopted axes.
+- `personas/forbidden-words.md` exists (vocabulary discipline enforced at write-time).
+- For originals: CONCEPT has declared `anchor_persona` and `anchor_axis`. For reviews: CONCEPT may declare these or skip (anchor-cell may be left null in spec-review mode).
 
 ## Procedure
 
-### Step 1 — Load artifact + context
+### Step 1 — Load context
 
-1. Read the full artifact.
-2. Read `personas/playtest-rubric.md` (the 8-axis rubric + verdict thresholds).
-3. Read `personas/forbidden-words.md` (required vocabulary discipline).
-4. Determine mode:
-   - If artifact path starts with `games/`, mode = `game-review`.
-   - If artifact path starts with `docs/specs/`, `personas/`, or `skills/`, mode = `spec-review`.
-5. Create output directory:
-   - `game-review` → `games/<slug>/panel/` and `games/<slug>/panel/lenses/`
-   - `spec-review` → `docs/specs/reviews/<artifact-slug>/`
+1. Read the artifact.
+2. Read `personas/axis-pool.md` (current live axes, adopted list, retired list).
+3. Read `personas/playtest-rubric.md` (the Parliament-shape rubric v2.0).
+4. Read `personas/forbidden-words.md`.
+5. Read `docs/specs/2026-04-19-tigris-v2.0-design.md` §8 for procedure details.
+6. Determine mode (game-review vs spec-review) from artifact path.
+7. Create output directory.
 
-### Step 2 — Dispatch reviewers
+### Step 2 — TIER-A: STAKES (draft phase)
 
-Dispatch one agent per persona, in parallel when the model/runtime allows. Each agent receives:
+1. Determine seating: 7 designer personas (spec-review) or 7 designers + optional 5 lenses (game-review).
+2. Establish draft order:
+   - Round 1: user-specified order, usually "anchor persona last" (forces them onto shared ground).
+   - Round 2: reverse of round 1.
+   - Round 3: same as round 1.
+3. For each draft slot, dispatch a mini-task:
+   - Persona reads their preferred_axes list.
+   - Persona reads the Pool's current state (live / adopted / retired).
+   - Persona picks one axis not already drafted this game.
+   - A persona may pick a retired axis at cost of 2 draft-slots (skip their next draft).
+   - Record draft in `tierA-stakes.md`.
+4. After drafts complete, each persona stakes their 3 axes:
+   - For each target player count of the design, assign score 0–10 with a rule-grounded one-sentence justification.
+   - Record in persona's section of `tierA-stakes.md`.
+5. Publish `tierA-stakes.md`.
 
-- Full artifact text
-- That persona's `.md` file from `personas/designers/` or `personas/player-lenses/`
-- The rubric
-- The forbidden-words guide
-- Target output path (one file per reviewer)
+### Step 3 — GATE check
 
-Each agent produces **one review file** named `<persona-slug>.md`:
+Verify all three GATE conditions from `personas/playtest-rubric.md`:
+
+1. Anchor stake viable? (If declared; otherwise mark N/A for spec-reviews.)
+2. Draft coverage ≥ 3 bands of the 4 (A/B/C/D)?
+3. ≥ 1 collision candidate identifiable?
+
+If pass: proceed to Step 4. If fail: return to user with specific failure mode and a re-draft proposal.
+
+### Step 4 — TIER-B: ARGUMENT (narrated playthrough)
+
+1. For games: seeded-RNG narrated playthrough covering 2p / 3p / 4p serially. For specs: walk the spec section-by-section with personas commenting.
+2. At each pre-declared moment (start, turn 1 / §1, turn 5 / §5, mid, late, end):
+   - Each persona reviews their stake(s) applicable at this moment.
+   - Each persona may declare: **hold**, **attack <other>**, **defend**, or **collide-with <other>**.
+   - Attacks require cited evidence; defenses require cited evidence; collisions require adjacency argument.
+3. Record every action in `playtests/PT<NN>-argument.md` with moment-anchors (turn numbers or section numbers).
+4. At game end, classify each stake: earned / contested / refuted / ignored.
+
+### Step 5 — TIER-C: AMENDMENT (deterministic pass)
+
+1. Read `personas/axis-pool.md` Rubric Ledger.
+2. For each stake in this game, update ledger row:
+   - +1 to earned / contested / refuted / ignored count on that axis.
+3. Check adoption triggers (≥ 2 earned across ≥ 2 games):
+   - Mark axis `adopted`.
+   - Bump rubric version in `personas/playtest-rubric.md` (v2.0 → v2.1).
+4. Check retirement triggers (≥ 2 refuted across ≥ 2 games):
+   - Mark axis `retired`.
+5. Write `games/<slug>/amendments.md` with the full change record.
+6. Log new innovations to `personas/playtest-innovations.md` (include `trigger_pattern` field).
+
+### Step 6 — Synthesize SUMMARY.md
+
+Write `panel/SUMMARY.md` with:
 
 ```yaml
 ---
-name: <Persona Name> review of <artifact name>
-slug: <persona-slug>
-stage: panel
-version: 1.0.0
-rubric_version: v1.0
-author: <persona-slug>
-artifact_under_review: <path to artifact>
-created: <today>
-updated: <today>
----
-```
-
-**Body structure** (800–1500 words):
-
-1. **Opening verdict** (1 paragraph, in-voice) — what this persona thinks about the artifact, headline only.
-2. **Three greenlights** — what the artifact does well, axis-grounded, in-voice. Forbidden vocabulary disallowed.
-3. **Three red flags** — what the artifact does poorly, axis-grounded, in-voice.
-4. **Amendment candidates** — what does this artifact expose as under-specified in the rubric, personas, or process? (Cluster bait for `/tigris-innovate`.)
-5. **Scoring** — per the 8-axis rubric, each axis 0–10 with a one-sentence justification each. Include the persona's weighted aggregate at the bottom.
-
-For `game-review` only: reviews are evaluated at each relevant player count; each persona reports a cell verdict per count.
-
-For `spec-review`: single aggregate only — no player-count axis. Scoring focuses on whether the artifact is a good *process* design, not a good game.
-
-### Step 3 — Synthesize SUMMARY.md
-
-After all reviewers finish, write `SUMMARY.md` in the same panel directory:
-
-```yaml
----
-name: Panel Summary — <artifact name>
+name: Parliament Summary — <artifact>
 slug: SUMMARY
 stage: panel
 version: 1.0.0
-rubric_version: v1.0
-author: TIGRIS synthesis
+rubric_version: v2.0
+bet_version: parliament
 artifact_under_review: <path>
-reviewers: [list of persona-slugs]
+personas_seated: [list]
+total_stakes: <N>
+earned: <N> / refuted: <N> / contested: <N> / ignored: <N>
+collisions: <N>
+axes_adopted: [list]
+axes_retired: [list]
 created: <today>
-updated: <today>
 ---
 ```
 
-**Body:**
+**Body structure (lean — this is an argument record, not an essay):**
 
-1. **Panel verdict** — one paragraph. Consensus position across reviewers, including prominent dissents. Name the dissenting persona and why.
-2. **Per-axis consensus table** — for each of the 8 rubric axes, show each reviewer's score and compute a simple average (unweighted for SUMMARY; weighted aggregates remain in individual reviews). Flag axes where max-min spread > 4 as "contested."
-3. **Greenlights consensus** — greenlights that appeared in ≥ 2 reviews.
-4. **Red flags consensus** — red flags that appeared in ≥ 2 reviews. These are the must-fix items.
-5. **Amendment candidates** — innovation log entries proposed. For each, note dimension, scope, and supporting reviewers. This section feeds directly into `/tigris-innovate`.
-6. **Punchlist** — ordered list of items to address before the artifact is considered "panel-approved." Cite the reviewer behind each item.
-7. **Next step** — what stage comes after this panel (INNOVATE → HANDOFF for games; AMEND → RATIFY for specs).
+1. **Headline** — one sentence naming the argument's shape.
+2. **Earned stakes** — table: persona, axis, count, score, defending moment.
+3. **Refuted stakes** — table: persona, axis, count, score, refuting moment.
+4. **Collisions** — each collision with both personas, both axes, resolving moment.
+5. **Ignored stakes** — flagged as silent failures with persona names (persona-retirement candidates if repeated).
+6. **Amendment outcome** — axes adopted, axes retired, rubric version change.
+7. **Success criteria check** — did the review meet `playtest-rubric.md`'s 4 success criteria?
 
-### Step 4 — Update TRACKER.md
+### Step 7 — Update TRACKER.md
 
-Append a row to `TRACKER.md` with the review outcome:
+Append a row:
 
-| Artifact | Status | Stage | Rubric ver | Last update | Notes |
-|---|---|---|---|---|---|
-| <artifact> | panel-reviewed | PANEL | v1.0 | <today> | Consensus verdict + count of amendments proposed |
+| Artifact | Status | Stage | Rubric ver | Update | Earned / Refuted / Collisions | Notes |
+|---|---|---|---|---|---|---|
+| <path> | parliament-complete | TIER-C | v2.x | <today> | N/N/N | <headline> |
 
-### Step 5 — Hand off
+### Step 8 — Hand off
 
-Report to the user:
-- Where the panel output lives (absolute paths)
-- The verdict headline
-- The top 3 punchlist items
-- The number of amendment candidates generated (for `/tigris-innovate` to cluster-check)
-
-Do NOT invoke `/tigris-innovate` as part of this skill — innovation is its own stage, with its own deliberate pacing.
+Report to user:
+- Paths to all output artifacts.
+- Success criteria check result.
+- Total earned / refuted / ignored / collision counts.
+- Axes adopted or retired.
+- Next step: HANDOFF (if game) or spec amendment integration (if spec-review).
 
 ## Invariants
 
-- Each review is written in the persona's voice. If a review reads like generic criticism, the reviewer agent wasn't properly briefed.
-- Every claim names axis, persona, and (for games) player count. Forbidden-words compliance is enforced at review-write time, not post-hoc.
-- Scores are **justified**, not asserted. A score without a one-sentence justification is rejected.
-- SUMMARY.md never invents consensus that isn't there. A 4-axis spread of 3–9 is flagged as contested, not averaged quietly.
-- Reviews are immutable once written. A revision creates a new version (`<persona>-v2.md`) — the old review stays as history.
-- The tigris-panel skill does not approve or reject artifacts. It produces evidence. Approval/rejection is a separate user decision informed by the panel output.
+- Stakes are never averaged. Aggregate scores are banned.
+- Every attack, defense, and collision cites a specific moment (turn number, section number) and a specific rule or mechanic.
+- Ignored stakes are reported, not hidden. They are as meaningful as earned stakes.
+- Axis adoption and retirement are deterministic from the ledger — no user approval for the default path.
+- Reviews are immutable once written. A revision creates a new version directory.
+- Forbidden-words compliance is enforced at stake-write time, not post-hoc.
 
-## Mode differences quick reference
+## Mode differences
 
 |  | game-review | spec-review |
 |---|---|---|
-| Designer personas | yes (7) | yes (7) |
-| Player lenses | yes (5) | no |
-| Per-player-count scoring | yes | no |
-| Output path | `games/<slug>/panel/` | `docs/specs/reviews/<slug>/` |
-| Feeds into | `/tigris-innovate` + `/tigris-handoff` | `/tigris-innovate` + rubric amendment process |
+| Designer personas | 7 | 7 |
+| Player lenses | 5 (optional) | 0 |
+| Per-count scoring | 2p/3p/4p | N/A (single aggregate at moment-anchors) |
+| Anchor stake declared | required (from CONCEPT) | optional |
+| Output path | `games/<slug>/` | `docs/specs/reviews/<slug>/` |
+| Feeds into | HANDOFF → next game | rubric amendment / spec v+1 |
 
-## Example invocation (informal)
+## Example invocation
 
-> "Run tigris-panel on `docs/specs/2026-04-19-tigris-design.md`."
+> "Run tigris-panel on games/0001-parliament/"
 
-Expected output structure:
+Expected output:
 ```
-docs/specs/reviews/2026-04-19-tigris-design/
-├── knizia.md
-├── rosenberg.md
-├── feld.md
-├── lacerda.md
-├── chvatil.md
-├── kramer-kiesling.md
-├── stegmaier.md
-└── SUMMARY.md
+games/0001-parliament/
+├── tierA-stakes.md          # 21 stakes, 3 per persona
+├── playtests/
+│   └── PT01-argument.md     # argument record with moment-anchors
+├── amendments.md            # what this game adopted/retired
+├── panel/
+│   └── SUMMARY.md           # lean argument record
+└── handoff.md               # (written by a later HANDOFF step)
 ```
+
+Plus updates to:
+- `personas/axis-pool.md` — ledger updated
+- `personas/playtest-rubric.md` — version bumped if adoption
+- `personas/playtest-innovations.md` — new innovations appended
+- `TRACKER.md` — new row
+
+## What this skill does NOT do
+
+- Invoke HANDOFF — that's a separate step.
+- Re-score prior games on amendment — forward-only versioning means prior scores are locked.
+- Approve or reject the artifact — the output is evidence; user decides.
+- Generate physical components or renderings — Parliament's design doc is markdown-only for v2.0.

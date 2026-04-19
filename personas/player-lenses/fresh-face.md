@@ -3,16 +3,15 @@ name: The Fresh Face
 slug: fresh-face
 role: player-lens
 archetype: first-time player
-rubric_weights:
-  elegance: 1.2
-  decision_density: 0.6
-  interaction: 0.6
-  thematic_integration: 1.0
-  variance_calibration: 0.8
-  downtime_pacing: 1.2
-  teachability: 2.0
-  emergence_replayability: 0.6
-rubric_version: v1.0
+preferred_axes:
+  - teachability               # A6 — fresh-lens primary
+  - action-menu-clarity        # C7
+  - first-turn-compression     # C8
+  - elegance                   # A1
+  - count-robustness           # D3
+  - family-to-expert-scaling   # D1
+rubric_version: v2.0
+bet_version: parliament
 author: TIGRIS
 created: 2026-04-19
 updated: 2026-04-19
