@@ -1,0 +1,13 @@
+# Local tooling — do not commit
+.claude/settings.local.json
+.vscode/
+.idea/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Editor swap files
+*.swp
+*.swo
+*~

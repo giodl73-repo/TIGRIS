@@ -83,7 +83,7 @@ C:\src\tigris\
 ├── MODULES.md                      # (optional) multi-author callsign assignments
 │
 ├── docs/
-│   └── superpowers/specs/          # design docs (this file lives here)
+│   └── specs/                      # design docs (this file lives here)
 │
 ├── personas/
 │   ├── designers/
