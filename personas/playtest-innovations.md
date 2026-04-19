@@ -138,9 +138,53 @@ A **bet change** is larger than an amendment. It restructures the architectural 
 
 - **Status:** retired — replaced by v2.0 stake-state mechanism. There is no weighted aggregate to penalize hedging; stakes are binary (earned/refuted). The "hedging" failure mode is now an `ignored` stake — the persona did not argue for their stake, so it produces no evidence.
 
-## Active clusters
+## Active clusters (v2.0 era)
 
-None yet under v2.0. First Parliament game (games/0001-parliament/) expected to surface first v2.x-era clusters.
+Parliament (game #1) completed 2026-04-19. Four new innovations logged.
+
+### I-parliament-01 — Ignored-stake protocol too permissive
+
+- **Dimension:** Argument protocol
+- **Trigger pattern:** `ignored_stake_over_threshold`
+- **Source:** games/0001-parliament/
+- **Supporting voices:** Stegmaier (success-criterion miss), Knizia (self-observed), Feld (self-observed)
+- **Scope:** universal
+- **Status:** candidate (awaiting game #2 cluster confirmation; queued for rate-limited adoption)
+- **Note:** 10 of 21 drafted stakes (48%) never engaged in argument. Panel produced rich collisions on a subset of axes while the rest sat idle. Proposal: forced-engagement micro-phase between R3 and R4, OR 2× silence penalty, OR declare-defendable stake at draft-end.
+
+### I-parliament-02 — Scoring Multiplier Dependency (new axis candidate)
+
+- **Dimension:** new axis candidate (Band B)
+- **Trigger pattern:** `axis_not_in_pool`
+- **Source:** games/0001-parliament/amendments.md (Rosenberg end-of-game remark)
+- **Supporting voices:** Rosenberg (originator), Knizia (anchor axis implicitly asserts this)
+- **Scope:** pattern-across-games
+- **Status:** candidate
+- **Note:** Parliament doesn't have engine-gardens but has a structurally similar scoring multiplier. Define as: "Do endgame points depend multiplicatively on choices across multiple subsystems, forcing balance?" Gives Rosenberg a primary-advocate axis in games without literal engine-gardens.
+
+### I-parliament-03 — Anchor axis without collision partner is fragile
+
+- **Dimension:** GATE protocol
+- **Trigger pattern:** `anchor_axis_without_collision_partner`
+- **Source:** Parliament TIER-A draft record
+- **Supporting voices:** Knizia (anchor persona who went without partner)
+- **Scope:** universal
+- **Status:** candidate
+- **Note:** Knizia passed on B3 Conversion Chain Depth (his anchor C2's natural adjacency). He earned C2 without collision help. This worked but isn't guaranteed. Proposal: GATE check that anchor axis has ≥ 1 adjacent axis drafted by another persona.
+
+### I-parliament-04 — Architectural Novelty validation (bet log entry)
+
+- **Dimension:** bet validation
+- **Trigger pattern:** `novel_architecture_defended`
+- **Source:** Chvátil-reviewer earned 3 marks on B5 in Parliament
+- **Supporting voices:** Chvátil (stake-holder), Knizia + Lacerda (voted for Novelty in collision)
+- **Scope:** bet
+- **Status:** adopted (as a log entry, not a protocol change) — v2.0 bet validates itself on first run
+- **Note:** The v1.0 panel flagged "zero novel architectural bet." The v2.0 bet (Parliament) claimed architectural novelty. In v2.0's first use, Architectural Novelty as an axis earned the second-strongest reviewer-stake record (3 marks). The claim produced its own evidence.
+
+## Adopted amendments (v2.0 era)
+
+None yet under v2.0. I-parliament-01 is the current candidate for rate-limited adoption (1 per 2-game cycle) before game #2.
 
 ## Bet version history
 
