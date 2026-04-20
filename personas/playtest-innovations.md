@@ -407,6 +407,18 @@ Total adopted axes: **24 of 25 Pool** (96%). After 19 games (15 reviews + 4 orig
 - **Source:** UNFOLD (matches Dominion and Scythe).
 - **Status:** observational — cultural-structure games (4-culture UNFOLD) produce Band-C adoption bursts.
 
+## v2.18 Retirement-Reversal Protocol Amendment
+
+### I-v218-01 — Retirement-reversal protocol adopted (A-v2.18-01)
+
+- **Dimension:** rubric meta
+- **Trigger pattern:** `retirement_reversal_protocol_added`
+- **Source:** docs/specs/2026-04-20-v2.18-retirement-reversal-design.md (v1.1 post-amendment)
+- **Supporting voices:** Lacerda (anchor B1); Knizia A1; Stegmaier A6; Rosenberg B3; Feld B2 (soft-refute became A-spec-2.18-01)
+- **Scope:** universal (rubric protocol)
+- **Status:** **ADOPTED v2.18**
+- **Note:** Closes the two-way-ledger loop opened by v2.14 A-v2.14-01. Adopted axes can now formally recover refute-weight via designed counter-pressure earnings (≥ 2 games, collision-vote confirmed). Retroactive application reduced A3 Interaction 4E/1R → 4E/0R; A7 Emergence still awaits 1 more counter-pressure game before eligibility.
+
 ## Covenstat (game #19) innovations
 
 ### I-covenstat-01 — Second successful counter-pressure defense (A7)
