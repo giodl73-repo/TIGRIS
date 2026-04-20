@@ -246,7 +246,7 @@ Parliament (game #1) completed 2026-04-19. Four new innovations logged.
 - **A5 Downtime-Pacing → v2.11** — Vaccarino-secondary. Earned Famiglia + Tikal + CoB. 22nd adoption.
 - **A4 Variance Calibration → v2.12** — Vaccarino-primary. Earned CoB + Agricola. 23rd adoption (**Band A fully adopts**; dormancy-recovery pattern: 11 games silent → 2-game adoption).
 
-Total adopted axes: **23 of 25 Pool** (92%). After 14 games. Plus 1 retired (C5). Remaining live: C8 First-Turn Compression (0 earnings across 14 games; retirement-watch). Bands A, B, D fully adopted (17/18 non-C axes).
+Total adopted axes: **23 of 25 Pool** (92%). After 15 games. Plus 1 retired (C5). **Queued-for-adoption: C8 First-Turn Compression** (1 earning in TS v2.13; needs 1 more for 24th adoption). Bands A, B, D fully adopted (17/18 non-C axes). Factory validated on first non-Euro at game #15.
 
 ## Game #2 (T&E) innovations
 
@@ -404,6 +404,47 @@ Total adopted axes: **23 of 25 Pool** (92%). After 14 games. Plus 1 retired (C5)
 - **Trigger:** `multi_adoption_event`
 - **Source:** UNFOLD (matches Dominion and Scythe).
 - **Status:** observational — cultural-structure games (4-culture UNFOLD) produce Band-C adoption bursts.
+
+## Twilight Struggle (game #15) innovations
+
+### I-ts-01 — First non-Euro game in TIGRIS factory
+
+- **Dimension:** bet validation
+- **Trigger pattern:** `out_of_tradition_stress_test`
+- **Source:** games/0015-twilight-struggle/ (Gupta/Matthews CDG wargame; 2p only)
+- **Supporting voices:** all 8 personas absorbed 7 retire-explicits on adopted axes (C4, C6, B6, D1, D3, A6 + D2/B3 holds) without breaking axis definitions
+- **Scope:** pipeline-architectural
+- **Status:** adopted (log entry)
+- **Note:** First non-Euro CDG / 2p-only / wargame reviewed. 7 adopted axes retire-explicit meaning Pool has 7 Euro-specific axes that don't exercise on out-of-tradition games. Remaining 15 of 23 adopted axes earn or hold cleanly. Axis definitions survive the stress test. Suggests Pool is robust enough to review non-Euro games without redefinition.
+
+### I-ts-02 — C8 First-Turn Compression canonical case found (14-game dormancy resolved)
+
+- **Dimension:** Pool dynamics
+- **Trigger pattern:** `dormant_axis_canonical_recovery`
+- **Source:** TS Turn 1 (USSR opening coup meta) + Turn 7 (compression-per-AR defense)
+- **Supporting voices:** Stegmaier (primary); Knizia/Feld/Lacerda/Rosenberg (collision-vote 4-1 for C8)
+- **Scope:** pool
+- **Status:** candidate (1 earning; awaits 2nd game for adoption)
+- **Note:** C8 waited 14 games before TS provided the canonical case. Parallels A4 Variance (11-game dormancy → CoB), A1 Elegance (8 → Famiglia), A5 Downtime (never earned until Famiglia). **Policy implication: retirement-watch should extend dormancy tolerance — canonical cases can arrive up to 14 games late.** Dormant ≠ retired.
+
+### I-ts-03 — Non-own anchor protocol validated
+
+- **Dimension:** anchor protocol
+- **Trigger pattern:** `non_own_anchor_review`
+- **Source:** TS — Knizia anchors a Gupta/Matthews design
+- **Supporting voices:** observational (anchor earned 3 defends; protocol-adherence clean)
+- **Scope:** universal
+- **Status:** observational
+- **Note:** First review where no panel designer authored the game. Anchor protocol requires no adjustment — Knizia's C1 Tension Budget earned canonical re-earn despite zero authorship. Future non-Euro / non-canonical-designer games slot into pipeline without persona modifications.
+
+### I-ts-04 — Two collisions despite non-own anchor
+
+- **Dimension:** argument protocol
+- **Trigger pattern:** `collision_without_designer_pressure`
+- **Source:** TS (C1↔A3 won by C1 3-2; C8↔A4 won by C8 4-1)
+- **Supporting voices:** observational across all personas
+- **Status:** observational
+- **Note:** Contrast with Agricola (12 earnings, 0 formal collisions — canonical consensus pattern). TS produced 2 clean collisions despite no on-own anchor. Suggests out-of-tradition games force disagreement because persona territory claims don't auto-align with game's identity. Criterion 3 (≥1 collision) strengthens on non-Euro reviews even without anchor-pressure.
 
 ## Agricola (game #14) innovations
 
