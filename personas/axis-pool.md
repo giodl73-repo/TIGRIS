@@ -185,11 +185,11 @@ Columns: **Earned / Refuted / Contested / Ignored** counts are cumulative across
 
 | Axis | Earned | Refuted | Contested | Ignored | Status | Note |
 |---|---:|---:|---:|---:|---|---|
-| A1 Elegance | 0 | 0 | 2 | 0 | live | v1.0 carry; contested P + Dominion |
+| A1 Elegance | 1 | 0 | 2 | 0 | queued-for-adoption | Famiglia first earning (Knizia; Friese-signature compression after 9 dormant games). |
 | A2 Decision Density | 2 | 0 | 0 | 1 | **adopted** | FACETS earned + Dominion earned (LAST-CALL). |
-| A3 Interaction | 0 | 1 | 2 | 1 | live | Self-refuted FACETS; contested P+Dominion |
+| A3 Interaction | 2 | 1 | 2 | 1 | **adopted** | TtA + Famiglia earned. 19th adoption (v2.9). |
 | A4 Variance Calibration | 0 | 0 | 0 | 0 | live (advocate: Vaccarino) | Scythe first draft ever (Vaccarino 1d — weak-defended). |
-| A5 Downtime / Pacing | 0 | 0 | 0 | 0 | live | Scythe first draft ever (Feld fallback 1d — weak-defended). |
+| A5 Downtime / Pacing | 1 | 0 | 0 | 0 | queued-for-adoption | Famiglia first earning (Vaccarino LAST-CALL; 2p alternating turns produce zero downtime). |
 | A6 Teachability | 2 | 0 | 1 | 0 | **adopted** | FACETS earned + Dominion earned (LAST-CALL). |
 | A7 Emergence / Replayability | 2 | 0 | 1 | 0 | **adopted** | Dominion + Scythe earned. 8th adoption event (v2.5). |
 | B1 System Gearing | 0 | 0 | 0 | 0 | live | weak-defended in Parliament (1 defend, not 2) |
@@ -215,6 +215,7 @@ Columns: **Earned / Refuted / Contested / Ignored** counts are cumulative across
 
 ## Changelog
 
+- **v2.9.0** — 2026-04-19 — **Famiglia (game #9)** — Friese 2p card game (BGG 81453). Vaccarino first published-anchor on B3. **A3 Interaction adopted** (19th axis; Pool 76%). A1 Elegance + A5 Downtime-Pacing first-ever earnings (queued-for-adoption). 8 retire-explicits (heaviest; diagnostic-low on 2p narrow-scope game). 0 silent-retire (8 consecutive). Rubric v2.8 → v2.9.
 - **v2.8.0** — 2026-04-19 — **Through the Ages (game #8) — first Chvátil-on-Chvátil anchor.** 3 new adoptions: **B2 Catastrophe Pressure** (salvage from retirement threshold; T&E + TtA earned), **B6 Scoring Multiplier Dependency** (new-axis full validation; UNFOLD + TtA), **B3 Conversion Chain Depth** (Vaccarino's signature; PR + TtA LAST-CALL). Pool at **18/25 = 72% adopted**. 0 silent-retire (7 games sustained). Chvátil's B5 earns 4th consecutive time. Rubric v2.7 → v2.8.
 - **v2.7.0** — 2026-04-19 — **UNFOLD (game #7) — first self-designed game reviewed by own pipeline.** 4 new adoptions (C1 Tension Budget, C3 Scarcity Bite, C6 Point-Salad, C7 Action-Menu Clarity). Pool at **15 adopted / 25 (60%)**. B6 SMD first earning ever (queued). Retirement queue cleared on C3. Chvátil anchor (B5) earned 3rd consecutive time. 6 adopted axes re-earned. 0 silent-retire (6 games running). 4 new innovations (I-unfold-01..04). **Concept→design→self-review workflow validated end-to-end.**
 - **v2.6.0** — 2026-04-19 — **Puerto Rico (game #6) completed.** First retirement event (**C5 Anti-Catch-up Pressure** — cumulative refute 3.0 across P+Scythe+PR). First new-axis adoption post-v2.0 bet: **B6 Scoring Multiplier Dependency** added to Pool from I-parliament-02 3-cluster. 4 first-earnings queued-for-adoption (C1, C3, B3, C7). Pool now **25 axes total, 24 active (C5 retired)**. Rosenberg gains B6 as primary advocate. Knizia's first fallback draft (A5). 5th consecutive 0% silent-retire.
