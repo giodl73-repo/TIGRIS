@@ -200,13 +200,13 @@ Columns: **Earned / Refuted / Contested / Ignored** counts are cumulative across
 | B3 Conversion Chain Depth | 1 | 0 | 0 | 0 | queued-for-adoption | **PR first earning** (Vaccarino, 2 defends). Corn→Indigo→Sugar→Tobacco→Coffee chain canonical. |
 | B4 Information Transparency Cost | 2 | 0 | 0 | 0 | **adopted** | Still-adopted; Dominion hold-explicit. |
 | B5 Architectural Novelty | 2 | 0.5 | 0 | 0 | **adopted** | P earned + Dominion earned (anchor vindication). T&E retire-explicit doesn't block. |
-| C1 Tension Budget | 1 | 0 | 0 | 2 | queued-for-adoption | Puerto Rico first earning (Knizia anchor, 3 defends). Dormant 5 games prior. |
+| C1 Tension Budget | 2 | 0 | 0 | 2 | **adopted** | PR + UNFOLD earned. 12th adoption (v2.7). |
 | C2 Minimum-Score Shape | 3 | 0.5 | 0 | 0 | **adopted** | Adopted; Dominion retire-explicit (diagnostic-low) adds minor refute |
-| C3 Scarcity Bite | 1 | 1 | 0 | 1 | queued-for-adoption | **PR first earning** (3 defends) — reverses queued-for-retirement. Mixed history. |
+| C3 Scarcity Bite | 2 | 1 | 0 | 1 | **adopted** | PR + UNFOLD earned. 13th adoption (v2.7). Retirement queue permanently cleared. |
 | C4 Engine-Garden Dependency | 2 | 1.5 | 1 | 0 | **adopted** | Dominion + Scythe earned. 11th adoption (v2.5). Retirement reversal permanently confirmed. |
 | C5 Anti-Catch-up Pressure | 0 | 3 | 2 | 0 | **RETIRED v2.6** | **First retirement event.** PR retire-explicit + self-refute. Cumulative weight 3.0. |
-| C6 Point-Salad Incommensurability | 1 | 1.0 | 0 | 1 | live (contested) | Dominion retire-explicit adds refute to FACETS earning |
-| C7 Action-Menu Clarity | 1 | 0 | 0 | 0 | queued-for-adoption | PR LAST-CALL earning (K-K, 9/9 roles-clear). |
+| C6 Point-Salad Incommensurability | 2 | 1.0 | 0 | 1 | **adopted** | FACETS (Feld anchor) + UNFOLD (Feld) earned. 14th adoption (v2.7). Contested history resolved. |
+| C7 Action-Menu Clarity | 2 | 0 | 0 | 0 | **adopted** | PR + UNFOLD LAST-CALL earned. 15th adoption (v2.7). Pool now 60% adopted. |
 | C8 First-Turn Compression | 0 | 0.5 | 0 | 1 | live | Dominion hold-explicit |
 | D1 Family-to-Expert Scaling | 2 | 0 | 0 | 2 | **adopted** | Dominion + Scythe (LAST-CALL) earned. 9th adoption (v2.5). |
 | D2 Spatial-Interaction Presence | 2 | 1.0 | 0 | 1 | **adopted** | T&E + Scythe earned. 10th adoption (v2.5). |
@@ -215,6 +215,7 @@ Columns: **Earned / Refuted / Contested / Ignored** counts are cumulative across
 
 ## Changelog
 
+- **v2.7.0** — 2026-04-19 — **UNFOLD (game #7) — first self-designed game reviewed by own pipeline.** 4 new adoptions (C1 Tension Budget, C3 Scarcity Bite, C6 Point-Salad, C7 Action-Menu Clarity). Pool at **15 adopted / 25 (60%)**. B6 SMD first earning ever (queued). Retirement queue cleared on C3. Chvátil anchor (B5) earned 3rd consecutive time. 6 adopted axes re-earned. 0 silent-retire (6 games running). 4 new innovations (I-unfold-01..04). **Concept→design→self-review workflow validated end-to-end.**
 - **v2.6.0** — 2026-04-19 — **Puerto Rico (game #6) completed.** First retirement event (**C5 Anti-Catch-up Pressure** — cumulative refute 3.0 across P+Scythe+PR). First new-axis adoption post-v2.0 bet: **B6 Scoring Multiplier Dependency** added to Pool from I-parliament-02 3-cluster. 4 first-earnings queued-for-adoption (C1, C3, B3, C7). Pool now **25 axes total, 24 active (C5 retired)**. Rosenberg gains B6 as primary advocate. Knizia's first fallback draft (A5). 5th consecutive 0% silent-retire.
 - **v2.5.0** — 2026-04-19 — **Scythe (game #5) completed.** 4 adoptions (A7, D1, D2, C4) bring Pool to 11 adopted axes / 24 (46%). First-ever drafts of A4, A5, B3 validated Vaccarino persona introduction. D3 queued-for-adoption. No retirements. 4 new innovations (I-scythe-01..04); I-parliament-02 Scoring Multiplier cluster strengthens to 2 instances. v2.3 anchor-adjacency GATE passed naturally (Stegmaier+K-K).
 - **v2.4.0** — 2026-04-19 — **Vaccarino persona added** (8th designer; resolves I-facets-03 + I-dominion-04). Primary advocate for A4 Variance Calibration, A5 Downtime-Pacing, B3 Conversion Chain Depth (previously never-drafted across 4 games). Panel now 8 designers; 8×3=24 drafts fully saturate the 24-axis Pool, ending the never-drafted pattern. Cycle 3 rate-limit consumed.

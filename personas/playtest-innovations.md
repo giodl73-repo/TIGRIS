@@ -190,15 +190,23 @@ Parliament (game #1) completed 2026-04-19. Four new innovations logged.
 
 ## Adopted axes (v2.x era)
 
-- **C2 Minimum-Score Shape → v2.2** — Knizia's anchor. Earned in Parliament (3 defends) + earned in T&E (LAST-CALL). First adoption event (2026-04-19).
-- **B4 Information-Transparency-Cost → v2.2** — Lacerda-primary. Earned in Parliament (1d+1cw) + earned in T&E (LAST-CALL). Second adoption event (2026-04-19).
-- **B5 Architectural Novelty → v2.3** — Chvátil-primary. Earned Parliament + Dominion (anchor). Third adoption (2026-04-19 Dominion).
-- **A6 Teachability → v2.3** — Stegmaier-primary. Earned FACETS + Dominion (LAST-CALL). Fourth adoption.
-- **A2 Decision Density → v2.3** — Feld-primary. Earned FACETS + Dominion (LAST-CALL). Fifth adoption.
-- **B1 System Gearing → v2.3** — Lacerda-primary. Earned T&E + Dominion (LAST-CALL). Sixth adoption.
-- **D4 Late-Game Lock-in Point → v2.3** — shared (Rosenberg/Lacerda). Earned FACETS + Dominion. Seventh adoption.
+- **C2 Minimum-Score Shape → v2.2** — Knizia's anchor. Earned Parliament + T&E. First adoption.
+- **B4 Information-Transparency-Cost → v2.2** — Lacerda-primary. Earned Parliament + T&E. Second adoption.
+- **B5 Architectural Novelty → v2.3** — Chvátil-primary. Earned Parliament + Dominion. Third adoption.
+- **A6 Teachability → v2.3** — Stegmaier-primary. Earned FACETS + Dominion. Fourth adoption.
+- **A2 Decision Density → v2.3** — Feld-primary. Earned FACETS + Dominion. Fifth adoption.
+- **B1 System Gearing → v2.3** — Lacerda-primary. Earned T&E + Dominion. Sixth adoption.
+- **D4 Late-Game Lock-in → v2.3** — Rosenberg/Lacerda. Earned FACETS + Dominion. Seventh adoption.
+- **A7 Emergence-Replayability → v2.5** — Lacerda-primary. Earned Dominion + Scythe. Eighth adoption.
+- **D1 Family-to-Expert Scaling → v2.5** — K-K-primary. Earned Dominion + Scythe. Ninth adoption.
+- **D2 Spatial-Interaction Presence → v2.5** — K-K-primary. Earned T&E + Scythe. Tenth adoption.
+- **C4 Engine-Garden Dependency → v2.5** — Rosenberg-primary. Earned Dominion + Scythe. Eleventh adoption (retirement reversal).
+- **C1 Tension Budget → v2.7** — Knizia-primary. Earned PR + UNFOLD. Twelfth adoption (dormant→recovered).
+- **C3 Scarcity Bite → v2.7** — Rosenberg-primary. Earned PR + UNFOLD. Thirteenth adoption (queued-for-retirement cleared).
+- **C6 Point-Salad Incommensurability → v2.7** — Feld-primary. Earned FACETS + UNFOLD. Fourteenth adoption (contested history resolved).
+- **C7 Action-Menu Clarity → v2.7** — K-K-primary. Earned PR + UNFOLD. Fifteenth adoption.
 
-Total adopted axes: **7 of 24 Pool** (29%). After 4 games.
+Total adopted axes: **15 of 25 Pool** (60%). After 7 games. Plus 1 retired (C5).
 
 ## Game #2 (T&E) innovations
 
@@ -328,7 +336,34 @@ Total adopted axes: **7 of 24 Pool** (29%). After 4 games.
 |---|---|---|
 | 1 (P → T&E) | I-parliament-01 (v2.1 FORCED-ENGAGEMENT) | 48% ignore rate in P |
 | 2 (FACETS → Dominion) | I-parliament-03 (v2.3 anchor-adjacency GATE) | 3 cluster instances + positive counter-example |
-| 3 (pre-Scythe) | **I-facets-03 + I-dominion-04 (v2.4 Vaccarino persona)** | 4 instances never-drafted + Dominion lens-gap |
+| 3 (pre-Scythe) | I-facets-03 + I-dominion-04 (v2.4 Vaccarino persona) | 4 instances never-drafted + Dominion lens-gap |
+| 4 (PR) | I-parliament-02 (v2.6 B6 Scoring Multiplier Dependency new axis) | 3 cluster instances (P + Scythe + PR) |
+
+## UNFOLD (game #7) innovations
+
+### I-unfold-01 — Factory successfully reviews its own original design
+
+- **Trigger:** `factory_reviews_own_output`
+- **Source:** UNFOLD was designed BY TIGRIS (via concept→review→revise→design workflow) and reviewed BY the same pipeline. 4 adoptions, 11+ earned, 0 design-blocking issues.
+- **Status:** adopted (log entry) — strongest bet-validation signal to date.
+
+### I-unfold-02 — Collision tiebreak by earlier-drafted axis
+
+- **Trigger:** `collision_tiebreak_earlier_draft`
+- **Source:** UNFOLD B5 ↔ A7 tied 3-3; resolved per rule. First instance.
+- **Status:** observational.
+
+### I-unfold-03 — Re-earning adopted axes as secondary metric
+
+- **Trigger:** `adopted_axis_multiple_reearns`
+- **Source:** 6 adopted axes re-earned in UNFOLD (B5, B1, A7, A2, D4, D2).
+- **Status:** observational — suggests tracking "times-earned-after-adoption" for future ledger metrics.
+
+### I-unfold-04 — 4-adoption events in one session (pattern)
+
+- **Trigger:** `multi_adoption_event`
+- **Source:** UNFOLD (matches Dominion and Scythe).
+- **Status:** observational — cultural-structure games (4-culture UNFOLD) produce Band-C adoption bursts.
 
 ## Bet version history
 
