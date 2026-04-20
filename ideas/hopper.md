@@ -70,10 +70,10 @@ Last assigned ID: HOP-006.
 - **Anchor guess:** rosenberg / C3 Scarcity Bite
 - **Sources:** mashup (M-001 Deck-building × conservation); gap (nature theme underweight in corpus — Wingspan is the only nature game; Rosenberg's C3 territory extended outside farming)
 - **Tension hypothesis:** Rosenberg defends C3 — wildlife cards are genuinely scarce (riverboard has 5 face-up slots for 4 players) and industrial-removal has real cost (each removed card loses its gold-generation). Vaccarino tests C4 Engine-Garden — is "un-building" still engine-garden? Chvátil attacks on B5 Architectural Novelty — deck-subtraction is not new (Trash-for-benefit cards exist in Dominion). Primary predicted collision: **C3 ↔ C4** — is the game about scarcity of wildlife or about the inverted engine shape?
-- **Status:** fresh
+- **Status:** consumed
 - **Created:** 2026-04-20
 - **Updated:** 2026-04-20
-- **Notes:**
+- **Notes:** consumed by games/0021-rewild/ (2026-04-20); redesigned with **A7 counter-pressure secondary focus** for v2.18 retirement-reversal trigger (paired with Covenstat as 2nd different counter-pressure game for A7)
 
 ### HOP-005 — Nest
 - **One-liner:** A 2-4 player tile-laying game about a family's life across 30 years. Each turn players place a polyomino "decision tile" on a personal life-board: marriage, child, career-change, move. Once placed, tiles are locked — no overlap, no removal. Scoring fires at ages 30 / 50 / 70, each with a different rubric (stability / family-density / legacy) that rewards and punishes different tile-adjacencies. Brass-level irreversibility at domestic scale.
