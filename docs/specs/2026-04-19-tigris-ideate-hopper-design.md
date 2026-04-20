@@ -1,13 +1,14 @@
 ---
 name: TIGRIS Ideate-Hopper
 slug: tigris-ideate-hopper-design
-version: 1.0.0
+version: 1.1.0
 rubric_version: v2.15
 bet_version: parliament
 author: TIGRIS (human + claude co-design)
 created: 2026-04-19
-updated: 2026-04-19
-sources: []
+updated: 2026-04-20
+sources:
+  - docs/specs/reviews/2026-04-19-ideate-hopper/review.md (Parliament meta-review)
 ---
 
 # TIGRIS Ideate-Hopper — Design (v1.0)
@@ -135,7 +136,8 @@ Generator output queue. Each entry:
 
 1. **Read** pool files (primitives, mashups, gaps, frustrations), `personas/axis-pool.md` (for ledger state), `personas/playtest-innovations.md` (for mining), and existing `ideas/hopper.md` (for dedup).
 2. **For each candidate:**
-   - Select source(s) from `--sources` (uniform random across the chosen list; each candidate uses 1-2 sources).
+   - Select source(s) from `--sources`. Sampling is **LLM-judgment-based** (the skill reads the pools and the skill-running LLM chooses source and entries based on its read of the current session — not pseudorandom). This is not reproducible run-to-run; repeat invocations should produce *different* candidates. If deterministic selection is ever needed, add `--seed <hash>` as a v1.2 flag.
+   - Each candidate uses 1-2 sources to keep pitches coherent.
    - **Mashup**: pick a pre-seeded pair from `mashups.md` (distinct from **Primitives** source, which creates fresh pairings from `primitives.md` atoms).
    - **Gap**: pick a gap from gaps.md; design to fill it.
    - **Mining**: pick an observational or candidate innovation from the log; turn the observation into a design prompt.
@@ -149,6 +151,30 @@ Generator output queue. Each entry:
 ### Write discipline
 
 `/tigris-ideate` writes ONLY to `ideas/hopper.md`. Never modifies pools. Pools are stable knowledge base.
+
+## Failure modes
+
+Per Parliament review (Feld B2 refute), enumerate explicitly:
+
+- **Empty pool**: source is skipped for this run. Skill continues with remaining sources.
+- **All pools empty OR all below minimum sizes**: skill errors with message pointing to `ideas/README.md` bootstrap steps.
+- **Near-duplicate candidate** (same title OR same anchor+sources as a hopper entry from the last 20): skill regenerates up to 3 attempts; if all 3 attempts collide, skill emits the candidate with a `near-duplicate-warning` note in the hopper entry.
+- **Stale `gaps.md`**: skill cannot detect staleness. User responsibility to refresh manually. Documented as known limitation. Future: add `--refresh-gaps` flag (deferred to v1.2).
+
+## Minimum-viable pool sizes
+
+Per Parliament review (Stegmaier A6 refute — bootstrap burden), skill functions on partial seeds:
+
+| Pool | Minimum for skill to read | Notes |
+|---|---:|---|
+| primitives.md | 10 entries | Below → source "primitives" skipped |
+| mashups.md | 5 entries | Below → source "mashup" skipped |
+| gaps.md | 1 section with ≥ 1 entry | Below → source "gap" skipped |
+| frustrations.md | 0 (may be empty) | Skill treats empty as dropped source |
+
+At least 1 source must meet its minimum for skill to run. Minimum-viable bootstrap:
+- 10 primitives + 5 mashups = ~15 entries (instead of ~85-95 full seed).
+- Skill works. Full seed is an ongoing curation goal, not a launch blocker.
 
 ## Lifecycle
 
@@ -179,7 +205,7 @@ Generator output queue. Each entry:
 
 ### Archive
 
-When `hopper.md` exceeds ~200 entries, retired entries migrate to `ideas/hopper-archive.md` by manual housekeeping. YAGNI auto-archive.
+Archive is out-of-scope for v1.0 (per Parliament A-spec-1.1-04 observational). If `hopper.md` grows unwieldy, handle manually at that time. No automatic threshold.
 
 ## Initial bootstrap
 
@@ -214,6 +240,7 @@ As part of implementing this design:
 2. **Rating system**? Current plan: none. Future option: promoted entries accumulate notes / half-page sketches. Deferred.
 3. **Cross-hopper cadence**? Current plan: on-demand only. Future option: scheduled generation. YAGNI.
 4. **Hopper-to-mashup feedback**? When a consumed game is interesting, does its mashup get promoted into mashups.md for re-use? Deferred; observational only.
+5. **Frustrations-pool decay watch** (Parliament A-spec-1.1-05 observational): hand-curated logs tend to be abandoned. If `frustrations.md` sits unchanged for 10+ games, revisit: drop the source OR add auto-scraping (v1.2+).
 
 ## Non-goals
 
@@ -224,4 +251,9 @@ As part of implementing this design:
 
 ## Changelog
 
+- **v1.1.0** (2026-04-20) — Parliament review applied. 3 amendments:
+  - A-spec-1.1-01: randomness source declared (LLM-judgment-based; not reproducible by design).
+  - A-spec-1.1-02: minimum-viable pool sizes (skill runs on ~15-entry seed, not ~85-95).
+  - A-spec-1.1-03: §Failure modes enumerated (empty pool, all-empty, near-duplicate, stale gaps).
+  - Plus: hopper-archive YAGNI'd (200-threshold dead text removed); frustrations-decay-watch added to open questions.
 - **v1.0.0** (2026-04-19) — initial design; hybrid 5-pool + 1-skill architecture adopted after brainstorming.
