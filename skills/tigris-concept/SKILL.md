@@ -32,6 +32,18 @@ Claude: [determines next game number by scanning games/ dir]
 
 ## Procedure
 
+### Step 0 — Optional hopper seed
+
+If the skill is invoked with a `HOP-NNN` argument (e.g., `/tigris-concept HOP-007`):
+
+1. Read `ideas/hopper.md`. Locate the entry with matching `HOP-NNN`.
+2. If entry not found, error: "HOP-NNN not found in ideas/hopper.md."
+3. If entry status is not `promoted`, error: "HOP-NNN status is `<status>`, must be `promoted` before consuming."
+4. Extract from entry: `one-liner` → premise seed; `anchor guess` → anchor-persona + anchor-axis defaults; `tension hypothesis` → target-review-section seed.
+5. Continue to Step 1 with these values pre-filled; user can override.
+
+If no `HOP-NNN` argument, proceed to Step 1 with no seed.
+
 ### Step 1 — Determine game number
 
 Scan `games/` directory. Pick next `NNNN` (e.g., 0003 if 0001 and 0002 exist). Create `games/NNNN-<slug>/` if not exists.
@@ -119,6 +131,17 @@ Report to user:
 - Anchor declaration (persona + axis)
 - Any warnings (queued-for-retirement axis, missing adjacency partner)
 - Next step: run `/tigris-design` to author rules
+
+### Step 6 — Mark hopper entry consumed (if seeded from HOP-NNN)
+
+If Step 0 loaded a HOP-NNN entry:
+
+1. Edit the hopper entry in `ideas/hopper.md`:
+   - Change `Status: promoted` → `Status: consumed`
+   - Update `Updated: <today's date>`
+   - Append to `Notes`: `consumed by games/NNNN-<slug>/`
+
+2. Commit hopper update together with the new concept.md in a single commit.
 
 ## Invariants
 
