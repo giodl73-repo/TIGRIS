@@ -117,7 +117,7 @@ A **bet change** is larger than an amendment. It restructures the architectural 
 - **Source:** v1.0 panel
 - **Supporting voices:** Kramer-Kiesling, Stegmaier (2)
 - **Scope:** universal
-- **Status:** adopted (2026-04-19) — v2.0 spec §3 contains sibling-repo glossary. `skills/tigris-panel/SKILL.md` now opens with a 60-second quickstart. Standard extends to future SKILL.md files.
+- **Status:** adopted (2026-04-19) — v2.0 spec §3 contains sibling-repo glossary. `.claude/skills/tigris-panel/SKILL.md` now opens with a 60-second quickstart. Standard extends to future SKILL.md files.
 
 ### I-spec-v1-08 — Dead-stage retrospective (A9)
 

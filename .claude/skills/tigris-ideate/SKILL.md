@@ -126,4 +126,4 @@ Report to user:
 
 - Spec: `docs/specs/2026-04-19-tigris-ideate-hopper-design.md`
 - Parliament review: `docs/specs/reviews/2026-04-19-ideate-hopper/review.md`
-- Companion skill: `skills/tigris-concept/SKILL.md` (accepts `HOP-NNN`)
+- Companion skill: `.claude/skills/tigris-concept/SKILL.md` (accepts `HOP-NNN`)

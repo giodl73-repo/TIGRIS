@@ -30,7 +30,7 @@ Executes the three-phase Parliament procedure defined in `docs/specs/2026-04-19-
 Two modes:
 
 - **game-review** — artifact is under `games/NNNN-<slug>/`; full roster (7 designers + optional 5 lenses); output under `games/<slug>/`.
-- **spec-review** — artifact is under `docs/specs/` or `personas/` or `skills/`; designers only (lenses don't parliament on processes); output under `docs/specs/reviews/<artifact-slug>/` with the same Parliament shape.
+- **spec-review** — artifact is under `docs/specs/` or `personas/` or `.claude/skills/`; designers only (lenses don't parliament on processes); output under `docs/specs/reviews/<artifact-slug>/` with the same Parliament shape.
 
 ## Preconditions
 

@@ -71,7 +71,7 @@ Adjacency partner: **C7 Action-Menu Clarity** (K-K cross-player) — closely rel
 
 ### Round 1 — the skill-registration gap
 
-- **Lacerda (B1) attacks**: "Task 7 creates `skills/tigris-ideate/SKILL.md`. But plan never says 'now Claude Code discovers the new skill.' Is there a registration step? A restart? An import? Plan assumes auto-discovery but doesn't declare it. Refute."
+- **Lacerda (B1) attacks**: "Task 7 creates `.claude/skills/tigris-ideate/SKILL.md`. But plan never says 'now Claude Code discovers the new skill.' Is there a registration step? A restart? An import? Plan assumes auto-discovery but doesn't declare it. Refute."
 - **Rosenberg defends weakly**: "TIGRIS convention — existing skills in `skills/` are auto-discovered. Implicit."
 - **Stegmaier (anchor) concedes**: "Implicit isn't good enough for a plan targeted at 'engineer with zero context.' Plan should state the discovery assumption."
 - **Vote**: Lacerda → refute; Stegmaier → refute; K-K → refute; Feld → refute; Rosenberg → defense; Chvátil → neutral; Vaccarino → refute; Knizia → neutral.
@@ -79,7 +79,7 @@ Adjacency partner: **C7 Action-Menu Clarity** (K-K cross-player) — closely rel
 
 ### Round 2 — the read-before-edit gap (Task 8)
 
-- **K-K (D1) attacks**: "Task 8 Step 2 says 'Find this block / Replace with.' But the Edit tool REQUIRES the engineer to have Read the file first (that's a tool contract, not optional). Plan doesn't include a 'Step 1: Read skills/tigris-concept/SKILL.md to refresh exact strings.' A fresh engineer will try the Edit and fail with 'file not read' error. Refute."
+- **K-K (D1) attacks**: "Task 8 Step 2 says 'Find this block / Replace with.' But the Edit tool REQUIRES the engineer to have Read the file first (that's a tool contract, not optional). Plan doesn't include a 'Step 1: Read .claude/skills/tigris-concept/SKILL.md to refresh exact strings.' A fresh engineer will try the Edit and fail with 'file not read' error. Refute."
 - **Stegmaier (A6 anchor) agrees**: "Teachability refute compounds here — plan teaches an engineer to fail on first try."
 - **Vote**: K-K → refute; Stegmaier → refute; Lacerda → refute; Feld → neutral; others → partial.
 - **Result: 3-0-5 leaning refute. D1 soft-refute. Amendment required.**
@@ -135,7 +135,7 @@ All N/A-to-plan axes. Adopted preservations +0.5r each.
 ### A-plan-1.1-01 — Declare skill discovery assumption
 
 Add to plan header or Task 7 intro:
-> Claude Code auto-discovers skills placed in `skills/<skill-name>/SKILL.md`. No registration step is required; after commit, invoke with `/tigris-ideate` and Claude Code will recognize the skill on next session. If not discovered in the same session, restart the session.
+> Claude Code auto-discovers skills placed in `.claude/skills/<skill-name>/SKILL.md` (project-local) or `~/.claude/skills/<skill-name>/SKILL.md` (user-level). Skills at a non-`.claude/` path are **not** discovered. After commit, invoke with `/tigris-ideate` and Claude Code will recognize the skill (live-change detection typically applies within the current session).
 
 ### A-plan-1.1-02 — Add Read-before-Edit step in Task 8
 
@@ -143,7 +143,7 @@ Insert new Step 0 at start of Task 8:
 ```
 - [ ] **Step 0: Read the current skill file**
 
-Run: Read `skills/tigris-concept/SKILL.md`
+Run: Read `.claude/skills/tigris-concept/SKILL.md`
 Expected: current content matches the blocks referenced in Steps 2 and 3. If the file has drifted from the plan's expected blocks, adjust the `old_string` arguments accordingly.
 ```
 

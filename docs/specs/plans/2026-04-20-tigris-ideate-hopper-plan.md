@@ -18,7 +18,7 @@
 
 ## Skill discovery assumption (per A-plan-1.1-01)
 
-Claude Code auto-discovers skills placed in `skills/<skill-name>/SKILL.md`. No registration step is required. After Task 7 commits `skills/tigris-ideate/SKILL.md`, invoke with `/tigris-ideate` and Claude Code will recognize the skill on the next session. **If the skill isn't discovered in the same session where it was written, restart the session before running Task 9.**
+Claude Code auto-discovers skills placed in `.claude/skills/<skill-name>/SKILL.md` (project-local) or `~/.claude/skills/<skill-name>/SKILL.md` (user-level). Skills at a non-`.claude/` path (e.g., repo-root `skills/`) are **not** discovered. No registration step is required for correctly-placed skills. After Task 7 commits `.claude/skills/tigris-ideate/SKILL.md`, invoke with `/tigris-ideate` and Claude Code will recognize the skill on the next session. **If the skill isn't discovered in the same session where it was written, restart the session before running Task 9.**
 
 ---
 
@@ -31,10 +31,10 @@ Claude Code auto-discovers skills placed in `skills/<skill-name>/SKILL.md`. No r
 - `ideas/gaps.md` — populated from current TIGRIS state (axis-pool.md + review record + BGG Top 100 scan)
 - `ideas/frustrations.md` — empty schema header
 - `ideas/hopper.md` — empty schema header
-- `skills/tigris-ideate/SKILL.md` — the `/tigris-ideate` skill definition
+- `.claude/skills/tigris-ideate/SKILL.md` — the `/tigris-ideate` skill definition
 
 **Modify:**
-- `skills/tigris-concept/SKILL.md` — add `HOP-NNN` argument handling (Step 0 pre-scan and post-creation hopper mark-consumed)
+- `.claude/skills/tigris-concept/SKILL.md` — add `HOP-NNN` argument handling (Step 0 pre-scan and post-creation hopper mark-consumed)
 
 **Rationale:** 5-pool separation matches 5 source types per spec §Architecture. Each file has one clear responsibility. Pools are read-only from the skill's perspective; `hopper.md` is the only write target (§Write discipline).
 
@@ -558,16 +558,16 @@ git commit -m "ideate-hopper: initialize hopper.md with empty schema + counter"
 
 ---
 
-## Task 7: Write `skills/tigris-ideate/SKILL.md`
+## Task 7: Write `.claude/skills/tigris-ideate/SKILL.md`
 
 **Files:**
-- Create: `skills/tigris-ideate/SKILL.md`
+- Create: `.claude/skills/tigris-ideate/SKILL.md`
 
 - [ ] **Step 1: Create skill directory**
 
-Run: `mkdir -p skills/tigris-ideate`
+Run: `mkdir -p .claude/skills/tigris-ideate`
 
-- [ ] **Step 2: Write `skills/tigris-ideate/SKILL.md`**
+- [ ] **Step 2: Write `.claude/skills/tigris-ideate/SKILL.md`**
 
 ```markdown
 ---
@@ -698,26 +698,26 @@ Report to user:
 
 - Spec: `docs/specs/2026-04-19-tigris-ideate-hopper-design.md`
 - Parliament review: `docs/specs/reviews/2026-04-19-ideate-hopper/review.md`
-- Companion skill: `skills/tigris-concept/SKILL.md` (accepts `HOP-NNN`)
+- Companion skill: `.claude/skills/tigris-concept/SKILL.md` (accepts `HOP-NNN`)
 ```
 
 - [ ] **Step 3: Commit**
 
 ```bash
-git add skills/tigris-ideate/SKILL.md
+git add .claude/skills/tigris-ideate/SKILL.md
 git commit -m "ideate-hopper: write /tigris-ideate skill v1.1"
 ```
 
 ---
 
-## Task 8: Modify `skills/tigris-concept/SKILL.md` to accept `HOP-NNN`
+## Task 8: Modify `.claude/skills/tigris-concept/SKILL.md` to accept `HOP-NNN`
 
 **Files:**
-- Modify: `skills/tigris-concept/SKILL.md` (add Step 0 before Step 1; add post-creation hopper-mark)
+- Modify: `.claude/skills/tigris-concept/SKILL.md` (add Step 0 before Step 1; add post-creation hopper-mark)
 
 - [ ] **Step 0: Read the current skill file (per A-plan-1.1-02)**
 
-Run: Read `skills/tigris-concept/SKILL.md` end-to-end.
+Run: Read `.claude/skills/tigris-concept/SKILL.md` end-to-end.
 
 Expected: current content matches the blocks referenced in Steps 2 and 3 below. If the file has drifted from the plan's expected blocks (e.g., headings renamed, step numbers shifted), adjust the `old_string` arguments in Steps 2-3 accordingly before invoking Edit. Edit tool requires the file to be Read first — skipping this step will fail.
 
@@ -725,7 +725,7 @@ Expected: current content matches the blocks referenced in Steps 2 and 3 below. 
 
 Insert a new "Step 0 — Optional hopper seed" before existing Step 1, and a new "Step 6 — Mark hopper entry consumed (if seeded from HOP-NNN)" after existing Step 5.
 
-- [ ] **Step 2: Edit `skills/tigris-concept/SKILL.md` — add Step 0**
+- [ ] **Step 2: Edit `.claude/skills/tigris-concept/SKILL.md` — add Step 0**
 
 Find this block (starts around line 34):
 
@@ -755,7 +755,7 @@ If no `HOP-NNN` argument, proceed to Step 1 with no seed.
 ### Step 1 — Determine game number
 ```
 
-- [ ] **Step 3: Edit `skills/tigris-concept/SKILL.md` — add Step 6**
+- [ ] **Step 3: Edit `.claude/skills/tigris-concept/SKILL.md` — add Step 6**
 
 Find this block (near line 116):
 
@@ -798,16 +798,16 @@ If Step 0 loaded a HOP-NNN entry:
 
 - [ ] **Step 4: Verify the edits**
 
-Run: `grep -n "Step 0 — Optional hopper seed" skills/tigris-concept/SKILL.md`
+Run: `grep -n "Step 0 — Optional hopper seed" .claude/skills/tigris-concept/SKILL.md`
 Expected: line number around 37.
 
-Run: `grep -n "Step 6 — Mark hopper entry consumed" skills/tigris-concept/SKILL.md`
+Run: `grep -n "Step 6 — Mark hopper entry consumed" .claude/skills/tigris-concept/SKILL.md`
 Expected: line number around 125.
 
 - [ ] **Step 5: Commit**
 
 ```bash
-git add skills/tigris-concept/SKILL.md
+git add .claude/skills/tigris-concept/SKILL.md
 git commit -m "tigris-concept: accept HOP-NNN argument for hopper-seeded concepts"
 ```
 

@@ -18,7 +18,7 @@ The first game TIGRIS produces is **Parliament** — a 3–4 player, 45–60 min
   - `reviews/2026-04-19-tigris-design/` — the v1.0 panel review that triggered the v2.0 bet
 - **`personas/`** — 7 designers + 5 player lenses + axis-pool + rubric + innovation log
 - **`games/`** — one numbered dir per game; `0001-parliament/` is anchor #1
-- **`skills/`** — Claude Code skills executing the pipeline (`tigris-panel` is Phase 1's only skill)
+- **`.claude/skills/`** — Claude Code skills executing the pipeline (`tigris-panel`, `tigris-concept`, `tigris-design`, `tigris-amendment`, `tigris-ideate`). Must live here for CC discovery.
 - **`CLAUDE.md`** — house rules, frontmatter contract, forbidden vocabulary
 
 ## The pipeline (v2.0 Parliament-shape)
