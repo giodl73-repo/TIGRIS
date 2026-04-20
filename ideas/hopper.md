@@ -50,10 +50,10 @@ Last assigned ID: HOP-006.
 - **Anchor guess:** stegmaier / A6 Teachability
 - **Sources:** gap (horror domain = 0 coverage in TIGRIS corpus; Stegmaier most-overdue for own-anchor); primitives (P-004 Horror + P-013 Simultaneous action + P-015 Hidden role)
 - **Tension hypothesis:** Stegmaier defends A6 — Stonemaier-house teachability on a layered cooperative+traitor shell. Chvátil attacks on A3 Interaction — is the hidden traitor actually interactive or does it collapse into suspicion-hunting with no real influence? Feld earns B2 Catastrophe Pressure canonically via monster escalation. Primary predicted collision: **A6 ↔ A3** — teachable traitor games may trade interaction depth for learn-time.
-- **Status:** fresh
+- **Status:** consumed
 - **Created:** 2026-04-20
 - **Updated:** 2026-04-20
-- **Notes:**
+- **Notes:** consumed by games/0018-vigil/ (2026-04-20)
 
 ### HOP-003 — Covenstat
 - **One-liner:** Horror investigators track private sanity + evidence on personal roll-and-write sheets. A central dice pool is rolled each round; all players interpret the same dice against private objectives. No solved strategy can dominate because objective-deal + dice permutations drive wildly divergent optimal plays — the Halifax Hammer is precluded by structural variance.
