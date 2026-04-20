@@ -248,7 +248,7 @@ Parliament (game #1) completed 2026-04-19. Four new innovations logged.
 
 - **C8 First-Turn Compression → v2.14** — Stegmaier-primary. Earned TS + AFoS. 24th adoption (**Band C fills**; dormancy-recovery pattern: 14 games silent → 2-game adoption via TS + AFoS).
 
-Total adopted axes: **24 of 25 Pool** (96%). After 17 games. Plus 1 retired (C5). **Zero unadopted live axes.** Pool closed. **Adopted-contested watch: 2 axes** — A3 Interaction (Wingspan self-refute by Chvátil) + A7 Emergence (AFoS Halifax Hammer). Both at 2E/1R. Next refute game for either triggers v2.14 A-v2.14-01 adopted-contested formal status. All bands fully adopted (A 7/7, B 6/6, C 7/8 with C5 retired, D 4/4).
+Total adopted axes: **24 of 25 Pool** (96%). After 18 games (15 reviews + 3 originals). Plus 1 retired (C5). **Zero unadopted live axes.** Pool closed. **Adopted-contested watch:** A3 Interaction at 3E/1R (Vigil counter-pressure defense succeeded — qualitatively reducing but formal refute weight unchanged), A7 Emergence at 2E/1R (stable; awaiting A7-targeted counter-pressure design — e.g., HOP-003 Covenstat in hopper). All bands fully adopted (A 7/7, B 6/6, C 7/8 with C5 retired, D 4/4).
 
 ## Game #2 (T&E) innovations
 
@@ -406,6 +406,52 @@ Total adopted axes: **24 of 25 Pool** (96%). After 17 games. Plus 1 retired (C5)
 - **Trigger:** `multi_adoption_event`
 - **Source:** UNFOLD (matches Dominion and Scythe).
 - **Status:** observational — cultural-structure games (4-culture UNFOLD) produce Band-C adoption bursts.
+
+## Vigil (game #18) innovations
+
+### I-vigil-01 — First successful counter-pressure defense of a contested-watch axis
+
+- **Dimension:** rubric meta
+- **Trigger pattern:** `counter_pressure_defense_success`
+- **Source:** games/0018-vigil/ (A3 Interaction earned 3rd canonical time via designed counter-pressure features)
+- **Supporting voices:** Chvátil (primary); Lacerda, Feld, K-K (collision vote)
+- **Scope:** universal
+- **Status:** adopted (log entry) — first positive instance of I-wingspan-04's predicted pattern
+- **Note:** Vigil was designed explicitly with A3 counter-pressure: mandatory 60-90s discussion phase, Clue milestone info-drops, suspicion-driven play adjustment. A3 earned canonically across 3 sessions. Pattern confirmed — ledger-aware design can strengthen contested-watch axes. Formal refute weight does NOT automatically decrease from positive earnings; qualitative recovery only.
+
+### I-vigil-02 — A6 ↔ C7 gear-lock adjacency confirmed
+
+- **Dimension:** adjacency chart
+- **Trigger pattern:** `new_adjacency_surfaced`
+- **Source:** Vigil collision 2; design §11 pre-declaration
+- **Supporting voices:** Stegmaier, K-K (self-observed); Feld, Lacerda (voted)
+- **Scope:** universal
+- **Status:** candidate → **adopted into adjacency log** (v2.16)
+- **Note:** When a game's action menu IS its teach mechanism, A6 Teachability and C7 Action-Menu Clarity gear together — not orthogonal. Observational log entry; future games in the "teach-via-icons" pattern should expect this adjacency.
+
+### I-vigil-03 — First TIGRIS original to anchor A6
+
+- **Dimension:** original-design corpus
+- **Trigger pattern:** `original_design_anchors_adopted_axis`
+- **Source:** Vigil concept-and-design pair
+- **Status:** adopted log entry
+- **Note:** TIGRIS has produced 3 originals anchoring 3 different adopted axes (UNFOLD C6, ZEN PATH C2, Vigil A6). Factory demonstrates capacity to produce originals targeting any adopted axis. A6 now has 2 canonical-reference games (Wingspan published, Vigil original).
+
+### I-vigil-04 — First hopper-consumed original (ideate-hopper pipeline validated end-to-end)
+
+- **Dimension:** pipeline architectural
+- **Trigger pattern:** `hopper_pipeline_validated`
+- **Source:** ideas/hopper.md HOP-002 → games/0018-vigil/
+- **Status:** adopted log entry
+- **Note:** First game seeded from the hopper. Flow: `/tigris-ideate` generated HOP-002 → user promoted → `/tigris-concept HOP-002` seeded concept.md with backlink → single-commit discipline held → concept → design → panel all ran cleanly. Ideate-hopper v1.0 fully validated through a real game.
+
+### I-vigil-05 — Mandatory-discussion mechanism as A3 defensive primitive
+
+- **Dimension:** design pattern
+- **Trigger pattern:** `mandatory_discussion_enforces_A3`
+- **Source:** Vigil design §4.6 + argument record
+- **Status:** observational
+- **Note:** 60-90s mandatory discussion phase per round proved load-bearing for A3 Interaction. Future originals defending A3 can use mandatory-discussion as a reusable design primitive. Candidate for future ideas/primitives.md table-dynamic entry.
 
 ## Wingspan (game #17) innovations
 
