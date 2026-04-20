@@ -25,29 +25,29 @@ Adopted axes with single-persona advocacy (no cross-persona canonical):
 
 ## Personas without recent anchor
 
-Looking at games 0013..0017 (last 5):
+Looking at games 0001..0017 anchor history (from `TRACKER.md`). Distinguishing **own-anchor** (designer anchors on their own published/original game) from **non-own-anchor** (designer anchors on another designer's game):
 
-- **Knizia** — last own-game anchor at Parliament (#1) and T&E (#2). Non-own anchor TS (#15 on C1). Ready for another own-or-non-own anchor.
-- **Feld** — last anchor CoB (#12). Open to new anchor.
-- **Lacerda** — last anchor Lisboa (#11). Open.
-- **Chvátil** — last anchor TtA (#8). Overdue.
-- **Rosenberg** — last anchor Agricola (#14). Recent.
-- **K-K** — last anchor Tikal (#13). Recent.
-- **Stegmaier** — last anchor Scythe (#5). Overdue (many non-anchor defends since).
-- **Vaccarino** — anchor at Famiglia (#9), AFoS (#16), Wingspan (#17). Saturated recently.
+- **Knizia** — own-anchor at T&E (#2). Non-own anchors at Puerto Rico (#6, C1 dormant-recovery) and Twilight Struggle (#15, C1 canonical). Active across 3 anchor events; ready for another anchor when topical.
+- **Feld** — own-anchor at FACETS (#3) + Castles of Burgundy (#12). Last anchor #12. Open for another.
+- **Lacerda** — own-anchor at Lisboa (#11). Open (6 games since).
+- **Chvátil** — own-anchor at UNFOLD (#7) + TtA (#8). Last anchor #8 (9 games since). Recent centrality via A3 self-refute at Wingspan (#17) keeps him engaged in Argument but not as anchor. **Overdue for another anchor.**
+- **Rosenberg** — own-anchor at Agricola (#14). Recent.
+- **K-K** — own-anchor at Tikal (#13). Recent.
+- **Stegmaier** — own-anchor at Scythe (#5). Last own-anchor 12 games ago. Signature axis C8 First-Turn Compression recently adopted (v2.14) via Stegmaier defenses in TS + AFoS, so Stegmaier has been mechanically active but not as anchor. **Most overdue for own-anchor.**
+- **Vaccarino** — own-anchor at Famiglia (#9, B3 signature on Friese game). Non-own anchors at AFoS (#16, C4) and Wingspan (#17, C4). Saturated recently on non-own anchors; rest for a few games before next Vaccarino anchor.
 
 **Most overdue for own-anchor: Stegmaier, Chvátil.**
 
 ## BGG Top 100 domains missing from TIGRIS corpus
 
-Per BGG Top 100 scan (commit 74571ab-adjacent analysis):
+Per BGG Top 100 domain analysis conducted during session 2026-04-20 (Rakowski scraper snapshot, approximately 2020-2022 data):
 
 - **Horror** — Nemesis, Eldritch Horror, Arkham LCG, Mansions of Madness, Kingdom Death. Count in corpus: 0.
 - **Dexterity / action** — Crokinole. Count: 0.
 - **Party / word** — Codenames, Decrypto. Count: 0.
 - **Legacy** — Pandemic Legacy S1/S2, Clank! Legacy. Count: 0.
 - **Hidden role** — Battlestar Galactica, Secret Hitler. Count: 0.
-- **Abstract strategy** — Azul, Patchwork, Go, Hive. Count: 0.
+- **Abstract strategy / pure tile-placement** — Azul, Patchwork, Go, Hive, Blokus. Count: 0 dedicated reviews. Note: Castles of Burgundy (#12) is tile-laying-adjacent but thematic, not pure abstract. A review of Azul-or-Patchwork-caliber abstract would close this gap cleanly.
 
 ## Mechanisms never in TIGRIS reviews
 
@@ -63,6 +63,6 @@ Per BGG Top 100 scan (commit 74571ab-adjacent analysis):
 Per v2.14 A-v2.14-01 amendment, axes at risk of adopted-contested status:
 
 - **A3 Interaction** — 2E/1R (Wingspan multiplayer-solitaire self-refute by Chvátil). Next refute game → adopted-contested formal.
-- **A7 Emergence-Replayability** — 2E/1R (AFoS Halifax Hammer refute by Lacerda). Next refute game → adopted-contested formal. Wingspan counter-defense earned but refute unchanged.
+- **A7 Emergence-Replayability** — 2E/1R (AFoS Halifax Hammer refute by Lacerda). Next refute game → adopted-contested formal. Note: A7 was cited defensively in Wingspan (170-bird counterweight argument) but no new A7 earning was recorded in the axis-pool ledger — A7 earned count stays at 2 (Dominion + Scythe).
 
 **Design opportunity**: a game that structurally *guarantees* interaction or emergence could be a counter-pressure review target.

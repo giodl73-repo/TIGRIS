@@ -40,7 +40,7 @@ Pre-seeded theme × mechanism (or dynamic × theme) pairs. Hand-curated. Distinc
 ### M-003 — Rondel × cosmic
 - **A:** rondel (P-009)
 - **B:** cosmic (P-002)
-- **Tension hypothesis:** Orbital mechanics as a rondel — each step forward costs fuel; planets align periodically. The rondel *is* the solar system.
+- **Tension hypothesis:** Orbital mechanics as a rondel. Tension: each rondel step costs fuel, but *skipping* positions costs more — mirrors gravity-assist vs direct-burn trade-off in real spaceflight. The player must commit to a trajectory that either rides the efficient rondel or pays upfront for a shortcut. Periodic planetary alignment windows create timing pressure (Gerdts's Concordia-style rhythm meets TS-style scoring-card-timing). Fails if the sidereal theme overwhelms the rondel's elegance.
 - **Source:** curator
 
 ### M-004 — Lock-in × domestic
