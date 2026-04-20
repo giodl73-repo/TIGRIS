@@ -80,7 +80,7 @@ For each candidate, increment the hopper counter in the frontmatter and write a 
 
 ```markdown
 ### HOP-<NNN> — <working title>
-- **One-liner:** <pitch>
+- **One-liner:** <2-3 sentence pitch>
 - **Anchor guess:** <persona>/<axis>
 - **Sources:** <source-type (source-entry-IDs)>; <source-type (source-entry-IDs)>
 - **Tension hypothesis:** <panel-argument prediction>
