@@ -6,6 +6,9 @@ Per-artifact pipeline state. Most recent rows on top.
 
 | Version | Date | Bet | Summary | Proposed by |
 |---|---|---|---|---|
+| **v2.10** | 2026-04-19 | parliament | **ZEN PATH (original #2)** — Knizia anchor earns 4th consecutive. **A1 Elegance adopted** (20th axis). **Pool at 80%**; Band B fully adopted (6/6). | ZEN PATH anchor review |
+| v2.9 | 2026-04-19 | parliament | **Famiglia (game #9; Friese, BGG 81453)** — Vaccarino first published-anchor. **A3 Interaction adopted** (19th axis). A1 + A5 first-earnings. 8 retire-explicits. Pool 76%. | Famiglia anchor review |
+| v2.8 | 2026-04-19 | parliament | **Through the Ages (game #8; Chvátil, BGG 182028)** — first Chvátil-on-Chvátil. **3 adoptions** (B2 salvage, B6 new-axis, B3 Vaccarino). Pool 72%. | TtA anchor review |
 | v2.7 | 2026-04-19 | parliament | **UNFOLD self-designed + self-reviewed.** 4 adoptions (C1, C3, C6, C7). Pool **15/25 (60%)** adopted. B6 first earning. Concept→design workflow validated. | UNFOLD anchor review |
 | v2.6 | 2026-04-19 | parliament | **First retirement** (C5 Anti-Catch-up). **First new-axis adoption** (B6 Scoring Multiplier Dependency from I-parliament-02 3-cluster). Pool: 25 axes, 24 active. | Puerto Rico anchor review |
 | v2.5 | 2026-04-19 | parliament | **4 adoptions** (A7, D1, D2, C4). Pool at 11/24 (46%). First A4/A5/B3 drafts. C4 retirement reversal permanent. | Scythe anchor review |
@@ -26,7 +29,13 @@ Per-artifact pipeline state. Most recent rows on top.
 | 0002-tigris-and-euphrates | **parliament-complete** | HANDOFF | v2.2 | 2026-04-19 | 5 / 1 / 2 | Anchor game #2 done. All 4 success criteria pass. 0% silent-retire (v2.1 fix validated). **Two adoptions**: C2 Min-Score, B4 Transparency-Cost. 3 queued-for-adoption, 3 queued-for-retirement. |
 | 0003-facets | **parliament-complete** | HANDOFF | v2.2.1 | 2026-04-19 | 5 / 1 / 3 | Game #3 (original). Feld-anchor jewel game with 6 incommensurable scoring functions. Criteria 1-3 pass; 4 fails transiently (0 adoptions this game). 0% silent-retire. 4 new axes queued-for-adoption (A6, A2, D4, C6). Skills /tigris-concept, /tigris-design, /tigris-amendment first-used. |
 | 0004-dominion | **parliament-complete** | HANDOFF | **v2.3** | 2026-04-19 | **8 / 0 / 3** | Game #4 (review). Chvátil-anchor. **Strongest review to date.** All 4 success criteria PASS. **5 adoptions**: B5 Architectural Novelty, A6 Teachability, A2 Decision Density, B1 System Gearing, D4 Late-Game Lock-in. **Retirement reversal**: C4 Engine-Garden. **Protocol amendment adopted**: I-parliament-03 (anchor-adjacency GATE). First cross-player anchor collision. |
-| 0005-scythe | *queued* | — | — | — | — | Anchor #5. Recommend adding Vaccarino persona before start. Tests I-parliament-02 (Scoring Multiplier); Stegmaier-on-Stegmaier. Likely adopts A7, D1, C4. |
+| 0005-scythe | **parliament-complete** | HANDOFF | v2.5 | 2026-04-19 | 9 / 0 / 2 | Game #5. Stegmaier anchor. **4 adoptions** (A7, D1, D2, C4). First Vaccarino-era game (v2.4). Pool at 46%. |
+| 0006-puerto-rico | **parliament-complete** | HANDOFF | v2.6 | 2026-04-19 | 10/1/1 | Knizia anchor on dormant C1. **First retirement (C5)**. **First new-axis adoption (B6 SMD)**. Pool 60%. BGG 3076. |
+| 0007-unfold | **parliament-complete** | HANDOFF | v2.7 | 2026-04-19 | 11+/0/2 | **TIGRIS original #1.** First self-designed + self-reviewed game. 4 adoptions (C1, C3, C6, C7). Pool 60%. |
+| 0008-through-the-ages | **parliament-complete** | HANDOFF | v2.8 | 2026-04-19 | 12/0/1 | Chvátil-on-Chvátil first anchor. 3 adoptions (B2 salvage, B6 new-axis, B3). Pool 72%. BGG 182028. |
+| 0009-famiglia | **parliament-complete** | HANDOFF | v2.9 | 2026-04-19 | 10/0/0 | Vaccarino first published-anchor (Friese). A3 adopted. A1+A5 first-earnings. Pool 76%. BGG 81453. |
+| 0010-zen-path | **parliament-complete** | HANDOFF | **v2.10** | 2026-04-19 | **10/0/1** | **TIGRIS original #2** (Chutes & Ladders × Samurai). Knizia-anchor on C2 (4th consecutive). A1 Elegance adopted (20th axis). Pool **80%**. Band B fully adopted. |
+| 0011-* | *queued* | — | — | — | — | Next: Lisboa/Kanban EV (Lacerda-on-Lacerda), Tikal (K-K-on-K-K), Castles of Burgundy (Feld-on-Feld), 3rd original, or physical playtest. |
 
 ## Meta-reviews (reviews of TIGRIS itself, not a game)
 
