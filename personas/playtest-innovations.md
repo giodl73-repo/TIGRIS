@@ -248,7 +248,7 @@ Parliament (game #1) completed 2026-04-19. Four new innovations logged.
 
 - **C8 First-Turn Compression → v2.14** — Stegmaier-primary. Earned TS + AFoS. 24th adoption (**Band C fills**; dormancy-recovery pattern: 14 games silent → 2-game adoption via TS + AFoS).
 
-Total adopted axes: **24 of 25 Pool** (96%). After 18 games (15 reviews + 3 originals). Plus 1 retired (C5). **Zero unadopted live axes.** Pool closed. **Adopted-contested watch:** A3 Interaction at 3E/1R (Vigil counter-pressure defense succeeded — qualitatively reducing but formal refute weight unchanged), A7 Emergence at 2E/1R (stable; awaiting A7-targeted counter-pressure design — e.g., HOP-003 Covenstat in hopper). All bands fully adopted (A 7/7, B 6/6, C 7/8 with C5 retired, D 4/4).
+Total adopted axes: **24 of 25 Pool** (96%). After 19 games (15 reviews + 4 originals). Plus 1 retired (C5). **Zero unadopted live axes.** Pool closed. **Both contested-watch axes qualitatively recovered via counter-pressure designs**: A3 Interaction 4E/1R (Vigil + Covenstat), A7 Emergence 4E/1R (Covenstat canonical x2). Formal refute weight unchanged on both per v2.14 A-v2.14-01 (retirement-reversal protocol pending for v2.18+). All bands fully adopted (A 7/7, B 6/6, C 7/8 with C5 retired, D 4/4).
 
 ## Game #2 (T&E) innovations
 
@@ -406,6 +406,64 @@ Total adopted axes: **24 of 25 Pool** (96%). After 18 games (15 reviews + 3 orig
 - **Trigger:** `multi_adoption_event`
 - **Source:** UNFOLD (matches Dominion and Scythe).
 - **Status:** observational — cultural-structure games (4-culture UNFOLD) produce Band-C adoption bursts.
+
+## Covenstat (game #19) innovations
+
+### I-covenstat-01 — Second successful counter-pressure defense (A7)
+
+- **Dimension:** rubric meta
+- **Trigger pattern:** `counter_pressure_defense_success`
+- **Source:** games/0019-covenstat/ (A7 earned canonical x2 via shared-dice / private-rubric 12-sheet catalog design)
+- **Supporting voices:** Lacerda (anchor); Vaccarino, Feld, Chvátil, K-K (collision vote)
+- **Scope:** universal
+- **Status:** adopted (log entry)
+- **Note:** Confirms I-vigil-01 pattern generalizes. Two successful counter-pressures across two different contested-watch axes (A3 via Vigil discussion; A7 via Covenstat catalog). Ledger-aware design is a stable TIGRIS practice.
+
+### I-covenstat-02 — A3 counter-pressure generalizes across mechanical contexts
+
+- **Dimension:** rubric meta
+- **Trigger pattern:** `counter_pressure_defense_generalizes`
+- **Source:** Vigil A3 (mandatory discussion) → Covenstat A3 (public-sheet draft-denial)
+- **Supporting voices:** Chvátil
+- **Status:** adopted (log entry)
+- **Note:** A3 earned in two different counter-pressure mechanics. Post-Wingspan refute effectively overridden qualitatively.
+
+### I-covenstat-03 — First A5 Downtime-Pacing retire-explicit
+
+- **Dimension:** pool dynamics
+- **Trigger pattern:** `adopted_axis_first_retire_explicit`
+- **Source:** Covenstat 5p clockwise-draft session
+- **Supporting voices:** Vaccarino (A5 primary; self-retire)
+- **Scope:** pool
+- **Status:** adopted (log entry)
+- **Note:** A5 has 3 prior earnings (Famiglia, Tikal-LAST-CALL, CoB) and many holds. Covenstat is the first design where A5 retire-explicit is honest-stake not defensive. Boundary condition surfaced: synchronous-draft at 5p threatens A5 even with simultaneous-marking mitigation.
+
+### I-covenstat-04 — A7 ↔ A4 gear-lock adjacency in roll-and-write
+
+- **Dimension:** adjacency chart
+- **Trigger pattern:** `new_adjacency_surfaced`
+- **Source:** Covenstat (Vaccarino A4 + Lacerda A7 canonical together)
+- **Supporting voices:** Lacerda, Vaccarino
+- **Scope:** universal (within roll-and-write subgenre)
+- **Status:** adopted log entry
+- **Note:** In roll-and-write designs with sheet-catalog variation, A7 Emergence and A4 Variance Calibration gear-lock. Parallels Vigil's A6↔C7 adjacency. Conditional adjacencies: axis pairs depend on mechanical subgenre.
+
+### I-covenstat-05 — Second consecutive hopper-consumed original; pipeline scales
+
+- **Dimension:** pipeline architectural
+- **Trigger pattern:** `hopper_pipeline_scales`
+- **Source:** HOP-002 → Vigil #18, HOP-003 → Covenstat #19
+- **Status:** adopted log entry
+- **Note:** 2-for-2 hopper→game conversion across consecutive game slots. 4 fresh candidates remain in hopper. Rate-limiting feasible: one hopper-original per 2-game cycle.
+
+### I-covenstat-06 — Dual-axis counter-pressure in single game
+
+- **Dimension:** rubric meta
+- **Trigger pattern:** `dual_counter_pressure`
+- **Source:** Covenstat single-game (A3 + A7 both reinforced)
+- **Scope:** observational
+- **Status:** observational
+- **Note:** Unprecedented — emergence-heavy + interaction-heavy game reinforces both A3 and A7 simultaneously. Future counter-pressure designs may bundle multiple contested axes.
 
 ## Vigil (game #18) innovations
 

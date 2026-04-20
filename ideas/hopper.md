@@ -60,10 +60,10 @@ Last assigned ID: HOP-006.
 - **Anchor guess:** lacerda / A7 Emergence-Replayability
 - **Sources:** mining (I-afos-02 dormant-axis-canonical-recovery pattern; A7 on adopted-contested-watch per gaps.md); mashup (M-002 Roll-and-write × horror)
 - **Tension hypothesis:** Lacerda defends A7 — designed as structural counter-pressure to the AFoS Halifax Hammer refute. If this earns, A7 gains positive weight and recedes from adopted-contested. Vaccarino earns A4 Variance Calibration (shared dice + private objectives). Chvátil tests A3 Interaction — does watching someone else's sheet matter if everyone works off the same dice? Primary predicted collision: **A7 defense vs A3 refute context** — can a game be strongly emergent AND strongly interactive, or must it choose?
-- **Status:** fresh
+- **Status:** consumed
 - **Created:** 2026-04-20
 - **Updated:** 2026-04-20
-- **Notes:**
+- **Notes:** consumed by games/0019-covenstat/ (2026-04-20); A7 counter-pressure test SUCCESSFUL (4E/1R)
 
 ### HOP-004 — Rewild
 - **One-liner:** A deck-builder where the engine is inversion. Each player starts with a fat deck of 15 "industrial" cards (roads, pipelines, clear-cuts); each turn you acquire wildlife from a public riverboard and **remove** industrial cards from your deck. End-score is habitat diversity × wildlife populations minus remaining industrial footprint. The build-smaller instinct fights Dominion-era reflex — discarding a +2 oil well hurts because its economy is gone too.
