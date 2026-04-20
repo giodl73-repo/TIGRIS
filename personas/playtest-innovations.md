@@ -248,7 +248,7 @@ Parliament (game #1) completed 2026-04-19. Four new innovations logged.
 
 - **C8 First-Turn Compression → v2.14** — Stegmaier-primary. Earned TS + AFoS. 24th adoption (**Band C fills**; dormancy-recovery pattern: 14 games silent → 2-game adoption via TS + AFoS).
 
-Total adopted axes: **24 of 25 Pool** (96%). After 19 games (15 reviews + 4 originals). Plus 1 retired (C5). **Zero unadopted live axes.** Pool closed. **Both contested-watch axes qualitatively recovered via counter-pressure designs**: A3 Interaction 4E/1R (Vigil + Covenstat), A7 Emergence 4E/1R (Covenstat canonical x2). Formal refute weight unchanged on both per v2.14 A-v2.14-01 (retirement-reversal protocol pending for v2.18+). All bands fully adopted (A 7/7, B 6/6, C 7/8 with C5 retired, D 4/4).
+Total adopted axes: **24 of 25 Pool** (96%). After 21 games (16 reviews + 5 originals). Plus 1 retired (C5). **Zero unadopted live axes. Zero contested-watch axes.** **Both previously-contested axes formally recovered via v2.18 retirement-reversal**: A3 Interaction 4E/0R (v2.18 Vigil+Covenstat), A7 Emergence-Replayability 8E/0R (v2.19 Covenstat+Rewild). Pool in healthiest state since v2.11. All bands fully adopted (A 7/7, B 6/6, C 7/8 with C5 retired, D 4/4).
 
 ## Game #2 (T&E) innovations
 
@@ -406,6 +406,50 @@ Total adopted axes: **24 of 25 Pool** (96%). After 19 games (15 reviews + 4 orig
 - **Trigger:** `multi_adoption_event`
 - **Source:** UNFOLD (matches Dominion and Scythe).
 - **Status:** observational — cultural-structure games (4-culture UNFOLD) produce Band-C adoption bursts.
+
+## Rewild (game #21) innovations
+
+### I-rewild-01 — Second A7 retirement-reversal trigger fires; A7 formally recovered
+
+- **Dimension:** rubric meta
+- **Trigger pattern:** `v218_retirement_reversal_trigger`
+- **Source:** Covenstat #19 (counter-pressure 1) + Rewild #21 (counter-pressure 2); both collision-vote confirmed
+- **Supporting voices:** Lacerda (A7 advocate across both)
+- **Scope:** universal (rubric meta)
+- **Status:** **ADOPTED v2.19** (retirement-reversal event logged)
+- **Note:** A7 refute-weight 1 → 0. Both previously-contested adopted axes (A3 via v2.18; A7 via v2.19) formally recovered. Complete end-to-end demonstration of v2.18 retirement-reversal protocol.
+
+### I-rewild-02 — 5th orthogonal-preservation collision; v2.20 formalization candidate
+
+- **Dimension:** argument protocol
+- **Trigger pattern:** `collision_orthogonal_preservation`
+- **Source:** Rewild C3↔C4 (5-2 OP)
+- **Supporting voices:** 5 of 8 personas
+- **Scope:** universal
+- **Status:** **candidate for v2.20 A-v2.20-01 formalization** — 5 OP-collisions (AFoS, Wingspan x2, Nemesis, Rewild). Pattern definitively stable.
+- **Note:** Formal amendment in next cycle: OP as recognized collision outcome in playtest-rubric.md.
+
+### I-rewild-03 — Third hopper-consumed original; pipeline at 3-for-3
+
+- **Dimension:** pipeline architectural
+- **Trigger pattern:** `hopper_pipeline_scales`
+- **Source:** HOP-004 → Rewild #21
+- **Status:** adopted log entry
+- **Note:** 3 consecutive hopper-consumed originals with no failures (Vigil HOP-002 → #18; Covenstat HOP-003 → #19; Rewild HOP-004 → #21). 3 fresh candidates remain.
+
+### I-rewild-04 — Deck-un-building as engine-garden inversion (C4 definition expanded)
+
+- **Dimension:** design pattern
+- **Trigger pattern:** `engine_garden_inversion`
+- **Source:** Vaccarino C4 canonical earning on deck-SUBTRACTION design
+- **Status:** observational (expands C4 definition)
+- **Note:** C4 Engine-Garden earned on a design where the engine shrinks. Expands definition: engine-garden is about *structure* (cards-and-relations), not *direction* (building up vs tearing down).
+
+### I-rewild-05 — Nature-theme corpus strengthened to 2
+
+- **Dimension:** corpus representativeness
+- **Status:** observational
+- **Note:** Wingspan #17 + Rewild #21 = 2 nature-theme games. Horror also at 2 (Vigil + Nemesis). Domestic, legacy, dexterity, party remain open.
 
 ## Nemesis (game #20) innovations
 
