@@ -15,7 +15,7 @@ updated: 2026-04-20
 
 ## Counter
 
-Last assigned ID: HOP-000 (no entries yet).
+Last assigned ID: HOP-003.
 
 ## Schema
 
@@ -34,3 +34,33 @@ Last assigned ID: HOP-000 (no entries yet).
 ## Entries
 
 <!-- /tigris-ideate appends below this line. -->
+
+### HOP-001 — Furrow
+- **One-liner:** A trick-taking game where each trick is a seasonal harvest round. Players lead with a card from hand (a crop variety); opponents follow-suit (same crop family) or trump (weather). Winner of the trick harvests; trump family rotates each season. The follow-suit obligation becomes planting priority — Knizian shape on Rosenbergian substrate.
+- **Anchor guess:** chvatil / B5 Architectural Novelty
+- **Sources:** mashup (M-005 Trick-taking × farming); gap (trick-taking mechanism never in TIGRIS reviews; Chvátil overdue for own-anchor, last was TtA #8)
+- **Tension hypothesis:** Chvátil defends B5 — trick-taking-as-farming-action-selection is architecturally novel in 2026 (Skull King-meets-Agricola). Knizia attacks on A1 Elegance — grafting trick-taking onto farming is inelegant if the two action-selection systems fight each other. Primary predicted collision: **B5 ↔ A1 orthogonal-preservation** — novel IS inelegant, both can stand.
+- **Status:** fresh
+- **Created:** 2026-04-20
+- **Updated:** 2026-04-20
+- **Notes:**
+
+### HOP-002 — Vigil
+- **One-liner:** Cooperative horror with one hidden traitor. Each round all players reveal action cards simultaneously (Investigate / Ward / Flee / Pray). The Monster resolves last based on what was revealed; the traitor plays to sabotage quietly. Teachable in 10 minutes despite the traitor layer because each action has a single icon-coded effect.
+- **Anchor guess:** stegmaier / A6 Teachability
+- **Sources:** gap (horror domain = 0 coverage in TIGRIS corpus; Stegmaier most-overdue for own-anchor); primitives (P-004 Horror + P-013 Simultaneous action + P-015 Hidden role)
+- **Tension hypothesis:** Stegmaier defends A6 — Stonemaier-house teachability on a layered cooperative+traitor shell. Chvátil attacks on A3 Interaction — is the hidden traitor actually interactive or does it collapse into suspicion-hunting with no real influence? Feld earns B2 Catastrophe Pressure canonically via monster escalation. Primary predicted collision: **A6 ↔ A3** — teachable traitor games may trade interaction depth for learn-time.
+- **Status:** fresh
+- **Created:** 2026-04-20
+- **Updated:** 2026-04-20
+- **Notes:**
+
+### HOP-003 — Covenstat
+- **One-liner:** Horror investigators track private sanity + evidence on personal roll-and-write sheets. A central dice pool is rolled each round; all players interpret the same dice against private objectives. No solved strategy can dominate because objective-deal + dice permutations drive wildly divergent optimal plays — the Halifax Hammer is precluded by structural variance.
+- **Anchor guess:** lacerda / A7 Emergence-Replayability
+- **Sources:** mining (I-afos-02 dormant-axis-canonical-recovery pattern; A7 on adopted-contested-watch per gaps.md); mashup (M-002 Roll-and-write × horror)
+- **Tension hypothesis:** Lacerda defends A7 — designed as structural counter-pressure to the AFoS Halifax Hammer refute. If this earns, A7 gains positive weight and recedes from adopted-contested. Vaccarino earns A4 Variance Calibration (shared dice + private objectives). Chvátil tests A3 Interaction — does watching someone else's sheet matter if everyone works off the same dice? Primary predicted collision: **A7 defense vs A3 refute context** — can a game be strongly emergent AND strongly interactive, or must it choose?
+- **Status:** fresh
+- **Created:** 2026-04-20
+- **Updated:** 2026-04-20
+- **Notes:**
