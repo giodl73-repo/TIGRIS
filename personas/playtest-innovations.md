@@ -407,6 +407,43 @@ Total adopted axes: **24 of 25 Pool** (96%). After 19 games (15 reviews + 4 orig
 - **Source:** UNFOLD (matches Dominion and Scythe).
 - **Status:** observational — cultural-structure games (4-culture UNFOLD) produce Band-C adoption bursts.
 
+## Nemesis (game #20) innovations
+
+### I-nemesis-01 — Horror corpus-gap closed
+
+- **Dimension:** corpus representativeness
+- **Trigger pattern:** `coverage_gap_closure`
+- **Source:** games/0020-nemesis/; BGG Top 100 scan
+- **Scope:** pipeline-architectural
+- **Status:** adopted log entry
+- **Note:** TIGRIS horror coverage now 2 (Vigil original, Nemesis review).
+
+### I-nemesis-02 — 4th orthogonal-preservation collision (B5↔A7)
+
+- **Dimension:** argument protocol
+- **Trigger pattern:** `collision_orthogonal_preservation`
+- **Source:** Nemesis (B5↔A7 8-0 unanimous)
+- **Supporting voices:** all 8 personas
+- **Scope:** universal
+- **Status:** **candidate for v2.19 protocol clarification** — 4 OP-collisions (AFoS, Wingspan x2, Nemesis). Pattern stable.
+- **Note:** When two stakes address genuinely orthogonal dimensions, collision votes preserve both. Formalizing in playtest-rubric.md as v2.19 amendment candidate.
+
+### I-nemesis-03 — Milestone game #20 corpus snapshot
+
+- **Dimension:** corpus architecture
+- **Trigger pattern:** `milestone_game_count`
+- **Status:** observational
+- **Note:** 16 reviews + 4 originals; 24/25 adopted; 4 non-own anchors; 17 consecutive 0-silent-retire; A3 formally recovered; A7 pending. Steady-state productive factory.
+
+### I-nemesis-04 — Review earnings don't trigger v2.18 counter-pressure
+
+- **Dimension:** rubric meta
+- **Trigger pattern:** `counter_pressure_scope_clarification`
+- **Source:** Nemesis A7 earning — ordinary re-earning; does not trigger retirement-reversal
+- **Scope:** universal
+- **Status:** observational clarification
+- **Note:** v2.18 A-v2.18-01 trigger scope is "designs specifically structured to counter the refute" — applies only to originals with explicit counter-pressure declaration. Reviews contribute ordinary earnings, not counter-pressure events.
+
 ## v2.18 Retirement-Reversal Protocol Amendment
 
 ### I-v218-01 — Retirement-reversal protocol adopted (A-v2.18-01)
