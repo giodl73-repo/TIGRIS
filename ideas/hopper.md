@@ -15,7 +15,7 @@ updated: 2026-04-20
 
 ## Counter
 
-Last assigned ID: HOP-003.
+Last assigned ID: HOP-006.
 
 ## Schema
 
@@ -60,6 +60,36 @@ Last assigned ID: HOP-003.
 - **Anchor guess:** lacerda / A7 Emergence-Replayability
 - **Sources:** mining (I-afos-02 dormant-axis-canonical-recovery pattern; A7 on adopted-contested-watch per gaps.md); mashup (M-002 Roll-and-write × horror)
 - **Tension hypothesis:** Lacerda defends A7 — designed as structural counter-pressure to the AFoS Halifax Hammer refute. If this earns, A7 gains positive weight and recedes from adopted-contested. Vaccarino earns A4 Variance Calibration (shared dice + private objectives). Chvátil tests A3 Interaction — does watching someone else's sheet matter if everyone works off the same dice? Primary predicted collision: **A7 defense vs A3 refute context** — can a game be strongly emergent AND strongly interactive, or must it choose?
+- **Status:** fresh
+- **Created:** 2026-04-20
+- **Updated:** 2026-04-20
+- **Notes:**
+
+### HOP-004 — Rewild
+- **One-liner:** A deck-builder where the engine is inversion. Each player starts with a fat deck of 15 "industrial" cards (roads, pipelines, clear-cuts); each turn you acquire wildlife from a public riverboard and **remove** industrial cards from your deck. End-score is habitat diversity × wildlife populations minus remaining industrial footprint. The build-smaller instinct fights Dominion-era reflex — discarding a +2 oil well hurts because its economy is gone too.
+- **Anchor guess:** rosenberg / C3 Scarcity Bite
+- **Sources:** mashup (M-001 Deck-building × conservation); gap (nature theme underweight in corpus — Wingspan is the only nature game; Rosenberg's C3 territory extended outside farming)
+- **Tension hypothesis:** Rosenberg defends C3 — wildlife cards are genuinely scarce (riverboard has 5 face-up slots for 4 players) and industrial-removal has real cost (each removed card loses its gold-generation). Vaccarino tests C4 Engine-Garden — is "un-building" still engine-garden? Chvátil attacks on B5 Architectural Novelty — deck-subtraction is not new (Trash-for-benefit cards exist in Dominion). Primary predicted collision: **C3 ↔ C4** — is the game about scarcity of wildlife or about the inverted engine shape?
+- **Status:** fresh
+- **Created:** 2026-04-20
+- **Updated:** 2026-04-20
+- **Notes:**
+
+### HOP-005 — Nest
+- **One-liner:** A 2-4 player tile-laying game about a family's life across 30 years. Each turn players place a polyomino "decision tile" on a personal life-board: marriage, child, career-change, move. Once placed, tiles are locked — no overlap, no removal. Scoring fires at ages 30 / 50 / 70, each with a different rubric (stability / family-density / legacy) that rewards and punishes different tile-adjacencies. Brass-level irreversibility at domestic scale.
+- **Anchor guess:** feld / C6 Point-Salad Incommensurability
+- **Sources:** mashup (M-004 Lock-in × domestic); primitives (P-008 Tile-laying + P-014 Lock-in + P-005 Domestic); gap (Feld open for anchor since CoB #12; domestic theme absent from TIGRIS corpus)
+- **Tension hypothesis:** Feld defends C6 — 3 scoring phases with incommensurable rubrics is canonical point-salad; age-50 "family density" cares about adjacent-child tiles; age-70 "legacy" cares about diagonal reach. Lacerda earns B1 System Gearing (adjacency + lock-in + phase-scoring gear together). Knizia attacks on A3 Interaction — is there enough inter-player influence, or is this multiplayer-solitaire on parallel life-boards? Primary predicted collision: **C6 ↔ A3** — domestic-scale Brass risks the Wingspan A3-refute pattern.
+- **Status:** fresh
+- **Created:** 2026-04-20
+- **Updated:** 2026-04-20
+- **Notes:**
+
+### HOP-006 — Hearth
+- **One-liner:** A 1-5 player legacy cooperative where the campaign IS the learn-cycle. Game 1 ships with 6 rules and a 30-minute play. Each subsequent game unlocks exactly 1 new rule and 1 new role. By game 8, full expert mode is available — teachable because players earned each rule in context. Interaction escalates with unlocks: game 1 has none, game 8 has reactive cascades. The legacy envelope IS the teach.
+- **Anchor guess:** stegmaier / A6 Teachability
+- **Sources:** mining (I-wingspan-02 canonical-reference-game-pattern — single game serving as reference for multiple axes); gap (legacy mechanism never in TIGRIS corpus; Stegmaier most-overdue for own-anchor)
+- **Tension hypothesis:** Stegmaier defends A6 — teach-by-legacy is arguably the strongest-possible A6 earning because each rule arrives with context it will immediately use. K-K earns D1 Family-to-Expert canonically (explicit family→expert progression baked into campaign structure). Chvátil attacks on A7 Emergence — if the game has a rigid unlock-sequence, does emergence survive or does everyone's game 3 look identical? Primary predicted collision: **A6 ↔ A7** — teachability-via-guided-unlock may cost emergence; unlike Wingspan, which earned both simultaneously.
 - **Status:** fresh
 - **Created:** 2026-04-20
 - **Updated:** 2026-04-20
