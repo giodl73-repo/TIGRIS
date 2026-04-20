@@ -94,7 +94,7 @@ With 8 designers × 3 drafts = 24 drafts vs 24-axis Pool, every axis gets advoca
   - `playtest-innovations.md` — append-only, `trigger_pattern` field
   - `forbidden-words.md` — vocabulary discipline
   - `designers/` + `player-lenses/` — persona files with preferred_axes
-- `skills/` — Claude Code skills (`tigris-panel` executes the full Parliament procedure in Phase 1)
+- `.claude/skills/` — Claude Code skills (`tigris-panel` executes the full Parliament procedure in Phase 1). Skills must live here (not at repo root) to be discovered by Claude Code.
 - `reference/` — cached rules, designer research
 - `scripts/` — seeded RNG
 

@@ -37,7 +37,7 @@ ideas/
 ```
 
 ```
-skills/tigris-ideate/
+.claude/skills/tigris-ideate/
   SKILL.md        — the /tigris-ideate skill definition
 ```
 
@@ -223,8 +223,8 @@ As part of implementing this design:
 5. Seed `frustrations.md` with ~10-15 entries (user-curated; can start with TIGRIS-internal observations).
 6. Write `ideas/README.md` with usage notes.
 7. Create empty `ideas/hopper.md` with schema header.
-8. Write `skills/tigris-ideate/SKILL.md`.
-9. Edit `skills/tigris-concept/SKILL.md` to accept `HOP-NNN` argument.
+8. Write `.claude/skills/tigris-ideate/SKILL.md`.
+9. Edit `.claude/skills/tigris-concept/SKILL.md` to accept `HOP-NNN` argument.
 
 ## Success criteria for v1.0 release
 
@@ -251,6 +251,7 @@ As part of implementing this design:
 
 ## Changelog
 
+- **v1.1.1** (2026-04-20) — Skill path correction. All TIGRIS skills moved from `skills/<name>/SKILL.md` (non-discoverable) to `.claude/skills/<name>/SKILL.md` (Claude Code auto-discovery path). References across spec, plan, review, skill files, README, and CLAUDE.md updated. Pre-existing TIGRIS skills (tigris-concept, tigris-design, tigris-amendment, tigris-panel) also relocated in the same commit. No behavior change — skill content unchanged.
 - **v1.1.0** (2026-04-20) — Parliament review applied. 3 amendments:
   - A-spec-1.1-01: randomness source declared (LLM-judgment-based; not reproducible by design).
   - A-spec-1.1-02: minimum-viable pool sizes (skill runs on ~15-entry seed, not ~85-95).

@@ -51,9 +51,9 @@ The following plan Task 10 steps require the `/tigris-ideate` skill to be live i
 
 If post-restart invocation reveals defects:
 
-- **Skill not discovered** → check `skills/tigris-ideate/SKILL.md` path + frontmatter; verify no typo in `name: tigris-ideate`.
+- **Skill not discovered** → check `.claude/skills/tigris-ideate/SKILL.md` path + frontmatter; verify no typo in `name: tigris-ideate`.
 - **Error on empty pool** → check SKILL.md §Preconditions wording; may need a regression fix.
-- **`/tigris-concept HOP-NNN` doesn't find entry** → check updated `skills/tigris-concept/SKILL.md` Step 0 logic; commit `61fb248`.
+- **`/tigris-concept HOP-NNN` doesn't find entry** → check updated `.claude/skills/tigris-concept/SKILL.md` Step 0 logic; commit `61fb248`.
 - **Single-commit discipline violated** → Step 6 of updated `/tigris-concept` needs tightening.
 
 Any defect surfaced during deferred tests should be logged as a follow-up amendment to the plan or spec (not silently patched).
