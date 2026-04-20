@@ -248,7 +248,7 @@ Parliament (game #1) completed 2026-04-19. Four new innovations logged.
 
 - **C8 First-Turn Compression → v2.14** — Stegmaier-primary. Earned TS + AFoS. 24th adoption (**Band C fills**; dormancy-recovery pattern: 14 games silent → 2-game adoption via TS + AFoS).
 
-Total adopted axes: **24 of 25 Pool** (96%). After 16 games. Plus 1 retired (C5). **Zero unadopted live axes.** Pool effectively closed. **Adopted-contested watch**: A7 Emergence (1 game of refute via Halifax Hammer; v2.14 amendment formalizes de-adoption path). All bands fully adopted (A 7/7, B 6/6, C 7/8 with C5 retired, D 4/4).
+Total adopted axes: **24 of 25 Pool** (96%). After 17 games. Plus 1 retired (C5). **Zero unadopted live axes.** Pool closed. **Adopted-contested watch: 2 axes** — A3 Interaction (Wingspan self-refute by Chvátil) + A7 Emergence (AFoS Halifax Hammer). Both at 2E/1R. Next refute game for either triggers v2.14 A-v2.14-01 adopted-contested formal status. All bands fully adopted (A 7/7, B 6/6, C 7/8 with C5 retired, D 4/4).
 
 ## Game #2 (T&E) innovations
 
@@ -406,6 +406,65 @@ Total adopted axes: **24 of 25 Pool** (96%). After 16 games. Plus 1 retired (C5)
 - **Trigger:** `multi_adoption_event`
 - **Source:** UNFOLD (matches Dominion and Scythe).
 - **Status:** observational — cultural-structure games (4-culture UNFOLD) produce Band-C adoption bursts.
+
+## Wingspan (game #17) innovations
+
+### I-wingspan-01 — Second adopted-axis formal refute: A3 Interaction
+
+- **Dimension:** rubric meta
+- **Trigger pattern:** `multi_axis_adopted_refute`
+- **Source:** games/0017-wingspan/ (Chvátil self-refute at Round 3 + 2p confirmation)
+- **Supporting voices:** Chvátil (primary; A3's own advocate); Knizia (collision vote supporting refute)
+- **Scope:** universal
+- **Status:** adopted (log entry)
+- **Note:** Two adopted axes now carry formal refute weight (A3 via multiplayer-solitaire, A7 via Halifax Hammer). First multi-axis test of v2.14 A-v2.14-01 two-way ledger pathway. Self-refute by A3's own primary advocate (Chvátil pushed A3 across 12 prior games) is a strong structural signal — the axis's own champion refutes on evidence.
+
+### I-wingspan-02 — Canonical reference game pattern for 4 simultaneous axes
+
+- **Dimension:** pool dynamics
+- **Trigger pattern:** `canonical_reference_game_multi_axis`
+- **Source:** Wingspan earned canonical-caliber defends on A6 (10/10), D1 (10/10), D3 (9/10), C6 (9/10 at 7 scoring dimensions)
+- **Supporting voices:** Stegmaier (A6+D3), K-K (D1), Feld (C6)
+- **Scope:** pool
+- **Status:** observational
+- **Note:** Unprecedented — single game serving as canonical reference for 4 simultaneous adopted axes. Previous reference-games were single-axis. Suggests a cluster of Band-A and Band-D axes (Teachability / Family-to-Expert / Count-Robustness / Point-Salad) are correlated in well-designed family Euros with multi-dimensional scoring.
+
+### I-wingspan-03 — Orthogonal-preservation collision pattern consolidates
+
+- **Dimension:** argument protocol
+- **Trigger pattern:** `collision_orthogonal_preservation`
+- **Source:** Wingspan Collision 1 (A3↔C4, 5-1 for C4) + Collision 2 (A6↔C6, 5-1 for A6)
+- **Supporting voices:** 5 of 8 personas voted orthogonal-preservation in both
+- **Scope:** universal
+- **Status:** observational (3 instances across AFoS + Wingspan ×2)
+- **Note:** Three OP-collisions now recorded. Pattern: when two stakes address genuinely orthogonal dimensions of the same game, collision votes preserve both. Protocol clarification candidate — wait for 4th instance before amendment.
+
+### I-wingspan-04 — Counter-pressure defense pattern
+
+- **Dimension:** argument protocol
+- **Trigger pattern:** `counter_pressure_defense`
+- **Source:** Lacerda's A7 defense at Round 3 (deliberate counterweight to AFoS Halifax Hammer refute)
+- **Supporting voices:** Lacerda (primary)
+- **Status:** observational
+- **Note:** First instance of a persona defending an adopted axis specifically to counter a prior game's refute evidence. Rational — if A7 is at risk of adopted-contested, finding positive canonical cases slows the trajectory. Pattern may formalize as "ledger-aware stake strategy."
+
+### I-wingspan-05 — Third consecutive non-own anchor
+
+- **Dimension:** anchor protocol
+- **Trigger pattern:** `non_own_anchor_consecutive_3`
+- **Source:** TS (Gupta/Matthews) → AFoS (Wallace) → Wingspan (Hargrave)
+- **Supporting voices:** observational
+- **Status:** observational
+- **Note:** All three earned their anchor axis. Non-own-anchor protocol is robust across 3 consecutive applications. TIGRIS can sustainably review games outside the 8-persona roster.
+
+### I-wingspan-06 — Aviary/nature coverage gap closed
+
+- **Dimension:** corpus representativeness
+- **Trigger pattern:** `coverage_gap_closure`
+- **Source:** BGG Top 100 scan pre-Wingspan identified aviary underrepresentation
+- **Scope:** pipeline-architectural
+- **Status:** observational
+- **Note:** Pre-Wingspan TIGRIS had 0 aviary/nature games. Now 1. Still underrepresented vs post-2019 nature-cluster (Ark Nova, Wyrmspan, Earth) but coverage started.
 
 ## A Few Acres of Snow (game #16) innovations
 
