@@ -196,8 +196,8 @@ Columns: **Earned / Refuted / Contested / Ignored** counts are cumulative across
 | B2 Catastrophe Pressure | 0 | 0 | 0 | 1 | live | ignored in Parliament |
 | B3 Conversion Chain Depth | 0 | 0 | 0 | 0 | live | undrafted in Parliament (Knizia passed) |
 | B1 System Gearing | 2 | 0.5 | 0 | 0 | **adopted** | T&E earned + Dominion earned (LAST-CALL). FACETS retire-explicit doesn't block. |
-| B2 Catastrophe Pressure | 1 | 1.0 | 0 | 1 | live (contested cross-game) | Earned T&E; retire-explicit FACETS + Dominion. |
-| B3 Conversion Chain Depth | 1 | 0 | 0 | 0 | queued-for-adoption | **PR first earning** (Vaccarino, 2 defends). Corn→Indigo→Sugar→Tobacco→Coffee chain canonical. |
+| B2 Catastrophe Pressure | 2 | 2.5 | 0 | 1 | **adopted** | T&E + TtA earned (canonical salvage). 16th adoption (v2.8). Retirement threshold reversed. |
+| B3 Conversion Chain Depth | 2 | 0 | 0 | 0 | **adopted** | PR + TtA (LAST-CALL) earned. 18th adoption (v2.8). Vaccarino's signature axis validates. |
 | B4 Information Transparency Cost | 2 | 0 | 0 | 0 | **adopted** | Still-adopted; Dominion hold-explicit. |
 | B5 Architectural Novelty | 2 | 0.5 | 0 | 0 | **adopted** | P earned + Dominion earned (anchor vindication). T&E retire-explicit doesn't block. |
 | C1 Tension Budget | 2 | 0 | 0 | 2 | **adopted** | PR + UNFOLD earned. 12th adoption (v2.7). |
@@ -215,6 +215,7 @@ Columns: **Earned / Refuted / Contested / Ignored** counts are cumulative across
 
 ## Changelog
 
+- **v2.8.0** — 2026-04-19 — **Through the Ages (game #8) — first Chvátil-on-Chvátil anchor.** 3 new adoptions: **B2 Catastrophe Pressure** (salvage from retirement threshold; T&E + TtA earned), **B6 Scoring Multiplier Dependency** (new-axis full validation; UNFOLD + TtA), **B3 Conversion Chain Depth** (Vaccarino's signature; PR + TtA LAST-CALL). Pool at **18/25 = 72% adopted**. 0 silent-retire (7 games sustained). Chvátil's B5 earns 4th consecutive time. Rubric v2.7 → v2.8.
 - **v2.7.0** — 2026-04-19 — **UNFOLD (game #7) — first self-designed game reviewed by own pipeline.** 4 new adoptions (C1 Tension Budget, C3 Scarcity Bite, C6 Point-Salad, C7 Action-Menu Clarity). Pool at **15 adopted / 25 (60%)**. B6 SMD first earning ever (queued). Retirement queue cleared on C3. Chvátil anchor (B5) earned 3rd consecutive time. 6 adopted axes re-earned. 0 silent-retire (6 games running). 4 new innovations (I-unfold-01..04). **Concept→design→self-review workflow validated end-to-end.**
 - **v2.6.0** — 2026-04-19 — **Puerto Rico (game #6) completed.** First retirement event (**C5 Anti-Catch-up Pressure** — cumulative refute 3.0 across P+Scythe+PR). First new-axis adoption post-v2.0 bet: **B6 Scoring Multiplier Dependency** added to Pool from I-parliament-02 3-cluster. 4 first-earnings queued-for-adoption (C1, C3, B3, C7). Pool now **25 axes total, 24 active (C5 retired)**. Rosenberg gains B6 as primary advocate. Knizia's first fallback draft (A5). 5th consecutive 0% silent-retire.
 - **v2.5.0** — 2026-04-19 — **Scythe (game #5) completed.** 4 adoptions (A7, D1, D2, C4) bring Pool to 11 adopted axes / 24 (46%). First-ever drafts of A4, A5, B3 validated Vaccarino persona introduction. D3 queued-for-adoption. No retirements. 4 new innovations (I-scythe-01..04); I-parliament-02 Scoring Multiplier cluster strengthens to 2 instances. v2.3 anchor-adjacency GATE passed naturally (Stegmaier+K-K).
