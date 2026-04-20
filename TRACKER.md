@@ -6,7 +6,8 @@ Per-artifact pipeline state. Most recent rows on top.
 
 | Version | Date | Bet | Summary | Proposed by |
 |---|---|---|---|---|
-| **v2.11** | 2026-04-19 | parliament | **Triple parallel review** (Lisboa + CoB + Tikal via TeamCreate). **2 adoptions**: D3 Count-Robustness (Band D fully adopts), A5 Downtime-Pacing. Pool at **22/25 (88%)**. 7/8 designer-on-own tally. Record 17 earned in Tikal. | Triple parallel review |
+| **v2.12** | 2026-04-19 | parliament | **Agricola — Rosenberg-on-Rosenberg completes 8/8 designer-on-own tally.** **A4 Variance Calibration adopted** (23rd axis; **Band A fully adopts**). Pool at **23/25 (92%)**. 12 earned / 0 silent-retire (11th consecutive). A4 dormancy-recovery closed. Only C8 remains unadopted. | Agricola anchor review |
+| v2.11 | 2026-04-19 | parliament | **Triple parallel review** (Lisboa + CoB + Tikal via TeamCreate). **2 adoptions**: D3 Count-Robustness (Band D fully adopts), A5 Downtime-Pacing. Pool at **22/25 (88%)**. 7/8 designer-on-own tally. Record 17 earned in Tikal. | Triple parallel review |
 | v2.10 | 2026-04-19 | parliament | **ZEN PATH (original #2)** — Knizia anchor earns 4th consecutive. **A1 Elegance adopted** (20th axis). **Pool at 80%**; Band B fully adopted (6/6). | ZEN PATH anchor review |
 | v2.9 | 2026-04-19 | parliament | **Famiglia (game #9; Friese, BGG 81453)** — Vaccarino first published-anchor. **A3 Interaction adopted** (19th axis). A1 + A5 first-earnings. 8 retire-explicits. Pool 76%. | Famiglia anchor review |
 | v2.8 | 2026-04-19 | parliament | **Through the Ages (game #8; Chvátil, BGG 182028)** — first Chvátil-on-Chvátil. **3 adoptions** (B2 salvage, B6 new-axis, B3 Vaccarino). Pool 72%. | TtA anchor review |
@@ -39,7 +40,8 @@ Per-artifact pipeline state. Most recent rows on top.
 | 0011-lisboa | **parliament-complete** | HANDOFF | v2.11 | 2026-04-19 | 13/0/1 | **Lacerda-on-Lacerda first anchor (parallel-review #1)**. Canonical confirmation game; 0 new adoptions; B1↔C4 collision won by Lacerda 4-2. BGG 161533. |
 | 0012-castles-of-burgundy | **parliament-complete** | HANDOFF | v2.11 | 2026-04-19 | 15/0/3 | **Feld-on-Feld first published anchor (parallel-review #2)**. A4 first-ever earning (queued). BGG 84876. |
 | 0013-tikal | **parliament-complete** | HANDOFF | v2.11 | 2026-04-19 | **17/0/2** | **K-K-on-K-K first anchor (parallel-review #3)**. **TIGRIS record 17 earned**. Dual-canonical anchor (C7 + D2). BGG 54. |
-| 0014-* | *queued* | — | — | — | — | Next: third original, Rosenberg-on-Agricola when user permits, or physical playtest of UNFOLD/ZEN PATH. |
+| 0014-agricola | **parliament-complete** | HANDOFF | **v2.12** | 2026-04-19 | 12/0/0 | **Rosenberg-on-Rosenberg — completes 8/8 designer-on-own tally.** **A4 Variance Calibration adopted** (23rd axis; Band A fully adopts). Canonical re-earning without formal collision. Pool at **92%**. 11 consecutive 0-silent-retire. BGG 31260. |
+| 0015-* | *queued* | — | — | — | — | Next: third original, C8 retirement decision, or physical playtest of UNFOLD/ZEN PATH. |
 
 ## Meta-reviews (reviews of TIGRIS itself, not a game)
 
@@ -92,3 +94,4 @@ Dominion (game #4) innovations:
 | 2026-04-19 | S11 | Puerto Rico anchor #6 | Knizia-on-dormant-C1. 10 earned / 1 refuted / 4 retire-explicit / 1 collision / 0 silent-retire. **First retirement event (C5)** + **first new-axis adoption (B6 SMD)** → **v2.6**. 4 first-earnings queued (C1, C3, B3, C7). Knizia first fallback-draft (A5). |
 | 2026-04-19 | S12 | UNFOLD collaborative concept | User commissions first original. Concept v1.0 drafted. 8-designer panel review flagged 4 issues. v1.1 revised (shared Dev track, forced-fold cascades, 2 actions + Dusk, cut to 4 cultures). 3-persona validation greenlight (Chvátil 5→8, Knizia 4.5→7.5, Lacerda 6→8.5). |
 | 2026-04-19 | S13 | UNFOLD design.md + panel review | Full rules written. TIGRIS self-reviews own design. 11+ earned / 0 refuted / 4 retire-explicit / 2 collisions / 0 silent-retire. **4 adoptions** (C1, C3, C6, C7) → **v2.7**. Pool at **60% adopted**. B6 first earning. Concept→design→review workflow validated. |
+| 2026-04-19 | S14 | Agricola anchor #14 | **Rosenberg-on-Rosenberg — 8/8 designer-on-own tally complete.** 12 earned / 0 refuted / 5 retire-explicit / 0 collisions / 0 silent-retire (11th consecutive). **A4 Variance Calibration adopted** (23rd axis; Band A fully adopts) → **v2.12**. Pool at **92%**. Canonical consensus re-earning pattern. Only C8 remains unadopted. |

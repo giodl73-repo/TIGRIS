@@ -244,8 +244,9 @@ Parliament (game #1) completed 2026-04-19. Four new innovations logged.
 - **A1 Elegance → v2.10** — Knizia-primary. Earned Famiglia + ZEN PATH. Twentieth adoption.
 - **D3 Count-Robustness → v2.11** — Stegmaier-primary. Earned Scythe + ZEN PATH + Tikal + CoB. 21st adoption (closes queue; **Band D fully adopts**).
 - **A5 Downtime-Pacing → v2.11** — Vaccarino-secondary. Earned Famiglia + Tikal + CoB. 22nd adoption.
+- **A4 Variance Calibration → v2.12** — Vaccarino-primary. Earned CoB + Agricola. 23rd adoption (**Band A fully adopts**; dormancy-recovery pattern: 11 games silent → 2-game adoption).
 
-Total adopted axes: **22 of 25 Pool** (88%). After 13 games. Plus 1 retired (C5). Remaining live: A4 (queued), C8.
+Total adopted axes: **23 of 25 Pool** (92%). After 14 games. Plus 1 retired (C5). Remaining live: C8 First-Turn Compression (0 earnings across 14 games; retirement-watch). Bands A, B, D fully adopted (17/18 non-C axes).
 
 ## Game #2 (T&E) innovations
 
@@ -403,6 +404,42 @@ Total adopted axes: **22 of 25 Pool** (88%). After 13 games. Plus 1 retired (C5)
 - **Trigger:** `multi_adoption_event`
 - **Source:** UNFOLD (matches Dominion and Scythe).
 - **Status:** observational — cultural-structure games (4-culture UNFOLD) produce Band-C adoption bursts.
+
+## Agricola (game #14) innovations
+
+### I-agricola-01 — 8/8 designer-on-own-anchor tally complete
+
+- **Dimension:** bet validation
+- **Trigger pattern:** `designer_on_own_tally_complete`
+- **Source:** games/0014-agricola/ (Rosenberg-on-Agricola)
+- **Supporting voices:** all 8 designers have now anchored at least one own-design review (Knizia T&E, Feld FACETS, Stegmaier Scythe, Chvátil UNFOLD+TtA, Vaccarino Famiglia, K-K Tikal, Lacerda Lisboa, Rosenberg Agricola)
+- **Scope:** bet
+- **Status:** adopted (log entry) — rubric calibration against designer-intent fully tested across all 8 canonical designers.
+
+### I-agricola-02 — A4 Variance Calibration dormancy-recovery pattern
+
+- **Dimension:** pool dynamics
+- **Trigger pattern:** `dormant_axis_canonical_recovery`
+- **Source:** A4 trajectory (dormant games 1-11 → earned at CoB v2.11 → earned at Agricola v2.12)
+- **Supporting voices:** Vaccarino (both earnings)
+- **Scope:** pattern-across-games
+- **Status:** observational — parallels C1 Tension Budget (dormant 5 → PR), A1 Elegance (dormant 8 → Famiglia), A5 Downtime (dormant until Famiglia). Axes can remain silent 9+ games, then lock in quick adoption via canonical case.
+
+### I-agricola-03 — Canonical re-earning without collision
+
+- **Dimension:** argument protocol
+- **Trigger pattern:** `canonical_consensus_reearning`
+- **Source:** Agricola (12 earnings, 0 formal collisions)
+- **Supporting voices:** observational across 8 personas
+- **Scope:** pattern-across-games
+- **Status:** observational — highly-canonical games produce consensus re-earning rather than adversarial collision. Suggests Criterion 3 (≥1 collision) can soft-pass when canonical alignment is unanimous.
+
+### I-agricola-04 — Point-salad axis validated on 14-column game
+
+- **Dimension:** axis validation
+- **Trigger pattern:** `adopted_axis_boundary_case`
+- **Source:** Agricola C6 at 10/10 (14+ scoring columns exceeds CoB's 6)
+- **Status:** observational — Feld's point-salad signature validated on a non-Feld game.
 
 ## Bet version history
 
