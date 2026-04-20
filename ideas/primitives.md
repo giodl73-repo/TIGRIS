@@ -47,7 +47,7 @@ Atomic design primitives for `/tigris-ideate`. Hand-curated. Skill reads; never 
 - **Kind:** theme
 - **Tag:** domestic
 - **One-liner:** Household, kitchen, suburb, daily-life; anti-epic scale.
-- **Examples:** Herd Mentality, Cat Lady, Tokaido (pastoral-adjacent)
+- **Examples:** Herd Mentality, Cat Lady, The Shipwreck Arcana, Wavelength (drift-adjacent)
 - **Notes:** Rare in Euro corpus.
 
 ## Mechanisms
@@ -77,7 +77,7 @@ Atomic design primitives for `/tigris-ideate`. Hand-curated. Skill reads; never 
 - **Kind:** mechanism
 - **Tag:** rondel
 - **One-liner:** Circular action-selection track; stepping forward costs something.
-- **Examples:** Concordia, Great Western Trail, Teotihuacan, Trajan
+- **Examples:** Concordia, Navegador, Teotihuacan, Trajan
 - **Notes:** Gerdts-signature.
 
 ### P-010 — Roll-and-write
