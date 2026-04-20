@@ -6,7 +6,8 @@ Per-artifact pipeline state. Most recent rows on top.
 
 | Version | Date | Bet | Summary | Proposed by |
 |---|---|---|---|---|
-| **v2.10** | 2026-04-19 | parliament | **ZEN PATH (original #2)** — Knizia anchor earns 4th consecutive. **A1 Elegance adopted** (20th axis). **Pool at 80%**; Band B fully adopted (6/6). | ZEN PATH anchor review |
+| **v2.11** | 2026-04-19 | parliament | **Triple parallel review** (Lisboa + CoB + Tikal via TeamCreate). **2 adoptions**: D3 Count-Robustness (Band D fully adopts), A5 Downtime-Pacing. Pool at **22/25 (88%)**. 7/8 designer-on-own tally. Record 17 earned in Tikal. | Triple parallel review |
+| v2.10 | 2026-04-19 | parliament | **ZEN PATH (original #2)** — Knizia anchor earns 4th consecutive. **A1 Elegance adopted** (20th axis). **Pool at 80%**; Band B fully adopted (6/6). | ZEN PATH anchor review |
 | v2.9 | 2026-04-19 | parliament | **Famiglia (game #9; Friese, BGG 81453)** — Vaccarino first published-anchor. **A3 Interaction adopted** (19th axis). A1 + A5 first-earnings. 8 retire-explicits. Pool 76%. | Famiglia anchor review |
 | v2.8 | 2026-04-19 | parliament | **Through the Ages (game #8; Chvátil, BGG 182028)** — first Chvátil-on-Chvátil. **3 adoptions** (B2 salvage, B6 new-axis, B3 Vaccarino). Pool 72%. | TtA anchor review |
 | v2.7 | 2026-04-19 | parliament | **UNFOLD self-designed + self-reviewed.** 4 adoptions (C1, C3, C6, C7). Pool **15/25 (60%)** adopted. B6 first earning. Concept→design workflow validated. | UNFOLD anchor review |
@@ -35,7 +36,10 @@ Per-artifact pipeline state. Most recent rows on top.
 | 0008-through-the-ages | **parliament-complete** | HANDOFF | v2.8 | 2026-04-19 | 12/0/1 | Chvátil-on-Chvátil first anchor. 3 adoptions (B2 salvage, B6 new-axis, B3). Pool 72%. BGG 182028. |
 | 0009-famiglia | **parliament-complete** | HANDOFF | v2.9 | 2026-04-19 | 10/0/0 | Vaccarino first published-anchor (Friese). A3 adopted. A1+A5 first-earnings. Pool 76%. BGG 81453. |
 | 0010-zen-path | **parliament-complete** | HANDOFF | **v2.10** | 2026-04-19 | **10/0/1** | **TIGRIS original #2** (Chutes & Ladders × Samurai). Knizia-anchor on C2 (4th consecutive). A1 Elegance adopted (20th axis). Pool **80%**. Band B fully adopted. |
-| 0011-* | *queued* | — | — | — | — | Next: Lisboa/Kanban EV (Lacerda-on-Lacerda), Tikal (K-K-on-K-K), Castles of Burgundy (Feld-on-Feld), 3rd original, or physical playtest. |
+| 0011-lisboa | **parliament-complete** | HANDOFF | v2.11 | 2026-04-19 | 13/0/1 | **Lacerda-on-Lacerda first anchor (parallel-review #1)**. Canonical confirmation game; 0 new adoptions; B1↔C4 collision won by Lacerda 4-2. BGG 161533. |
+| 0012-castles-of-burgundy | **parliament-complete** | HANDOFF | v2.11 | 2026-04-19 | 15/0/3 | **Feld-on-Feld first published anchor (parallel-review #2)**. A4 first-ever earning (queued). BGG 84876. |
+| 0013-tikal | **parliament-complete** | HANDOFF | v2.11 | 2026-04-19 | **17/0/2** | **K-K-on-K-K first anchor (parallel-review #3)**. **TIGRIS record 17 earned**. Dual-canonical anchor (C7 + D2). BGG 54. |
+| 0014-* | *queued* | — | — | — | — | Next: third original, Rosenberg-on-Agricola when user permits, or physical playtest of UNFOLD/ZEN PATH. |
 
 ## Meta-reviews (reviews of TIGRIS itself, not a game)
 

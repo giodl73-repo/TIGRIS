@@ -184,9 +184,41 @@ Parliament (game #1) completed 2026-04-19. Four new innovations logged.
 
 ## Adopted amendments (v2.x era)
 
-- **I-parliament-01 → v2.1** — FORCED-ENGAGEMENT micro-phase. Adopted 2026-04-19 before game #2. Rate-limit consumed cycle 1. Validated across T&E+FACETS+Dominion (0% silent-retire 3 games running vs Parliament's 48%).
-- **I-parliament-03 → v2.3** — Anchor-axis adjacency-partner GATE check. Adopted 2026-04-19 after Dominion. Rate-limit consumed cycle 2. Cluster evidence: 3 instances (P, T&E, FACETS) + 1 positive counter-example (Dominion).
-- **I-te-01 + I-facets-01 + I-facets-02 → v2.3.1** — Adjacency chart updates. Consolidated into `personas/adjacency-chart.md` as canonical source. Low-risk patch; outside rate limit. Adopted 2026-04-19.
+- **I-parliament-01 → v2.1** — FORCED-ENGAGEMENT micro-phase. Adopted 2026-04-19 before game #2. Validated across 10 games (0% silent-retire).
+- **I-parliament-03 → v2.3** — Anchor-axis adjacency-partner GATE check. Adopted after Dominion.
+- **I-te-01 + I-facets-01 + I-facets-02 → v2.3.1** — Adjacency chart updates. Consolidated into `personas/adjacency-chart.md`.
+- **I-facets-03 + I-dominion-04 → v2.4** — Vaccarino persona added as 8th designer. Resolves never-drafted axes.
+- **I-parliament-02 → v2.6** — B6 Scoring Multiplier Dependency new axis. Full validation loop complete at v2.8.
+
+## Triple-review innovations (games #11-13, parallel via TeamCreate)
+
+### Lisboa (game #11) innovations
+
+- **I-lisboa-01**: Lacerda-on-Lacerda first anchor (5th designer-on-own). Pattern completes for canonical-axes-already-adopted designer.
+- **I-lisboa-02**: Canonical-confirmation game pattern — Lacerda's territory pre-adopted; 0 new adoptions but clean re-validation.
+- **I-lisboa-03**: A3 Interaction cross-mechanic universality — earned across Famiglia/TtA/Lisboa (3 different mechanical families).
+- **I-lisboa-04**: Retire-explicit cadence at 7 (heavy-expert profile signature).
+
+### Castles of Burgundy (game #12) innovations
+
+- **I-cob-01**: Feld-on-Feld first published anchor (6th designer-on-own; Feld had FACETS original + CoB published).
+- **I-cob-02**: A4 Variance Calibration first-ever earning — dormant 11 games, canonical case via Feld's dice-as-resource.
+- **I-cob-03**: Multiplayer-solitaire critique operationalized — A3 retire-explicit via Chvátil self-refute.
+- **I-cob-04**: Axis-definition reference game earning — C6's own reference case (axis literally cites Castles of Burgundy).
+
+### Tikal (game #13) innovations
+
+- **I-tikal-01**: First dual-canonical anchor pattern — two adopted axes both name Tikal in their anchor-10 descriptor (C7 and D2).
+- **I-tikal-02**: Queued-for-adoption pipeline fully cleared (D3 + A5 both triggered).
+- **I-tikal-03**: Anchor-descriptor voting priority (both K-K collisions won by anchor-named axis).
+- **I-tikal-04**: TIGRIS record 17 earned stakes. Heavyweight-classic games earn broadly.
+
+## Parallel-review pattern (v2.11)
+
+- **First parallel-pipeline session** in TIGRIS history. 3 agents × 1 game each via TeamCreate orchestration.
+- Each agent wrote only to its game directory; user integrated shared state (axis-pool, innovations, TRACKER) after all three completed.
+- Hard constraints preserved ledger integrity (no conflicts).
+- **Pattern success**: parallel review is viable for independent games without shared-axis-adoption conflict. Useful for processing backlog quickly when games don't interact structurally.
 
 ## Adopted axes (v2.x era)
 
@@ -205,8 +237,15 @@ Parliament (game #1) completed 2026-04-19. Four new innovations logged.
 - **C3 Scarcity Bite → v2.7** — Rosenberg-primary. Earned PR + UNFOLD. Thirteenth adoption (queued-for-retirement cleared).
 - **C6 Point-Salad Incommensurability → v2.7** — Feld-primary. Earned FACETS + UNFOLD. Fourteenth adoption (contested history resolved).
 - **C7 Action-Menu Clarity → v2.7** — K-K-primary. Earned PR + UNFOLD. Fifteenth adoption.
+- **B2 Catastrophe Pressure → v2.8** — Chvátil-primary. Earned T&E + TtA. Sixteenth adoption (retirement salvage).
+- **B3 Conversion Chain Depth → v2.8** — Vaccarino-primary. Earned PR + TtA (LAST-CALL). Seventeenth adoption (Vaccarino signature).
+- **B6 Scoring Multiplier Dependency → v2.8** — Rosenberg-primary. Earned UNFOLD + TtA. Eighteenth adoption (new-axis full validation).
+- **A3 Interaction → v2.9** — Chvátil-primary. Earned TtA + Famiglia. Nineteenth adoption.
+- **A1 Elegance → v2.10** — Knizia-primary. Earned Famiglia + ZEN PATH. Twentieth adoption.
+- **D3 Count-Robustness → v2.11** — Stegmaier-primary. Earned Scythe + ZEN PATH + Tikal + CoB. 21st adoption (closes queue; **Band D fully adopts**).
+- **A5 Downtime-Pacing → v2.11** — Vaccarino-secondary. Earned Famiglia + Tikal + CoB. 22nd adoption.
 
-Total adopted axes: **15 of 25 Pool** (60%). After 7 games. Plus 1 retired (C5).
+Total adopted axes: **22 of 25 Pool** (88%). After 13 games. Plus 1 retired (C5). Remaining live: A4 (queued), C8.
 
 ## Game #2 (T&E) innovations
 

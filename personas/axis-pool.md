@@ -188,8 +188,8 @@ Columns: **Earned / Refuted / Contested / Ignored** counts are cumulative across
 | A1 Elegance | 2 | 0 | 2 | 0 | **adopted** | Famiglia + ZEN PATH earned. 20th adoption (v2.10). Pool at 80%. |
 | A2 Decision Density | 2 | 0 | 0 | 1 | **adopted** | FACETS earned + Dominion earned (LAST-CALL). |
 | A3 Interaction | 2 | 1 | 2 | 1 | **adopted** | TtA + Famiglia earned. 19th adoption (v2.9). |
-| A4 Variance Calibration | 0 | 0 | 0 | 0 | live (advocate: Vaccarino) | Scythe first draft ever (Vaccarino 1d — weak-defended). |
-| A5 Downtime / Pacing | 1 | 0 | 0 | 0 | queued-for-adoption | Famiglia first earning (Vaccarino LAST-CALL; 2p alternating turns produce zero downtime). |
+| A4 Variance Calibration | 1 | 0 | 0 | 0 | queued-for-adoption | Castles of Burgundy first-ever earning (Feld dice-as-resource). Queued after 11 dormant games. |
+| A5 Downtime / Pacing | 3 | 0 | 0 | 0 | **adopted** | Famiglia + Tikal (LAST-CALL) + CoB earned. 22nd adoption (v2.11). |
 | A6 Teachability | 2 | 0 | 1 | 0 | **adopted** | FACETS earned + Dominion earned (LAST-CALL). |
 | A7 Emergence / Replayability | 2 | 0 | 1 | 0 | **adopted** | Dominion + Scythe earned. 8th adoption event (v2.5). |
 | B1 System Gearing | 2 | 0.5 | 0 | 0 | **adopted** | T&E earned + Dominion earned (LAST-CALL). FACETS retire-explicit doesn't block. |
@@ -207,11 +207,12 @@ Columns: **Earned / Refuted / Contested / Ignored** counts are cumulative across
 | C8 First-Turn Compression | 0 | 0.5 | 0 | 1 | live | Dominion hold-explicit |
 | D1 Family-to-Expert Scaling | 2 | 0 | 0 | 2 | **adopted** | Dominion + Scythe (LAST-CALL) earned. 9th adoption (v2.5). |
 | D2 Spatial-Interaction Presence | 2 | 1.0 | 0 | 1 | **adopted** | T&E + Scythe earned. 10th adoption (v2.5). |
-| D3 Count-Robustness | 1 | 0 | 0 | 0 | queued-for-adoption | Scythe first earning (Stegmaier anchor). |
+| D3 Count-Robustness | 3 | 0 | 0 | 0 | **adopted** | Scythe + ZEN PATH + Tikal + CoB earned. 21st adoption (v2.11). Stegmaier-primary signature. **Band D fully adopted (4/4).** |
 | D4 Late-Game Lock-in Point | 2 | 0 | 0 | 1 | **adopted** | FACETS earned + Dominion earned. |
 
 ## Changelog
 
+- **v2.11.0** — 2026-04-19 — **Triple parallel review via TeamCreate**: Lisboa (#11, Lacerda-on-Lacerda), Castles of Burgundy (#12, Feld-on-Feld), Tikal (#13, K-K-on-K-K). First parallel-pipeline session in TIGRIS history. **2 new adoptions**: D3 Count-Robustness (21st; closes Stegmaier queue; **Band D fully adopts**); A5 Downtime-Pacing (22nd; Vaccarino secondary). A4 Variance Calibration first-ever earning (CoB) → queued. **Pool at 22/25 (88%)**. Designer-on-own-anchor: **7 of 8 personas complete** (+Lacerda, Feld-published, K-K). Tikal sets TIGRIS record 17 earned. 10 games 0% silent-retire.
 - **v2.10.0** — 2026-04-19 — **ZEN PATH (game #10; TIGRIS original #2)** — Knizia anchor (C2) earns 4th consecutive. **A1 Elegance adopted** (20th axis) via Famiglia + ZEN PATH. **Pool at 80% adopted**. Band B fully adopted (6/6). 0 silent-retire (9 games). Rubric v2.9 → v2.10. Aspect-partitioned Steps protagonist subsystem validated in play (balanced strategy outscored race).
 - **v2.9.0** — 2026-04-19 — **Famiglia (game #9)** — Friese 2p card game (BGG 81453). Vaccarino first published-anchor on B3. **A3 Interaction adopted** (19th axis; Pool 76%). A1 Elegance + A5 Downtime-Pacing first-ever earnings (queued-for-adoption). 8 retire-explicits (heaviest; diagnostic-low on 2p narrow-scope game). 0 silent-retire (8 consecutive). Rubric v2.8 → v2.9.
 - **v2.8.0** — 2026-04-19 — **Through the Ages (game #8) — first Chvátil-on-Chvátil anchor.** 3 new adoptions: **B2 Catastrophe Pressure** (salvage from retirement threshold; T&E + TtA earned), **B6 Scoring Multiplier Dependency** (new-axis full validation; UNFOLD + TtA), **B3 Conversion Chain Depth** (Vaccarino's signature; PR + TtA LAST-CALL). Pool at **18/25 = 72% adopted**. 0 silent-retire (7 games sustained). Chvátil's B5 earns 4th consecutive time. Rubric v2.7 → v2.8.
