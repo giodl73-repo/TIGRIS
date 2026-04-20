@@ -246,7 +246,9 @@ Parliament (game #1) completed 2026-04-19. Four new innovations logged.
 - **A5 Downtime-Pacing → v2.11** — Vaccarino-secondary. Earned Famiglia + Tikal + CoB. 22nd adoption.
 - **A4 Variance Calibration → v2.12** — Vaccarino-primary. Earned CoB + Agricola. 23rd adoption (**Band A fully adopts**; dormancy-recovery pattern: 11 games silent → 2-game adoption).
 
-Total adopted axes: **23 of 25 Pool** (92%). After 15 games. Plus 1 retired (C5). **Queued-for-adoption: C8 First-Turn Compression** (1 earning in TS v2.13; needs 1 more for 24th adoption). Bands A, B, D fully adopted (17/18 non-C axes). Factory validated on first non-Euro at game #15.
+- **C8 First-Turn Compression → v2.14** — Stegmaier-primary. Earned TS + AFoS. 24th adoption (**Band C fills**; dormancy-recovery pattern: 14 games silent → 2-game adoption via TS + AFoS).
+
+Total adopted axes: **24 of 25 Pool** (96%). After 16 games. Plus 1 retired (C5). **Zero unadopted live axes.** Pool effectively closed. **Adopted-contested watch**: A7 Emergence (1 game of refute via Halifax Hammer; v2.14 amendment formalizes de-adoption path). All bands fully adopted (A 7/7, B 6/6, C 7/8 with C5 retired, D 4/4).
 
 ## Game #2 (T&E) innovations
 
@@ -404,6 +406,70 @@ Total adopted axes: **23 of 25 Pool** (92%). After 15 games. Plus 1 retired (C5)
 - **Trigger:** `multi_adoption_event`
 - **Source:** UNFOLD (matches Dominion and Scythe).
 - **Status:** observational — cultural-structure games (4-culture UNFOLD) produce Band-C adoption bursts.
+
+## A Few Acres of Snow (game #16) innovations
+
+### I-afos-01 — C8 First-Turn Compression adopts (closes 14-game dormancy)
+
+- **Dimension:** pool dynamics
+- **Trigger pattern:** `dormant_axis_canonical_close_out`
+- **Source:** games/0015-twilight-struggle/ (1st earning) + games/0016-few-acres-of-snow/ (2nd earning via Halifax Hammer canonical)
+- **Supporting voices:** Stegmaier (primary both games); panel unanimous on compression canonicality
+- **Scope:** pool
+- **Status:** **ADOPTED as 24th axis (v2.14). Pool at 96%.**
+- **Note:** C8 waited 14 games before canonical case (TS), then 1 game closed adoption (AFoS Halifax Hammer). Two-game dormancy-recovery matches A4 pattern. Pool is now effectively closed (24 adopted + 1 retired C5; zero unadopted live axes).
+
+### I-afos-02 — First adopted-axis formal refute
+
+- **Dimension:** rubric meta
+- **Trigger pattern:** `adopted_axis_refuted`
+- **Source:** AFoS Turn 5 Game 1 + Turn 5 Game 2 (Lacerda)
+- **Supporting voices:** Lacerda (primary); Feld + K-K supported refute in collision vote
+- **Scope:** universal
+- **Status:** **ADOPTED log entry. Triggers protocol amendment A-v2.14-01.**
+- **Note:** A7 Emergence-Replayability takes its first formal refute weight across 16 games. Evidence: Halifax Hammer solves the game at expert level. Ledger now supports two-way adoption (adopted axes can accumulate refute and de-adopt). A7 at 2E/1R (1 game of refute). Needs 1 more refute game to become adopted-contested.
+
+### I-afos-03 — Orthogonal-preservation collision resolution
+
+- **Dimension:** argument protocol
+- **Trigger pattern:** `collision_orthogonal_preservation`
+- **Source:** AFoS Collision 1 (A7 refute vs C4 anchor defend)
+- **Supporting voices:** Knizia, Chvátil, Stegmaier (articulated orthogonality); Rosenberg (voted C4 on same basis)
+- **Scope:** universal
+- **Status:** observational
+- **Note:** Previous collisions resolved with winner/loser; AFoS's collision preserved BOTH axes making orthogonal claims about the same game. Clarifies: a collision can settle "A wins on its axis; B separately holds/refutes on its axis." Adds expressive depth to argument protocol.
+
+### I-afos-04 — Tiebreak via earlier-draft snake-order (2nd instance)
+
+- **Dimension:** argument protocol
+- **Trigger pattern:** `collision_tiebreak_earlier_draft`
+- **Source:** AFoS Collision 2 (C8 vs C4 tied 3-3; C4 wins via earlier-draft)
+- **Supporting voices:** observational
+- **Status:** observational
+- **Note:** Second instance of earlier-draft tiebreak rule (first: UNFOLD B5↔A7). Rule consistent. No amendment needed.
+
+### I-afos-05 — Second consecutive non-own anchor
+
+- **Dimension:** anchor protocol
+- **Trigger pattern:** `non_own_anchor_consecutive`
+- **Source:** TS (Gupta/Matthews, non-own) → AFoS (Wallace, non-own)
+- **Supporting voices:** observational
+- **Status:** observational
+- **Note:** Both non-own anchors earned their anchor axis. Non-own-anchor protocol **proven viable across 2 consecutive games**. Factory can review any designer's game without panel authorship. No protocol change.
+
+## Amendment adopted this cycle: A-v2.14-01
+
+### Adopted-contested subtype + de-adoption path
+
+- **Dimension:** rubric meta
+- **Source:** I-afos-02 triggered formalization
+- **Status:** **ADOPTED v2.14**
+- **Change:** Adopted axes now accumulate refute weight:
+  - ≥ 1 game of refute on adopted axis → `contested-watch` (informal flag; A7 currently here)
+  - ≥ 2 refutes across ≥ 2 games → `adopted-contested` (formal status; prevents re-adoption amendments)
+  - ≥ 3 refutes across ≥ 3 games → `queued-for-de-adoption`
+  - ≥ 3 refutes across ≥ 3 games + 1 additional game → `de-adopted` (first-ever de-adoption of previously-adopted axis)
+- **Why:** Prevent ledger from being one-way-adopted-only. Halifax Hammer showed that structural evidence can accumulate against adopted axes. Factory needs symmetric mechanism.
 
 ## Twilight Struggle (game #15) innovations
 
