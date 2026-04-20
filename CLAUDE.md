@@ -6,6 +6,18 @@ A Claude-Code-driven factory for Euro-tradition board games. Designs new games a
 
 **v1.0 spec** at `docs/specs/2026-04-19-tigris-design.md` is superseded. v1.0 scores are locked and not re-scored against v2.0.
 
+## Session resume — "lets continue"
+
+When the user says **"lets continue"**, **"continue"**, **"resume"**, **"pick up where we left off"**, or any equivalent, do this before anything else:
+
+1. **Read the latest portfolio handoff** — newest file in `docs/handoff/` (sort by filename; filenames are dated `YYYY-MM-DD-<slug>.md`). This is the authoritative resume point. It snapshots the full factory state: Pool health, recent decisions, hopper, open items, and **ranked Next-session priorities**.
+2. **Skim the most recent per-game handoff** — `games/<highest-NNNN>/handoff.md`. This adds per-game context the portfolio handoff can't carry.
+3. **Confirm Pool state hasn't drifted** — glance at `personas/axis-pool.md` Changelog top entry and `TRACKER.md` top row. If they match what the portfolio handoff claims is current, state is stable.
+4. **Report to user**: one sentence naming the current rubric version + most recent game + the top 1-3 Next-session priorities from the handoff. Ask the user to confirm which priority to start on (or `go` / `1` for the top one).
+5. **Do NOT re-read CLAUDE.md**, TRACKER.md in full, axis-pool.md in full, or individual game files until the chosen priority requires them. The handoff is designed to carry the context.
+
+End of every substantive session: run `/tigris-handoff <slug>` to create a fresh resume point **before context is cleared**. This is part of session discipline.
+
 ## The architectural bet
 
 **TIGRIS is an adversarial review system.** Designer personas don't converge on consensus — they plant incompatible stakes from a shared Pool and the factory's output is the record of their argument. Amendments to the rubric are *won*, not proposed.
@@ -85,23 +97,26 @@ With 8 designers × 3 drafts = 24 drafts vs 24-axis Pool, every axis gets advoca
 
 ## Directory map (v2.0)
 
-- `docs/specs/` — spec docs (v1.0 archival, v2.0 current)
+- `docs/specs/` — spec docs (v1.0 archival, v2.0 current, protocol amendments)
 - `docs/specs/reviews/` — panel reviews of TIGRIS-internal artifacts
-- `games/NNNN-<slug>/` — one directory per game (Parliament is 0001)
+- `docs/handoff/` — **portfolio-level session handoffs** (`YYYY-MM-DD-<slug>.md`). Latest file is the session resume point.
+- `games/NNNN-<slug>/` — one directory per game (Parliament is 0001). Each has its own per-game `handoff.md`.
 - `personas/`
-  - `axis-pool.md` — the 24-axis Pool + Rubric Ledger (forward-only)
+  - `axis-pool.md` — the 24-axis Pool + Rubric Ledger (forward-only) + Retirement-Reversal log
   - `playtest-rubric.md` — Parliament-shape mechanics (stakes/argument/amendment)
   - `playtest-innovations.md` — append-only, `trigger_pattern` field
   - `forbidden-words.md` — vocabulary discipline
   - `designers/` + `player-lenses/` — persona files with preferred_axes
-- `.claude/skills/` — Claude Code skills (`tigris-panel` executes the full Parliament procedure in Phase 1). Skills must live here (not at repo root) to be discovered by Claude Code.
+- `ideas/` — ideate-hopper system (primitives / mashups / gaps / frustrations / hopper; see `ideas/README.md`)
+- `.claude/skills/` — Claude Code skills: `tigris-concept`, `tigris-design`, `tigris-panel`, `tigris-amendment`, `tigris-ideate`, `tigris-handoff`. Must live here (not at repo root) for CC discovery.
 - `reference/` — cached rules, designer research
 - `scripts/` — seeded RNG
 
 ## Session discipline
 
-- Read `TRACKER.md` before any session.
-- End every substantive session with a handoff document for the game worked on.
+- **Session start**: if user says "lets continue" / "resume" / equivalent, follow the **Session resume** section above (read latest `docs/handoff/` first). Otherwise, read `TRACKER.md` or the relevant artifact for the explicitly-named task.
+- **Session end**: run `/tigris-handoff <slug>` to snapshot portfolio state to `docs/handoff/YYYY-MM-DD-<slug>.md`. This is the resume point for the next session.
+- **Per-game end**: every substantive game pipeline gets its own `games/NNNN-<slug>/handoff.md` inline with the review.
 - Innovation log is append-only. Amendments to axes are deterministic (argument record evidence).
 - **YAGNI aggressively.** Don't build a skill until you've done its job twice manually and felt friction.
 
