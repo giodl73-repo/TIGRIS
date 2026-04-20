@@ -10,7 +10,15 @@
 
 **Spec source:** `docs/specs/2026-04-19-tigris-ideate-hopper-design.md` v1.1.
 
-**Parliament review:** `docs/specs/reviews/2026-04-19-ideate-hopper/review.md` (3 amendments applied in spec v1.1).
+**Parliament reviews:**
+- Spec: `docs/specs/reviews/2026-04-19-ideate-hopper/review.md` (3 amendments applied in spec v1.1)
+- Plan: `docs/specs/reviews/2026-04-19-ideate-hopper/plan-review.md` (4 amendments applied in plan v1.1)
+
+**Plan version:** 1.1 (2026-04-20).
+
+## Skill discovery assumption (per A-plan-1.1-01)
+
+Claude Code auto-discovers skills placed in `skills/<skill-name>/SKILL.md`. No registration step is required. After Task 7 commits `skills/tigris-ideate/SKILL.md`, invoke with `/tigris-ideate` and Claude Code will recognize the skill on the next session. **If the skill isn't discovered in the same session where it was written, restart the session before running Task 9.**
 
 ---
 
@@ -707,9 +715,15 @@ git commit -m "ideate-hopper: write /tigris-ideate skill v1.1"
 **Files:**
 - Modify: `skills/tigris-concept/SKILL.md` (add Step 0 before Step 1; add post-creation hopper-mark)
 
-- [ ] **Step 1: Read current skill**
+- [ ] **Step 0: Read the current skill file (per A-plan-1.1-02)**
 
-Already known from plan-prep. Insert a new "Step 0 — Optional hopper seed" before existing Step 1, and a new "Step 6 — Mark hopper entry consumed (if seeded from HOP-NNN)" after existing Step 5.
+Run: Read `skills/tigris-concept/SKILL.md` end-to-end.
+
+Expected: current content matches the blocks referenced in Steps 2 and 3 below. If the file has drifted from the plan's expected blocks (e.g., headings renamed, step numbers shifted), adjust the `old_string` arguments in Steps 2-3 accordingly before invoking Edit. Edit tool requires the file to be Read first — skipping this step will fail.
+
+- [ ] **Step 1: Plan the insertion points**
+
+Insert a new "Step 0 — Optional hopper seed" before existing Step 1, and a new "Step 6 — Mark hopper entry consumed (if seeded from HOP-NNN)" after existing Step 5.
 
 - [ ] **Step 2: Edit `skills/tigris-concept/SKILL.md` — add Step 0**
 
@@ -804,10 +818,27 @@ git commit -m "tigris-concept: accept HOP-NNN argument for hopper-seeded concept
 **Files:**
 - Modify: `ideas/hopper.md` (via skill execution)
 
+**Note on variance (per A-plan-1.1-04):** `/tigris-ideate` output is LLM-judgment-based (spec v1.1 §`/tigris-ideate` Step 3). Different runs produce different candidates. "Expected output" in this task refers to *shape* — 3 entries, `fresh` status, unique HOP-NNN IDs, schema-compliant fields — not specific titles or content. If first run produces obviously-bad candidates (non-existent personas, axes not in Pool, non-sequitur pitches), re-run before committing.
+
 - [ ] **Step 1: Run `/tigris-ideate` (default invocation)**
 
 Invoke: `/tigris-ideate`
-Expected: 3 candidates appended to `ideas/hopper.md` with status `fresh`, unique HOP-NNN IDs (HOP-001 through HOP-003), and plausible anchor-persona + anchor-axis.
+Expected (shape): 3 candidates appended to `ideas/hopper.md` with status `fresh`, unique HOP-NNN IDs (HOP-001 through HOP-003), and each naming an anchor-persona + anchor-axis.
+
+- [ ] **Step 1b: Evaluate output quality (per A-plan-1.1-03)**
+
+Check each generated HOP-NNN entry against these gates:
+
+1. **Anchor-persona** is one of: knizia, rosenberg, feld, lacerda, chvatil, kramer-kiesling, stegmaier, vaccarino. Reject if not.
+2. **Anchor-axis** exists in `personas/axis-pool.md` (A1-A7, B1-B6, C1-C4, C6-C8, D1-D4; NOT C5 which is retired). Reject if not.
+3. **One-liner** is ≥ 2 sentences AND mentions concepts from the declared sources. Reject if generic or contradicts sources.
+4. **Tension hypothesis** names a plausible panel argument (references adoption/refute dynamics, or specific persona preferences). Reject if vague.
+
+If any candidate fails these checks:
+- If nothing has been committed yet: manually delete the failing entry from `ideas/hopper.md` and re-run `/tigris-ideate --count 1` to replace.
+- If the entry was already committed: leave it and add a retiring edit (change status to `retired` with note "failed quality gate on first run").
+
+Do not proceed to Step 2 until all 3 entries pass the gates OR have been retired.
 
 - [ ] **Step 2: Verify hopper.md has 3 fresh entries**
 
@@ -899,3 +930,12 @@ Otherwise skip this step.
 - Rating / scoring system on candidates.
 - Auto-archive of retired hopper entries.
 - Hopper-to-mashup feedback loop (consumed games feeding mashups.md).
+
+## Plan changelog
+
+- **v1.1** (2026-04-20) — Parliament plan-review applied. 4 amendments:
+  - A-plan-1.1-01: skill discovery assumption declared (header + session-restart note).
+  - A-plan-1.1-02: Task 8 Step 0 added (Read-before-Edit).
+  - A-plan-1.1-03: Task 9 Step 1b added (output-quality gate).
+  - A-plan-1.1-04: Task 9 header LLM-variance note added.
+- **v1.0** (2026-04-20) — initial plan written from spec v1.1.
