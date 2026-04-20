@@ -6,6 +6,7 @@ Per-artifact pipeline state. Most recent rows on top.
 
 | Version | Date | Bet | Summary | Proposed by |
 |---|---|---|---|---|
+| v2.7 | 2026-04-19 | parliament | **UNFOLD self-designed + self-reviewed.** 4 adoptions (C1, C3, C6, C7). Pool **15/25 (60%)** adopted. B6 first earning. Concept→design workflow validated. | UNFOLD anchor review |
 | v2.6 | 2026-04-19 | parliament | **First retirement** (C5 Anti-Catch-up). **First new-axis adoption** (B6 Scoring Multiplier Dependency from I-parliament-02 3-cluster). Pool: 25 axes, 24 active. | Puerto Rico anchor review |
 | v2.5 | 2026-04-19 | parliament | **4 adoptions** (A7, D1, D2, C4). Pool at 11/24 (46%). First A4/A5/B3 drafts. C4 retirement reversal permanent. | Scythe anchor review |
 | v2.4 | 2026-04-19 | parliament | **Vaccarino persona added** (8th designer). Resolves I-facets-03 + I-dominion-04. Rate-limit cycle 3 consumed. | Pre-Scythe |
@@ -76,3 +77,5 @@ Dominion (game #4) innovations:
 | 2026-04-19 | S09 | v2.3.1 + v2.4 patches | Adjacency chart canonical file (personas/adjacency-chart.md, 17 pairs). Vaccarino persona added (8th designer). |
 | 2026-04-19 | S10 | Scythe anchor #5 | Stegmaier-on-Stegmaier. First under v2.4 (8 personas). 24 drafts cover 24-axis Pool (full coverage first time). 9 earned / 0 refuted / 3 retire-explicit / 2 collisions / 0 silent-retire. **4 adoptions** (A7, D1, D2, C4) → **v2.5**. First A4/A5/B3 drafts ever. |
 | 2026-04-19 | S11 | Puerto Rico anchor #6 | Knizia-on-dormant-C1. 10 earned / 1 refuted / 4 retire-explicit / 1 collision / 0 silent-retire. **First retirement event (C5)** + **first new-axis adoption (B6 SMD)** → **v2.6**. 4 first-earnings queued (C1, C3, B3, C7). Knizia first fallback-draft (A5). |
+| 2026-04-19 | S12 | UNFOLD collaborative concept | User commissions first original. Concept v1.0 drafted. 8-designer panel review flagged 4 issues. v1.1 revised (shared Dev track, forced-fold cascades, 2 actions + Dusk, cut to 4 cultures). 3-persona validation greenlight (Chvátil 5→8, Knizia 4.5→7.5, Lacerda 6→8.5). |
+| 2026-04-19 | S13 | UNFOLD design.md + panel review | Full rules written. TIGRIS self-reviews own design. 11+ earned / 0 refuted / 4 retire-explicit / 2 collisions / 0 silent-retire. **4 adoptions** (C1, C3, C6, C7) → **v2.7**. Pool at **60% adopted**. B6 first earning. Concept→design→review workflow validated. |
