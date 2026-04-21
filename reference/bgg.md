@@ -106,6 +106,8 @@ bgg_url: https://boardgamegeek.com/boardgame/<id>   # derived; optional explicit
 | Glory to Rome | Chudyk | 19237 |
 | Race for the Galaxy | Lehmann | 28143 |
 | San Juan | Seyfarth | 8217 |
+| Azul | Kiesling | 230802 |
+| Crokinole | Traditional (Wülfing c.1876) | 521 |
 | Pandemic Legacy Season 1 | Daviau / Leacock | 161936 |
 | Bohnanza | Rosenberg | 11 |
 | Patchwork | Rosenberg | 163412 |

@@ -15,7 +15,7 @@ updated: 2026-04-20
 
 ## Counter
 
-Last assigned ID: HOP-006.
+Last assigned ID: HOP-010.
 
 ## Schema
 
@@ -34,6 +34,46 @@ Last assigned ID: HOP-006.
 ## Entries
 
 <!-- /tigris-ideate appends below this line. -->
+
+### HOP-007 — Wellspring
+- **One-liner:** A 2–4 player simultaneous-action deck-builder where card values are uncertain until played. Each deck is face-down; players select cards blindly from specific "pools" (wells of cards grouped by type) and play them simultaneously. The tension: you know the distribution (variance-calibrated) but not the exact draw. The game rewards reading opponent pool-composition rather than owning your deck.
+- **Anchor guess:** vaccarino / A4
+- **Sources:** primitives (P-006 deck-building + P-013 simultaneous action); gap (Vaccarino own-anchor 21 games overdue; A4 Variance Calibration underexplored at simultaneous-action weight)
+- **Tension hypothesis:** Vaccarino defends A4 — variance calibration is the core mechanic: card pool composition is known (visible face-up stack), but draw sequence is unknown (face-down execution). A2 earns via simultaneous-action density. Primary predicted collision: **A4 ↔ A2** — calibrated variance vs. decision density at simultaneous play. Both fire on the pool structure.
+- **Status:** fresh
+- **Created:** 2026-04-20
+- **Updated:** 2026-04-20
+- **Notes:**
+
+### HOP-008 — Cartell
+- **One-liner:** A 3–4 player worker-placement game where each player controls one of three hidden sub-economies in a shared city. Each player knows the value function of their own economy (e.g., Trader: Gold + Roads score highest; Builder: Stone + Districts) but not others'. Players must infer opponents' hidden value functions from their placement behavior — and trade partially-shared information to survive.
+- **Anchor guess:** lacerda / B4
+- **Sources:** gap (Lacerda own-anchor 11 games overdue; B4 Information-Transparency-Cost underexplored outside Lacerda-review games); primitives (P-007 worker placement)
+- **Tension hypothesis:** Lacerda defends B4 — hidden value functions create genuine information cost: you can't optimize the shared city without knowing what your opponents need from it, and they won't tell you unless they get something. Feld earns A2 Decision Density (per-placement: optimize for self + infer opponent needs). Primary predicted collision: **B4 ↔ A3** — information cost requires interaction to resolve; are these the same mechanism (interaction drives info-sharing) or orthogonal (B4 = structural hidden information; A3 = social exchange needed to resolve it)?
+- **Status:** fresh
+- **Created:** 2026-04-20
+- **Updated:** 2026-04-20
+- **Notes:**
+
+### HOP-009 — Schism
+- **One-liner:** A 4–6 player area-control game with hidden objectives and deduction-via-action-selection. No speech allowed about objectives; players infer opponents' allegiances by reading which regions they defend vs. abandon. One player holds a "schismatic" objective that benefits from the group losing collectively — the traitor role manifests through action-choice, not declaration. Light Euro wrapper around the deduction engine.
+- **Anchor guess:** chvatil / A3
+- **Sources:** primitives (P-015 hidden-role + P-011 area-control); gap (social deduction corpus gap; 0 reviews)
+- **Tension hypothesis:** Chvátil defends A3 — action-inference deduction creates mandatory indirect interaction: every placement reveals information about your objective, and opponents must engage with that signal. The Schismatic's hidden objective means no player can ignore what others are doing. K-K earns D2 Spatial-Interaction (area-control map). Primary predicted collision: **A3 ↔ B5** — is action-inference deduction a novel mechanism (B5) or just standard indirect interaction (A3)? If the deduction is structural enough to be architecturally new, B5 earns alongside A3.
+- **Status:** fresh
+- **Created:** 2026-04-20
+- **Updated:** 2026-04-20
+- **Notes:**
+
+### HOP-010 — Perihelion
+- **One-liner:** A 2–4 player rondel game where the rondel track represents orbital paths — each step forward is a gravity-assist (cheap, indirect, constrained to current trajectory) while skipping positions is a direct burn (expensive, flexible). Players are research stations collecting phenomena from different orbital zones; the zone you can reach depends on your trajectory commitment. Short game, 45 minutes, weight 2.5.
+- **Anchor guess:** feld / C6
+- **Sources:** mashups (M-003 rondel × cosmic); gap (Feld open for own-anchor; rondel mechanism never in TIGRIS reviews)
+- **Tension hypothesis:** Feld defends C6 — different orbital zones score via incommensurable phenomena (Gas Giant: +VP per chain of thermal events; Asteroid Belt: +VP per collision clusters; Deep Space: +VP per unique phenomena set). Players cannot maximize all zones without contradictory trajectory commitments. Knizia earns C1 Tension Budget (the rondel's step-cost creates a perpetual opportunity-cost clock). Primary predicted collision: **C6 ↔ A2** — are incommensurable scoring paths (C6) and per-step opportunity-cost decisions (A2) orthogonal registers of the rondel mechanism, or does A2 describe the decision and C6 describe its payoff (CR, C6 wins)?
+- **Status:** fresh
+- **Created:** 2026-04-20
+- **Updated:** 2026-04-20
+- **Notes:**
 
 ### HOP-001 — Furrow
 - **One-liner:** A trick-taking game where each trick is a seasonal harvest round. Players lead with a card from hand (a crop variety); opponents follow-suit (same crop family) or trump (weather). Winner of the trick harvests; trump family rotates each season. The follow-suit obligation becomes planting priority — Knizian shape on Rosenbergian substrate.
@@ -92,7 +132,9 @@ Last assigned ID: HOP-006.
 - **Anchor guess:** stegmaier / A6 Teachability
 - **Sources:** mining (I-wingspan-02 canonical-reference-game-pattern — single game serving as reference for multiple axes); gap (legacy mechanism never in TIGRIS corpus; Stegmaier most-overdue for own-anchor)
 - **Tension hypothesis:** Stegmaier defends A6 — teach-by-legacy is arguably the strongest-possible A6 earning because each rule arrives with context it will immediately use. K-K earns D1 Family-to-Expert canonically (explicit family→expert progression baked into campaign structure). Chvátil attacks on A7 Emergence — if the game has a rigid unlock-sequence, does emergence survive or does everyone's game 3 look identical? Primary predicted collision: **A6 ↔ A7** — teachability-via-guided-unlock may cost emergence; unlike Wingspan, which earned both simultaneously.
-- **Status:** fresh
+- **Status:** consumed
+- **Updated:** 2026-04-20
+- **Notes:** consumed by games/0029-hearth/ (2026-04-20). Actual collision: A6↔D1 OP 6-1 (not A6↔A7 as predicted). A7 earned independently without collision. Non-destructive legacy earns A7. Hopper fully exhausted — run /tigris-ideate for HOP-007+.
 - **Created:** 2026-04-20
 - **Updated:** 2026-04-20
 - **Notes:**

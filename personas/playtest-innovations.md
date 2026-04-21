@@ -1018,6 +1018,26 @@ Total adopted axes: **24 of 25 Pool** (96%). After 21 games (16 reviews + 5 orig
 - **Status:** adopted
 - **Note:** 5th and final pre-existing hopper entry consumed. HOP-006 (Hearth) remains as the last fresh hopper entry. Trick-taking mechanism gap closed. The hopper system has been 5-for-5 on conversions; the tension hypothesis field has proven its value (NEST and FURROW both confirmed directional predictions from HOP-005 and HOP-001 respectively).
 
+## HEARTH (game #29) — 2026-04-20
+
+### I-hearth-01 — Legacy-as-teach gap closed; non-destructive legacy earns A7
+
+- **Dimension:** A6/A7; corpus coverage
+- **Trigger pattern:** coverage_gap_closure; a7_non_destructive_legacy
+- **Source:** games/0029-hearth
+- **Scope:** pipeline-architectural
+- **Status:** adopted
+- **Note:** HEARTH is the first TIGRIS game to demonstrate that legacy-mechanism games CAN earn A7 when designed non-destructively. Pandemic Legacy refuted A7 because "legacy explicitly defeats replayability." HEARTH directly refutes this: non-destructive legacy (resealable envelopes) is replayable by structural design. The A7 corpus now includes both the refutation case (Pandemic Legacy: zero replayability) and the counter-case (HEARTH: designed replayability).
+
+### I-hearth-02 — 7th temporal-register OP (A6↔D1); session-1 vs. cross-session
+
+- **Dimension:** OP corpus; A6/D1 adjacency
+- **Trigger pattern:** temporal_register_op_seventh_instance
+- **Source:** games/0029-hearth (A6↔D1 OP 6-1)
+- **Scope:** pattern-across-games
+- **Status:** adopted
+- **Note:** A6↔D1 adds a new temporal-register OP pair. A6 fires at session-1 entry (can new players start now?); D1 fires across the full campaign arc (how much has the player's expertise grown?). This extends the temporal-register pattern beyond individual games to multi-session campaign arcs.
+
 ## Bet version history
 
 | Bet | Adopted | Retired / superseded | Summary |

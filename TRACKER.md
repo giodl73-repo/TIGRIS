@@ -6,6 +6,9 @@ Per-artifact pipeline state. Most recent rows on top.
 
 | Version | Date | Bet | Summary | Proposed by |
 |---|---|---|---|---|
+| **v2.23.3** | 2026-04-20 | parliament | **Crokinole (game #31; K-K/D2; dexterity gap).** D2↔A3 Decisive OP 8-0 (9th temporal-register; 3rd Decisive). A1 at weight-1.61. 12 earned / 8 retire-explicit / 28th 0-silent-retire. BGG 521. | Crokinole review |
+| **v2.23.2** | 2026-04-20 | parliament | **Azul (game #30; K-K own-anchor A1; pure-abstract gap).** A1↔A3 OP 6-1 (8th temporal-register). 13 earned / 27th 0-silent-retire. BGG 230802. | Azul review |
+| **v2.23.1** | 2026-04-20 | parliament | **HEARTH (game #29; TIGRIS original #11; Stegmaier/A6; HOP-006; legacy-as-teach).** A6↔D1 OP 6-1 (7th temporal-register OP). Non-destructive legacy earns A7. 15 earned / 26th 0-silent-retire. Pipeline 6-for-6. | HEARTH original |
 | **v2.23** | 2026-04-20 | parliament | **FURROW (game #28; TIGRIS original #10; Chvátil/B5; HOP-001; trick-taking gap).** A3 v2.23 retirement-reversal cycle 3 (WEALD+FURROW). B5↔A3 OP 6-1 + B5↔A7 8-0. A3 10E/0R. Zero contested-watch. 13 earned / 25th 0-silent-retire. | FURROW original |
 | **v2.22.3** | 2026-04-20 | parliament | **WEALD (game #27; TIGRIS original #9; K-K/D2; A3 cycle 3 game #1).** Displacement = mandatory mechanical interaction; D2↔A3 OP 6-1. A3 9E/1R. 15 earned / 0 refuted / 24th 0-silent-retire. | WEALD original |
 | **v2.22.2** | 2026-04-20 | parliament | **NEST (game #26; TIGRIS original #8; Feld/C6; HOP-005; domestic-theme).** C2 dormancy-watch CLEARED (designed 2 VP floor). A3 contested-watch (8E/1R; C6↔A3 CR 5-1). 13 earned / 1 refuted / 23rd 0-silent-retire. | NEST original |

@@ -1,8 +1,8 @@
 ---
 name: TIGRIS Gaps — live state
 slug: ideas-gaps
-version: 2.0.0
-rubric_version: v2.20
+version: 3.0.0
+rubric_version: v2.23.2
 bet_version: parliament
 author: TIGRIS
 created: 2026-04-20
@@ -11,74 +11,86 @@ updated: 2026-04-20
 
 # Gaps — Live TIGRIS State
 
-Live snapshot derived from `personas/axis-pool.md`, `TRACKER.md`, and `docs/handoff/2026-04-20-post-rewild.md`. Manually refreshed.
+Live snapshot derived from `personas/axis-pool.md`, `TRACKER.md`, and the post-Azul corpus state. Manually refreshed.
 
-**Last refresh:** 2026-04-20 (after Rewild game #21, rubric v2.20). Previous version: post-Wingspan (#17, v2.15). Significant drift since last refresh: 4 new games, A3+A7 both recovered via v2.18/v2.19, 3 hopper consumed, 2 new protocol amendments.
+**Last refresh:** 2026-04-20 (after Azul game #30, rubric v2.23.2). Previous version: v2.0 (post-CANTON #24, 6 games stale).
 
 ## Axes underexplored
 
-Adopted axes with single-persona or narrow-persona advocacy — would benefit from cross-persona canonical earns:
+Adopted axes with narrow advocacy or accumulating retire-explicit weight — potential dormancy-watch candidates if earn rate doesn't recover:
 
-- **A4 Variance Calibration** — Vaccarino sole advocate. 2E/0R (CoB + Agricola). Earned twice but both by Vaccarino's lens. Needs a non-Vaccarino game to demonstrate cross-persona relevance.
-- **D4 Late-Game Lock-in Point** — Rosenberg + Lacerda earnings only. 2E/0R. Non-own anchor hasn't engaged this axis.
-- **B6 Scoring Multiplier Dependency** — Rosenberg-primary. 2E/0R. Only 2 canonical cases. High-scoring-complexity games (Puerto Rico, Wingspan) engaged B6 adjacently but without direct canon.
-
-## Contested-watch axes
-
-**Zero.** A3 Interaction (4E/0R) and A7 Emergence-Replayability (8E/0R) both recovered via v2.18 retirement-reversal protocol. Pool in healthiest state since v2.11. No contested-watch pressure to drive hopper choices.
+- **B5 Architectural Novelty** — 5E/4.0R. Monitoring (earned at FURROW #28, 2 games ago). Accumulating retire-explicit weight in party/coop/abstract games that don't make architectural claims. Still healthy but watch: if FURROW is the last B5-relevant design for many games, monitoring could trigger dormancy-watch.
+- **D2 Spatial-Interaction Presence** — 6E/4.0R. Monitoring (earned at WEALD #27, 3 games ago). Spatial games are rare at lower weights; party/trick-taking/coop games consistently retire-explicit D2.
+- **C8 First-Turn Compression** — 4E/3.5R. Monitoring (earned at HEARTH #29, 1 game ago). The dormancy-watch concern is fading: HEARTH gave a strong C8 earn. Still accumulating in party games.
+- **B4 Info-Transparency-Cost** — 5E/2.0R. Monitoring (earned at HEARTH #29, 1 game ago). Party/abstract games lack hidden info; coop/complex Euro games earn B4 reliably.
 
 ## Personas without recent anchor
 
-All 8 designers have now anchored at least one own game (Vaccarino's arrival at v2.4 completed the set). Below tracks games 0001..0021 anchor recency, distinguishing own vs. non-own:
-
-- **Knizia** — own-anchor at T&E (#2). Non-own anchors at Puerto Rico (#6) and Twilight Struggle (#15, C1 canonical). 6 games since last anchor. Still active in Argument but anchor-dormant.
-- **Feld** — own-anchor at FACETS (#3) + Castles of Burgundy (#12). Last anchor #12 (9 games ago). **Getting overdue.**
-- **Lacerda** — own-anchor at Lisboa (#11). Non-own anchor at Covenstat (#19, A7). Active and recent.
-- **Chvátil** — own-anchor at UNFOLD (#7) + TtA (#8). Last own-anchor #8 (13 games ago). Recent centrality via A3 adversarial engagement (Wingspan self-refute; v2.20 meta-review collision loss). Active in Argument but **longest-overdue own-anchor on the panel.** Codenames review (HOP-005 parallel, party-game) or Pandemic Legacy (#22 B5 candidate) would close this.
-- **Rosenberg** — own-anchor at Agricola (#14) + Rewild (#21). Recent. No gap.
-- **K-K** — own-anchor at Tikal (#13). 8 games ago. Active via Nemesis non-own anchor and v2.20 meta-review D1/B6 arguments. **Getting overdue.**
-- **Stegmaier** — own-anchor at Scythe (#5) + Vigil (#18). Recent. No gap.
-- **Vaccarino** — own-anchor at Famiglia (#9). Non-own anchors at AFoS (#16) + Wingspan (#17). Last anchor #17 (4 games ago). No gap.
-
-**Most overdue for anchor: Chvátil (13 games), then Feld and K-K (9 and 8 games).**
-
-## BGG Top 100 domains missing from TIGRIS corpus
-
-*Updated from post-#17 version to reflect games #18–21.*
-
-**Newly covered since last refresh:**
-- **Horror** — Vigil (#18) + Nemesis (#20). Gap closed.
-- **Traitor / hidden-role** — Vigil (#18, semi-traitor). Partially closed; full hidden-role (BSG, Secret Hitler) still absent.
-- **Roll-and-write** — Covenstat (#19). Gap closed.
-- **Nature / environmental theme** — Rewild (#21) + Wingspan (#17). 2 games; adequate corpus.
-
-**Still missing:**
-- **Legacy / campaign** — Pandemic Legacy S1/S2, Clank! Legacy, Gloomhaven campaign. **0 games.** Biggest mechanism gap remaining. Priority gap.
-- **Dexterity** — Crokinole. 0 games. Mechanism gap at the A6/D1 boundary (how do non-euro games strain teachability?).
-- **Party / word** — Codenames, Decrypto. 0 games. Tests B5 (Chvátil-own, novel information architecture) + lighter-axis behavior. Codenames would give Chvátil an own-anchor close-out.
-- **Abstract strategy pure** — Azul, Patchwork, Hive. 0 games. Would test A1 Elegance + D1 at very low rule-count.
-- **Bag-building** — Quacks of Quedlinburg, Orléans. 0 games. Mechanism absent despite deck-building (Dominion) being covered.
-
-## Mechanisms never in TIGRIS reviews
-
-- **Legacy / campaign** (Pandemic Legacy, Gloomhaven) — highest-priority gap.
-- **Flicking / dexterity** (Crokinole, Flick 'em Up) — low priority; outside Euro tradition.
-- **Pick-up-and-deliver** (Great Western Trail, Maracaibo) — Euro-adjacent; present in Lacerda-adjacent games but no direct PuD review.
-- **Bag-building** (Quacks of Quedlinburg, Orléans) — mechanism gap despite deck-building coverage.
-- **Pure trick-taking** (The Crew, Haggis) — HOP-001 Furrow (trick-taking×farming mashup) is a hopper candidate; trick-taking not yet standalone reviewed.
-
-## Hopper state (3 fresh)
-
-| ID | Title | Anchor | Gap it closes |
+| Persona | Last own-anchor | Games since | Status |
 |---|---|---|---|
-| HOP-001 | Furrow | chvatil / B5 | Trick-taking mechanism gap; Chvátil own-anchor opportunity |
-| HOP-005 | Nest | feld / C6 | Domestic-theme gap; Feld own-anchor opportunity; covers D1/D2 |
-| HOP-006 | Hearth | stegmaier / A6 | Legacy-as-teach mechanism; complements Pandemic Legacy review |
+| Knizia | T&E #2 + non-own PR/TS | 28 games | No own-anchor since #2. Non-own anchors (PR #6, TS #15) more recent. C1/A1 are his canonical axes — could anchor a tension-heavy design. |
+| Rosenberg | Rewild #21 | 9 games | Recent. |
+| Feld | GARNER #23 | 7 games | Getting overdue again. NEST #26 was also Feld. |
+| Lacerda | Covenstat #19 | 11 games | Getting overdue. |
+| **Chvátil** | FURROW #28 | 2 games | Very recent. |
+| **K-K** | Azul #30 | 0 games | Just anchored. |
+| Stegmaier | HEARTH #29 | 1 game | Very recent. |
+| Vaccarino | Famiglia #9 | 21 games | **Very overdue for own-anchor.** Non-own anchors at AFoS #16, Wingspan #17 — none since game 17. Vaccarino's preferred axes: A4, B5, C4, B3, C7, A1, A5, A2. A new original designed for Vaccarino could stake A4 Variance Calibration or A2 Decision Density canonically. |
 
-## Recommended gap-closure sequence (next 3 games)
+**Most overdue for anchor: Vaccarino (21 games since last own-anchor), then Lacerda (11 games).**
 
-1. **Pandemic Legacy review (#22)** — closes legacy gap; Chvátil B5 anchor candidate (legacy as architectural novelty); pairs naturally with HOP-006 Hearth on originals side.
-2. **Consume HOP-006 Hearth (#23)** — legacy-as-teach original; Stegmaier A6 anchor; closes legacy gap on originals side.
-3. **Codenames review (#24)** — Chvátil own-anchor close-out (13 games overdue); party/word gap; B5 architectural novelty of information architecture.
+## BGG Top 100 domains still missing
 
-Alternative path: **Crokinole (#22)** — dexterity gap; lighter-game axis behavior; K-K own-anchor opportunity.
+After 30 games (19 reviews + 11 originals):
+
+**Still absent:**
+- **Dexterity** — Crokinole (task #18 pending). 0 reviews.
+- **Bag-building** — Quacks of Quedlinburg, Orléans. 0 reviews. Mechanism never tested.
+- **Push-your-luck** — Can't Stop, Incan Gold. 0 reviews.
+- **Deckbuilder (secondary)** — Dominion reviewed but Clank!, Star Realms, etc. absent.
+- **Engine-building pure** — brass-style pure engine (Brass: Birmingham or Lancashire). 0 reviews. T&E is too old for this classification.
+- **Social deduction** — Werewolf, Secret Hitler, The Resistance. 0 reviews. A3 Interaction canonical territory.
+
+**Recently closed:** Trick-taking (FURROW #28), Pure-abstract (Azul #30), Legacy-as-teach (HEARTH #29), Domestic theme (NEST #26), Party/word (Codenames #25), Legacy/campaign (Pandemic Legacy #22).
+
+## Mechanism gaps
+
+Still missing:
+- **Dexterity** — Crokinole (next review task).
+- **Bag-building** — Quacks. Orléans.
+- **Route-building/network** — Ticket to Ride. Brass: Birmingham.
+- **Social deduction** — Werewolf variants.
+
+## Hopper state
+
+| ID | Title | Anchor | Status |
+|---|---|---|---|
+| HOP-001–006 | All consumed | — | Pipeline 6-for-6 |
+
+**Hopper fully exhausted.** Run `/tigris-ideate` to generate HOP-007+.
+
+Candidates for `/tigris-ideate` to consider:
+- **Vaccarino own-anchor original** — A4 Variance Calibration + A2 Decision Density. Deck-management or variable-deck design.
+- **Lacerda own-anchor original** — B1 System Gearing + B4 Information-Transparency-Cost. Complex information-asymmetry Euro.
+- **A3 counter-pressure design** — the v2.23 cycle 3 recovery holds; any future A3 refutation will need a cycle 4 original. Getting ahead of it now.
+- **Social deduction original** — fills a corpus gap and gives A3 a new domain.
+- **Network-building original** — Lacerda or Rosenberg anchor; D2 + B1 gearing.
+
+## Pool health summary
+
+| Band | Adopted | Retired | Contested | Dormancy-watch | Monitoring |
+|---|---:|---:|---|---|---|
+| A | 7/7 | 0 | 0 | 0 | — |
+| B | 6/6 | 0 | 0 | 0 | B4, B5 |
+| C | 7/8 | 1 (C5) | 0 | 0 | C2, C3, C4, C6, C8 |
+| D | 4/4 | 0 | 0 | 0 | D2 |
+
+**Zero contested-watch.** Pool in excellent health. Monitoring cluster is normal retire-explicit accumulation from party/abstract/coop reviews; all monitoring axes earned within 8 drafted-games.
+
+## Next-session priorities (from current state)
+
+1. **Run `/tigris-ideate`** — generate HOP-007+ from corpus gaps above.
+2. **Crokinole review (#31)** — dexterity gap; K-K anchor.
+3. **Vaccarino own-anchor original** — 21 games overdue; A4/A2 focused design.
+4. **Bag-building review** — Quacks of Quedlinburg (BGG: 244521) or Orléans. New mechanism type.
+5. **Social deduction review** — fills corpus gap; A3-heavy game.
