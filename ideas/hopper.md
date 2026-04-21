@@ -15,7 +15,7 @@ updated: 2026-04-20
 
 ## Counter
 
-Last assigned ID: HOP-010.
+Last assigned ID: HOP-014.
 
 ## Schema
 
@@ -40,7 +40,9 @@ Last assigned ID: HOP-010.
 - **Anchor guess:** vaccarino / A4
 - **Sources:** primitives (P-006 deck-building + P-013 simultaneous action); gap (Vaccarino own-anchor 21 games overdue; A4 Variance Calibration underexplored at simultaneous-action weight)
 - **Tension hypothesis:** Vaccarino defends A4 — variance calibration is the core mechanic: card pool composition is known (visible face-up stack), but draw sequence is unknown (face-down execution). A2 earns via simultaneous-action density. Primary predicted collision: **A4 ↔ A2** — calibrated variance vs. decision density at simultaneous play. Both fire on the pool structure.
-- **Status:** fresh
+- **Status:** consumed
+- **Updated:** 2026-04-20
+- **Notes:** consumed by games/0032-wellspring/ (2026-04-20). Actual collision: A4↔C4 Decisive OP 7-1 (not A4↔A2 as predicted). C4 monitoring clock reset. Vaccarino own-anchor close-out.
 - **Created:** 2026-04-20
 - **Updated:** 2026-04-20
 - **Notes:**
@@ -50,30 +52,70 @@ Last assigned ID: HOP-010.
 - **Anchor guess:** lacerda / B4
 - **Sources:** gap (Lacerda own-anchor 11 games overdue; B4 Information-Transparency-Cost underexplored outside Lacerda-review games); primitives (P-007 worker placement)
 - **Tension hypothesis:** Lacerda defends B4 — hidden value functions create genuine information cost: you can't optimize the shared city without knowing what your opponents need from it, and they won't tell you unless they get something. Feld earns A2 Decision Density (per-placement: optimize for self + infer opponent needs). Primary predicted collision: **B4 ↔ A3** — information cost requires interaction to resolve; are these the same mechanism (interaction drives info-sharing) or orthogonal (B4 = structural hidden information; A3 = social exchange needed to resolve it)?
-- **Status:** fresh
+- **Status:** consumed
 - **Created:** 2026-04-20
 - **Updated:** 2026-04-20
-- **Notes:**
+- **Notes:** consumed by games/0033-cartell/ (2026-04-20); B4↔A3 OP 5-3; Lacerda own-anchor close-out.
 
 ### HOP-009 — Schism
 - **One-liner:** A 4–6 player area-control game with hidden objectives and deduction-via-action-selection. No speech allowed about objectives; players infer opponents' allegiances by reading which regions they defend vs. abandon. One player holds a "schismatic" objective that benefits from the group losing collectively — the traitor role manifests through action-choice, not declaration. Light Euro wrapper around the deduction engine.
 - **Anchor guess:** chvatil / A3
 - **Sources:** primitives (P-015 hidden-role + P-011 area-control); gap (social deduction corpus gap; 0 reviews)
 - **Tension hypothesis:** Chvátil defends A3 — action-inference deduction creates mandatory indirect interaction: every placement reveals information about your objective, and opponents must engage with that signal. The Schismatic's hidden objective means no player can ignore what others are doing. K-K earns D2 Spatial-Interaction (area-control map). Primary predicted collision: **A3 ↔ B5** — is action-inference deduction a novel mechanism (B5) or just standard indirect interaction (A3)? If the deduction is structural enough to be architecturally new, B5 earns alongside A3.
-- **Status:** fresh
+- **Status:** consumed
 - **Created:** 2026-04-20
 - **Updated:** 2026-04-20
-- **Notes:**
+- **Notes:** consumed by games/0035-schism/ (2026-04-20). Actual collision: B5↔A7 OP 6-2 (13th temporal-register). Social deduction corpus closed via I-schism-01. Tension hypothesis directionally correct (B5 and A3 both earn) but collision was B5↔A7 not A3↔B5.
+
+### HOP-014 — Solstice
+- **One-liner:** A 2–4 player seasonal card game where the scoring mechanism IS elegance — the entire game is a tension budget made simple. Players distribute a fixed hand of 15 cards across 5 Arenas over 4 Seasons; final score = minimum Arena score + Solstice Bonus in strongest Arena. Two rules produce the complete strategic space.
+- **Anchor guess:** knizia / A1 (Elegance) + C1 (Tension Budget) co-anchor
+- **Sources:** milestone design for game #50; designed as canonical reference for both A1 and C1 simultaneously; Knizia own-anchor original
+- **Tension hypothesis:** A1 and C1 both fire as Decisive OP — rule-count-to-depth ratio (A1 = design identity) vs. resource shortage experience (C1 = play experience). Second confirmation of C1↔A1 pair orthogonality established at Patchwork #49.
+- **Status:** consumed
+- **Created:** 2026-04-20
+- **Updated:** 2026-04-20
+- **Notes:** consumed by games/0050-solstice/ (2026-04-20). Milestone game #50. A1↔C1 Decisive OP 7-1 (23rd TP). A1 career peak 33E. C1 career peak 31E. 12 earned. TIGRIS original #17.
+
+### HOP-013 — Torrent
+- **One-liner:** A 2–4 player hex-based water-routing game where river flows determine which territories gain resources. Players place source, channel, and dam tiles; water flows downhill via elevation; dam placement is permanent and blocks all downstream players. Direct spatial blocking is the core interaction.
+- **Anchor guess:** kramer-kiesling / D2 (Spatial-Interaction Presence)
+- **Sources:** gap (K-K overdue for own-anchor; D2 spatial mechanism underexplored in originals); primitives (hex-grid routing + elevation mechanics)
+- **Tension hypothesis:** K-K defends D2 — hex-grid water routing = canonical spatial coupling. Chvátil earns A3 (dam blocking = mandatory interaction). Primary predicted collision: D2↔A3 OP — spatial design (D2 = board structure) vs. player blocking behavior (A3 = emergent social dynamic).
+- **Status:** consumed
+- **Created:** 2026-04-20
+- **Updated:** 2026-04-20
+- **Notes:** consumed by games/0047-torrent/ (2026-04-20). Actual collision: D2↔A3 OP 6-2 (20th temporal-register OP — MILESTONE). Prediction correct. TIGRIS original #16.
+
+### HOP-012 — Rivener
+- **One-liner:** A 2–4 player canal-network game where every placement is permanent and irrevocable. Players route canals across a hex-grid English countryside; the waterway topology defines cargo routes for the rest of the game. Early placements lock in strategy; late game is pure optimization within committed geometry.
+- **Anchor guess:** rosenberg / D4 (Late-Game Lock-in Point)
+- **Sources:** gap (Rosenberg open for own-anchor; D4 underexplored in permanent-placement context); primitives (canal routing + network game)
+- **Tension hypothesis:** Rosenberg defends D4 — every segment is permanent; topology fixed by game midpoint. Chvátil earns A3 (spatial blocking via canal claims). Primary predicted collision: D4↔A3 OP — temporal commitment (when strategies lock) vs. social blocking (who denies whom).
+- **Status:** consumed
+- **Created:** 2026-04-20
+- **Updated:** 2026-04-20
+- **Notes:** consumed by games/0044-rivener/ (2026-04-20). Actual collision: D4↔A3 OP 6-2 (17th TP). Prediction correct. TIGRIS original #15.
+
+### HOP-011 — Quorum
+- **One-liner:** A 2–5 player competitive-cooperative voting game where the tension budget IS the scoring mechanism. Players simultaneously commit influence tokens across 5 open Proposals; proposals reaching a quorum threshold pass (all backers score); failing proposals lose tokens. With only 8 tokens and 5 proposals, the budget is always too small.
+- **Anchor guess:** knizia / C1 (Tension Budget)
+- **Sources:** gap (Knizia open for own-anchor original; C1 underexplored in voting context); primitives (simultaneous commitment + voting mechanics)
+- **Tension hypothesis:** Knizia defends C1 — the token budget is structurally insufficient; perpetual scarcity drives every decision. Chvátil earns A3 (voting = mandatory social engagement). Primary predicted collision: C1↔A3 OP — structural budget shortage (C1 = mechanism) vs. emergent social behavior (A3 = player dynamic).
+- **Status:** consumed
+- **Created:** 2026-04-20
+- **Updated:** 2026-04-20
+- **Notes:** consumed by games/0041-quorum/ (2026-04-20). Actual collision: C1↔A3 OP 6-2 (14th TP). Prediction correct. TIGRIS original #14.
 
 ### HOP-010 — Perihelion
 - **One-liner:** A 2–4 player rondel game where the rondel track represents orbital paths — each step forward is a gravity-assist (cheap, indirect, constrained to current trajectory) while skipping positions is a direct burn (expensive, flexible). Players are research stations collecting phenomena from different orbital zones; the zone you can reach depends on your trajectory commitment. Short game, 45 minutes, weight 2.5.
 - **Anchor guess:** feld / C6
 - **Sources:** mashups (M-003 rondel × cosmic); gap (Feld open for own-anchor; rondel mechanism never in TIGRIS reviews)
 - **Tension hypothesis:** Feld defends C6 — different orbital zones score via incommensurable phenomena (Gas Giant: +VP per chain of thermal events; Asteroid Belt: +VP per collision clusters; Deep Space: +VP per unique phenomena set). Players cannot maximize all zones without contradictory trajectory commitments. Knizia earns C1 Tension Budget (the rondel's step-cost creates a perpetual opportunity-cost clock). Primary predicted collision: **C6 ↔ A2** — are incommensurable scoring paths (C6) and per-step opportunity-cost decisions (A2) orthogonal registers of the rondel mechanism, or does A2 describe the decision and C6 describe its payoff (CR, C6 wins)?
-- **Status:** fresh
+- **Status:** consumed
 - **Created:** 2026-04-20
 - **Updated:** 2026-04-20
-- **Notes:**
+- **Notes:** consumed by games/0036-perihelion/ (2026-04-20). Actual collision: C6↔B1 OP 5-3 (14th temporal-register), not C6↔A2 as predicted. Rondel mechanism gap closed; M-003 mashup consumed. B1 earns (pipeline gearing) alongside C6 (incommensurable scoring) — orthogonal registers confirmed.
 
 ### HOP-001 — Furrow
 - **One-liner:** A trick-taking game where each trick is a seasonal harvest round. Players lead with a card from hand (a crop variety); opponents follow-suit (same crop family) or trump (weather). Winner of the trick harvests; trump family rotates each season. The follow-suit obligation becomes planting priority — Knizian shape on Rosenbergian substrate.
