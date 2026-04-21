@@ -1038,6 +1038,35 @@ Total adopted axes: **24 of 25 Pool** (96%). After 21 games (16 reviews + 5 orig
 - **Status:** adopted
 - **Note:** A6↔D1 adds a new temporal-register OP pair. A6 fires at session-1 entry (can new players start now?); D1 fires across the full campaign arc (how much has the player's expertise grown?). This extends the temporal-register pattern beyond individual games to multi-session campaign arcs.
 
+## HAUL (game #51) — 2026-04-21
+
+### I-haul-01 — B3 targeted earn confirmed; farm-chain is canonical B3 habitat
+
+- **Dimension:** B3 Conversion Chain Depth
+- **Trigger pattern:** targeted_earn_confirmed; dormancy_recovery_18_games
+- **Source:** games/0051-haul (B3↔C3 OP 6-2)
+- **Scope:** pattern-across-games
+- **Status:** adopted
+- **Note:** B3 was at 3E/4.5R with 18 games since last earn (WELLSPRING #32). HAUL's Farm→Mill→Warehouse→Market pipeline earns B3 canonically. Design recipe: each conversion stage needs a distinct mechanical identity and a specific bottleneck. B3 earns when removing any stage collapses the economic logic of the game.
+
+### I-haul-02 — C4 window watch cleared; warehouse adjacency earns C4
+
+- **Dimension:** C4 Engine-Garden Dependency
+- **Trigger pattern:** monitoring_window_cleared; targeted_earn
+- **Source:** games/0051-haul
+- **Scope:** pipeline-architectural
+- **Status:** adopted
+- **Note:** C4 was last earned at Brass: Birmingham #37 (14 games ago). HAUL's warehouse-upgrade system (Spice-Rack + Flour → Bread only if adjacent) earns C4 via architectural dependency: removing any upgrade tile breaks the scoring engine. C4 monitoring clock reset from game #51.
+
+### I-haul-03 — B3↔C3 OP 6-2; 24th temporal-register OP; new pipeline pair
+
+- **Dimension:** OP corpus; B3/C3 adjacency
+- **Trigger pattern:** temporal_register_op_24th
+- **Source:** games/0051-haul
+- **Scope:** pattern-across-games
+- **Status:** adopted
+- **Note:** B3 (pipeline structural depth; timeless) vs. C3 (operational scarcity at each node; per-session). Supply-chain games with genuine node scarcity should expect B3↔C3 as a reliable temporal-register OP pair. Design implication: if you have a conversion chain (B3) AND genuine scarcity at conversion nodes (C3), plan for this OP.
+
 ## Bet version history
 
 | Bet | Adopted | Retired / superseded | Summary |
