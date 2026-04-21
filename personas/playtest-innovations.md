@@ -804,6 +804,124 @@ Total adopted axes: **24 of 25 Pool** (96%). After 21 games (16 reviews + 5 orig
 - **Source:** Agricola C6 at 10/10 (14+ scoring columns exceeds CoB's 6)
 - **Status:** observational — Feld's point-salad signature validated on a non-Feld game.
 
+## Pandemic Legacy Season 1 (game #22) — 2026-04-20
+
+### I-pandemic-01 — Legacy-mechanism corpus gap closed
+
+- **Dimension:** corpus-representativeness
+- **Trigger pattern:** `coverage_gap_closure`
+- **Source:** games/0022-pandemic-legacy
+- **Supporting voices:** all 8 designers
+- **Scope:** pipeline-architectural
+- **Status:** adopted (gap closed)
+- **Note:** TIGRIS corpus had 0 legacy/campaign reviews pre-#22. Pandemic Legacy S1 closes the gap as the BGG canonical reference for the legacy mechanism. B5 legacy-as-architecture is now fully representable in the corpus.
+
+### I-pandemic-02 — A7 first post-v2.19-recovery refutation
+
+- **Dimension:** A7 Emergence-Replayability
+- **Trigger pattern:** `post_recovery_refutation`
+- **Source:** games/0022-pandemic-legacy (B5↔A7 CR collision)
+- **Supporting voices:** Chvátil, Knizia, Feld, Vaccarino, Rosenberg (majority)
+- **Scope:** pattern-across-games
+- **Status:** candidate
+- **Note:** A7 formally recovered via v2.19 (2026-04-20). Pandemic Legacy is the first game after recovery to refute A7 via the no-replayability argument. A7 re-enters contested-watch at 8E/1R. Counter-pressure path: needs a new designed original targeting the replayability component specifically. The "mechanism is one-shot by design" argument is the strongest formal A7-refutation in the corpus.
+
+### I-pandemic-03 — First temporal-register OP-collision (A6↔C8)
+
+- **Dimension:** collision-type; OP corpus expansion
+- **Trigger pattern:** `new_op_temporal_register`
+- **Source:** games/0022-pandemic-legacy (Session 11-12 A6↔C8 6-2 OP)
+- **Supporting voices:** Rosenberg, Feld, Lacerda, Knizia, Stegmaier, Vaccarino
+- **Scope:** pattern-across-games
+- **Status:** candidate
+- **Note:** Prior OP-collisions involved structural registers (B5↔A7: mechanism vs. emergence) or social registers (A3↔C4: interaction vs. engine architecture). A6↔C8 introduces temporal register orthogonality: A6 fires at campaign entry (Session 1 — who can I teach this to?); C8 fires at established sessions (Sessions 10-12 — how much setup overhead exists?). Different campaign phases targeting different player populations are a third register-type for OP. Adds to v2.20 OP corpus as 6th instance.
+
+### I-pandemic-04 — C4 retire-explicit accumulation protocol gap
+
+- **Dimension:** C4 Engine-Garden Dependency; amendment-protocol
+- **Trigger pattern:** `retire_explicit_accumulation_threshold`
+- **Source:** games/0022-pandemic-legacy (amendment phase, C4 retire-explicit takes total to 2.0R)
+- **Supporting voices:** Stegmaier, Rosenberg
+- **Scope:** pipeline-architectural
+- **Status:** candidate (protocol gap; amendment needed)
+- **Note:** C4 now has 2.0 cumulative refuted weight from retire-explicit events alone (4 events × 0.5 weight). The amendment skill's retirement trigger fires at cumulative ≥2.0 across ≥2 games. But v2.14 A-v2.14-01 de-adoption path requires a FORMAL REFUTATION (1.0 weight) to enter adopted-contested status. These two rules are inconsistent: retire-explicit accumulation can reach the retirement-trigger threshold (2.0) without ever triggering the de-adoption path. Factory needs to resolve: (a) retire-explicit-only accumulation can trigger de-adoption — then C4 queues for de-adoption now; OR (b) formal refutation is required for de-adoption — then the retirement-trigger threshold needs a clarifying note.
+
+## GARNER (game #23) — 2026-04-20
+
+### I-garner-01 — A7 counter-pressure cycle 2 game #1 confirmed
+
+- **Dimension:** A7 Emergence-Replayability; v2.18 counter-pressure protocol
+- **Trigger pattern:** counter_pressure_cycle_2_game1_confirmed
+- **Source:** games/0023-garner (concept.md + C6↔A7 OP 5-2 collision)
+- **Scope:** pattern-across-games
+- **Status:** candidate (cycle 2 game #1 of 2)
+- **Note:** GARNER formally satisfies the first of two required counter-pressure originals for A7's second retirement-reversal cycle. Variable contract deck (15,504 combinations; no consumable elements) is the structural replayability mechanism. OP collision (5-2) confirms the earn canonically. The counter-pressure mechanism — variable setup guaranteeing fresh optimization problems — is distinct from cycle 1 (mandatory-discussion + shared-dice catalog). A second designed original with documented A7 counter-pressure target is required to complete cycle 2.
+
+### I-garner-02 — C6↔A7 temporal-register OP; second instance validates pattern
+
+- **Dimension:** OP-collision corpus; C6/A7 adjacency
+- **Trigger pattern:** temporal_register_op_second_instance
+- **Source:** games/0023-garner (Round 3 C6↔A7 OP 5-2)
+- **Scope:** pattern-across-games
+- **Status:** adopted (second instance; pattern confirmed)
+- **Note:** Pandemic Legacy A6↔C8 was the first temporal-register OP (entry vs. established-session phases). GARNER C6↔A7 is the second, with a different temporal split (within-game session vs. across-game sessions). Two instances confirm that "same mechanism operating at different temporal scales" is a valid orthogonal-register type for OP under v2.20. The pattern can now be taught as a third register-type alongside structural and social registers.
+
+### I-garner-03 — B6 first re-earn in 15 games; majority-bonus design is canonical B6 habitat
+
+- **Dimension:** B6 Scoring Multiplier Dependency
+- **Trigger pattern:** axis_dormancy_recovery
+- **Source:** games/0023-garner (C07/C09/C12 majority-bonus mechanics)
+- **Scope:** pattern-across-games
+- **Status:** adopted (recovery confirmed)
+- **Note:** B6 had been retired-explicit or held across all 14 games between TtA (#8) and GARNER (#23). The dormancy pattern is now explained: B6 earns in games where scoring multiplication is explicit and consequential (lump-sum majority bonuses that multiply a player's base investment). GARNER's three majority-bonus contracts (most-Barley, most-Hops, most Processed-Stock) are architecturally similar to TtA's category multipliers. Design recipe: B6 earns when a discrete majority race produces a multiplied VP reward rather than just a marginal advantage.
+
+### I-garner-04 — I-pandemic-04 protocol-gap cluster grows to 3 axes; escalated
+
+- **Dimension:** amendment-protocol; C2/C4/D2
+- **Trigger pattern:** retire_explicit_accumulation_cluster_3axes
+- **Source:** games/0023-garner (C2 = 1.5R, D2 = 1.5R at game end; both approaching 2.0R)
+- **Scope:** pipeline-architectural
+- **Status:** escalated (was candidate at I-pandemic-04)
+- **Note:** After GARNER: C4 (2.0R), C2 (1.5R), D2 (1.5R) — three adopted axes with significant retire-explicit-only accumulation, none with formal refutations. C4 already triggered the gap question at game #22; C2 and D2 are approaching the same threshold. This is no longer an edge case — it's a systemic pattern in the Pool for axes that are "not wrong" but frequently inapplicable to diverse game types. The protocol gap (I-pandemic-04: can retire-explicit-only accumulation trigger de-adoption?) now requires formal resolution in the next amendment cycle (v2.21 candidate).
+
+## CANTON (game #24) — 2026-04-20
+
+### I-canton-01 — A7 v2.18 retirement-reversal cycle 2 complete; A7 at 10E/0R
+
+- **Dimension:** A7 Emergence-Replayability; v2.18 counter-pressure protocol
+- **Trigger pattern:** retirement_reversal_cycle_2_fires
+- **Source:** games/0024-canton + games/0023-garner (combined)
+- **Scope:** pattern-across-games
+- **Status:** adopted (retirement-reversal applied; v2.21 bump)
+- **Note:** Counter-pressure cycle 2 complete. Two distinct replayability mechanisms confirmed A7: (1) GARNER — variable-setup structural replayability (the game demands different things each play); (2) CANTON — faction-identity replayability (the player IS a different strategic entity each play). Both games had collision-vote confirmations (GARNER C6↔A7 OP 5-2; CANTON D2↔A7 Decisive OP 7-1). A7's second recovery demonstrates that the v2.18 mechanism is robust and multi-use: the factory can build counter-pressure designs intentionally. The two cycle-2 mechanisms are stronger than cycle-1 because they directly address the Pandemic Legacy refutation's root claim ("legacy explicitly defeats replayability by design").
+
+### I-canton-02 — Third temporal-register OP; proposed as named sub-type in v2.20 spec
+
+- **Dimension:** OP-collision corpus
+- **Trigger pattern:** temporal_register_op_three_instances_confirmed
+- **Source:** games/0024-canton (D2↔A7 Decisive OP 7-1)
+- **Scope:** pipeline-architectural
+- **Status:** proposed-amendment (add temporal-register OP as named type to v2.20 spec §OP vote threshold)
+- **Note:** Three temporal-register OP collisions: Pandemic Legacy A6↔C8 (entry phase vs. established-session phase); GARNER C6↔A7 (within-game optimization vs. across-game setup variety); CANTON D2↔A7 (within-play spatial mechanics vs. cross-play identity change). The 7-1 Decisive vote in CANTON is the strongest OP confirmation in the corpus. Pattern is unambiguous: "same mechanism at different temporal scales" is a valid OP register type. Proposed addition to v2.20 spec §OP vote threshold as an illustrative register-type example alongside structural and social registers.
+
+### I-canton-03 — Protocol-gap cluster three axes at 2.0R; v2.21 amendment now overdue
+
+- **Dimension:** amendment-protocol; B5/C2/C4
+- **Trigger pattern:** retire_explicit_accumulation_cluster_resolution_required
+- **Source:** games/0024-canton (B5 and C2 reach 2.0R)
+- **Scope:** pipeline-architectural
+- **Status:** escalated; v2.22 amendment required
+- **Note:** After CANTON: B5 Architectural Novelty (2.0R), C2 Minimum-Score Shape (2.0R), C4 Engine-Garden Dependency (2.0R) — three adopted axes at the retirement threshold from retire-explicit-only accumulation, none with formal refutations. This cluster will grow if not resolved: games that test the Euro tradition but focus on spatial/coop/legacy mechanics will continue retire-explicit-ing B5, C2, C4 in games where they don't apply. The factory must decide: Option A (retire-explicit CAN trigger de-adoption at 2.0R) — C4/B5/C2 queue for de-adoption review; or Option B (formal refutation required) — explicitly acknowledge that these axes are "structurally unkillable" without a designed attack on the axis's core claim.
+
+### I-canton-04 — K-K D1+D2 canonical axis pair; persona-signature dual established
+
+- **Dimension:** K-K persona; D1+D2 adjacency
+- **Trigger pattern:** persona_signature_dual_confirmed
+- **Source:** games/0024-canton
+- **Scope:** this-game; pattern-across-games
+- **Status:** observational
+- **Note:** CANTON confirms K-K's canonical axis pair: D1 Family-to-Expert Scaling + D2 Spatial-Interaction Presence earn together on K-K-territory games (Tikal, Torres, CANTON — all spatial territorial games with accessibility gradients). K-K's persona-signature dual is now as distinct as Feld's C6/B2 pair or Knizia's C1/A1 pair. Implication: future K-K-anchored games should plan for D1+D2 to fire together; adjacency between them is confirmed.
+
 ## Bet version history
 
 | Bet | Adopted | Retired / superseded | Summary |
