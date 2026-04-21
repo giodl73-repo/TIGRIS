@@ -40,7 +40,9 @@ Last assigned ID: HOP-006.
 - **Anchor guess:** chvatil / B5 Architectural Novelty
 - **Sources:** mashup (M-005 Trick-taking × farming); gap (trick-taking mechanism never in TIGRIS reviews; Chvátil overdue for own-anchor, last was TtA #8)
 - **Tension hypothesis:** Chvátil defends B5 — trick-taking-as-farming-action-selection is architecturally novel in 2026 (Skull King-meets-Agricola). Knizia attacks on A1 Elegance — grafting trick-taking onto farming is inelegant if the two action-selection systems fight each other. Primary predicted collision: **B5 ↔ A1 orthogonal-preservation** — novel IS inelegant, both can stand.
-- **Status:** fresh
+- **Status:** consumed
+- **Updated:** 2026-04-20
+- **Notes:** consumed by games/0028-furrow/ (2026-04-20). Actual collision: B5↔A3 OP 6-1 + B5↔A7 Decisive OP 8-0 (not B5↔A1 as predicted). A3 cycle 3 game #2; v2.23 retirement-reversal fired. HOP tension hypothesis was directionally correct (B5 earns novelty claim) but underestimated the A3 counter-pressure role.
 - **Created:** 2026-04-20
 - **Updated:** 2026-04-20
 - **Notes:**
