@@ -922,6 +922,44 @@ Total adopted axes: **24 of 25 Pool** (96%). After 21 games (16 reviews + 5 orig
 - **Status:** observational
 - **Note:** CANTON confirms K-K's canonical axis pair: D1 Family-to-Expert Scaling + D2 Spatial-Interaction Presence earn together on K-K-territory games (Tikal, Torres, CANTON — all spatial territorial games with accessibility gradients). K-K's persona-signature dual is now as distinct as Feld's C6/B2 pair or Knizia's C1/A1 pair. Implication: future K-K-anchored games should plan for D1+D2 to fire together; adjacency between them is confirmed.
 
+## NEST (game #26) — 2026-04-20
+
+### I-nest-01 — C2 dormancy-watch cleared; v2.22 mechanism validated end-to-end
+
+- **Dimension:** C2 Minimum-Score Shape; v2.22 dormancy-watch
+- **Trigger pattern:** dormancy_watch_cleared_targeted_design
+- **Source:** games/0026-nest
+- **Scope:** pipeline-architectural
+- **Status:** adopted
+- **Note:** v2.22 dormancy-watch worked as designed. NEST's explicit 2 VP base award per Decade Rubric (total minimum 6 VP; documented in §Designer Notes as intentional "minimum dignity of having lived") earned C2 in targeted window game #2 of 3. The pattern for future dormancy-watch axes: design a game with the axis's earning condition as an explicit design requirement, document it in concept.md, and the panel will confirm. C2 returns to standard adopted status.
+
+### I-nest-02 — A3 enters contested-watch post-v2.22.2; multiplayer-solitaire refute pattern confirmed
+
+- **Dimension:** A3 Interaction; contested-watch
+- **Trigger pattern:** post_recovery_refutation; parallel_board_a3_refute
+- **Source:** games/0026-nest (C6↔A3 CR 5-1)
+- **Scope:** pattern-across-games
+- **Status:** candidate (counter-pressure cycle 3 needed)
+- **Note:** A3's third contested-watch entry (Wingspan → v2.18 cycle 1 cleared; NEST → cycle 2 pending). NEST confirms the parallel-board multiplayer-solitaire pattern: any game where players optimize isolated personal boards without direct interaction will refute A3 via this argument. Counter-pressure must use genuinely direct interaction mechanisms — not "we're at the same table" but specifically "my tile placement directly constrains your choices" or "I can remove/block your game state."
+
+### I-nest-03 — HOP-005 consumed; pipeline 4-for-4; domestic-theme gap closed
+
+- **Dimension:** hopper pipeline; corpus coverage
+- **Trigger pattern:** hopper_consumed_4th; coverage_gap_closure
+- **Source:** games/0026-nest
+- **Scope:** pipeline-architectural
+- **Status:** adopted
+- **Note:** 4th hopper-converted original (Vigil, Covenstat, Rewild, GARNER, CANTON, NEST — actually 6 originals total). Hopper pipeline continues 4-for-4 on consumed entries (all 4 consumed HOPs produced Parliament-approved originals). Domestic-theme corpus gap closed. Hopper still has HOP-001 (Furrow) and HOP-006 (Hearth) fresh.
+
+### I-nest-04 — C6↔A3 CR hopper prediction confirmed
+
+- **Dimension:** C6/A3 adjacency; hopper prediction accuracy
+- **Trigger pattern:** hopper_tension_hypothesis_confirmed
+- **Source:** games/0026-nest (C6↔A3 CR 5-1 for Feld)
+- **Scope:** this-game
+- **Status:** observational
+- **Note:** HOP-005's tension hypothesis ("Primary predicted collision: C6↔A3 — domestic-scale Brass risks the Wingspan A3-refute pattern") was exactly correct. C6↔A3 CR fired at Decade 2. The hopper system's tension hypothesis field is proving its value — it accurately predicted the argument's shape. Future hopper entries should continue using tension hypotheses as load-bearing predictions.
+
 ## Bet version history
 
 | Bet | Adopted | Retired / superseded | Summary |

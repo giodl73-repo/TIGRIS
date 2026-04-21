@@ -80,10 +80,10 @@ Last assigned ID: HOP-006.
 - **Anchor guess:** feld / C6 Point-Salad Incommensurability
 - **Sources:** mashup (M-004 Lock-in × domestic); primitives (P-008 Tile-laying + P-014 Lock-in + P-005 Domestic); gap (Feld open for anchor since CoB #12; domestic theme absent from TIGRIS corpus)
 - **Tension hypothesis:** Feld defends C6 — 3 scoring phases with incommensurable rubrics is canonical point-salad; age-50 "family density" cares about adjacent-child tiles; age-70 "legacy" cares about diagonal reach. Lacerda earns B1 System Gearing (adjacency + lock-in + phase-scoring gear together). Knizia attacks on A3 Interaction — is there enough inter-player influence, or is this multiplayer-solitaire on parallel life-boards? Primary predicted collision: **C6 ↔ A3** — domestic-scale Brass risks the Wingspan A3-refute pattern.
-- **Status:** fresh
+- **Status:** consumed
 - **Created:** 2026-04-20
 - **Updated:** 2026-04-20
-- **Notes:**
+- **Notes:** consumed by games/0026-nest/ (2026-04-20); C6↔A3 CR 5-1 for Feld (hopper prediction CORRECT); C2 dormancy-watch cleared by designed 2 VP floor; A3 enters contested-watch.
 
 ### HOP-006 — Hearth
 - **One-liner:** A 1-5 player legacy cooperative where the campaign IS the learn-cycle. Game 1 ships with 6 rules and a 30-minute play. Each subsequent game unlocks exactly 1 new rule and 1 new role. By game 8, full expert mode is available — teachable because players earned each rule in context. Interaction escalates with unlocks: game 1 has none, game 8 has reactive cascades. The legacy envelope IS the teach.

@@ -108,9 +108,10 @@ At TIER-C, for each stake in the game's record:
 
 1. Classify final state (earned / contested / refuted / ignored).
 2. Update the Rubric Ledger in `personas/axis-pool.md` with per-game state counts.
-3. Trigger adoption / retirement:
+3. Trigger adoption / retirement / dormancy-watch:
    - **Adopt** if ≥ 2 earned states across ≥ 2 different games → mark `adopted`, bump rubric to v2.1+.
-   - **Retire** if ≥ 2 refuted states across ≥ 2 different games → mark `retired`.
+   - **Retire** if ≥ 2 refuted states (hard weight only: ≥ 2 formal 1.0-weight refutations across ≥ 2 games) → mark `retired`. *(v2.22: soft retire-explicit-only accumulation does NOT directly trigger retirement — see dormancy-watch below.)*
+   - **Dormancy-watch** (v2.22 A-v2.22-01): if an adopted axis has (a) cumulative refuted weight ≥ 2.0 from retire-explicit-only events (zero formal refutations), AND (b) ≥ 8 games where the axis was drafted since its last earn → mark `dormancy-watch`. Factory must attempt a targeted earn within the next 3 drafted games. If earned: dormancy-watch clears. If not earned in 3 targeted drafted games: de-adoption review procedure fires (full Parliamentary spec-review on the axis definition; Retire ≥ 5-of-8 required).
 4. Log all new innovations (see §7 of v2.0 spec + `personas/playtest-innovations.md`).
 
 No user approval required; the argument record is the evidence. User override is possible but explicit.
