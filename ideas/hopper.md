@@ -60,10 +60,10 @@ Last assigned ID: HOP-019.
 - **Anchor guess:** rosenberg / B3
 - **Sources:** gap (B3 Conversion Chain Depth urgent — 3E/4.5R, 18 games since last earn); primitives (P-003 farming + P-014 lock-in); gap (C4 window watch — engine-garden elements built into the warehouse upgrade system)
 - **Tension hypothesis:** Rosenberg defends B3 — Farm→Mill→Warehouse→Market is a canonical depth-4 conversion chain. C3 earns (resource scarcity at each conversion node). C4 earns (warehouse upgrades create a garden-like dependency architecture — designed specifically to reset C4 monitoring clock). D4 earns (committed supply-chain route placements lock in by mid-game). Primary predicted collision: **B3↔C3 OP** — pipeline depth (B3 = architectural design of the conversion chain) vs. scarcity pressure (C3 = the resource depletion that makes the chain costly). Different registers: B3 = structure; C3 = pressure within that structure.
-- **Status:** fresh
+- **Status:** consumed
 - **Created:** 2026-04-21
 - **Updated:** 2026-04-21
-- **Notes:** CRITICAL: designed to earn both B3 (targeted earn — 18 games dormant) and C4 (window watch — 13 games since last earn). Concept.md must document both as explicit design targets.
+- **Notes:** CRITICAL: designed to earn both B3 (targeted earn — 18 games dormant) and C4 (window watch — 13 games since last earn). Concept.md must document both as explicit design targets. consumed by games/0051-haul/
 
 ### HOP-018 — Ledger
 - **One-liner:** A 2–5 player sealed-bid auction game for scoring tiles across four commodity markets. Each round all players secretly commit bids simultaneously; bids are revealed; highest bidder wins but pays only the second-highest price (Vickrey-style). The bid IS the tension budget — you must exceed the threshold without knowing where it is. A Knizia-flavoured design hitting the auction/bidding corpus gap.
