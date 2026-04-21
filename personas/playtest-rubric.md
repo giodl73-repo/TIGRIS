@@ -63,7 +63,9 @@ At pre-declared moments during narrated play (turn 1, turn 5, mid-game, late-gam
 - **Hold** — persona affirms their stake still applies; no opposed action.
 - **Attack** — persona argues another persona's stake is weak at this moment. Requires citing what their own lens sees that the opposing stake misses. Attacked persona must defend (cite rule/mechanic) or concede.
 - **Defend** — persona fortifies their own stake by citing evidence from current play state.
-- **Collide** — two personas with semantically-adjacent stakes at this moment resolve simultaneously: whichever persona's stake better matches the moment earns a collision credit; the other takes a single-moment refutation.
+- **Collide** — two personas with semantically-adjacent stakes at this moment resolve simultaneously. Two collision outcomes (v2.20):
+  - **Contested-Resolution (CR)** — default. Whichever stake better characterizes the moment earns a collision credit (+1 defend); the other takes a single-moment refutation (+1 refute).
+  - **Orthogonal-Preservation (OP)** — named outcome. If both stakes address genuinely different analytical registers of the same moment (neither subsumes the other), either persona may propose OP with a one-sentence rationale naming the registers. The panel adjudicates whether the rationale names orthogonal registers; the proposing persona cannot self-certify (simple majority vote resolves adequacy disputes). If ≥ 5-of-8 present vote for OP → both stakes earn a defend credit (+1 each; no refutation). If ≥ 7-of-8 → Decisive OP, counts as 2 collision resolutions toward success criterion §3 (but cannot satisfy §3 as the sole collision — see below). If < majority for OP → collision resolves as CR normally. In the argument file, record as `COLLISION (OP): Persona-A Axis-X ↔ Persona-B Axis-Y / Vote: N-M / Outcome: both earn defend.`
 
 Attacks and defenses are written into `playtests/PT<NN>-argument.md` with specific turn-numbers and rule-citations. Vagueness is banned per `personas/forbidden-words.md`.
 
@@ -130,7 +132,7 @@ A Parliament review succeeds when:
 
 - ≥ 5 stakes earn `earned` status across the full panel.
 - ≥ 2 of those earned stakes are on Band B (Euro-specific) or Band C (persona-signature) axes — i.e., the personas are distinguishable.
-- ≥ 1 collision resolves cleanly (not into mutual ignored-state).
+- ≥ 1 collision resolves cleanly (not into mutual ignored-state). Both CR and OP outcomes satisfy this criterion. A Decisive OP (≥ 7-of-8) counts as 2 collision resolutions, but at least one CR or standard-OP collision must still occur independently — Decisive OP alone does not satisfy criterion §3.
 - The amendment pass promotes ≥ 1 axis to `adopted` OR retires ≥ 1 axis.
 
 If fewer than 5 stakes earn, the rubric is too consensus-seeking (personas aren't arguing). If no Band-B/C stakes earn, the personas are being read as interchangeable. If no collisions resolve, the argument isn't happening. If no promotion/retirement, the rubric isn't evolving. Each failure is a v2.1 blocker.
