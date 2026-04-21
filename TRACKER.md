@@ -6,6 +6,7 @@ Per-artifact pipeline state. Most recent rows on top.
 
 | Version | Date | Bet | Summary | Proposed by |
 |---|---|---|---|---|
+| **v2.23.24** | 2026-04-21 | parliament | **CRUCIBLE (game #52; TIGRIS original #19; Feld/B2; HOP-016). Feld own-anchor close-out. B2↔C6 Decisive OP 7-1 (25th TP; 4th Decisive). 12 earned / 44th 0-silent-retire.** | CRUCIBLE original |
 | **v2.23.23** | 2026-04-21 | parliament | **HAUL (game #51; TIGRIS original #18; Rosenberg/B3; HOP-017). B3 TARGETED EARN (18 games). C4 WINDOW CLEARED (14 games). B3↔C3 OP 6-2 (24th TP). 15 earned / 43rd 0-silent-retire.** | HAUL original |
 | **v2.23.22** | 2026-04-20 | parliament | **SOLSTICE (game #50; TIGRIS original #17; Knizia own-anchor A1+C1; HOP-014). MILESTONE GAME #50.** A1↔C1 Decisive OP 7-1 (23rd TP; 2nd A1↔C1 confirmation). A1 career peak 33E, C1 career peak 31E. 12 earned / 42nd 0-silent-retire. Simplest TIGRIS corpus design (2-rule scoring). | SOLSTICE original |
 | **v2.23.21** | 2026-04-20 | parliament | **Patchwork (game #49; Knizia non-own anchor C1; 2p puzzle-gap).** C1↔A1 Decisive OP 7-1 (22nd TP; **first C1↔A1 pair confirmation**). 8 earned / 41st 0-silent-retire. BGG 163412. | Patchwork review |

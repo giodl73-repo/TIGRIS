@@ -50,10 +50,10 @@ Last assigned ID: HOP-019.
 - **Anchor guess:** feld / B2
 - **Sources:** gap (Feld own-anchor 27 games overdue; B2 or C6 territory); mashup (M-003 rondel × cosmic, adapted to alchemical theme)
 - **Tension hypothesis:** Feld defends B2 — reactor explosions are escalating catastrophe events (each explosion increases the base cost of the next reaction). C6 earns via the incommensurable scoring paths (Gold requires low-risk reactions; Elixirs require high-risk reactions; Artifacts require sequential reactions). Primary predicted collision: **B2↔C6 OP** — catastrophe pressure (B2 = consequence of dangerous play) vs. point-salad incommensurability (C6 = which scoring path to pursue). B2 asks "how bad is failure?"; C6 asks "which success path are you on?".
-- **Status:** fresh
+- **Status:** consumed
 - **Created:** 2026-04-21
 - **Updated:** 2026-04-21
-- **Notes:**
+- **Notes:** consumed by games/0052-crucible/
 
 ### HOP-017 — Haul
 - **One-liner:** A 2–4 player harvest-transport Euro where players build seasonal supply chains across a shared countryside. Goods flow through four conversion stages — Farm → Mill → Warehouse → Market — each step transforming raw produce into processed goods for VP. Resource scarcity bites at every node; the 4-step conversion chain is the game's spine. Rosenberg's canonical C3 territory on a B3-depth pipeline.
