@@ -960,6 +960,64 @@ Total adopted axes: **24 of 25 Pool** (96%). After 21 games (16 reviews + 5 orig
 - **Status:** observational
 - **Note:** HOP-005's tension hypothesis ("Primary predicted collision: C6↔A3 — domestic-scale Brass risks the Wingspan A3-refute pattern") was exactly correct. C6↔A3 CR fired at Decade 2. The hopper system's tension hypothesis field is proving its value — it accurately predicted the argument's shape. Future hopper entries should continue using tension hypotheses as load-bearing predictions.
 
+## WEALD (game #27) — 2026-04-20
+
+### I-weald-01 — A3 counter-pressure cycle 3 game #1 confirmed; displacement = strongest A3 mechanism
+
+- **Dimension:** A3 Interaction; v2.18 counter-pressure
+- **Trigger pattern:** counter_pressure_cycle_3_game1_confirmed
+- **Source:** games/0027-weald (D2↔A3 OP 6-1)
+- **Scope:** pattern-across-games
+- **Status:** candidate (cycle 3 game #1 of 2)
+- **Note:** Displacement mechanism (Displace action removes opponent's piece directly) earns A3 via mandatory mechanical interaction. This is a stronger A3 mechanism than Vigil (mandatory discussion = social) or Covenstat (public-sheet = informational) because it is inescapable: there is no way to play WEALD without opponents' actions directly affecting your board state. D2↔A3 OP 6-1 provides the collision-vote confirmation. One more counter-pressure original needed; recommended: Chvátil anchor with a different mandatory-interaction mechanism.
+
+### I-weald-02 — 5th temporal-register OP; spatial-landscape vs. adversarial-contest new sub-type
+
+- **Dimension:** OP-collision corpus
+- **Trigger pattern:** temporal_register_op_fifth_instance
+- **Source:** games/0027-weald (D2↔A3 OP 6-1)
+- **Scope:** pattern-across-games
+- **Status:** adopted
+- **Note:** D2↔A3 OP introduces a new temporal-register sub-type: static structural geometry (D2 = terrain adjacency values; timeless) vs. dynamic player contest (A3 = displacement actions; per-turn). Prior temporal-register OPs were within-play vs. across-play (GARNER C6↔A7), entry vs. established-session (Pandemic Legacy A6↔C8), or within-play spatial vs. cross-play identity (CANTON D2↔A7). WEALD's D2↔A3 is landscape-vs-contest: the terrain's value is fixed; the players' contest over it is variable. v2.20 spec's temporal-register examples now cover all four sub-types.
+
+### I-weald-03 — A3 counter-pressure mechanism taxonomy: mechanical > social > informational
+
+- **Dimension:** A3 Interaction; counter-pressure mechanism design
+- **Trigger pattern:** a3_mechanism_strength_ranking
+- **Source:** games/0027-weald
+- **Scope:** pattern-across-games
+- **Status:** observational
+- **Note:** Three A3 counter-pressure mechanism types confirmed across cycles 1-3: (1) Social (Vigil: mandatory discussion; Covenstat: public-sheet draft-denial) — interaction emerges from information-sharing rules; (2) Spatial blocking (CANTON: Soldier's contest action) — interaction via territory control; (3) Mechanical displacement (WEALD) — interaction is a named action that directly removes opponent game-state. Mechanical displacement is the strongest A3 counter-pressure because it is categorically impossible to avoid: no board-isolation can prevent it. Future A3 counter-pressure designs should prefer mechanical mechanisms over social ones.
+
+## FURROW (game #28) — 2026-04-20
+
+### I-furrow-01 — A3 v2.23 retirement-reversal cycle 3 complete; mechanical interaction confirmed
+
+- **Dimension:** A3 Interaction; v2.18 counter-pressure
+- **Trigger pattern:** retirement_reversal_cycle_3_fires
+- **Source:** games/0028-furrow + games/0027-weald (combined)
+- **Scope:** pattern-across-games
+- **Status:** adopted (retirement-reversal applied; v2.23)
+- **Note:** Cycle 3 complete. Two distinct mandatory-interaction mechanisms: WEALD (displacement = targeted mechanical) + FURROW (lead/follow = collective mechanical). Cycle 3 is categorically stronger than Cycle 1 (social mechanisms: mandatory discussion + public-sheet) because mechanical mandatory interaction is inescapable by design. The factory has now demonstrated A3 counter-pressure across 3 cycles and multiple mechanism types. The "parallel-board multiplayer-solitaire" refutation pattern (Wingspan, NEST) is now balanced by an equally documented counter-pattern: any game with a core mechanism that forces direct player-to-player engagement will earn A3 canonically.
+
+### I-furrow-02 — B5↔A7 reliable temporal-register OP pair; 2nd unanimous
+
+- **Dimension:** OP corpus; B5/A7 adjacency
+- **Trigger pattern:** reliable_op_pair_confirmed
+- **Source:** games/0028-furrow (B5↔A7 8-0)
+- **Scope:** pattern-across-games
+- **Status:** adopted
+- **Note:** B5↔A7 has now been voted OP twice unanimously (Codenames #25 and FURROW #28). Pattern: when B5 claims "this mechanism is architecturally new" and A7 claims "this game is fresh across plays," they are reliably OP because B5 evaluates the mechanism's timeless structural identity while A7 evaluates the game's per-session content variety. Future reviews that feature both B5 and A7 should expect this OP to be proposed and voted.
+
+### I-furrow-03 — HOP-001 consumed; trick-taking gap closed; pipeline 5-for-5
+
+- **Dimension:** hopper pipeline; corpus coverage
+- **Trigger pattern:** hopper_consumed_5th; coverage_gap_closure
+- **Source:** games/0028-furrow (HOP-001 Furrow → game #28)
+- **Scope:** pipeline-architectural
+- **Status:** adopted
+- **Note:** 5th and final pre-existing hopper entry consumed. HOP-006 (Hearth) remains as the last fresh hopper entry. Trick-taking mechanism gap closed. The hopper system has been 5-for-5 on conversions; the tension hypothesis field has proven its value (NEST and FURROW both confirmed directional predictions from HOP-005 and HOP-001 respectively).
+
 ## Bet version history
 
 | Bet | Adopted | Retired / superseded | Summary |

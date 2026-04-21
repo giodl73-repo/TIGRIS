@@ -6,6 +6,8 @@ Per-artifact pipeline state. Most recent rows on top.
 
 | Version | Date | Bet | Summary | Proposed by |
 |---|---|---|---|---|
+| **v2.23** | 2026-04-20 | parliament | **FURROW (game #28; TIGRIS original #10; Chvátil/B5; HOP-001; trick-taking gap).** A3 v2.23 retirement-reversal cycle 3 (WEALD+FURROW). B5↔A3 OP 6-1 + B5↔A7 8-0. A3 10E/0R. Zero contested-watch. 13 earned / 25th 0-silent-retire. | FURROW original |
+| **v2.22.3** | 2026-04-20 | parliament | **WEALD (game #27; TIGRIS original #9; K-K/D2; A3 cycle 3 game #1).** Displacement = mandatory mechanical interaction; D2↔A3 OP 6-1. A3 9E/1R. 15 earned / 0 refuted / 24th 0-silent-retire. | WEALD original |
 | **v2.22.2** | 2026-04-20 | parliament | **NEST (game #26; TIGRIS original #8; Feld/C6; HOP-005; domestic-theme).** C2 dormancy-watch CLEARED (designed 2 VP floor). A3 contested-watch (8E/1R; C6↔A3 CR 5-1). 13 earned / 1 refuted / 23rd 0-silent-retire. | NEST original |
 | **v2.22.1** | 2026-04-20 | parliament | **Codenames (game #25; Chvátil own-anchor B5; party/word gap).** B5↔A7 Decisive OP 8-0 (unanimous). C2 dormancy-watch game #1 (retire-explicit). 11 earned / 9 retire-explicit / 22nd 0-silent-retire. | Codenames review |
 | **v2.22** | 2026-04-20 | parliament | **Dormancy-Watch protocol amendment** (A-v2.22-01). Resolves I-pandemic-04: retire-explicit-only 2.0R → dormancy-watch (not immediate de-adoption). C2 enters dormancy-watch (games #25–#27 earn window). B5/C4 monitoring only. Meta-review: 9 earned / B2↔C7 OP 6-1 / 0 silent-retire. | Protocol meta-amendment |
