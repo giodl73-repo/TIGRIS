@@ -15,7 +15,7 @@ updated: 2026-04-20
 
 ## Counter
 
-Last assigned ID: HOP-014.
+Last assigned ID: HOP-019.
 
 ## Schema
 
@@ -34,6 +34,56 @@ Last assigned ID: HOP-014.
 ## Entries
 
 <!-- /tigris-ideate appends below this line. -->
+
+### HOP-015 — Viaduct
+- **One-liner:** A 2–4 player aqueduct-engineering Euro where each player manages a private pipe network feeding into a shared public grid. Players know their own network's flow capacity but not opponents'. Optimal routing requires inferring what rivals need before they cut off your water supply — and the pipeline from spring to cistern is the game's load-bearing scoring chain.
+- **Anchor guess:** lacerda / B1
+- **Sources:** gap (Lacerda own-anchor 17 games overdue; B1+B4 territory); primitives (P-007 worker placement + information-asymmetry)
+- **Tension hypothesis:** Lacerda defends B1 — multi-stage aqueduct pipeline (spring → pipe → junction → cistern → city delivery) is canonical system gearing. B4 earns via private capacity cards: players cannot optimise the shared grid without inferring what opponents' hidden flows will do. Primary predicted collision: **B1↔B4 OP** — pipeline production process (B1) vs. information cost of hidden capacity (B4). Different analytical registers of the same aqueduct mechanism.
+- **Status:** fresh
+- **Created:** 2026-04-21
+- **Updated:** 2026-04-21
+- **Notes:**
+
+### HOP-016 — Crucible
+- **One-liner:** A 3–4 player alchemical production game where players transmute base elements into compounds via a shared reaction chamber on a rondel. Each transmutation carries escalating catastrophe risk — mismatched elements cause explosions that damage the reactor and raise the cost of all future reactions. Three incommensurable scoring paths (Gold, Elixirs, Artifacts) compete for the same dangerous reaction slots.
+- **Anchor guess:** feld / B2
+- **Sources:** gap (Feld own-anchor 27 games overdue; B2 or C6 territory); mashup (M-003 rondel × cosmic, adapted to alchemical theme)
+- **Tension hypothesis:** Feld defends B2 — reactor explosions are escalating catastrophe events (each explosion increases the base cost of the next reaction). C6 earns via the incommensurable scoring paths (Gold requires low-risk reactions; Elixirs require high-risk reactions; Artifacts require sequential reactions). Primary predicted collision: **B2↔C6 OP** — catastrophe pressure (B2 = consequence of dangerous play) vs. point-salad incommensurability (C6 = which scoring path to pursue). B2 asks "how bad is failure?"; C6 asks "which success path are you on?".
+- **Status:** fresh
+- **Created:** 2026-04-21
+- **Updated:** 2026-04-21
+- **Notes:**
+
+### HOP-017 — Haul
+- **One-liner:** A 2–4 player harvest-transport Euro where players build seasonal supply chains across a shared countryside. Goods flow through four conversion stages — Farm → Mill → Warehouse → Market — each step transforming raw produce into processed goods for VP. Resource scarcity bites at every node; the 4-step conversion chain is the game's spine. Rosenberg's canonical C3 territory on a B3-depth pipeline.
+- **Anchor guess:** rosenberg / B3
+- **Sources:** gap (B3 Conversion Chain Depth urgent — 3E/4.5R, 18 games since last earn); primitives (P-003 farming + P-014 lock-in); gap (C4 window watch — engine-garden elements built into the warehouse upgrade system)
+- **Tension hypothesis:** Rosenberg defends B3 — Farm→Mill→Warehouse→Market is a canonical depth-4 conversion chain. C3 earns (resource scarcity at each conversion node). C4 earns (warehouse upgrades create a garden-like dependency architecture — designed specifically to reset C4 monitoring clock). D4 earns (committed supply-chain route placements lock in by mid-game). Primary predicted collision: **B3↔C3 OP** — pipeline depth (B3 = architectural design of the conversion chain) vs. scarcity pressure (C3 = the resource depletion that makes the chain costly). Different registers: B3 = structure; C3 = pressure within that structure.
+- **Status:** fresh
+- **Created:** 2026-04-21
+- **Updated:** 2026-04-21
+- **Notes:** CRITICAL: designed to earn both B3 (targeted earn — 18 games dormant) and C4 (window watch — 13 games since last earn). Concept.md must document both as explicit design targets.
+
+### HOP-018 — Ledger
+- **One-liner:** A 2–5 player sealed-bid auction game for scoring tiles across four commodity markets. Each round all players secretly commit bids simultaneously; bids are revealed; highest bidder wins but pays only the second-highest price (Vickrey-style). The bid IS the tension budget — you must exceed the threshold without knowing where it is. A Knizia-flavoured design hitting the auction/bidding corpus gap.
+- **Anchor guess:** knizia / C1
+- **Sources:** gap (auction/bidding mechanism — 0 reviews; Ra is the canonical published reference); gap (Knizia own-anchor just completed at SOLSTICE #50 — but Knizia as non-own anchor on a design he'd recognise from Ra/Amun-Re tradition is appropriate)
+- **Tension hypothesis:** Knizia defends C1 — the second-price sealed bid creates the sharpest tension budget in Euro design: every bid is a clock tick where you don't know the threshold. A2 earns (per-round bid calculation = high decision density). Primary predicted collision: **C1↔A2 OP** — tension budget (C1 = the bid outcome pressure) vs. decision density (A2 = the calculation of crafting the bid). Different temporal registers: C1 = what happens after the reveal; A2 = what happens before it.
+- **Status:** fresh
+- **Created:** 2026-04-21
+- **Updated:** 2026-04-21
+- **Notes:** Can serve as a TIGRIS original OR as the concept anchor for a Ra review. If run as original first, the Ra review afterward would be the published reference.
+
+### HOP-019 — Scroll
+- **One-liner:** A 1–4 player roll-and-write-adjacent game where players fill a personal manuscript scroll (shared structure, personal execution) by rolling a shared pool of symbol dice. Each symbol has a different effect depending on where it is placed on the scroll — early placements echo through later sections via a cascade rule. The cascade chain (symbols placed in row 1 modify row 4 outcomes) is the conversion-chain hook; variance is calibrated via die-pool construction.
+- **Anchor guess:** vaccarino / A4
+- **Sources:** gap (roll-and-write mass-market — 0 dedicated originals; Covenstat is horror-adjacent; Scroll would be the pure roll-and-write entry); primitives (P-010 roll-and-write); gap (Vaccarino own-anchor now at WELLSPRING #32, 18 games ago — medium priority)
+- **Tension hypothesis:** Vaccarino defends A4 — die-pool construction manages the variance distribution: adding a symbol die shifts the probability curve for a specific scroll section. B3 earns (symbol cascade chain = depth-4 conversion: die → placement → row-1 modifier → row-4 output). Primary predicted collision: **A4↔B3 OP** — variance calibration (A4 = managing die-pool composition) vs. conversion chain depth (B3 = the cascade pipeline structure). Both fire on the scroll mechanism at different analytical scales.
+- **Status:** fresh
+- **Created:** 2026-04-21
+- **Updated:** 2026-04-21
+- **Notes:** Also designed to earn B3 (targeted). If HOP-017 Haul is consumed first and earns B3, Scroll's B3 argument is confirmatory rather than urgent.
 
 ### HOP-007 — Wellspring
 - **One-liner:** A 2–4 player simultaneous-action deck-builder where card values are uncertain until played. Each deck is face-down; players select cards blindly from specific "pools" (wells of cards grouped by type) and play them simultaneously. The tension: you know the distribution (variance-calibrated) but not the exact draw. The game rewards reading opponent pool-composition rather than owning your deck.
