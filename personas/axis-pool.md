@@ -206,7 +206,37 @@ Added to support PCA research program (150-game corpus). These axes capture dime
 **Anchor 7:** Pure deductive reasoning as the game's core (Hanabi, Mastermind).
 **Anchor 3:** Spatial reasoning primary (Hive, Blokus, Crokinole).
 **Anchor 0:** Pure execution; no significant reasoning required (roll-and-move).
-**State:** live. **Primary advocate:** Lacerda.
+**State:** adopted (v2.24.11). **Primary advocate:** Lacerda.
+
+### A29. Forgiveness Curve
+**Definition:** Can players recover from mistakes? Does the game snowball toward inevitable outcomes, or remain competitive after errors?
+**Anchor 10:** Highly forgiving — mistakes are recoverable; game stays competitive to the end (cooperative games where you adjust collectively, Codenames where rounds reset).
+**Anchor 5:** Neutral — mistakes matter but recovery is possible with good play.
+**Anchor 0:** Punishing snowball — early mistakes compound catastrophically; a bad opening decides the game (Agricola starvation cascade, Brass network lock-out).
+**State:** live. **Primary advocate:** Feld.
+
+### A30. Strategy Ergodicity
+**Definition:** How many equally-valid strategic paths exist? Does the game have a dominant strategy / solved opening, or is the strategy space genuinely wide?
+**Anchor 10:** Maximally ergodic — many viable strategic archetypes; no dominant strategy (Dominion: dozens of deck builds; Wingspan: hundreds of bird combos).
+**Anchor 5:** Moderate diversity — 3–5 viable strategic approaches.
+**Anchor 0:** Single optimal path — solved opening theory dominates; deviation from known lines is punished (Chess, Go: one "best" opening per position class).
+**State:** live. **Primary advocate:** Vaccarino.
+
+### A31. Failure Texture
+**Definition:** How interesting is the losing experience? Does defeat produce a story worth retelling, or is it just a point deficit?
+**Anchor 10:** Dramatic / narrative failure — the collapse is the story (Spirit Island invasion, Pandemic world-fall, CRUCIBLE laboratory collapse). Players recount the loss.
+**Anchor 5:** Meaningful failure — losing teaches something specific about strategy; you understand why you lost and what to do differently.
+**Anchor 0:** Boring failure — you have fewer points than the leader; game continues without drama; defeat is a number, not an event (most point-salad Euros).
+**State:** live. **Primary advocate:** Stegmaier.
+
+### A32. Information Architecture Type
+**Definition:** What structural type of hidden information does the game use? Score by distinctiveness and load-bearing-ness of the information structure.
+**Anchor 10:** Inverted visibility — you see others' information but not your own; the structure IS the game (Hanabi: 10; The Mind: 9).
+**Anchor 7:** Hidden identity — players don't know who is who; identity inference is primary gameplay (Secret Hitler: 8; Coup: 7).
+**Anchor 5:** Hidden valuations — known objects with unknown values or priorities (CARTELL: 6; Medici: 5; sealed bids: 5).
+**Anchor 3:** Private hands — standard card-hand concealment; present but not the game's primary claim (most card games: 3).
+**Anchor 0:** Fully transparent — all information public; no meaningful hidden information (Crokinole: 0; Azul: 0; HAUL: 1).
+**State:** live. **Primary advocate:** Lacerda / Chvátil.
 
 ---
 
@@ -247,6 +277,10 @@ Columns: **Earned / Refuted / Contested / Ignored** counts are cumulative across
 | A26 Social Contract Dependency | 20 | 0 | 0 | 0 | **adopted v2.24.2** | **First earn: Coup#71 (v2.24.2). Second earn: Wavelength#73 (v2.24.4) → A26 ADOPTED (first new axis to reach adoption threshold; fastest adoption in corpus).** +20 earns: Coup, Wavelength, Resistance, Skull, The Mind, Coup Reformation, Dixit, Dixit Odyssey, Mysterium, Insider, Sheriff of Nottingham, Spyfall, Just One, Love Letter (off-paper norms active). |
 | A27 Physical Affordance | 10 | 0 | 0 | 0 | **adopted v2.24.7** | **First earn: Klask#76 (v2.24.7). Second earn: Space Alert#111 (v2.24.42) → A27 ADOPTED.** +10 earns: Klask, Space Alert, RoboRally (physical simulation bias), Project L (polyomino feel), Sagrada (dice placement), Hive (piece-handling). |
 | A28 Cognitive Load Profile | 12 | 0 | 0 | 0 | **adopted v2.24.11** | **First earn: Hive#80 (v2.24.11). Second earn: Onitama#81 (v2.24.12) → A28 ADOPTED.** +12 earns: Hive, Onitama, Chess, Go, Bridge, Mastermind, Mysterium (deductive), Dixit (narrative), Citadels (deductive), The Mind, Wavelength (probabilistic-deductive), Escape Plan (deductive). |
+| A29 Forgiveness Curve | 0 | 0 | 0 | 0 | **live** | New axis v2.25. Measures snowball-vs-recovery spectrum. Primary advocate: Feld. |
+| A30 Strategy Ergodicity | 0 | 0 | 0 | 0 | **live** | New axis v2.25. Measures width of viable strategy space. Primary advocate: Vaccarino. |
+| A31 Failure Texture | 0 | 0 | 0 | 0 | **live** | New axis v2.25. Measures narrative/dramatic quality of the losing experience. Primary advocate: Stegmaier. |
+| A32 Information Architecture Type | 0 | 0 | 0 | 0 | **live** | New axis v2.25. Measures structural type of hidden information (0=transparent to 10=inverted visibility). Primary advocate: Lacerda/Chvátil. |
 
 ## Changelog
 
