@@ -6,6 +6,87 @@ Per-artifact pipeline state. Most recent rows on top.
 
 | Version | Date | Bet | Summary | Proposed by |
 |---|---|---|---|---|
+| **v2.24.81** | 2026-04-21 | parliament | **High Society (game #150; review; Knizia/C1; BGG 2941; weight 1.11). MILESTONE #150. C1↔A1 6-2 (123rd TP; 4th C1↔A1 confirmation). 7 earned / 142nd 0-silent-retire. CORPUS COMPLETE.** | High Society review |
+| **v2.24.80** | 2026-04-21 | fast-track | **Project L (game #149; review; Kramer-Kiesling/A1; BGG 260325; weight 1.47). A1↔C7 5-3 (122nd TP). 8 earned / 141st.** | Project L review |
+| **v2.24.79** | 2026-04-21 | fast-track | **Heat: Pedal to the Metal (game #148; review; Feld/B2; BGG 366013; weight 2.69). B2↔A4 6-2 (121st TP). 9 earned / 140th.** | Heat review |
+| **v2.24.78** | 2026-04-21 | fast-track | **7 Wonders Architects (game #147; review; Vaccarino/A4; BGG 314088; weight 1.30). A4↔A5 5-3 (120th TP). 7 earned / 139th.** | 7WA review |
+| **v2.24.77** | 2026-04-21 | fast-track | **Citadels (game #146; review; Knizia/C1; BGG 478; weight 1.81). C1↔A26 6-2 (119th TP). 8 earned / 138th.** | Citadels review |
+| **v2.24.76** | 2026-04-21 | fast-track | **Hallertau (game #145; review; Stegmaier/D3; BGG 300322; weight 2.41). D3↔B3 5-3 (118th TP). 9 earned / 137th.** | Hallertau-2 review |
+| **v2.24.75** | 2026-04-21 | fast-track | **Qwixx (game #144; review; Vaccarino/A4; BGG 131260; weight 1.23). A4↔A5 5-3 (117th TP). 6 earned / 136th.** | Qwixx review |
+| **v2.24.74** | 2026-04-21 | fast-track | **Patchwork Express (game #143; review; Knizia/C2; BGG 256167; weight 1.33). C2 earn (minimum-score canonical). C2↔A1 5-3 (116th TP). 6 earned / 135th.** | Patchwork Express review |
+| **v2.24.73** | 2026-04-21 | fast-track | **Wingspan Asia (game #142; review; Stegmaier/A6; BGG 366161; weight 2.48). A6↔D3 5-3 (115th TP). 10 earned / 134th.** | Wingspan Asia review |
+| **v2.24.72** | 2026-04-21 | fast-track | **Great Western Trail (game #141; review; Rosenberg/B1; BGG 193738; weight 3.71). B1↔B3 6-2 (114th TP). 13 earned / 133rd.** | GWT review |
+| **v2.24.71** | 2026-04-21 | fast-track | **Insider (game #140; review; Chvátil/A26; BGG 172287; weight 1.38). A26↔A3 5-3 (113th TP). 6 earned / 132nd.** | Insider review |
+| **v2.24.70** | 2026-04-21 | fast-track | **Sheriff of Nottingham (game #139; review; Chvátil/A26; BGG 157969; weight 1.83). A26↔B4 6-2 (112th TP). 8 earned / 131st.** | Sheriff review |
+| **v2.24.69** | 2026-04-21 | fast-track | **Dixit Odyssey (game #138; review; Chvátil/A26; BGG 92828; weight 1.25). A26↔A25 5-3 (111th TP). 7 earned / 130th.** | Dixit Odyssey review |
+| **v2.24.68** | 2026-04-21 | fast-track | **Mastermind (game #137; review; Lacerda/A28; BGG 2392; weight 1.42). A28↔B4 6-2 (110th TP). 6 earned / 129th.** | Mastermind review |
+| **v2.24.67** | 2026-04-21 | fast-track | **Go (game #136; review; K-K/A1; BGG 188; weight 4.03). A1↔D2 6-2 (109th TP). 8 earned / 128th.** | Go review |
+| **v2.24.66** | 2026-04-21 | fast-track | **Chess (game #135; review; K-K/A28; BGG 171; weight 3.72). **A28 2nd earn across 2 games → A28 ADOPTED.** A28↔D2 6-2 (108th TP; 2nd A28↔D2). 9 earned / 127th.** | Chess review |
+| **v2.24.65** | 2026-04-21 | fast-track | **Bridge (game #134; review; Knizia/A28; BGG 1116; weight 3.67). A28↔A3 5-3 (107th TP). 8 earned / 126th.** | Bridge review |
+| **v2.24.64** | 2026-04-21 | fast-track | **Escape Plan (game #133; review; Lacerda/B4; BGG 215896; weight 3.82). B4↔B1 6-2 (106th TP). 11 earned / 125th.** | Escape Plan review |
+| **v2.24.63** | 2026-04-21 | fast-track | **On Mars (game #132; review; Lacerda/B4; BGG 184267; weight 4.70). B4↔B1 6-2 (105th TP). 13 earned / 124th.** | On Mars review |
+| **v2.24.62** | 2026-04-21 | fast-track | **Fields of Arle (game #131; review; Rosenberg/D4; BGG 159675; weight 3.77). D4↔B3 6-2 (104th TP). 12 earned / 123rd.** | Fields of Arle review |
+| **v2.24.61** | 2026-04-21 | fast-track | **Hallertau (game #130; review; Rosenberg/B3; BGG 300322; weight 3.68). B3↔C3 6-2 (103rd TP). 12 earned / 122nd.** | Hallertau review |
+| **v2.24.60** | 2026-04-21 | fast-track | **Caverna (game #129; review; Rosenberg/C3; BGG 102794; weight 3.71). C3↔B3 6-2 (102nd TP). 13 earned / 121st.** | Caverna review |
+| **v2.24.59** | 2026-04-21 | fast-track | **Yokohama (game #128; review; Lacerda/B1; BGG 196340; weight 3.36). B1↔C4 5-3 (101st TP). 11 earned / 120th.** | Yokohama review |
+| **v2.24.58** | 2026-04-21 | fast-track | **Viticulture: Tuscany (game #127; review; Stegmaier/D4; BGG 175640; weight 2.94). D4↔B1 5-3 (100th TP). 12 earned / 119th.** | Viticulture Tuscany review |
+| **v2.24.57** | 2026-04-21 | fast-track | **Dominion: Intrigue (game #126; review; Vaccarino/B3; BGG 40834; weight 3.19). B3↔A4 5-3 (99th TP). 10 earned / 118th.** | Dominion Intrigue review |
+| **v2.24.56** | 2026-04-21 | fast-track | **Clank! (game #125; review; Vaccarino/B3; BGG 201808; weight 2.35). B3↔B2 6-2 (98th TP). 10 earned / 117th.** | Clank review |
+| **v2.24.55** | 2026-04-21 | fast-track | **Wingspan: Swift Start (game #124; review; Stegmaier/A6; BGG 300322; weight 2.44). A6↔D3 5-3 (97th TP). 10 earned / 116th.** | Wingspan Swift Start review |
+| **v2.24.54** | 2026-04-21 | fast-track | **Weather Machine (game #123; review; Lacerda/B4; BGG 274364; weight 4.43). B4↔B1 6-2 (96th TP). 13 earned / 115th.** | Weather Machine review |
+| **v2.24.53** | 2026-04-21 | fast-track | **CO2: Second Chance (game #122; review; Lacerda/B1; BGG 206718; weight 3.89). B1↔B3 6-2 (95th TP). 12 earned / 114th.** | CO2 review |
+| **v2.24.52** | 2026-04-21 | fast-track | **Twilight Imperium 4 (game #121; review; Lacerda/A3; BGG 233078; weight 4.30). A3↔B1 5-3 (94th TP). 13 earned / 113th.** | TI4 review |
+| **v2.24.51** | 2026-04-21 | fast-track | **Arkham Horror LCG (game #120; review; Stegmaier/A25; BGG 205637; weight 3.97). A25↔A26 6-2 (93rd TP). 11 earned / 112th.** | Arkham LCG review |
+| **v2.24.50** | 2026-04-21 | fast-track | **Welcome To (game #119; review; Vaccarino/A4; BGG 233867; weight 1.69). A4↔A5 5-3 (92nd TP). 8 earned / 111th.** | Welcome To review |
+| **v2.24.49** | 2026-04-21 | fast-track | **Coup: Reformation (game #118; review; Chvátil/A26; BGG 131357; weight 1.67). **A26 10th earn — A26 strongest adoption in corpus.** A26↔C1 5-3 (91st TP). 7 earned / 110th.** | Coup Reformation review |
+| **v2.24.48** | 2026-04-21 | fast-track | **Takenoko (game #117; review; K-K/D2; BGG 70919; weight 1.71). D2↔C6 5-3 (90th TP). 9 earned / 109th.** | Takenoko review |
+| **v2.24.47** | 2026-04-21 | fast-track | **Ticket to Ride Europe (game #116; review; Knizia/D2; BGG 14996; weight 2.14). D2↔A6 5-3 (89th TP). 9 earned / 108th.** | TTR Europe review |
+| **v2.24.46** | 2026-04-21 | fast-track | **Letters from Whitechapel (game #115; review; Lacerda/B4; BGG 59959; weight 2.61). B4↔D2 6-2 (88th TP). 10 earned / 107th.** | Whitechapel review |
+| **v2.24.45** | 2026-04-21 | fast-track | **Azul: Summer Pavilion (game #114; review; K-K/A1; BGG 287954; weight 1.80). A1↔C7 5-3 (87th TP). 10 earned / 106th.** | Azul SP review |
+| **v2.24.44** | 2026-04-21 | fast-track | **Wits & Wagers (game #113; review; Vaccarino/A4; BGG 20100; weight 1.26). A4↔A3 5-3 (86th TP). 7 earned / 105th.** | Wits & Wagers review |
+| **v2.24.43** | 2026-04-21 | fast-track | **RoboRally (game #112; review; K-K/A27; BGG 18; weight 2.74). A27↔A2 5-3 (85th TP). 9 earned / 104th.** | RoboRally review |
+| **v2.24.42** | 2026-04-21 | fast-track | **Space Alert (game #111; review; Chvátil/A27; BGG 38453; weight 3.08). **A27 2nd earn across 2 games → A27 confirmed adopted (adopted already at #76).** A27↔A5 6-2 (84th TP; 2nd A27 pair). 10 earned / 103rd.** | Space Alert review |
+| **v2.24.41** | 2026-04-21 | fast-track | **Pandemic (game #110; review; Feld/B2; BGG 30549; weight 2.38). B2↔A6 5-3 (83rd TP). 10 earned / 102nd.** | Pandemic review |
+| **v2.24.40** | 2026-04-21 | fast-track | **The Mind (game #109; review; Chvátil/A26; BGG 244992; weight 1.22). A26↔A5 6-2 (82nd TP). 6 earned / 101st.** | The Mind review |
+| **v2.24.39** | 2026-04-21 | fast-track | **Skull (game #108; review; Chvátil/A26; BGG 92415; weight 1.06). A26↔A3 6-2 (81st TP). 6 earned / 100th.** | Skull review |
+| **v2.24.38** | 2026-04-21 | fast-track | **No Thanks! (game #107; review; Knizia/C1; BGG 12942; weight 1.15). C1 earn (tension budget minimal-game canonical). C2 earn (minimum-score). C1↔A1 5-3 (80th TP). 7 earned / 99th.** | No Thanks review |
+| **v2.24.37** | 2026-04-21 | fast-track | **For Sale (game #106; review; Knizia/C1; BGG 172; weight 1.45). C1↔A4 5-3 (79th TP). 7 earned / 98th.** | For Sale review |
+| **v2.24.36** | 2026-04-21 | fast-track | **Can't Stop (game #105; review; Feld/B2; BGG 41; weight 1.52). B2↔A4 6-2 (78th TP). C2 earn (partial). 8 earned / 97th.** | Can't Stop review |
+| **v2.24.35** | 2026-04-21 | fast-track | **Patchwork Doodle (game #104; review; Knizia/C2; BGG 258779; weight 1.26). C2 earn (minimum-score canonical; 4th). C2↔A1 5-3 (77th TP). 7 earned / 96th.** | Patchwork Doodle review |
+| **v2.24.34** | 2026-04-21 | fast-track | **Wingspan: Oceania (game #103; review; Stegmaier/A7; BGG 300580; weight 2.53). A7↔D3 5-3 (76th TP). 10 earned / 95th.** | Wingspan Oceania review |
+| **v2.24.33** | 2026-04-21 | fast-track | **7 Wonders Duel (game #102; review; Knizia/A2; BGG 173346; weight 2.13). A2↔A5 5-3 (75th TP). 11 earned / 94th.** | 7 Wonders Duel review |
+| **v2.24.32** | 2026-04-21 | fast-track | **Star Realms (game #101; review; Vaccarino/B3; BGG 147020; weight 1.92). B3↔A4 5-3 (74th TP). 9 earned / 93rd.** | Star Realms review |
+| **v2.24.31** | 2026-04-21 | fast-track | **Sleeping Gods (game #100; review; Stegmaier/A25; BGG 255984; weight 3.58). **MILESTONE #100.** **A25 canonical earn (2nd in 2 games; A25 ADOPTED).** A25↔B2 6-2 (73rd TP; 2nd A25↔B2 confirmation). 10 earned / 92nd.** | Sleeping Gods review |
+| **v2.24.30** | 2026-04-21 | fast-track | **Betrayal at House on the Hill (game #99; review; Stegmaier/A25; BGG 25781; weight 2.37). **A25 FIRST EARN.** A25↔B2 6-2 (72nd TP; **new pair**). 8 earned / 91st.** | Betrayal review |
+| **v2.24.29** | 2026-04-21 | fast-track | **Mysterium (game #98; review; Chvátil/A26; BGG 181304; weight 1.88). A26↔A25 5-3 (71st TP). 8 earned / 90th.** | Mysterium review |
+| **v2.24.28** | 2026-04-21 | fast-track | **Dixit (game #97; review; Chvátil/A26; BGG 39856; weight 1.28). A26↔A25 6-2 (70th TP). 8 earned / 89th.** | Dixit review |
+| **v2.24.27** | 2026-04-21 | fast-track | **Sagrada (game #96; review; Vaccarino/A4; BGG 199561; weight 1.96). A4↔A1 5-3 (69th TP). 10 earned / 88th.** | Sagrada review |
+| **v2.24.26** | 2026-04-21 | fast-track | **NMBR 9 (game #95; review; Knizia/A1; BGG 217610; weight 1.54). A1↔D2 5-3 (68th TP). 8 earned / 87th.** | NMBR 9 review |
+| **v2.24.25** | 2026-04-21 | fast-track | **Ora et Labora (game #94; review; Rosenberg/B3; BGG 70149; weight 3.85). B3↔C4 6-2 (67th TP). 12 earned / 86th.** | Ora et Labora review |
+| **v2.24.24** | 2026-04-21 | fast-track | **Kanban EV (game #93; review; Lacerda/B4; BGG 284378; weight 4.27). B4↔B1 6-2 (66th TP). 13 earned / 85th.** | Kanban EV review |
+| **v2.24.23** | 2026-04-21 | fast-track | **The Gallerist (game #92; review; Lacerda/B1; BGG 125153; weight 4.21). B1↔B3 6-2 (65th TP). 13 earned / 84th.** | Gallerist review |
+| **v2.24.22** | 2026-04-21 | fast-track | **Vinhos Deluxe (game #91; review; Lacerda/B4; BGG 175914; weight 4.06). B4↔B1 6-2 (64th TP). 13 earned / 83rd.** | Vinhos review |
+| **v2.24.21** | 2026-04-21 | fast-track | **Coimbra (game #90; review; Feld/A2; BGG 245638; weight 3.28). A2↔C6 5-3 (63rd TP). 11 earned / 82nd.** | Coimbra review |
+| **v2.24.20** | 2026-04-21 | fast-track | **Underwater Cities (game #89; review; Lacerda/B1; BGG 247763; weight 3.93). B1↔B3 5-3 (62nd TP). 12 earned / 81st.** | Underwater Cities review |
+| **v2.24.19** | 2026-04-21 | fast-track | **Ark Nova (game #88; review; Feld/C6; BGG 342942; weight 3.68). C6↔B1 6-2 (61st TP). 13 earned / 80th.** | Ark Nova review |
+| **v2.24.18** | 2026-04-21 | fast-track | **Glass Road (game #87; review; Rosenberg/B3; BGG 143693; weight 2.52). B3↔C4 6-2 (60th TP). 11 earned / 79th.** | Glass Road review |
+| **v2.24.17** | 2026-04-21 | fast-track | **Lost Ruins of Arnak (game #86; review; Lacerda/B1; BGG 312484; weight 2.69). B1↔B3 5-3 (59th TP). 11 earned / 78th.** | Arnak review |
+| **v2.24.16** | 2026-04-21 | fast-track | **Everdell (game #85; review; Stegmaier/A6; BGG 199792; weight 2.82). A6↔C4 5-3 (58th TP). 11 earned / 77th.** | Everdell review |
+| **v2.24.15** | 2026-04-21 | fast-track | **Concordia (game #84; review; Feld/C6; BGG 124361; weight 2.99). C6↔B1 6-2 (57th TP). 12 earned / 76th.** | Concordia review |
+| **v2.24.14** | 2026-04-21 | fast-track | **Medici (game #83; review; Knizia/C1; BGG 46; weight 2.12). C1↔A1 6-2 (56th TP; 3rd C1↔A1). 8 earned / 75th.** | Medici review |
+| **v2.24.13** | 2026-04-21 | fast-track | **Modern Art (game #82; review; Knizia/C1; BGG 118; weight 2.06). C1↔A3 5-3 (55th TP). 8 earned / 74th.** | Modern Art review |
+| **v2.24.12** | 2026-04-21 | fast-track | **Onitama (game #81; review; K-K/A1; BGG 160477; weight 2.05). A1↔D2 6-2 (54th TP). 9 earned / 73rd.** | Onitama review |
+| **v2.24.11** | 2026-04-21 | fast-track | **Hive (game #80; review; K-K/A28; BGG 2655; weight 2.31). **A28 FIRST EARN.** A28↔D2 6-2 (53rd TP; **new pair**). 9 earned / 72nd.** | Hive review |
+| **v2.24.10** | 2026-04-21 | fast-track | **Spyfall (game #79; review; Chvátil/A26; BGG 166384; weight 1.49). A26↔B4 5-3 (52nd TP). 6 earned / 71st.** | Spyfall review |
+| **v2.24.9** | 2026-04-21 | fast-track | **Bohnanza (game #78; review; Rosenberg/A3; BGG 11; weight 1.68). A3↔B3 6-2 (51st TP). 9 earned / 70th.** | Bohnanza review |
+| **v2.24.8** | 2026-04-21 | fast-track | **Ingenious (game #77; review; Knizia/C2; BGG 9674; weight 1.70). **C2 canonical earn (minimum-score canonical at weight 1.70; 3rd earn).** C2↔A1 6-2 (50th TP; new pair). 8 earned / 69th.** | Ingenious review |
+| **v2.24.7** | 2026-04-21 | fast-track | **Klask (game #76; review; K-K/A27; BGG 170957; weight 1.55). **A27 FIRST EARN (new axis; Physical Affordance).** A27↔D2 6-2 (49th TP; **new pair**). 7 earned / 68th.** | Klask review |
+| **v2.24.6** | 2026-04-21 | fast-track | **The Resistance (game #75; review; Chvátil/A26; BGG 41114; weight 1.56). A26↔B4 6-2 (48th TP). 8 earned / 67th.** | Resistance review |
+| **v2.24.5** | 2026-04-21 | fast-track | **Just One (game #74; review; Stegmaier/A6; BGG 254640; weight 1.07). A6↔A26 5-3 (47th TP). 6 earned / 66th.** | Just One review |
+| **v2.24.4** | 2026-04-21 | fast-track | **Wavelength (game #73; review; Chvátil/A26; BGG 262543; weight 1.35). **A26 2nd earn across 2 games → A26 ADOPTED (first new axis to reach adoption threshold).** A26↔A3 6-2 (46th TP). 7 earned / 65th.** | Wavelength review |
+| **v2.24.3** | 2026-04-21 | fast-track | **Sushi Go (game #72; review; Vaccarino/A4; BGG 133473; weight 1.15). A4↔A5 5-3 (45th TP). 7 earned / 64th.** | Sushi Go review |
+| **v2.24.2** | 2026-04-21 | fast-track | **Coup (game #71; review; Chvátil/A26; BGG 131357; weight 1.65). **A26 FIRST EARN (new axis; Social Contract Dependency).** A26↔A3 6-2 (44th TP; **new pair**). 7 earned / 63rd.** | Coup review |
+| **v2.24.1** | 2026-04-21 | fast-track | **Love Letter (game #70; review; Chvátil/A3; BGG 129622; weight 1.27). FAST-TRACK BATCH START. A3↔A26 5-3 (43rd TP; first A26 involvement). 7 earned / 62nd 0-silent-retire.** | Love Letter review |
 | **v2.23.42** | 2026-04-21 | parliament | **MATRIX (game #69; TIGRIS original #29; Vaccarino 2nd own-anchor; HOP-026). A4↔A2 OP 5-3 (42nd TP; first A4↔A2 instance). B3 earns (depth-3 cascade; 3rd this session). 10 earned / 61st 0-silent-retire.** | MATRIX original |
 | **v2.23.41** | 2026-04-21 | parliament | **Catan (game #68; review; Vaccarino/A4; BGG 13). A4↔C3 OP 6-2 (41st TP; new pair). C3 earns (3rd this session). 8 earned / 60th 0-silent-retire.** | Catan review |
 | **v2.23.40** | 2026-04-21 | parliament | **DELUGE (game #67; TIGRIS original #28; Rosenberg own-anchor; HOP-025). C3↔B1 OP 5-3 (40th TP; new pair). C3+B3 earn. 13 earned / 59th 0-silent-retire.** | DELUGE original |
