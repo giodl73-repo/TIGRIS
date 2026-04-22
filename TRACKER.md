@@ -6,6 +6,15 @@ Per-artifact pipeline state. Most recent rows on top.
 
 | Version | Date | Bet | Summary | Proposed by |
 |---|---|---|---|---|
+| **v2.23.33** | 2026-04-21 | parliament | **FLOOR (game #61; TIGRIS original #24; Knizia/C2; HOP-021). C2 TARGETED EARN (35 games since NEST #26). C2↔C1 OP 6-2 (34th TP). B6+B1+D4 earn. 12 earned / 53rd 0-silent-retire.** | FLOOR original |
+| **v2.23.32** | 2026-04-21 | parliament | **Viticulture EE (game #60; review; Stegmaier/A6; BGG 183394). B1↔D4 OP 6-2 (33rd TP; 2nd B1↔D4 confirmation). A6+B1+D4+B3+D3 earn. 12 earned / 52nd 0-silent-retire.** | Viticulture EE review |
+| **v2.23.31** | 2026-04-21 | parliament | **CHORUS (game #59; TIGRIS original #23; Stegmaier/D3; HOP-020). Stegmaier own-anchor close-out (14 games). D3↔A5 OP 5-3 (32nd TP). 10 earned / 51st 0-silent-retire.** | CHORUS original |
+| **v2.23.30** | 2026-04-21 | parliament | **Hanabi (game #58; review; Lacerda/B4; BGG 98778). Cooperative deduction gap closed. B4↔A3 OP 5-3 (31st TP; 2nd B4↔A3 confirmation). 9 earned / 50th 0-silent-retire.** | Hanabi review |
+| **v2.23.29** | 2026-04-21 | parliament | **Brass: Lancashire (game #57; review; Lacerda/B1; BGG 28720). 30th TP OP MILESTONE. B1↔D4 OP 6-2. B3+C6 earn. 11 earned / 49th 0-silent-retire.** | Brass: Lancashire review |
+| **v2.23.28** | 2026-04-21 | parliament | **SCROLL (game #56; TIGRIS original #22; Vaccarino/A4; HOP-019). Roll-and-write gap closed. A4↔B3 OP 5-3 (29th TP). C8 earn (2nd in 4 games). 10 earned / 48th 0-silent-retire.** | SCROLL original |
+| **v2.23.27** | 2026-04-21 | parliament | **LEDGER (game #55; TIGRIS original #21; Knizia/C1; HOP-018). Vickrey auction original. C1↔B4 OP 6-2 (28th TP). 11 earned / 47th 0-silent-retire.** | LEDGER original |
+| **v2.23.26** | 2026-04-21 | parliament | **Ra (game #54; review; Knizia/C1; BGG 12). Auction/bidding gap closed. C1↔A2 OP 6-2 (27th TP). 9 earned / 46th 0-silent-retire.** | Ra review |
+| **v2.23.25** | 2026-04-21 | parliament | **VIADUCT (game #53; TIGRIS original #20; Lacerda/B1; HOP-015). Lacerda own-anchor close-out (19 games). B1↔B4 OP 5-3 (26th TP). C8 targeted earn. D2 earns. 11 earned / 45th 0-silent-retire.** | VIADUCT original |
 | **v2.23.24** | 2026-04-21 | parliament | **CRUCIBLE (game #52; TIGRIS original #19; Feld/B2; HOP-016). Feld own-anchor close-out. B2↔C6 Decisive OP 7-1 (25th TP; 4th Decisive). 12 earned / 44th 0-silent-retire.** | CRUCIBLE original |
 | **v2.23.23** | 2026-04-21 | parliament | **HAUL (game #51; TIGRIS original #18; Rosenberg/B3; HOP-017). B3 TARGETED EARN (18 games). C4 WINDOW CLEARED (14 games). B3↔C3 OP 6-2 (24th TP). 15 earned / 43rd 0-silent-retire.** | HAUL original |
 | **v2.23.22** | 2026-04-20 | parliament | **SOLSTICE (game #50; TIGRIS original #17; Knizia own-anchor A1+C1; HOP-014). MILESTONE GAME #50.** A1↔C1 Decisive OP 7-1 (23rd TP; 2nd A1↔C1 confirmation). A1 career peak 33E, C1 career peak 31E. 12 earned / 42nd 0-silent-retire. Simplest TIGRIS corpus design (2-rule scoring). | SOLSTICE original |
