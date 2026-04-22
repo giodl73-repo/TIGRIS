@@ -109,65 +109,86 @@ import re
 
 def parse_record(txt):
     s = {}
+    # matches: | A1 Elegance | 8 | ... |  or  | A1 | 8 | ... |
     for ax in AXES:
-        m = re.search(rf'\|{ax}\|(\d+)\|', txt)
+        m = re.search(rf'\|\s*{ax}\b[^|]*\|\s*(\d+)\s*\|', txt)
         if m: s[ax] = int(m.group(1))
-    # A29-A32 may not be in old records; default 5 (neutral)
-    for ax in ['A29','A30','A31','A32']:
-        if ax not in s: s[ax] = 5
     return s
+
+def parse_meta(txt):
+    def get(key):
+        m = re.search(rf'^{key}:\s*(.+)', txt, re.M)
+        return m.group(1).strip() if m else ''
+    return get('name'), get('weight'), get('bgg_id'), get('earned'), get('type'), get('anchor')
 
 rows_out = []
 
-# Games 1-69 from RESCORE dict
-for gnum, scores in RESCORE.items():
+# ── Load game names/weights from existing axis-matrix.csv (metadata only) ───
+meta = {}
+if os.path.exists('data/axis-matrix.csv'):
+    with open('data/axis-matrix.csv', encoding='utf-8') as f:
+        for row in csv.DictReader(f):
+            meta[row['game_num']] = row
+
+# ── Games #1-69: honest independent rescores ─────────────────────────────────
+# These replace Parliament-biased scores. Source: RESCORE dict above.
+for gnum, scores in sorted(RESCORE.items()):
     if len(scores) != len(AXES):
         print(f'WARNING: game {gnum} has {len(scores)} scores, expected {len(AXES)}')
         continue
-    row = {'game_num': str(gnum), 'type': 'rescored'}
+    m = meta.get(str(gnum), {})
+    row = {'game_num': str(gnum), 'name': m.get('name',''), 'type': 'rescored',
+           'weight': m.get('weight',''), 'anchor': m.get('anchor',''),
+           'bgg_id': m.get('bgg_id',''), 'earned': m.get('earned','')}
     for i, ax in enumerate(AXES):
         row[ax] = scores[i]
     rows_out.append(row)
 
-# Games 70-150 from record.md
+# ── Games #70-150: parse directly from record.md ─────────────────────────────
 for d in sorted(os.listdir('games')):
-    m = re.match(r'0*(\d+)-', d)
-    if not m: continue
-    gnum = int(m.group(1))
+    m2 = re.match(r'0*(\d+)-', d)
+    if not m2: continue
+    gnum = int(m2.group(1))
     if gnum < 70 or gnum > 150: continue
     rec = f'games/{d}/record.md'
     if not os.path.exists(rec): continue
-    with open(rec, encoding='utf-8', errors='ignore') as f: txt = f.read()
+    with open(rec, encoding='utf-8', errors='ignore') as f:
+        txt = f.read()
     scores = parse_record(txt)
-    row = {'game_num': str(gnum), 'type': 'fast-track'}
+    name, weight, bgg_id, earned, gtype, anchor = parse_meta(txt)
+    row = {'game_num': str(gnum), 'name': name, 'type': gtype,
+           'weight': weight, 'anchor': anchor, 'bgg_id': bgg_id, 'earned': earned}
     for ax in AXES:
-        row[ax] = scores.get(ax, 0)
+        row[ax] = scores.get(ax, '')
+    missing = [ax for ax in AXES[:24] if ax not in scores]  # first 28 only
+    if missing:
+        print(f'  #{gnum} {name[:25]}: missing {missing}')
     rows_out.append(row)
 
 rows_out.sort(key=lambda r: int(r['game_num']))
-print(f'Total rows: {len(rows_out)}')
 
-# ── Write v2 matrix ───────────────────────────────────────────────────────────
-cols = ['game_num','type'] + AXES
-with open('data/axis-matrix-v2.csv', 'w', encoding='utf-8', newline='') as f:
+# ── Write single authoritative axis-matrix.csv ───────────────────────────────
+cols = ['game_num','name','type','weight','anchor','bgg_id','earned'] + AXES
+with open('data/axis-matrix.csv', 'w', encoding='utf-8', newline='') as f:
     w = csv.DictWriter(f, fieldnames=cols, extrasaction='ignore')
     w.writeheader()
     w.writerows(rows_out)
 
+scored = sum(1 for r in rows_out if sum(1 for ax in AXES[:24] if str(r.get(ax,'')).strip() not in ('','0')) >= 20)
+print(f'axis-matrix.csv: {len(rows_out)} games, {scored} with full scores')
+
 # ── Weight-normalized residuals ───────────────────────────────────────────────
-# Load weights from v1 matrix
 weights = {}
-with open('data/axis-matrix.csv', encoding='utf-8') as f:
-    for row in csv.DictReader(f):
-        try: weights[row['game_num']] = float(row['weight'] or 2.5)
-        except: weights[row['game_num']] = 2.5
+for row in rows_out:
+    try: weights[row['game_num']] = float(row['weight'] or 2.5)
+    except: weights[row['game_num']] = 2.5
 
 matrix = []
 game_nums = []
 wts = []
 for row in rows_out:
     gn = row['game_num']
-    vec = [float(row.get(ax, 0)) for ax in AXES]
+    vec = [float(row.get(ax, 0) or 0) for ax in AXES]
     matrix.append(vec)
     game_nums.append(gn)
     wts.append(weights.get(gn, 2.5))
@@ -188,7 +209,7 @@ for j in range(p):
     for i in range(n):
         resid[i][j] = matrix[i][j] - (a + b*wts[i])
 
-with open('data/axis-residuals-v2.csv', 'w', encoding='utf-8', newline='') as f:
+with open('data/axis-residuals.csv', 'w', encoding='utf-8', newline='') as f:
     w = csv.writer(f)
     w.writerow(['game_num'] + AXES)
     for i, gn in enumerate(game_nums):

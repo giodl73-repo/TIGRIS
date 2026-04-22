@@ -1,5 +1,5 @@
 """
-TIGRIS Eigenaxis Analysis — Pure Python PCA
+TIGRIS Eigenaxis Analysis - Pure Python PCA
 Reads data/axis-matrix.csv and computes principal components of the
 28-axis game design space.
 """
@@ -112,7 +112,7 @@ def main():
         cumvar += pct
         top3 = sorted(zip(AXES,pc), key=lambda x:-abs(x[1]))[:3]
         top_str = "  ".join(f"{a}({v:+.2f})" for a,v in top3)
-        print(f"  PC{i+1}: {pct:5.1f}%  cum={cumvar:5.1f}%  → {top_str}")
+        print(f"  PC{i+1}: {pct:5.1f}%  cum={cumvar:5.1f}%  => {top_str}")
         if cumvar >= 80 and n80 is None:
             n80 = i+1
             print(f"  *** {n80} components explain 80% of variance ***")
@@ -123,12 +123,12 @@ def main():
     pairs = [(corr[i][j], AXES[i], AXES[j])
              for i in range(len(AXES)) for j in range(i+1, len(AXES))]
     for r,a,b in sorted(pairs, reverse=True)[:12]:
-        print(f"  {a} ↔ {b}: r={r:+.3f}")
+        print(f"  {a} x {b}: r={r:+.3f}")
     print()
 
     print("LEAST CORRELATED PAIRS (candidates for genuine orthogonality):")
     for r,a,b in sorted(pairs)[:8]:
-        print(f"  {a} ↔ {b}: r={r:+.3f}")
+        print(f"  {a} x {b}: r={r:+.3f}")
     print()
 
     print("DESIGN EFFICIENCY TOP 10 (earned × breadth / weight):")
@@ -146,7 +146,7 @@ def main():
             f.write(f"PC{i+1} ({ev/total*100:.1f}%): "+" ".join(f"{a}({v:+.2f})" for a,v in top5)+"\n")
         f.write("\nTop correlations:\n")
         for r,a,b in sorted(pairs,reverse=True)[:15]:
-            f.write(f"  {a}↔{b}: {r:+.3f}\n")
+            f.write(f"  {a}x{b}: {r:+.3f}\n")
     print("\nResults saved to data/pca-results.txt")
 
 if __name__ == '__main__':
