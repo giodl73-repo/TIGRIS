@@ -1184,6 +1184,121 @@ Total adopted axes: **24 of 25 Pool** (96%). After 21 games (16 reviews + 5 orig
 - **Status:** adopted
 - **Note:** C2 earns via explicit designed floor (Foundation tokens = 10 VP guaranteed). Strongest C2 claim since T&E's minimum-aspect shape. Design pattern: any game with a non-trivial starting minimum VP (not just "everyone starts tied" but "meaningful guaranteed VP") earns C2 canonically.
 
+## FRACTURE (game #62) — 2026-04-21
+
+### I-fracture-01 — B5↔A7 OP; 3rd instance confirms pair
+
+- **Dimension:** OP corpus; B5/A7 adjacency
+- **Trigger pattern:** temporal_register_op_35th; b5_a7_pair_third_instance
+- **Source:** games/0062-fracture
+- **Scope:** pattern-across-games
+- **Status:** adopted
+- **Note:** Third B5↔A7 OP confirms the pair as reliable. B5 = architectural novelty (is this mechanism unprecedented?); A7 = emergence-replayability (does this mechanism produce per-play variety?). Pair expected to recur wherever asymmetric faction design is the mechanism.
+
+### I-fracture-02 — Structurally incompatible scoring grammars as B5 canonical
+
+- **Dimension:** B5 Architectural Novelty; design pattern
+- **Trigger pattern:** b5_incompatible_scoring_grammar_pattern
+- **Source:** games/0062-fracture
+- **Scope:** pipeline-architectural
+- **Status:** adopted
+- **Note:** B5 earns when faction scoring architectures are structurally incompatible — each faction's scoring theory is inapplicable to any other faction's position. Stronger B5 claim than variable powers or asymmetric starting positions.
+
+## MERIDIAN (game #63) — 2026-04-21
+
+### I-meridian-01 — D2↔A1 OP; first instance of new pair
+
+- **Dimension:** OP corpus; D2/A1 adjacency
+- **Trigger pattern:** temporal_register_op_36th; d2_a1_first_instance
+- **Source:** games/0063-meridian
+- **Scope:** pattern-across-games
+- **Status:** adopted
+- **Note:** D2 = spatial coupling (permanent blocking, adjacency topology). A1 = rule elegance (rule-count-to-depth ratio). Both fire on road-placement but address different analytical properties. New pair expected to recur in minimal-rules spatial games.
+
+## CAULDRON (game #64) — 2026-04-21
+
+### I-cauldron-01 — C6↔B2 OP; 2nd instance confirms pair; 5th Decisive
+
+- **Dimension:** OP corpus; C6/B2 adjacency
+- **Trigger pattern:** temporal_register_op_37th; c6_b2_pair_second_instance; decisive_op_5th
+- **Source:** games/0064-cauldron
+- **Scope:** pattern-across-games
+- **Status:** adopted
+- **Note:** Second C6↔B2 instance confirms the pair. C6 = reward landscape (scoring path architecture); B2 = punishment landscape (catastrophe consequence of navigation failure). Both fire on the rondel mechanism but at different causal layers.
+
+## Le Havre (game #65) — 2026-04-21
+
+### I-le-havre-01 — B3↔C3 OP; 2nd instance confirms pair
+
+- **Dimension:** OP corpus; B3/C3 adjacency
+- **Trigger pattern:** temporal_register_op_38th; b3_c3_pair_second_instance
+- **Source:** games/0065-le-havre
+- **Scope:** pattern-across-games
+- **Status:** adopted
+- **Note:** Second B3↔C3 instance confirms the pair. B3 = pipeline depth (structural design: how many stages?); C3 = scarcity pressure (experiential: how much does shortage bite?). Pair expected to recur in resource-conversion games with feeding/upkeep requirements.
+
+### I-le-havre-02 — C4 engine-garden in conversion-chain games
+
+- **Dimension:** C4 Engine-Garden Dependency; canonical pattern
+- **Trigger pattern:** c4_building_chain_garden
+- **Source:** games/0065-le-havre
+- **Scope:** pattern-across-games
+- **Status:** adopted
+- **Note:** C4 earns via tiered building chains (Charcoal Kiln → Steel Mill → Shipyard). Le Havre joins HAUL #51 and Brass: Lancashire #57 as canonical C4 references for building-dependency-garden patterns.
+
+## Spirit Island (game #66) — 2026-04-21
+
+### I-spirit-island-01 — B2↔A3 OP; first instance of new pair
+
+- **Dimension:** OP corpus; B2/A3 adjacency
+- **Trigger pattern:** temporal_register_op_39th; b2_a3_first_instance
+- **Source:** games/0066-spirit-island
+- **Scope:** pattern-across-games
+- **Status:** adopted
+- **Note:** B2 = catastrophe consequence (what happens when you fail to defend); A3 = cooperative interaction structure (what coordination is mandatory). New pair expected to recur in cooperative games with escalating threat + mandatory coordination.
+
+## DELUGE (game #67) — 2026-04-21
+
+### I-deluge-01 — C3↔B1 OP; first instance of new pair
+
+- **Dimension:** OP corpus; C3/B1 adjacency
+- **Trigger pattern:** temporal_register_op_40th; c3_b1_first_instance
+- **Source:** games/0067-deluge
+- **Scope:** pattern-across-games
+- **Status:** adopted
+- **Note:** C3 = environmental pressure (scarcity that punishes neglect; threshold where shortage becomes irreversible). B1 = production pipeline architecture. Both fire on farmland mechanism at different causal layers: C3 = the threat; B1 = the pipeline under that threat. Related but distinct from B3↔C3 (which addresses pipeline depth vs. scarcity pressure).
+
+## Catan (game #68) — 2026-04-21
+
+### I-catan-01 — A4↔C3 OP; first instance of new pair
+
+- **Dimension:** OP corpus; A4/C3 adjacency
+- **Trigger pattern:** temporal_register_op_41st; a4_c3_first_instance
+- **Source:** games/0068-catan
+- **Scope:** pattern-across-games
+- **Status:** adopted
+- **Note:** A4 = variance calibration (the design of the randomness management system: are random events manageable via strategic choices?). C3 = scarcity pressure (the experience of resource shortage: how hard does shortage bite?). Decouple confirmed: high A4 / low C3 (well-calibrated variance, forgiving shortages) and high C3 / low A4 (sharp scarcity, unmanageable randomness) both possible.
+
+## MATRIX (game #69) — 2026-04-21
+
+### I-matrix-01 — A4↔A2 OP; first instance of new pair
+
+- **Dimension:** OP corpus; A4/A2 adjacency
+- **Trigger pattern:** temporal_register_op_42nd; a4_a2_first_instance
+- **Source:** games/0069-matrix
+- **Scope:** pattern-across-games
+- **Status:** adopted
+- **Note:** A4 = variance calibration at macro scale (global die-pool strategy). A2 = decision density at micro scale (local placement optimization per turn). Both fire on the die-grid mechanism at different temporal and spatial scales. New pair expected to recur in deck/pool-building games with placement decisions.
+
+### I-matrix-02 — die→row→column→intersection as B3 canonical pattern
+
+- **Dimension:** B3 Conversion Chain Depth; mechanism taxonomy extension
+- **Trigger pattern:** b3_die_cascade_pattern
+- **Source:** games/0069-matrix
+- **Scope:** pipeline-architectural
+- **Status:** adopted
+- **Note:** B3 earns when a single event cascades through 3+ transformations: die roll → row activation → column intersection → cascade bonus (depth-3). Extends B3 beyond resource-conversion (iron→steel→ship) to die-activation cascades. B3's definition ("VP passes through N transformations") applies to any chained mechanism, not only resource-conversion pipelines.
+
 ## Bet version history
 
 | Bet | Adopted | Retired / superseded | Summary |
