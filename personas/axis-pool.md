@@ -175,6 +175,39 @@ Axes that each carry a specific designer's voice. A draft on one of these is an 
 **Anchor 10:** The commit point is visible, narratively justified, and leaves meaningful optimization in the last third.
 **State:** live. **Primary advocate:** Rosenberg / Lacerda.
 
+## Band E — Experiential (4 axes, new in v2.24)
+
+Added to support PCA research program (150-game corpus). These axes capture dimensions orthogonal to mechanical structure — narrative shape, social encoding, physical instantiation, cognitive demand type. Fast-tracked into live pool.
+
+### A25. Emotional Arc
+**Definition:** Does the game have a designed narrative or emotional shape across a single play — distinct from mechanical tension?
+**Anchor 10:** Play has a felt beginning/middle/end described in narrative terms even by non-gamers (Sleeping Gods campaign, legacy climax).
+**Anchor 5:** Some emotional shape but primarily mechanical (Pandemic cooperative fear curve).
+**Anchor 0:** Pure abstraction; no felt arc beyond win/loss (Azul, Crokinole).
+**State:** live. **Primary advocate:** Stegmaier.
+
+### A26. Social Contract Dependency
+**Definition:** How much does the game depend on implicit player behavior not encoded in rules?
+**Anchor 10:** Game breaks or transforms completely if players violate implicit norms — no-meta-communication rule is unenforceable but essential (Hanabi, The Mind).
+**Anchor 5:** Some implicit norms (don't kingmake, don't spite-play) but game survives violation.
+**Anchor 0:** Rules fully specify all relevant behavior.
+**State:** live. **Primary advocate:** Chvátil.
+
+### A27. Physical Affordance
+**Definition:** How load-bearing is the physical/tactile instantiation of the game?
+**Anchor 10:** The game IS the physical act — digital version loses the core experience (Crokinole: flicking IS the game).
+**Anchor 5:** Physical components enhance experience meaningfully but digital works (Azul tiles are pleasurable but not essential).
+**Anchor 0:** Fully digitizable with zero experiential loss (Dominion, Hanabi).
+**State:** live. **Primary advocate:** Kramer-Kiesling.
+
+### A28. Cognitive Load Profile
+**Definition:** What type of reasoning does the game primarily demand? Score on spectrum: execution(0) → spatial(3) → probabilistic(5) → deductive(7) → narrative(8) → novel-combined(10).
+**Anchor 10:** Novel cognitive combination not found in prior games.
+**Anchor 7:** Pure deductive reasoning as the game's core (Hanabi, Mastermind).
+**Anchor 3:** Spatial reasoning primary (Hive, Blokus, Crokinole).
+**Anchor 0:** Pure execution; no significant reasoning required (roll-and-move).
+**State:** live. **Primary advocate:** Lacerda.
+
 ---
 
 ## Rubric Ledger (live state)
@@ -210,9 +243,14 @@ Columns: **Earned / Refuted / Contested / Ignored** counts are cumulative across
 | D2 Spatial-Interaction Presence | 16 | 8.5 | 0 | 0 | **adopted (concern resolved; clock reset #63)** | Prior 13E/8.0R. +Fracture#62 (+1E) + **MERIDIAN#63 targeted earn** (+1E; D2↔A1 OP 36th; clock reset) + Catan#68 (+1E). Post-session: 16E/8.5R. Retire-explicit: Cauldron#64 + SpiritIsland#66 + Matrix#69 = +1.5R → 9.5R. **D2 monitoring concern resolved. Three earns this session.** |
 | D3 Count-Robustness | 44 | 0 | 0 | 0 | **adopted** | Prior 36 + Fracture#62 + Meridian#63 + Cauldron#64 + LeHavre#65 + SpiritIsland#66 + Deluge#67 + Catan#68 + Matrix#69. Post-session: **44E career high.** |
 | D4 Late-Game Lock-in Point | 34 | 1.0 | 0 | 1 | **adopted** | Prior 28 + Fracture#62-hold + Meridian#63 + Cauldron#64 + LeHavre#65 + Deluge#67 + SpiritIsland#66-not-earned. Post-session: 34E (+6 from session: not all games; +4 confirmed). |
+| A25 Emotional Arc | 0 | 0 | 0 | 0 | live | New axis v2.24. |
+| A26 Social Contract Dependency | 0 | 0 | 0 | 0 | live | New axis v2.24. |
+| A27 Physical Affordance | 0 | 0 | 0 | 0 | live | New axis v2.24. |
+| A28 Cognitive Load Profile | 0 | 0 | 0 | 0 | live | New axis v2.24. |
 
 ## Changelog
 
+- **v2.24.0** — 2026-04-21 — **New axes A25-A28 added** (Emotional Arc, Social Contract Dependency, Physical Affordance, Cognitive Load Profile). Fast-track pipeline mode introduced. 150-game PCA research program begins.
 - **v2.23.42** — 2026-04-21 — **MATRIX (game #69; TIGRIS original #29; Vaccarino 2nd own-anchor; HOP-026 consumed). A4↔A2 OP 5-3 (42nd TP; first A4↔A2 instance). B3 earns (die→row→column→intersection depth-3; 3rd B3 earn this session). 10 earned / 61st 0-silent-retire.**
 - **v2.23.41** — 2026-04-21 — **Catan (game #68; review; Vaccarino/A4; BGG 13). A4↔C3 OP 6-2 (41st TP; first A4↔C3 instance). C3 earns (Robber scarcity; 3rd C3 this session). D2 earns (settlement blocking). 8 earned / 60th 0-silent-retire.**
 - **v2.23.40** — 2026-04-21 — **DELUGE (game #67; TIGRIS original #28; Rosenberg own-anchor; HOP-025). C3↔B1 OP 5-3 (40th TP; first C3↔B1 instance). C3 earns (permanent flood scarcity). B3 earns (Farm→Harvest→Store→Sell; 2nd this session). 13 earned / 59th 0-silent-retire.**
