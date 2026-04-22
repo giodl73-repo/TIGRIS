@@ -1,0 +1,96 @@
+rater,triplet,anchor,similar,different,choice,correct,confidence
+maya,1,CRUCIBLE,HAUL,Codenames,B,True,5
+maya,2,Crokinole,Skull,Agricola,B,True,5
+maya,3,Skull,Crokinole,Agricola,B,True,5
+maya,4,HAUL,CRUCIBLE,Codenames,B,True,5
+maya,5,Codenames,Crokinole,Agricola,B,True,4
+maya,6,Love Letter,Skull,Agricola,B,True,5
+maya,7,Secret Hitler,Hanabi,Dominion,B,True,4
+maya,8,Hanabi,Secret Hitler,Agricola,B,True,4
+maya,9,Brass Birmingham,CRUCIBLE,Codenames,B,True,5
+maya,10,Hive,Hanabi,Agricola,B,True,4
+maya,11,Agricola,CRUCIBLE,Codenames,B,True,5
+maya,12,Spirit Island,CRUCIBLE,Codenames,B,True,5
+maya,13,Azul,7 Wonders,Agricola,B,True,5
+maya,14,Chess,Hive,Dominion,B,True,5
+maya,15,7 Wonders,Azul,Spirit Island,B,True,5
+maya,16,Pandemic,HAUL,Codenames,B,True,4
+maya,17,Concordia,7 Wonders,Agricola,B,True,4
+maya,18,Catan,HAUL,Codenames,B,True,5
+maya,19,Dominion,7 Wonders,Skull,B,True,5
+ravi,1,CRUCIBLE,HAUL,Codenames,B,True,5
+ravi,2,Crokinole,Skull,Agricola,B,True,5
+ravi,3,Skull,Crokinole,Agricola,B,True,5
+ravi,4,HAUL,CRUCIBLE,Codenames,B,True,5
+ravi,5,Codenames,Crokinole,Agricola,B,True,4
+ravi,6,Love Letter,Skull,Agricola,B,True,5
+ravi,7,Secret Hitler,Hanabi,Dominion,B,True,5
+ravi,8,Hanabi,Secret Hitler,Agricola,B,True,5
+ravi,9,Brass Birmingham,CRUCIBLE,Codenames,B,True,5
+ravi,10,Hive,Hanabi,Agricola,B,True,4
+ravi,11,Agricola,CRUCIBLE,Codenames,B,True,5
+ravi,12,Spirit Island,CRUCIBLE,Codenames,B,True,5
+ravi,13,Azul,7 Wonders,Agricola,B,True,5
+ravi,14,Chess,Hive,Dominion,B,True,5
+ravi,15,7 Wonders,Azul,Spirit Island,B,True,5
+ravi,16,Pandemic,HAUL,Codenames,B,True,4
+ravi,17,Concordia,7 Wonders,Agricola,C,False,3
+ravi,18,Catan,HAUL,Codenames,B,True,5
+ravi,19,Dominion,7 Wonders,Skull,B,True,5
+sara,1,CRUCIBLE,HAUL,Codenames,B,True,5
+sara,2,Crokinole,Skull,Agricola,B,True,5
+sara,3,Skull,Crokinole,Agricola,B,True,5
+sara,4,HAUL,CRUCIBLE,Codenames,B,True,5
+sara,5,Codenames,Crokinole,Agricola,B,True,5
+sara,6,Love Letter,Skull,Agricola,B,True,5
+sara,7,Secret Hitler,Hanabi,Dominion,B,True,5
+sara,8,Hanabi,Secret Hitler,Agricola,B,True,5
+sara,9,Brass Birmingham,CRUCIBLE,Codenames,B,True,5
+sara,10,Hive,Hanabi,Agricola,B,True,5
+sara,11,Agricola,CRUCIBLE,Codenames,B,True,5
+sara,12,Spirit Island,CRUCIBLE,Codenames,B,True,5
+sara,13,Azul,7 Wonders,Agricola,B,True,4
+sara,14,Chess,Hive,Dominion,B,True,5
+sara,15,7 Wonders,Azul,Spirit Island,B,True,5
+sara,16,Pandemic,HAUL,Codenames,B,True,4
+sara,17,Concordia,7 Wonders,Agricola,B,True,5
+sara,18,Catan,HAUL,Codenames,B,True,4
+sara,19,Dominion,7 Wonders,Skull,B,True,5
+kenji,1,CRUCIBLE,HAUL,Codenames,B,True,5
+kenji,2,Crokinole,Skull,Agricola,B,True,4
+kenji,3,Skull,Crokinole,Agricola,B,True,4
+kenji,4,HAUL,CRUCIBLE,Codenames,B,True,5
+kenji,5,Codenames,Crokinole,Agricola,B,True,5
+kenji,6,Love Letter,Skull,Agricola,B,True,5
+kenji,7,Secret Hitler,Hanabi,Dominion,B,True,4
+kenji,8,Hanabi,Secret Hitler,Agricola,B,True,4
+kenji,9,Brass Birmingham,CRUCIBLE,Codenames,B,True,5
+kenji,10,Hive,Hanabi,Agricola,B,True,3
+kenji,11,Agricola,CRUCIBLE,Codenames,B,True,5
+kenji,12,Spirit Island,CRUCIBLE,Codenames,B,True,5
+kenji,13,Azul,7 Wonders,Agricola,B,True,4
+kenji,14,Chess,Hive,Dominion,B,True,5
+kenji,15,7 Wonders,Azul,Spirit Island,B,True,4
+kenji,16,Pandemic,HAUL,Codenames,B,True,4
+kenji,17,Concordia,7 Wonders,Agricola,B,True,4
+kenji,18,Catan,HAUL,Codenames,B,True,4
+kenji,19,Dominion,7 Wonders,Skull,B,True,5
+leila,1,CRUCIBLE,HAUL,Codenames,B,True,4
+leila,2,Crokinole,Skull,Agricola,B,True,4
+leila,3,Skull,Crokinole,Agricola,B,True,4
+leila,4,HAUL,CRUCIBLE,Codenames,B,True,4
+leila,5,Codenames,Crokinole,Agricola,B,True,3
+leila,6,Love Letter,Skull,Agricola,B,True,5
+leila,7,Secret Hitler,Hanabi,Dominion,B,True,3
+leila,8,Hanabi,Secret Hitler,Agricola,B,True,4
+leila,9,Brass Birmingham,CRUCIBLE,Codenames,B,True,5
+leila,10,Hive,Hanabi,Agricola,B,True,4
+leila,11,Agricola,CRUCIBLE,Codenames,B,True,5
+leila,12,Spirit Island,CRUCIBLE,Codenames,B,True,5
+leila,13,Azul,7 Wonders,Agricola,B,True,4
+leila,14,Chess,Hive,Dominion,B,True,5
+leila,15,7 Wonders,Azul,Spirit Island,B,True,4
+leila,16,Pandemic,HAUL,Codenames,B,True,4
+leila,17,Concordia,7 Wonders,Agricola,B,True,4
+leila,18,Catan,HAUL,Codenames,B,True,4
+leila,19,Dominion,7 Wonders,Skull,B,True,4
