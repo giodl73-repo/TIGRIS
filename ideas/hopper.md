@@ -15,7 +15,7 @@ updated: 2026-04-20
 
 ## Counter
 
-Last assigned ID: HOP-024.
+Last assigned ID: HOP-029.
 
 ## Schema
 
@@ -35,35 +35,85 @@ Last assigned ID: HOP-024.
 
 <!-- /tigris-ideate appends below this line. -->
 
+### HOP-029 — Cipher
+- **One-liner:** A 3–5 player information-deduction game with a novel asymmetric information architecture: each player's knowledge structure is different by design, not just by deal. Player A knows all card suits but no values; Player B knows all values but no suits; Player C knows nothing but can observe other players' reactions; etc. The asymmetry is structural — built into the role cards distributed at setup — not cosmetic.
+- **Anchor guess:** chvatil / B5 + A7
+- **Sources:** gap (Chvátil B5 own-anchor 2nd; 7 games since FRACTURE #62); gap (information-asymmetry deduction with architectural asymmetry not just deal-asymmetry is unexplored in TIGRIS corpus); primitives (P-015 hidden-role + P-004 deduction)
+- **Tension hypothesis:** Chvátil defends B5 — structural information-architecture asymmetry (each player's knowledge TYPE is different, not just its content) is architecturally novel. A7 earns via role-combination replayability (10 distinct 3-of-5-role combinations; different strategic meta per combination). Primary predicted collision: B5↔A7 OP — architectural novelty (B5: is asymmetric knowledge architecture novel?) vs. replayability from role combinations (A7: does role-combination produce per-play variety?).
+- **Status:** fresh
+- **Created:** 2026-04-21
+- **Updated:** 2026-04-21
+- **Notes:**
+
+### HOP-028 — Ward
+- **One-liner:** A 2–4 player community-planning game where players place residential, commercial, and civic zone tiles on a shared urban grid. Scoring is spatial: residential zones score by proximity to civic tiles; commercial zones score by proximity to residential density. The spatial coupling is direct (your zone's value depends on adjacent zones of other types); the rules are minimal (3 zone types, 2 adjacency rules, 1 scoring formula). K-K's D1+D2 territory.
+- **Anchor guess:** kramer-kiesling / D1 + D2
+- **Sources:** gap (K-K 2nd own-anchor; 6 games since MERIDIAN #63); gap (city-planning theme absent from TIGRIS corpus); primitives (P-008 tile-laying + P-011 area-control analog)
+- **Tension hypothesis:** K-K defends D1 — family accessible (place a zone, see the scoring) and expert deep (optimal zone topology requires 4+ moves of prediction). D2 earns via spatial coupling (your Residential tile's value depends on whether a Civic tile is adjacent — opponents can place Civic tiles to benefit their own zones instead of yours). Primary predicted collision: D1↔D2 OP — family-to-expert scaling (D1: accessibility + depth) vs. spatial coupling (D2: direct zone-adjacency interaction).
+- **Status:** fresh
+- **Created:** 2026-04-21
+- **Updated:** 2026-04-21
+- **Notes:**
+
+### HOP-027 — Estuary
+- **One-liner:** A 3–5 player complex port-trading game where each player holds a private cargo manifest — a hidden list of which goods they need to deliver and in what quantities. Other players know the types of goods you trade but not the required quantities. Information asymmetry is the load-bearing mechanic: negotiating trade deals requires revealing partial information without revealing your full manifest. Lacerda territory: B1+B4 complex system with information-cost economics.
+- **Anchor guess:** lacerda / B1 + B4
+- **Sources:** gap (Lacerda 2nd own-anchor; 14 games since VIADUCT #53); gap (information-asymmetric trading unexplored in corpus); primitives (P-007 worker placement + information-asymmetry)
+- **Tension hypothesis:** Lacerda defends B1 — port-trading system gearing: Ships → Ports → Cargo → Manifest → Delivery. B4 earns via hidden cargo manifests (knowing the type but not quantity of opponent needs creates real information cost). Primary predicted collision: B1↔B4 OP — system gearing (B1: the pipeline architecture) vs. information transparency cost (B4: what is hidden and what does it cost to learn?). Both fire on the cargo-manifest mechanism.
+- **Status:** fresh
+- **Created:** 2026-04-21
+- **Updated:** 2026-04-21
+- **Notes:**
+
+### HOP-026 — Matrix
+- **One-liner:** A 2–4 player deck-and-die game where players build personal 4×4 matrices of cards. Each round, players roll a shared pool of dice; dice results activate corresponding rows AND columns on the matrix simultaneously, triggering intersection bonuses. A4 earns via die-pool construction (players build their die pool over 3 rounds, calibrating which dice activate which matrix zones). A2 earns via per-card matrix placement (optimizing intersection bonus potential). B3 earns via die→row→column→intersection cascade (depth-3 chain).
+- **Anchor guess:** vaccarino / A4 + A2
+- **Sources:** gap (Vaccarino 2nd own-anchor; 13 games since SCROLL #56); gap (matrix-activation die game unexplored); primitives (P-010 roll-and-write × deck-building hybrid)
+- **Tension hypothesis:** Vaccarino defends A4 — die-pool construction calibrates which dice activate which matrix zones. Building the right die pool for your matrix configuration is variance management. A2 earns via per-placement matrix optimization (each card placement is a multi-axis decision: row bonus, column bonus, intersection potential). Primary predicted collision: A4↔A2 OP — variance calibration (A4: managing die composition for reliable matrix activation) vs. decision density (A2: per-placement matrix optimization). Both fire on the matrix mechanism at different analytical scales.
+- **Status:** fresh
+- **Created:** 2026-04-21
+- **Updated:** 2026-04-21
+- **Notes:** consumed by games/0069-matrix/
+
+### HOP-025 — Deluge
+- **One-liner:** A 2–4 player flood-management Euro where water encroaches on farmland permanently. Each round, flood markers advance along river tributaries; players must harvest fields before they are permanently inundated. The Farm→Harvest→Store pipeline is the game's scoring architecture; permanent flood markers create D4 lock-in (submerged tiles are gone forever) and C3 scarcity (arable land shrinks across the game). Rosenberg's C3+D4 territory.
+- **Anchor guess:** rosenberg / C3 + D4
+- **Sources:** gap (Rosenberg 2nd own-anchor in ~14 games since HAUL #51); gap (flood/environmental-pressure theme absent from corpus); primitives (P-003 farming + P-014 lock-in)
+- **Tension hypothesis:** Rosenberg defends C3 — farmland scarcity created by permanent flood markers. As flood advances, arable tiles are permanently removed from the game; players must harvest under time pressure. D4 earns via permanent flood placement (committed flood marks = committed game topology; strategy locks when floods foreclose key harvest routes). Primary predicted collision: C3↔B1 OP — scarcity pressure (C3: farms disappear as floods advance) vs. pipeline gearing (B1: Farm→Harvest→Store→Sell = production system architecture). C3 = the environmental pressure; B1 = the production system under that pressure.
+- **Status:** fresh
+- **Created:** 2026-04-21
+- **Updated:** 2026-04-21
+- **Notes:** consumed by games/0067-deluge/
+
 ### HOP-024 — Crucible-2 (working title)
 - **One-liner:** A 3–5 player Feld-style rondel game focused on C6 incommensurable scoring across 3 orthogonal VP tracks (Guilds, Monuments, Harvests). Each scoring track requires incompatible resource investment; the rondel limits which tracks you can access in a given round. Second Feld original — distinct from CRUCIBLE (which used B2 as primary).
 - **Anchor guess:** feld / C6 + B2
 - **Sources:** gap (second Feld original desired; CRUCIBLE #52 is B2-anchored; a pure C6-anchored Feld original would complement it); primitives (rondel + incommensurable scoring)
 - **Tension hypothesis:** Feld defends C6 — three genuinely incommensurable scoring paths on a rondel. B2 earns via the catastrophe-event system (some rondel positions trigger disaster events). Primary predicted collision: C6↔B2 OP — scoring choice architecture (C6) vs. catastrophe architecture (B2).
-- **Status:** fresh
+- **Status:** consumed
 - **Created:** 2026-04-21
 - **Updated:** 2026-04-21
-- **Notes:**
+- **Notes:** consumed by games/0064-cauldron/. C6↔B2 OP Decisive 7-1 (37th TP; 2nd C6↔B2 pair confirmation). B2 targeted earn confirmed (12 games since CRUCIBLE #52). Title changed to CAULDRON to distinguish from CRUCIBLE #52.
 
 ### HOP-023 — Meridian
 - **One-liner:** A 2–4 player spatial Euro where players build road networks across a shared hex-grid territory. Route adjacency creates direct spatial coupling (blocking) while the route topology defines which towns score. K-K's spatial signature on A1+D2 elegance: minimal rules, maximal spatial depth.
 - **Anchor guess:** kramer-kiesling / D2 + A1
 - **Sources:** gap (K-K spatial design tradition; second K-K original after TORRENT #47 and CANTON #24); primitives (hex-grid routing + network game)
 - **Tension hypothesis:** K-K defends D2 — hex-grid road network = canonical spatial coupling. A1 earns via minimal ruleset (2 actions, complete spatial game). Primary predicted collision: D2↔A1 OP — spatial design (D2: blocking and adjacency) vs. rule elegance (A1: minimal rule count to depth ratio).
-- **Status:** fresh
+- **Status:** consumed
 - **Created:** 2026-04-21
 - **Updated:** 2026-04-21
-- **Notes:**
+- **Notes:** consumed by games/0063-meridian/. D2↔A1 OP 6-2 (36th TP; first D2↔A1 instance — new pair). D2 targeted earn confirmed (10 games since VIADUCT #53).
 
 ### HOP-022 — Fracture
 - **One-liner:** A 3–5 player area-control game with a genuinely novel faction-ability system: each faction has a unique scoring mechanic that cannot be applied to any other faction (not just variable powers — structurally incompatible scoring architectures). Chvátil's B5 territory at its most ambitious.
 - **Anchor guess:** chvatil / B5
 - **Sources:** gap (Chvátil B5 Architectural Novelty is the persona's signature; another B5-anchored Chvátil original adds to the corpus); primitives (area-control + faction asymmetry)
 - **Tension hypothesis:** Chvátil defends B5 — structurally incompatible faction scoring architectures are architecturally novel (not just different starting positions; genuinely different scoring mechanics per faction). A3 earns via mandatory area-control interaction. Primary predicted collision: B5↔A7 OP — architectural novelty (B5: is this mechanism truly new?) vs. replayability (A7: does faction asymmetry produce emergent strategy variety?).
-- **Status:** fresh
+- **Status:** consumed
 - **Created:** 2026-04-21
 - **Updated:** 2026-04-21
-- **Notes:**
+- **Notes:** consumed by games/0062-fracture/. B5↔A7 OP 6-2 (35th TP; 3rd B5↔A7 pair confirmation). B5 targeted earn confirmed (16 games since Secret Hitler #46).
 
 ### HOP-021 — Floor
 - **One-liner:** A 2–4 player Euro where the scoring system has an explicit designed minimum floor: every player is guaranteed at least 10 VP regardless of play quality. The Foundation mechanic (10 VP in permanent tokens) addresses C2's dormancy-watch concern directly — minimum-score shape via a non-trivial designed floor. Knizia's A1+C2 signature: elegant minimal rules + guaranteed scoring breadth.

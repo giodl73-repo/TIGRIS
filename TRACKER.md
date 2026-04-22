@@ -6,6 +6,14 @@ Per-artifact pipeline state. Most recent rows on top.
 
 | Version | Date | Bet | Summary | Proposed by |
 |---|---|---|---|---|
+| **v2.23.42** | 2026-04-21 | parliament | **MATRIX (game #69; TIGRIS original #29; Vaccarino 2nd own-anchor; HOP-026). A4↔A2 OP 5-3 (42nd TP; first A4↔A2 instance). B3 earns (depth-3 cascade; 3rd this session). 10 earned / 61st 0-silent-retire.** | MATRIX original |
+| **v2.23.41** | 2026-04-21 | parliament | **Catan (game #68; review; Vaccarino/A4; BGG 13). A4↔C3 OP 6-2 (41st TP; new pair). C3 earns (3rd this session). 8 earned / 60th 0-silent-retire.** | Catan review |
+| **v2.23.40** | 2026-04-21 | parliament | **DELUGE (game #67; TIGRIS original #28; Rosenberg own-anchor; HOP-025). C3↔B1 OP 5-3 (40th TP; new pair). C3+B3 earn. 13 earned / 59th 0-silent-retire.** | DELUGE original |
+| **v2.23.39** | 2026-04-21 | parliament | **Spirit Island (game #66; review; Feld/B2; BGG 162886). B2↔A3 OP 6-2 (39th TP; new pair). B2+B5 earn. 12 earned / 58th 0-silent-retire.** | Spirit Island review |
+| **v2.23.38** | 2026-04-21 | parliament | **Le Havre (game #65; review; Rosenberg/B3; BGG 35677). B3↔C3 OP 6-2 (38th TP; 2nd B3↔C3 confirmation). B3+B2+C4 earn. 12 earned / 57th 0-silent-retire.** | Le Havre review |
+| **v2.23.36** | 2026-04-21 | parliament | **CAULDRON (game #64; TIGRIS original #27; Feld/C6; HOP-024). C6↔B2 OP Decisive 7-1 (37th TP; 5th Decisive; 2nd C6↔B2). B2 TARGETED EARN (12 games since CRUCIBLE #52). 13 earned / 56th 0-silent-retire.** | CAULDRON original |
+| **v2.23.35** | 2026-04-21 | parliament | **MERIDIAN (game #63; TIGRIS original #26; K-K own-anchor D2; HOP-023). D2↔A1 OP 6-2 (36th TP; new pair). D2 TARGETED EARN (10 games since VIADUCT #53). 10 earned / 55th 0-silent-retire.** | MERIDIAN original |
+| **v2.23.34** | 2026-04-21 | parliament | **FRACTURE (game #62; TIGRIS original #25; Chvátil/B5; HOP-022). B5↔A7 OP 6-2 (35th TP; 3rd B5↔A7). B5 TARGETED EARN (16 games since Secret Hitler #46). 12 earned / 54th 0-silent-retire.** | FRACTURE original |
 | **v2.23.33** | 2026-04-21 | parliament | **FLOOR (game #61; TIGRIS original #24; Knizia/C2; HOP-021). C2 TARGETED EARN (35 games since NEST #26). C2↔C1 OP 6-2 (34th TP). B6+B1+D4 earn. 12 earned / 53rd 0-silent-retire.** | FLOOR original |
 | **v2.23.32** | 2026-04-21 | parliament | **Viticulture EE (game #60; review; Stegmaier/A6; BGG 183394). B1↔D4 OP 6-2 (33rd TP; 2nd B1↔D4 confirmation). A6+B1+D4+B3+D3 earn. 12 earned / 52nd 0-silent-retire.** | Viticulture EE review |
 | **v2.23.31** | 2026-04-21 | parliament | **CHORUS (game #59; TIGRIS original #23; Stegmaier/D3; HOP-020). Stegmaier own-anchor close-out (14 games). D3↔A5 OP 5-3 (32nd TP). 10 earned / 51st 0-silent-retire.** | CHORUS original |
@@ -115,7 +123,15 @@ Per-artifact pipeline state. Most recent rows on top.
 | 0035-schism | **parliament-complete** | HANDOFF | v2.23.7 | 2026-04-20 | 11/0/1 | **TIGRIS original.** Chvátil anchor A3 (HOP-009). Social-deduction area-control. 27th 0-silent-retire. |
 | 0034-quacks-of-quedlinburg | **parliament-complete** | HANDOFF | v2.23.6 | 2026-04-20 | 12/0/0 | Push-your-luck gap closed. 12 earned / 26th 0-silent-retire. BGG 244521. |
 | 0033-cartell | **parliament-complete** | HANDOFF | v2.23.5 | 2026-04-20 | 10/0/1 | **TIGRIS original #13.** Lacerda own-anchor B4 (HOP-008). B4↔A3 OP 5-3 (11th temporal-register). Lacerda own-anchor close-out. 30th 0-silent-retire. |
-| 0022-* | *queued* | — | — | — | — | **All pipeline complete through game #50.** See docs/handoff/2026-04-20-post-solstice.md for next-session priorities. |
+| 0069-matrix | **parliament-complete** | HANDOFF | v2.23.42 | 2026-04-21 | 10 / 0 / 1 | **TIGRIS original #29.** Vaccarino 2nd own-anchor A4 (HOP-026). A4↔A2 OP 5-3 (42nd TP; new pair). B3 earns (depth-3 die cascade). 61st 0-silent-retire. |
+| 0068-catan | **parliament-complete** | HANDOFF | v2.23.41 | 2026-04-21 | 8 / 0 / 1 | Vaccarino/A4 non-own anchor review. A4↔C3 OP 6-2 (41st TP; new pair). Mass-market review. 60th 0-silent-retire. BGG 13. |
+| 0067-deluge | **parliament-complete** | HANDOFF | v2.23.40 | 2026-04-21 | 13 / 0 / 1 | **TIGRIS original #28.** Rosenberg own-anchor C3 (HOP-025). C3↔B1 OP 5-3 (40th TP; new pair). B3 earns. 59th 0-silent-retire. |
+| 0066-spirit-island | **parliament-complete** | HANDOFF | v2.23.39 | 2026-04-21 | 12 / 0 / 1 | Feld/B2 anchor. B2↔A3 OP 6-2 (39th TP; new pair). B5 earns (Spirit asymmetry). 58th 0-silent-retire. BGG 162886. |
+| 0065-le-havre | **parliament-complete** | HANDOFF | v2.23.38 | 2026-04-21 | 12 / 0 / 1 | Rosenberg/B3 anchor. B3↔C3 OP 6-2 (38th TP; 2nd B3↔C3 pair). B2+C4 earn. 57th 0-silent-retire. BGG 35677. |
+| 0064-cauldron | **parliament-complete** | HANDOFF | v2.23.36 | 2026-04-21 | 13 / 0 / 1 | **TIGRIS original #27.** Feld own-anchor C6 (HOP-024; renamed CAULDRON). C6↔B2 OP Decisive 7-1 (37th TP; 5th Decisive; 2nd C6↔B2). **B2 TARGETED EARN** (12 games). 56th 0-silent-retire. |
+| 0063-meridian | **parliament-complete** | HANDOFF | v2.23.35 | 2026-04-21 | 10 / 0 / 1 | **TIGRIS original #26.** K-K own-anchor D2 (HOP-023). D2↔A1 OP 6-2 (36th TP; new pair). **D2 TARGETED EARN** (10 games). A1 earns. 55th 0-silent-retire. |
+| 0062-fracture | **parliament-complete** | HANDOFF | v2.23.34 | 2026-04-21 | 12 / 0 / 1 | **TIGRIS original #25.** Chvátil own-anchor B5 (HOP-022). B5↔A7 OP 6-2 (35th TP; 3rd B5↔A7 pair). **B5 TARGETED EARN** (16 games since #46). 54th 0-silent-retire. |
+| 0022-* | *queued* | — | — | — | — | **All pipeline complete through game #69.** See docs/handoff/2026-04-21-post-matrix.md for next-session priorities. |
 
 ## Meta-reviews (reviews of TIGRIS itself, not a game)
 
