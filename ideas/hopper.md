@@ -15,7 +15,7 @@ updated: 2026-04-20
 
 ## Counter
 
-Last assigned ID: HOP-019.
+Last assigned ID: HOP-024.
 
 ## Schema
 
@@ -35,15 +35,65 @@ Last assigned ID: HOP-019.
 
 <!-- /tigris-ideate appends below this line. -->
 
+### HOP-024 — Crucible-2 (working title)
+- **One-liner:** A 3–5 player Feld-style rondel game focused on C6 incommensurable scoring across 3 orthogonal VP tracks (Guilds, Monuments, Harvests). Each scoring track requires incompatible resource investment; the rondel limits which tracks you can access in a given round. Second Feld original — distinct from CRUCIBLE (which used B2 as primary).
+- **Anchor guess:** feld / C6 + B2
+- **Sources:** gap (second Feld original desired; CRUCIBLE #52 is B2-anchored; a pure C6-anchored Feld original would complement it); primitives (rondel + incommensurable scoring)
+- **Tension hypothesis:** Feld defends C6 — three genuinely incommensurable scoring paths on a rondel. B2 earns via the catastrophe-event system (some rondel positions trigger disaster events). Primary predicted collision: C6↔B2 OP — scoring choice architecture (C6) vs. catastrophe architecture (B2).
+- **Status:** fresh
+- **Created:** 2026-04-21
+- **Updated:** 2026-04-21
+- **Notes:**
+
+### HOP-023 — Meridian
+- **One-liner:** A 2–4 player spatial Euro where players build road networks across a shared hex-grid territory. Route adjacency creates direct spatial coupling (blocking) while the route topology defines which towns score. K-K's spatial signature on A1+D2 elegance: minimal rules, maximal spatial depth.
+- **Anchor guess:** kramer-kiesling / D2 + A1
+- **Sources:** gap (K-K spatial design tradition; second K-K original after TORRENT #47 and CANTON #24); primitives (hex-grid routing + network game)
+- **Tension hypothesis:** K-K defends D2 — hex-grid road network = canonical spatial coupling. A1 earns via minimal ruleset (2 actions, complete spatial game). Primary predicted collision: D2↔A1 OP — spatial design (D2: blocking and adjacency) vs. rule elegance (A1: minimal rule count to depth ratio).
+- **Status:** fresh
+- **Created:** 2026-04-21
+- **Updated:** 2026-04-21
+- **Notes:**
+
+### HOP-022 — Fracture
+- **One-liner:** A 3–5 player area-control game with a genuinely novel faction-ability system: each faction has a unique scoring mechanic that cannot be applied to any other faction (not just variable powers — structurally incompatible scoring architectures). Chvátil's B5 territory at its most ambitious.
+- **Anchor guess:** chvatil / B5
+- **Sources:** gap (Chvátil B5 Architectural Novelty is the persona's signature; another B5-anchored Chvátil original adds to the corpus); primitives (area-control + faction asymmetry)
+- **Tension hypothesis:** Chvátil defends B5 — structurally incompatible faction scoring architectures are architecturally novel (not just different starting positions; genuinely different scoring mechanics per faction). A3 earns via mandatory area-control interaction. Primary predicted collision: B5↔A7 OP — architectural novelty (B5: is this mechanism truly new?) vs. replayability (A7: does faction asymmetry produce emergent strategy variety?).
+- **Status:** fresh
+- **Created:** 2026-04-21
+- **Updated:** 2026-04-21
+- **Notes:**
+
+### HOP-021 — Floor
+- **One-liner:** A 2–4 player Euro where the scoring system has an explicit designed minimum floor: every player is guaranteed at least 10 VP regardless of play quality. The Foundation mechanic (10 VP in permanent tokens) addresses C2's dormancy-watch concern directly — minimum-score shape via a non-trivial designed floor. Knizia's A1+C2 signature: elegant minimal rules + guaranteed scoring breadth.
+- **Anchor guess:** knizia / C2 + A1
+- **Sources:** gap (C2 Minimum-Score Shape at 4E/11.5R; a targeted C2 earn via designed floor would address the retire-explicit weight); design-mining (C2's canonical reference is T&E's minimum-aspect shape; a game built around designed floor is a strong C2 argument)
+- **Tension hypothesis:** Knizia defends C2 — Foundation tokens (10 VP guaranteed, cannot be lost) create a non-trivial designed minimum floor. C1 earns (Foundation + scoring auction creates tension budget). Primary predicted collision: C2↔C1 OP — minimum score shape (C2: the floor mechanism) vs. tension budget (C1: the perpetual scarcity experience above the floor).
+- **Status:** consumed
+- **Created:** 2026-04-21
+- **Updated:** 2026-04-21
+- **Notes:** consumed by games/0061-floor/. C2↔C1 OP 6-2 (34th TP; prediction correct). C2 targeted earn confirmed (35 games since NEST #26).
+
+### HOP-020 — Chorus
+- **One-liner:** A 2–6 player simultaneous-action cooperative scoring game where ALL player count variants use identical rules via a modular "voice" system. Each player is a Voice contributing to a shared harmonic score; the game is architecturally designed to be equally good at every count. D3 anchors because scaling from 2 to 6 without rule changes is the design challenge.
+- **Anchor guess:** stegmaier / D3
+- **Sources:** gap (Stegmaier own-anchor 8+ games since Gloomhaven #45; D3 Count-Robustness is Stegmaier's signature; a game designed from the ground up for perfect player-count robustness is the canonical D3 argument); design-mining (Stegmaier's own Wingspan/Viticulture are celebrated for scaling; a TIGRIS original that makes scaling the explicit design goal would be a stronger D3 anchor)
+- **Tension hypothesis:** Stegmaier defends D3 — modular voice system: at 2p each player controls 3 voices; at 6p each player controls 1 voice; identical rules. A5 earns (simultaneous action = zero downtime at all counts). Primary predicted collision: D3↔A5 OP — count-robustness (D3: identical rules at all counts) vs. simultaneous pacing (A5: zero downtime as the mechanism that enables scaling). Different analytical registers: D3 = the structural design achievement; A5 = the pacing mechanism that makes D3 achievable.
+- **Status:** consumed
+- **Created:** 2026-04-21
+- **Updated:** 2026-04-21
+- **Notes:** consumed by games/0059-chorus/
+
 ### HOP-015 — Viaduct
 - **One-liner:** A 2–4 player aqueduct-engineering Euro where each player manages a private pipe network feeding into a shared public grid. Players know their own network's flow capacity but not opponents'. Optimal routing requires inferring what rivals need before they cut off your water supply — and the pipeline from spring to cistern is the game's load-bearing scoring chain.
 - **Anchor guess:** lacerda / B1
 - **Sources:** gap (Lacerda own-anchor 17 games overdue; B1+B4 territory); primitives (P-007 worker placement + information-asymmetry)
 - **Tension hypothesis:** Lacerda defends B1 — multi-stage aqueduct pipeline (spring → pipe → junction → cistern → city delivery) is canonical system gearing. B4 earns via private capacity cards: players cannot optimise the shared grid without inferring what opponents' hidden flows will do. Primary predicted collision: **B1↔B4 OP** — pipeline production process (B1) vs. information cost of hidden capacity (B4). Different analytical registers of the same aqueduct mechanism.
-- **Status:** fresh
+- **Status:** consumed
 - **Created:** 2026-04-21
 - **Updated:** 2026-04-21
-- **Notes:**
+- **Notes:** consumed by games/0053-viaduct/. Lacerda own-anchor confirmed. B1↔B4 OP 5-3 (26th TP). C8 targeted earn.
 
 ### HOP-016 — Crucible
 - **One-liner:** A 3–4 player alchemical production game where players transmute base elements into compounds via a shared reaction chamber on a rondel. Each transmutation carries escalating catastrophe risk — mismatched elements cause explosions that damage the reactor and raise the cost of all future reactions. Three incommensurable scoring paths (Gold, Elixirs, Artifacts) compete for the same dangerous reaction slots.
@@ -70,20 +120,20 @@ Last assigned ID: HOP-019.
 - **Anchor guess:** knizia / C1
 - **Sources:** gap (auction/bidding mechanism — 0 reviews; Ra is the canonical published reference); gap (Knizia own-anchor just completed at SOLSTICE #50 — but Knizia as non-own anchor on a design he'd recognise from Ra/Amun-Re tradition is appropriate)
 - **Tension hypothesis:** Knizia defends C1 — the second-price sealed bid creates the sharpest tension budget in Euro design: every bid is a clock tick where you don't know the threshold. A2 earns (per-round bid calculation = high decision density). Primary predicted collision: **C1↔A2 OP** — tension budget (C1 = the bid outcome pressure) vs. decision density (A2 = the calculation of crafting the bid). Different temporal registers: C1 = what happens after the reveal; A2 = what happens before it.
-- **Status:** fresh
+- **Status:** consumed
 - **Created:** 2026-04-21
 - **Updated:** 2026-04-21
-- **Notes:** Can serve as a TIGRIS original OR as the concept anchor for a Ra review. If run as original first, the Ra review afterward would be the published reference.
+- **Notes:** consumed by games/0055-ledger/. C1↔B4 OP 6-2 (28th TP; collision was C1↔B4 not C1↔A2 as predicted — both earned).
 
 ### HOP-019 — Scroll
 - **One-liner:** A 1–4 player roll-and-write-adjacent game where players fill a personal manuscript scroll (shared structure, personal execution) by rolling a shared pool of symbol dice. Each symbol has a different effect depending on where it is placed on the scroll — early placements echo through later sections via a cascade rule. The cascade chain (symbols placed in row 1 modify row 4 outcomes) is the conversion-chain hook; variance is calibrated via die-pool construction.
 - **Anchor guess:** vaccarino / A4
 - **Sources:** gap (roll-and-write mass-market — 0 dedicated originals; Covenstat is horror-adjacent; Scroll would be the pure roll-and-write entry); primitives (P-010 roll-and-write); gap (Vaccarino own-anchor now at WELLSPRING #32, 18 games ago — medium priority)
 - **Tension hypothesis:** Vaccarino defends A4 — die-pool construction manages the variance distribution: adding a symbol die shifts the probability curve for a specific scroll section. B3 earns (symbol cascade chain = depth-4 conversion: die → placement → row-1 modifier → row-4 output). Primary predicted collision: **A4↔B3 OP** — variance calibration (A4 = managing die-pool composition) vs. conversion chain depth (B3 = the cascade pipeline structure). Both fire on the scroll mechanism at different analytical scales.
-- **Status:** fresh
+- **Status:** consumed
 - **Created:** 2026-04-21
 - **Updated:** 2026-04-21
-- **Notes:** Also designed to earn B3 (targeted). If HOP-017 Haul is consumed first and earns B3, Scroll's B3 argument is confirmatory rather than urgent.
+- **Notes:** consumed by games/0056-scroll/. A4↔B3 OP 5-3 (29th TP; prediction correct). Roll-and-write gap closed.
 
 ### HOP-007 — Wellspring
 - **One-liner:** A 2–4 player simultaneous-action deck-builder where card values are uncertain until played. Each deck is face-down; players select cards blindly from specific "pools" (wells of cards grouped by type) and play them simultaneously. The tension: you know the distribution (variance-calibrated) but not the exact draw. The game rewards reading opponent pool-composition rather than owning your deck.
