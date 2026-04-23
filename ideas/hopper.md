@@ -100,10 +100,10 @@ Last assigned ID: HOP-033.
 - **Anchor guess:** lacerda / B1 + B4
 - **Sources:** gap (Lacerda 2nd own-anchor; 14 games since VIADUCT #53); gap (information-asymmetric trading unexplored in corpus); primitives (P-007 worker placement + information-asymmetry)
 - **Tension hypothesis:** Lacerda defends B1 — port-trading system gearing: Ships → Ports → Cargo → Manifest → Delivery. B4 earns via hidden cargo manifests (knowing the type but not quantity of opponent needs creates real information cost). Primary predicted collision: B1↔B4 OP — system gearing (B1: the pipeline architecture) vs. information transparency cost (B4: what is hidden and what does it cost to learn?). Both fire on the cargo-manifest mechanism.
-- **Status:** fresh
+- **Status:** consumed
 - **Created:** 2026-04-21
-- **Updated:** 2026-04-21
-- **Notes:**
+- **Updated:** 2026-04-23
+- **Notes:** consumed by games/0152-estuary/
 
 ### HOP-026 — Matrix
 - **One-liner:** A 2–4 player deck-and-die game where players build personal 4×4 matrices of cards. Each round, players roll a shared pool of dice; dice results activate corresponding rows AND columns on the matrix simultaneously, triggering intersection bonuses. A4 earns via die-pool construction (players build their die pool over 3 rounds, calibrating which dice activate which matrix zones). A2 earns via per-card matrix placement (optimizing intersection bonus potential). B3 earns via die→row→column→intersection cascade (depth-3 chain).
