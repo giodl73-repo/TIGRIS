@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CODEX — Veil Event Cards</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:      #0A0808;
+    --surface: #131010;
+    --surface2:#1C1818;
+    --gold:    #C9941A;
+    --gold-dim:rgba(201,148,26,0.4);
+    --text-hi: #F0E8D8;
+    --text-mid:#C0B090;
+    --text-lo: #786040;
+    --border:  rgba(201,148,26,0.15);
+
+    /* Category colours */
+    --cat-map:      #50C060;
+    --cat-prod:     #FF8C42;
+    --cat-conflict: #FF5020;
+    --cat-doctrine: #9060FF;
+    --cat-veil:     #C9941A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--text-hi);
+    padding: 40px 20px;
+  }
+  h1 {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 42px; font-weight: 700;
+    letter-spacing: 14px; color: var(--text-hi);
+    text-shadow: 0 0 30px rgba(201,148,26,0.3);
+    margin-bottom: 6px;
+  }
+  .sub {
+    text-align: center;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: var(--gold-dim); margin-bottom: 48px;
+  }
+  .section-head {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 8px; font-weight: 600;
+    letter-spacing: 5px; text-transform: uppercase;
+    margin: 40px 0 20px;
+  }
+  .ornament { text-align:center; color:var(--gold); opacity:.4; font-size:12px; letter-spacing:8px; margin:32px 0; }
+  .cards-row {
+    display: flex; justify-content: center;
+    gap: 18px; flex-wrap: wrap; margin-bottom: 8px;
+  }
+
+  /* ── VEIL EVENT CARD ── */
+  .veil-card {
+    width: 196px;
+    background: var(--surface);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.85),
+                0 0 0 1px rgba(144,96,255,0.08),
+                inset 0 1px 0 rgba(144,96,255,0.1);
+    border: 1px solid var(--border);
+  }
+  /* top fracture line */
+  .veil-card::after {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(144,96,255,0.4), transparent);
+  }
+
+  .veil-top-bar {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--cat-color), transparent);
+  }
+
+  .veil-badge {
+    padding: 7px 14px;
+    display: flex; align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(144,96,255,0.12);
+    background: rgba(144,96,255,0.04);
+  }
+  .badge-text {
+    font-size: 7px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--cat-veil);
+  }
+  .badge-cat {
+    font-size: 7px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+  }
+
+  .veil-crack {
+    width: 100%; height: 8px;
+    position: relative; overflow: hidden;
+  }
+  .veil-crack svg { display: block; width: 100%; height: 100%; }
+
+  .veil-header {
+    padding: 12px 14px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .event-name {
+    font-family: 'Cinzel', serif;
+    font-size: 14px; font-weight: 700;
+    color: var(--text-hi); line-height: 1.2;
+    letter-spacing: 0.03em;
+  }
+
+  .veil-body { padding: 12px 14px; }
+  .effect-text {
+    font-size: 11px; font-weight: 400;
+    line-height: 1.55; color: var(--text-mid);
+  }
+
+  .veil-footer {
+    padding: 8px 14px 12px;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .duration-badge {
+    font-size: 7px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 3px;
+    background: rgba(144,96,255,0.1);
+    color: #9060FF;
+    border: 1px solid rgba(144,96,255,0.2);
+  }
+  .veil-icon { font-size: 12px; opacity: 0.5; }
+</style>
+</head>
+<body>
+
+<h1>CODEX</h1>
+<p class="sub">Veil Event Deck — 20 Cards · Flip When The Veil Advances</p>
+
+<!-- MAP EVENTS -->
+<div class="section-head" style="color:#50C060">Map Events</div>
+<div class="cards-row">
+
+  <div class="veil-card">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#50C060,transparent)"></div>
+    <div class="veil-badge">
+      <span class="badge-text">Veil Event</span>
+      <span class="badge-cat" style="color:#50C060">Map</span>
+    </div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 40,4 55,1 70,7 90,3 120,5 145,2 165,6 196,4" fill="none" stroke="rgba(80,192,96,0.3)" stroke-width="1"/></svg></div>
+    <div class="veil-header"><div class="event-name">Sacred Ground Revealed</div></div>
+    <div class="veil-body"><div class="effect-text">Place 1 neutral Ancient Monument token on any unoccupied hex. It scores 3 VP at game end for whoever controls it.</div></div>
+    <div class="veil-footer"><span class="duration-badge">Permanent</span><span class="veil-icon">⬡</span></div>
+  </div>
+
+  <div class="veil-card">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#50C060,transparent)"></div>
+    <div class="veil-badge">
+      <span class="badge-text">Veil Event</span>
+      <span class="badge-cat" style="color:#50C060">Map</span>
+    </div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 30,4 50,1 80,7 110,3 140,5 165,2 196,4" fill="none" stroke="rgba(80,192,96,0.3)" stroke-width="1"/></svg></div>
+    <div class="veil-header"><div class="event-name">Ember Crown Ignites</div></div>
+    <div class="veil-body"><div class="effect-text">All Ember Peaks hexes produce 1 Ember passively this round to whoever occupies them, regardless of activation.</div></div>
+    <div class="veil-footer"><span class="duration-badge">This Round</span><span class="veil-icon">🔥</span></div>
+  </div>
+
+  <div class="veil-card">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#50C060,transparent)"></div>
+    <div class="veil-badge">
+      <span class="badge-text">Veil Event</span>
+      <span class="badge-cat" style="color:#50C060">Map</span>
+    </div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 45,4 60,2 85,6 115,3 150,5 175,1 196,4" fill="none" stroke="rgba(80,192,96,0.3)" stroke-width="1"/></svg></div>
+    <div class="veil-header"><div class="event-name">The Flooding</div></div>
+    <div class="veil-body"><div class="effect-text">All Flow Channel hexes are impassable this round — no building or activating on them. Existing components are unaffected.</div></div>
+    <div class="veil-footer"><span class="duration-badge">This Round</span><span class="veil-icon">≋</span></div>
+  </div>
+
+  <div class="veil-card">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#50C060,transparent)"></div>
+    <div class="veil-badge">
+      <span class="badge-text">Veil Event</span>
+      <span class="badge-cat" style="color:#50C060">Map</span>
+    </div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 35,4 55,1 75,7 100,3 130,5 160,2 196,4" fill="none" stroke="rgba(80,192,96,0.3)" stroke-width="1"/></svg></div>
+    <div class="veil-header"><div class="event-name">The Convergence</div></div>
+    <div class="veil-body"><div class="effect-text">All Sanctum Hills hexes count as both Sanctum and Flow terrain for production purposes this round.</div></div>
+    <div class="veil-footer"><span class="duration-badge">This Round</span><span class="veil-icon">⬡</span></div>
+  </div>
+
+</div>
+
+<!-- PRODUCTION EVENTS -->
+<div class="section-head" style="color:#FF8C42">Production Events</div>
+<div class="cards-row">
+
+  <div class="veil-card">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#FF8C42,transparent)"></div>
+    <div class="veil-badge"><span class="badge-text">Veil Event</span><span class="badge-cat" style="color:#FF8C42">Production</span></div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 40,4 60,1 90,7 120,3 155,5 180,2 196,4" fill="none" stroke="rgba(255,140,66,0.3)" stroke-width="1"/></svg></div>
+    <div class="veil-header"><div class="event-name">Overflow</div></div>
+    <div class="veil-body"><div class="effect-text">All mana production is doubled this round. Mana exceeding your storage cap is lost. Plan accordingly.</div></div>
+    <div class="veil-footer"><span class="duration-badge">This Round</span><span class="veil-icon">◈</span></div>
+  </div>
+
+  <div class="veil-card">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#FF8C42,transparent)"></div>
+    <div class="veil-badge"><span class="badge-text">Veil Event</span><span class="badge-cat" style="color:#FF8C42">Production</span></div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 50,4 65,2 85,6 110,3 140,5 170,1 196,4" fill="none" stroke="rgba(255,140,66,0.3)" stroke-width="1"/></svg></div>
+    <div class="veil-header"><div class="event-name">The Famine</div></div>
+    <div class="veil-body"><div class="effect-text">All mana production is halved this round (round up after halving). Conversion rates are unaffected.</div></div>
+    <div class="veil-footer"><span class="duration-badge">This Round</span><span class="veil-icon">◇</span></div>
+  </div>
+
+  <div class="veil-card">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#FF8C42,transparent)"></div>
+    <div class="veil-badge"><span class="badge-text">Veil Event</span><span class="badge-cat" style="color:#FF8C42">Production</span></div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 30,4 55,1 80,7 105,3 135,5 165,2 196,4" fill="none" stroke="rgba(255,140,66,0.3)" stroke-width="1"/></svg></div>
+    <div class="veil-header"><div class="event-name">Void Surge</div></div>
+    <div class="veil-body"><div class="effect-text">Each player gains 2 Void mana immediately, regardless of what they produce this round.</div></div>
+    <div class="veil-footer"><span class="duration-badge">Immediate</span><span class="veil-icon">○</span></div>
+  </div>
+
+  <div class="veil-card">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#FF8C42,transparent)"></div>
+    <div class="veil-badge"><span class="badge-text">Veil Event</span><span class="badge-cat" style="color:#FF8C42">Production</span></div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 45,4 60,1 80,7 110,3 145,5 170,2 196,4" fill="none" stroke="rgba(255,140,66,0.3)" stroke-width="1"/></svg></div>
+    <div class="veil-header"><div class="event-name">Mana Storm</div></div>
+    <div class="veil-body"><div class="effect-text">Each player discards all mana of 1 type of their choice, then gains that much mana of any other single type.</div></div>
+    <div class="veil-footer"><span class="duration-badge">Immediate</span><span class="veil-icon">↻</span></div>
+  </div>
+
+</div>
+
+<!-- CONFLICT EVENTS -->
+<div class="section-head" style="color:#FF5020">Conflict Events</div>
+<div class="cards-row">
+
+  <div class="veil-card">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#FF5020,transparent)"></div>
+    <div class="veil-badge"><span class="badge-text">Veil Event</span><span class="badge-cat" style="color:#FF5020">Conflict</span></div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 40,4 58,1 78,7 100,3 130,5 160,1 196,4" fill="none" stroke="rgba(255,80,32,0.3)" stroke-width="1"/></svg></div>
+    <div class="veil-header"><div class="event-name">Ceasefire</div></div>
+    <div class="veil-body"><div class="effect-text">No Conflict actions may be taken this round. All Conflict Doctrines are suspended for this round only.</div></div>
+    <div class="veil-footer"><span class="duration-badge">This Round</span><span class="veil-icon">◉</span></div>
+  </div>
+
+  <div class="veil-card">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#FF5020,transparent)"></div>
+    <div class="veil-badge"><span class="badge-text">Veil Event</span><span class="badge-cat" style="color:#FF5020">Conflict</span></div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 35,4 55,2 80,6 115,3 150,5 175,1 196,4" fill="none" stroke="rgba(255,80,32,0.3)" stroke-width="1"/></svg></div>
+    <div class="veil-header"><div class="event-name">Blood Price</div></div>
+    <div class="veil-body"><div class="effect-text">Conflict actions cost 0 mana this round. All players may take 1 additional Conflict action this round.</div></div>
+    <div class="veil-footer"><span class="duration-badge">This Round</span><span class="veil-icon">▲</span></div>
+  </div>
+
+  <div class="veil-card">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#FF5020,transparent)"></div>
+    <div class="veil-badge"><span class="badge-text">Veil Event</span><span class="badge-cat" style="color:#FF5020">Conflict</span></div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 45,4 62,1 84,7 108,3 138,5 168,2 196,4" fill="none" stroke="rgba(255,80,32,0.3)" stroke-width="1"/></svg></div>
+    <div class="veil-header"><div class="event-name">The Blowback</div></div>
+    <div class="veil-body"><div class="effect-text">When a component is destroyed via Conflict this round, the attacker loses 1 component of their choice as well.</div></div>
+    <div class="veil-footer"><span class="duration-badge">This Round</span><span class="veil-icon">↯</span></div>
+  </div>
+
+  <div class="veil-card">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#FF5020,transparent)"></div>
+    <div class="veil-badge"><span class="badge-text">Veil Event</span><span class="badge-cat" style="color:#FF5020">Conflict</span></div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 38,4 56,1 78,7 104,3 134,5 162,2 196,4" fill="none" stroke="rgba(255,80,32,0.3)" stroke-width="1"/></svg></div>
+    <div class="veil-header"><div class="event-name">The Open Field</div></div>
+    <div class="veil-body"><div class="effect-text">Any player may target any opponent's component with a Conflict action this round, ignoring adjacency.</div></div>
+    <div class="veil-footer"><span class="duration-badge">This Round</span><span class="veil-icon">⬡</span></div>
+  </div>
+
+</div>
+
+<!-- DOCTRINE EVENTS -->
+<div class="section-head" style="color:#9060FF">Doctrine Events</div>
+<div class="cards-row">
+
+  <div class="veil-card">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#9060FF,transparent)"></div>
+    <div class="veil-badge"><span class="badge-text">Veil Event</span><span class="badge-cat" style="color:#9060FF">Doctrine</span></div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 42,4 58,1 82,7 108,3 142,5 168,2 196,4" fill="none" stroke="rgba(144,96,255,0.3)" stroke-width="1"/></svg></div>
+    <div class="veil-header"><div class="event-name">The Suppression</div></div>
+    <div class="veil-body"><div class="effect-text">Each player must suspend 1 of their own Doctrines for this round (their choice). That Doctrine does not trigger.</div></div>
+    <div class="veil-footer"><span class="duration-badge">This Round</span><span class="veil-icon">○</span></div>
+  </div>
+
+  <div class="veil-card">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#9060FF,transparent)"></div>
+    <div class="veil-badge"><span class="badge-text">Veil Event</span><span class="badge-cat" style="color:#9060FF">Doctrine</span></div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 36,4 54,2 76,6 106,3 138,5 166,1 196,4" fill="none" stroke="rgba(144,96,255,0.3)" stroke-width="1"/></svg></div>
+    <div class="veil-header"><div class="event-name">Doctrine Resonance</div></div>
+    <div class="veil-body"><div class="effect-text">Each player's Founding Doctrine fires once for free at the start of this round, regardless of conditions.</div></div>
+    <div class="veil-footer"><span class="duration-badge">Start of Round</span><span class="veil-icon">◎</span></div>
+  </div>
+
+  <div class="veil-card">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#9060FF,transparent)"></div>
+    <div class="veil-badge"><span class="badge-text">Veil Event</span><span class="badge-cat" style="color:#9060FF">Doctrine</span></div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 44,4 60,1 86,7 112,3 144,5 172,2 196,4" fill="none" stroke="rgba(144,96,255,0.3)" stroke-width="1"/></svg></div>
+    <div class="veil-header"><div class="event-name">The Unlawful Rite</div></div>
+    <div class="veil-body"><div class="effect-text">Each player may activate any 1 Doctrine they own twice this round — it fires twice on a single activation trigger.</div></div>
+    <div class="veil-footer"><span class="duration-badge">This Round</span><span class="veil-icon">✦</span></div>
+  </div>
+
+  <div class="veil-card">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#9060FF,transparent)"></div>
+    <div class="veil-badge"><span class="badge-text">Veil Event</span><span class="badge-cat" style="color:#9060FF">Doctrine</span></div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 38,4 56,1 80,7 106,3 136,5 164,2 196,4" fill="none" stroke="rgba(144,96,255,0.3)" stroke-width="1"/></svg></div>
+    <div class="veil-header"><div class="event-name">The Inversion</div></div>
+    <div class="veil-body"><div class="effect-text">This round: Conflict Doctrines do not trigger. Production Doctrines trigger twice on each activation.</div></div>
+    <div class="veil-footer"><span class="duration-badge">This Round</span><span class="veil-icon">↕</span></div>
+  </div>
+
+</div>
+
+<!-- VEIL EVENTS -->
+<div class="section-head" style="color:#C9941A">Veil Events</div>
+<div class="cards-row">
+
+  <div class="veil-card" style="border-color:rgba(201,148,26,0.25)">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#C9941A,transparent); height:4px"></div>
+    <div class="veil-badge" style="background:rgba(201,148,26,0.06); border-bottom-color:rgba(201,148,26,0.2)">
+      <span class="badge-text" style="color:#C9941A">Veil Event</span>
+      <span class="badge-cat" style="color:#C9941A">The Veil</span>
+    </div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 40,4 58,1 82,7 108,3 140,5 168,2 196,4" fill="none" stroke="rgba(201,148,26,0.4)" stroke-width="1.5"/></svg></div>
+    <div class="veil-header"><div class="event-name">Veil Toll</div></div>
+    <div class="veil-body"><div class="effect-text">Each player who took a Conflict action this round advances the Veil 1 additional step at round end.</div></div>
+    <div class="veil-footer"><span class="duration-badge" style="background:rgba(201,148,26,0.1); color:#C9941A; border-color:rgba(201,148,26,0.3)">End of Round</span><span class="veil-icon" style="color:#C9941A; opacity:0.8">⧖</span></div>
+  </div>
+
+  <div class="veil-card" style="border-color:rgba(201,148,26,0.25)">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#C9941A,transparent); height:4px"></div>
+    <div class="veil-badge" style="background:rgba(201,148,26,0.06); border-bottom-color:rgba(201,148,26,0.2)">
+      <span class="badge-text" style="color:#C9941A">Veil Event</span>
+      <span class="badge-cat" style="color:#C9941A">The Veil</span>
+    </div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 36,4 54,2 78,6 108,3 140,5 168,1 196,4" fill="none" stroke="rgba(201,148,26,0.4)" stroke-width="1.5"/></svg></div>
+    <div class="veil-header"><div class="event-name">The Reprieve</div></div>
+    <div class="veil-body"><div class="effect-text">The Veil does not advance at the end of this round. All standard and triggered advancements are cancelled.</div></div>
+    <div class="veil-footer"><span class="duration-badge" style="background:rgba(201,148,26,0.1); color:#C9941A; border-color:rgba(201,148,26,0.3)">This Round</span><span class="veil-icon" style="color:#C9941A; opacity:0.8">◎</span></div>
+  </div>
+
+  <div class="veil-card" style="border-color:rgba(201,148,26,0.25)">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#C9941A,transparent); height:4px"></div>
+    <div class="veil-badge" style="background:rgba(201,148,26,0.06); border-bottom-color:rgba(201,148,26,0.2)">
+      <span class="badge-text" style="color:#C9941A">Veil Event</span>
+      <span class="badge-cat" style="color:#C9941A">The Veil</span>
+    </div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 44,4 62,1 84,7 112,3 145,5 172,2 196,4" fill="none" stroke="rgba(201,148,26,0.4)" stroke-width="1.5"/></svg></div>
+    <div class="veil-header"><div class="event-name">The Stabilization</div></div>
+    <div class="veil-body"><div class="effect-text">The Veil cannot advance this round. All voluntary Advance actions and triggered advancements are blocked.</div></div>
+    <div class="veil-footer"><span class="duration-badge" style="background:rgba(201,148,26,0.1); color:#C9941A; border-color:rgba(201,148,26,0.3)">This Round</span><span class="veil-icon" style="color:#C9941A; opacity:0.8">▣</span></div>
+  </div>
+
+  <div class="veil-card" style="border-color:rgba(201,148,26,0.25)">
+    <div class="veil-top-bar" style="background:linear-gradient(90deg,transparent,#C9941A,transparent); height:4px"></div>
+    <div class="veil-badge" style="background:rgba(201,148,26,0.06); border-bottom-color:rgba(201,148,26,0.2)">
+      <span class="badge-text" style="color:#C9941A">Veil Event</span>
+      <span class="badge-cat" style="color:#C9941A">The Veil</span>
+    </div>
+    <div class="veil-crack"><svg viewBox="0 0 196 8"><polyline points="0,4 38,4 56,1 80,7 106,3 136,5 164,2 196,4" fill="none" stroke="rgba(201,148,26,0.4)" stroke-width="1.5"/></svg></div>
+    <div class="veil-header"><div class="event-name">The Bargain</div></div>
+    <div class="veil-body"><div class="effect-text">Any player may spend 4 mana of a single type to prevent 1 Veil advancement this round. Each player decides independently.</div></div>
+    <div class="veil-footer"><span class="duration-badge" style="background:rgba(201,148,26,0.1); color:#C9941A; border-color:rgba(201,148,26,0.3)">Optional</span><span class="veil-icon" style="color:#C9941A; opacity:0.8">⧗</span></div>
+  </div>
+
+</div>
+
+<div class="ornament">— ✦ —</div>
+<p style="text-align:center; font-size:9px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#786040; margin-bottom:40px;">20 Veil Events · Flip 1 each time the Veil advances · Gilded Void Direction IV</p>
+
+</body>
+</html>

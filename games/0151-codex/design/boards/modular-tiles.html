@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CODEX — Modular Map Tiles</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:      #13100C;
+    --surface: #1E1810;
+    --gold:    #C9941A;
+    --gold-dim:rgba(201,148,26,0.4);
+    --text-hi: #F0E8D8;
+    --text-mid:#C0B090;
+    --text-lo: #786040;
+    --border:  rgba(201,148,26,0.18);
+
+    /* Terrain */
+    --forge:   #3A2E1C;
+    --forge2:  #2C2416;
+    --sanctum: #1E3040;
+    --sanctum2:#162030;
+    --flow:    #143050;
+    --flow2:   #0C1E34;
+    --ember:   #401A0C;
+    --ember2:  #2E1208;
+    --void:    #1E1428;
+    --void2:   #14101E;
+
+    /* Schools */
+    --flame:  #FF5020;
+    --tide:   #1A9AFF;
+    --iron:   #8FA0B8;
+    --earth:  #50C060;
+    --wind:   #B0A0FF;
+    --ash:    #FF7040;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--text-hi);
+    padding: 40px 20px;
+  }
+  h1 {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 40px; font-weight: 700;
+    letter-spacing: 12px;
+    text-shadow: 0 0 30px rgba(201,148,26,0.3);
+    margin-bottom: 6px;
+  }
+  .sub {
+    text-align: center;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: var(--gold-dim); margin-bottom: 12px;
+  }
+  .ornament { text-align:center; color:var(--gold); opacity:.4; font-size:12px; letter-spacing:8px; margin:32px 0 24px; }
+  .section-head {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 8px; font-weight: 600;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: var(--gold); margin: 36px 0 20px; opacity: 0.8;
+  }
+  .tiles-row {
+    display: flex; justify-content: center;
+    gap: 24px; flex-wrap: wrap; margin-bottom: 8px;
+  }
+
+  /* ── TILE CARD ── */
+  .tile-card {
+    width: 200px;
+    background: var(--surface);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.7);
+  }
+  .tile-card.school { border-width: 1.5px; }
+
+  .tile-label-bar {
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .tile-name {
+    font-family: 'Cinzel', serif;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .tile-type {
+    font-size: 7px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text-lo);
+  }
+
+  /* Hex cluster showing 4 hexes */
+  .hex-cluster {
+    padding: 14px 14px 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 4px;
+    background: rgba(0,0,0,0.2);
+  }
+  .hex-cluster.diamond {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .mini-hex {
+    height: 44px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 6px; font-weight: 600;
+    letter-spacing: 0.3px; text-transform: uppercase;
+    color: rgba(240,232,216,0.55);
+    position: relative;
+    transition: filter 0.2s;
+  }
+  .mini-hex-label { text-align: center; line-height: 1.3; padding: 3px; }
+
+  /* Special feature marker */
+  .mini-hex.feature {
+    filter: drop-shadow(0 0 4px rgba(201,148,26,0.5));
+  }
+  .mini-hex.feature::after {
+    content: '✦';
+    position: absolute;
+    top: 6px; right: 6px;
+    font-size: 7px;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .hex-forge   { background: linear-gradient(135deg, var(--forge2), var(--forge)); }
+  .hex-sanctum { background: linear-gradient(135deg, var(--sanctum2), var(--sanctum)); }
+  .hex-flow    { background: linear-gradient(135deg, var(--flow2), var(--flow)); }
+  .hex-ember   { background: linear-gradient(135deg, var(--ember2), var(--ember)); }
+  .hex-void    { background: linear-gradient(135deg, var(--void2), var(--void)); }
+
+  /* Home hex glow for school tiles */
+  .mini-hex.home {
+    filter: brightness(1.4);
+    outline: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .tile-info { padding: 10px 14px 14px; }
+  .feature-name {
+    font-family: 'Cinzel', serif;
+    font-size: 10px; font-weight: 700;
+    color: var(--gold); margin-bottom: 4px;
+  }
+  .feature-desc {
+    font-size: 9.5px; line-height: 1.5;
+    color: var(--text-mid);
+  }
+  .terrain-row {
+    display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 8px;
+  }
+  .terrain-pip {
+    width: 10px; height: 10px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+  /* Terrain key */
+  .terrain-key {
+    display: flex; justify-content: center; gap: 16px;
+    flex-wrap: wrap; margin: 20px 0 40px;
+  }
+  .tk-item { display: flex; align-items: center; gap: 7px; }
+  .tk-hex {
+    width: 16px; height: 18px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+  .tk-name {
+    font-size: 8px; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--text-lo);
+  }
+</style>
+</head>
+<body>
+
+<h1>CODEX</h1>
+<p class="sub">Modular Map System — 12 Tiles · 4 Hexes Each · 48 Hexes Total</p>
+
+<div class="ornament">— ✦ —</div>
+
+<!-- TERRAIN KEY -->
+<div class="terrain-key">
+  <div class="tk-item"><div class="tk-hex" style="background:var(--forge)"></div><div class="tk-name">Forge Grounds</div></div>
+  <div class="tk-item"><div class="tk-hex" style="background:var(--sanctum)"></div><div class="tk-name">Sanctum Hills</div></div>
+  <div class="tk-item"><div class="tk-hex" style="background:var(--flow)"></div><div class="tk-name">Flow Channels</div></div>
+  <div class="tk-item"><div class="tk-hex" style="background:var(--ember)"></div><div class="tk-name">Ember Peaks</div></div>
+  <div class="tk-item"><div class="tk-hex" style="background:var(--void)"></div><div class="tk-name">Void Rifts</div></div>
+  <div class="tk-item"><div class="tk-hex" style="background:var(--forge); filter:drop-shadow(0 0 4px rgba(201,148,26,0.5))"></div><div class="tk-name">✦ Special Feature</div></div>
+</div>
+
+<!-- SCHOOL TILES -->
+<div class="section-head">School Tiles — Fixed Corner Positions</div>
+<div class="tiles-row">
+
+  <!-- S1 IRON -->
+  <div class="tile-card school" style="border-color:rgba(143,160,184,0.4)">
+    <div class="tile-label-bar" style="background:rgba(143,160,184,0.06)">
+      <div class="tile-name" style="color:var(--iron)">⬡ Iron Tile</div>
+      <div class="tile-type">NW Corner</div>
+    </div>
+    <div class="hex-cluster">
+      <div class="mini-hex hex-forge home"><div class="mini-hex-label">Forge Home</div></div>
+      <div class="mini-hex hex-forge"><div class="mini-hex-label">Forge Grounds</div></div>
+      <div class="mini-hex hex-sanctum"><div class="mini-hex-label">Sanctum Hills</div></div>
+      <div class="mini-hex hex-sanctum"><div class="mini-hex-label">Sanctum Hills</div></div>
+    </div>
+    <div class="tile-info">
+      <div class="feature-desc">Iron's natural territory. Forge + Sanctum adjacency activates Iron Vein from turn 1. No special feature — home ground needs no embellishment.</div>
+    </div>
+  </div>
+
+  <!-- S2 TIDE -->
+  <div class="tile-card school" style="border-color:rgba(26,154,255,0.4)">
+    <div class="tile-label-bar" style="background:rgba(26,154,255,0.06)">
+      <div class="tile-name" style="color:var(--tide)">≋ Tide Tile</div>
+      <div class="tile-type">NE Corner</div>
+    </div>
+    <div class="hex-cluster">
+      <div class="mini-hex hex-flow home"><div class="mini-hex-label">Flow Home</div></div>
+      <div class="mini-hex hex-flow"><div class="mini-hex-label">Flow Channel</div></div>
+      <div class="mini-hex hex-sanctum"><div class="mini-hex-label">Sanctum Hills</div></div>
+      <div class="mini-hex hex-void"><div class="mini-hex-label">Void Rift</div></div>
+    </div>
+    <div class="tile-info">
+      <div class="feature-desc">Tide's home: Channel adjacency activates Tidal Mill immediately. The Void Rift gives Living Root users an early Void source.</div>
+    </div>
+  </div>
+
+  <!-- S3 FLAME -->
+  <div class="tile-card school" style="border-color:rgba(255,80,32,0.4)">
+    <div class="tile-label-bar" style="background:rgba(255,80,32,0.06)">
+      <div class="tile-name" style="color:var(--flame)">▲ Flame Tile</div>
+      <div class="tile-type">SE Corner</div>
+    </div>
+    <div class="hex-cluster">
+      <div class="mini-hex hex-ember home"><div class="mini-hex-label">Ember Home</div></div>
+      <div class="mini-hex hex-ember"><div class="mini-hex-label">Ember Peaks</div></div>
+      <div class="mini-hex hex-forge"><div class="mini-hex-label">Forge Grounds</div></div>
+      <div class="mini-hex hex-void"><div class="mini-hex-label">Void Rift</div></div>
+    </div>
+    <div class="tile-info">
+      <div class="feature-desc">Flame's launch pad. Twin Ember Peaks power Spires. Forge Ground opens a Weight-to-Ember conversion path via The Furnace.</div>
+    </div>
+  </div>
+
+  <!-- S4 EARTH -->
+  <div class="tile-card school" style="border-color:rgba(80,192,96,0.4)">
+    <div class="tile-label-bar" style="background:rgba(80,192,96,0.06)">
+      <div class="tile-name" style="color:var(--earth)">⬤ Earth Tile</div>
+      <div class="tile-type">SW Corner</div>
+    </div>
+    <div class="hex-cluster">
+      <div class="mini-hex hex-sanctum home"><div class="mini-hex-label">Sanctum Home</div></div>
+      <div class="mini-hex hex-sanctum"><div class="mini-hex-label">Sanctum Hills</div></div>
+      <div class="mini-hex hex-forge"><div class="mini-hex-label">Forge Grounds</div></div>
+      <div class="mini-hex hex-flow"><div class="mini-hex-label">Flow Channel</div></div>
+    </div>
+    <div class="tile-info">
+      <div class="feature-desc">Earth's sanctum cluster. Twin Sanctum Hills stack Deep Roots terrain VP. Forge + Flow give access to Weight and Void from turn 1.</div>
+    </div>
+  </div>
+
+  <!-- S5 WIND -->
+  <div class="tile-card school" style="border-color:rgba(176,160,255,0.4)">
+    <div class="tile-label-bar" style="background:rgba(176,160,255,0.06)">
+      <div class="tile-name" style="color:var(--wind)">↻ Wind Tile</div>
+      <div class="tile-type">N Edge (expansion)</div>
+    </div>
+    <div class="hex-cluster">
+      <div class="mini-hex hex-void home"><div class="mini-hex-label">Void Home</div></div>
+      <div class="mini-hex hex-void"><div class="mini-hex-label">Void Rifts</div></div>
+      <div class="mini-hex hex-ember"><div class="mini-hex-label">Ember Peaks</div></div>
+      <div class="mini-hex hex-sanctum"><div class="mini-hex-label">Sanctum Hills</div></div>
+    </div>
+    <div class="tile-info">
+      <div class="feature-desc">Wind's volatile footing. Twin Void Rifts make Void production natural. Ember access near home territory means Wind can disrupt Flame's corridor early.</div>
+    </div>
+  </div>
+
+  <!-- S6 ASH -->
+  <div class="tile-card school" style="border-color:rgba(255,112,64,0.4)">
+    <div class="tile-label-bar" style="background:rgba(255,112,64,0.06)">
+      <div class="tile-name" style="color:var(--ash)">◇ Ash Tile</div>
+      <div class="tile-type">S Edge (expansion)</div>
+    </div>
+    <div class="hex-cluster">
+      <div class="mini-hex hex-void home"><div class="mini-hex-label">Void Home</div></div>
+      <div class="mini-hex hex-void"><div class="mini-hex-label">Void Rifts</div></div>
+      <div class="mini-hex hex-forge"><div class="mini-hex-label">Forge Grounds</div></div>
+      <div class="mini-hex hex-ember"><div class="mini-hex-label">Ember Peaks</div></div>
+    </div>
+    <div class="tile-info">
+      <div class="feature-desc">Ash's reclamation ground. Void Rifts feed Smoldering Core and From the Ashes. Forge Grounds let Ash build Weight-heavy engines when not in decay mode.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- VARIABLE TILES -->
+<div class="section-head">Variable Tiles — Shuffle 6 Each Game</div>
+<div class="tiles-row">
+
+  <!-- V1 CONTESTED CROSSING -->
+  <div class="tile-card">
+    <div class="tile-label-bar">
+      <div class="tile-name">The Contested Crossing</div>
+      <div class="tile-type">Variable V1</div>
+    </div>
+    <div class="hex-cluster">
+      <div class="mini-hex hex-forge feature"><div class="mini-hex-label">Forge Grounds</div></div>
+      <div class="mini-hex hex-flow"><div class="mini-hex-label">Flow Channel</div></div>
+      <div class="mini-hex hex-flow"><div class="mini-hex-label">Flow Channel</div></div>
+      <div class="mini-hex hex-sanctum"><div class="mini-hex-label">Sanctum Hills</div></div>
+    </div>
+    <div class="tile-info">
+      <div class="feature-name">✦ The Fault Line</div>
+      <div class="feature-desc">Components on either side of the Forge/Flow border cannot produce while any opponent has a component on the opposite side.</div>
+    </div>
+  </div>
+
+  <!-- V2 ANCIENT FORGE -->
+  <div class="tile-card">
+    <div class="tile-label-bar">
+      <div class="tile-name">The Ancient Forge</div>
+      <div class="tile-type">Variable V2</div>
+    </div>
+    <div class="hex-cluster">
+      <div class="mini-hex hex-forge feature"><div class="mini-hex-label">Forge Grounds</div></div>
+      <div class="mini-hex hex-forge"><div class="mini-hex-label">Forge Grounds</div></div>
+      <div class="mini-hex hex-ember"><div class="mini-hex-label">Ember Peaks</div></div>
+      <div class="mini-hex hex-void"><div class="mini-hex-label">Void Rifts</div></div>
+    </div>
+    <div class="tile-info">
+      <div class="feature-name">✦ Founder's Mark</div>
+      <div class="feature-desc">First builder here gains +1 Weight production permanently on this hex, regardless of component type placed.</div>
+    </div>
+  </div>
+
+  <!-- V3 VOID SPIRAL -->
+  <div class="tile-card">
+    <div class="tile-label-bar">
+      <div class="tile-name">The Void Spiral</div>
+      <div class="tile-type">Variable V3</div>
+    </div>
+    <div class="hex-cluster">
+      <div class="mini-hex hex-void feature" style="filter:drop-shadow(0 0 6px rgba(201,148,26,0.6))"><div class="mini-hex-label" style="color:rgba(201,148,26,0.9)">Veil's Eye</div></div>
+      <div class="mini-hex hex-void"><div class="mini-hex-label">Void Rifts</div></div>
+      <div class="mini-hex hex-void"><div class="mini-hex-label">Void Rifts</div></div>
+      <div class="mini-hex hex-ember"><div class="mini-hex-label">Ember Peaks</div></div>
+    </div>
+    <div class="tile-info">
+      <div class="feature-name">✦ The Veil's Eye</div>
+      <div class="feature-desc">Controller slows the Veil track by 1 step at the end of each round. The most powerful single hex in the game.</div>
+    </div>
+  </div>
+
+  <!-- V4 CONFLUENCE POINT -->
+  <div class="tile-card">
+    <div class="tile-label-bar">
+      <div class="tile-name">The Confluence Point</div>
+      <div class="tile-type">Variable V4</div>
+    </div>
+    <div class="hex-cluster">
+      <div class="mini-hex hex-flow feature"><div class="mini-hex-label">Deep Spring</div></div>
+      <div class="mini-hex hex-flow"><div class="mini-hex-label">Flow Channel</div></div>
+      <div class="mini-hex hex-sanctum"><div class="mini-hex-label">Sanctum Hills</div></div>
+      <div class="mini-hex hex-sanctum"><div class="mini-hex-label">Sanctum Hills</div></div>
+    </div>
+    <div class="tile-info">
+      <div class="feature-name">✦ The Deep Spring</div>
+      <div class="feature-desc">Occupying component produces +2 Flow when activated, regardless of component type. Powers any Conversion Doctrine.</div>
+    </div>
+  </div>
+
+  <!-- V5 EMBER CROWN -->
+  <div class="tile-card">
+    <div class="tile-label-bar">
+      <div class="tile-name">The Ember Crown</div>
+      <div class="tile-type">Variable V5</div>
+    </div>
+    <div class="hex-cluster">
+      <div class="mini-hex hex-ember feature" style="filter:drop-shadow(0 0 6px rgba(201,148,26,0.8))"><div class="mini-hex-label" style="color:rgba(201,148,26,0.95)">The Crown</div></div>
+      <div class="mini-hex hex-ember"><div class="mini-hex-label">Ember Peaks</div></div>
+      <div class="mini-hex hex-forge"><div class="mini-hex-label">Forge Grounds</div></div>
+      <div class="mini-hex hex-sanctum"><div class="mini-hex-label">Sanctum Hills</div></div>
+    </div>
+    <div class="tile-info">
+      <div class="feature-name">✦ The Crown</div>
+      <div class="feature-desc">Scores 5 VP at game end for controller. The most valuable scoring hex on the map. Everyone can see it from turn 1.</div>
+    </div>
+  </div>
+
+  <!-- V6 DEEP ROOTS -->
+  <div class="tile-card">
+    <div class="tile-label-bar">
+      <div class="tile-name">The Deep Roots</div>
+      <div class="tile-type">Variable V6</div>
+    </div>
+    <div class="hex-cluster">
+      <div class="mini-hex hex-sanctum feature"><div class="mini-hex-label">Ancient Monument</div></div>
+      <div class="mini-hex hex-flow"><div class="mini-hex-label">Flow Channel</div></div>
+      <div class="mini-hex hex-forge"><div class="mini-hex-label">Forge Grounds</div></div>
+      <div class="mini-hex hex-void"><div class="mini-hex-label">Void Rifts</div></div>
+    </div>
+    <div class="tile-info">
+      <div class="feature-name">✦ Ancient Monument</div>
+      <div class="feature-desc">Scores 3 VP at game end + grants Edict immunity to the controller's Doctrines while held. Earth's dream hex.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ASSEMBLY RULES -->
+<div class="section-head">Map Assembly</div>
+<div style="max-width:560px; margin:0 auto 48px; background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:20px 24px;">
+  <p style="font-size:11px; line-height:1.7; color:var(--text-mid); margin-bottom:16px;">
+    <strong style="color:var(--text-hi); font-family:'Cinzel',serif; letter-spacing:0.5px;">Setup:</strong>
+    Determine which 4 Schools are playing. Place those Schools' tiles in their fixed corners (Iron NW, Tide NE, Flame SE, Earth SW — or Wind N / Ash S for 6-School games). Shuffle the 6 Variable tiles and place them in the 6 remaining positions. Each Variable tile may be rotated freely.
+  </p>
+  <p style="font-size:11px; line-height:1.7; color:var(--text-mid);">
+    <strong style="color:var(--text-hi); font-family:'Cinzel',serif; letter-spacing:0.5px;">3-Player variant:</strong>
+    Remove 1 Variable tile randomly before placement. The resulting 44-hex map gives more breathing room between Schools.
+  </p>
+</div>
+
+<div style="text-align:center; font-size:9px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:var(--text-lo); margin-bottom:40px;">12 Tiles · 48 Hexes · Every Game a Different Map · Gilded Void Direction IV</div>
+
+</body>
+</html>
