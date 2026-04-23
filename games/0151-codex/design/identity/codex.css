@@ -1,0 +1,215 @@
+/*
+ * CODEX Design System — Shared CSS
+ * Direction 4: Gilded Void
+ * Import this in all CODEX design HTML files
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+/* ── COLOUR TOKENS ─────────────────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --bg:           #13100C;
+  --surface:      #1E1810;
+  --surface2:     #2A2218;
+  --surface3:     #382E20;
+
+  /* Borders */
+  --border:       rgba(201,148,26,0.18);
+  --border-mid:   rgba(201,148,26,0.35);
+  --border-hi:    rgba(201,148,26,0.70);
+
+  /* Gold system */
+  --gold:         #C9941A;
+  --gold-soft:    #DBA830;
+  --gold-dim:     rgba(201,148,26,0.50);
+  --gold-glow:    rgba(201,148,26,0.12);
+
+  /* Text */
+  --text-hi:      #F0E8D8;
+  --text-mid:     #C0B090;
+  --text-lo:      #786040;
+
+  /* Schools */
+  --flame:        #FF5020;
+  --flame-soft:   rgba(255,80,32,0.12);
+  --tide:         #1A9AFF;
+  --tide-soft:    rgba(26,154,255,0.12);
+  --iron:         #8FA0B8;
+  --iron-soft:    rgba(143,160,184,0.12);
+  --earth:        #50C060;
+  --earth-soft:   rgba(80,192,96,0.12);
+  --wind:         #B0A0FF;
+  --wind-soft:    rgba(176,160,255,0.12);
+  --ash:          #FF7040;
+  --ash-soft:     rgba(255,112,64,0.12);
+
+  /* Mana types */
+  --ember:        #FF8C42;
+  --flow:         #42BEFF;
+  --weight:       #A8B4CC;
+  --void-mana:    #9060FF;
+
+  /* Doctrine type accents */
+  --production:   #8FA0B8;   /* iron */
+  --conversion:   #9060FF;   /* void */
+  --spatial:      #50C060;   /* earth */
+  --temporal:     #7060EE;   /* arcane */
+  --conflict:     #FF5020;   /* flame */
+}
+
+/* ── BASE ──────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text-hi);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  padding: 48px 20px;
+  min-height: 100vh;
+}
+
+/* ── TYPOGRAPHY ────────────────────────────────────────────────── */
+.t-display   { font-family: 'Cinzel', serif; }
+.t-mono      { font-family: 'Space Mono', monospace; }
+.t-body      { font-family: 'Space Grotesk', sans-serif; }
+
+.t-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 7px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+}
+.t-section {
+  font-family: 'Cinzel', serif;
+  font-size: 8px; font-weight: 600;
+  letter-spacing: 5px; text-transform: uppercase;
+  color: var(--gold); opacity: 0.8;
+  text-align: center; margin-bottom: 28px;
+}
+.t-ornament {
+  text-align: center;
+  color: var(--gold); font-size: 12px;
+  letter-spacing: 8px; opacity: 0.5;
+  margin: 48px 0;
+}
+
+/* ── DOCTRINE CARD ─────────────────────────────────────────────── */
+.card {
+  width: 208px;
+  background: var(--surface);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+  box-shadow:
+    0 24px 64px rgba(0,0,0,0.7),
+    0 0 0 1px rgba(201,148,26,0.06),
+    inset 0 1px 0 rgba(201,148,26,0.1);
+}
+.card::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+}
+.card-accent {
+  height: 3px;
+}
+.card-header {
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.card-type-row {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 8px;
+}
+.card-type {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 7px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--text-lo);
+}
+.card-name {
+  font-family: 'Cinzel', serif;
+  font-size: 15px; font-weight: 700;
+  color: var(--text-hi); line-height: 1.25;
+  letter-spacing: 0.03em;
+}
+.card-body { padding: 14px 16px; }
+.rule-block { margin-bottom: 12px; }
+.rule-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 7px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase; margin-bottom: 5px;
+}
+.rule-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px; font-weight: 400;
+  line-height: 1.55; color: var(--text-mid);
+}
+.rule-sep {
+  border: none; border-top: 1px solid var(--border); margin: 12px 0;
+}
+.card-footer {
+  padding: 10px 16px 14px;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.vp-pips { display: flex; gap: 5px; }
+.pip {
+  width: 9px; height: 9px; border-radius: 50%;
+  border: 1px solid var(--border-mid); background: transparent;
+}
+.pip.filled { background: var(--gold); border-color: var(--gold); }
+.card-tag {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 7px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text-lo);
+}
+
+/* Founding card variant */
+.card-founding {
+  border-color: var(--border-mid);
+}
+.card-founding-badge {
+  padding: 6px 16px; text-align: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 7px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+}
+
+/* ── CARD GRID ─────────────────────────────────────────────────── */
+.cards-grid {
+  display: flex; flex-wrap: wrap;
+  justify-content: center; gap: 20px;
+  margin-bottom: 48px;
+}
+
+/* ── SCHOOL BOARD ──────────────────────────────────────────────── */
+.school-board {
+  width: 280px;
+  background: var(--surface);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+}
+.board-header {
+  padding: 20px 18px 16px; position: relative;
+}
+.board-name {
+  font-family: 'Cinzel', serif;
+  font-size: 20px; font-weight: 700; letter-spacing: 2px;
+  margin-bottom: 3px;
+}
+.board-subtitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9px; font-weight: 500; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--text-lo);
+}
+.board-sep { height: 1px; background: var(--border); }
+.board-body { padding: 16px 18px; }
+
+/* ── LAYOUT UTILITIES ──────────────────────────────────────────── */
+.row { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.section { margin-bottom: 56px; }

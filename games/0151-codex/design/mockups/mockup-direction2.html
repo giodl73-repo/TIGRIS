@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CODEX — Direction 2: Crystalline Abstract</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --void: #08080F;
+    --void2: #12121C;
+    --void3: #1E1E2E;
+    --crystal: #F0F4FF;
+    --crystal2: #C8D0E8;
+    --crystal3: #8890A8;
+    --flame: #FF4D1C;
+    --flame-soft: rgba(255,77,28,0.15);
+    --tide: #1A8FFF;
+    --tide-soft: rgba(26,143,255,0.15);
+    --iron: #7A8B9E;
+    --iron-soft: rgba(122,139,158,0.15);
+    --earth: #3DB86A;
+    --earth-soft: rgba(61,184,106,0.15);
+    --wind: #E8E0FF;
+    --ash: #FF6840;
+    --ember: #FF8C42;
+    --flow: #42B8FF;
+    --weight: #A0A8C0;
+    --void-mana: #8A60FF;
+    --accent: #6B5EFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--void);
+    font-family: 'Space Grotesk', 'DM Sans', system-ui, sans-serif;
+    color: var(--crystal);
+    padding: 40px 20px;
+    min-height: 100vh;
+  }
+  .page-title {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 6px;
+    color: var(--crystal3);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  h1 {
+    text-align: center;
+    font-size: 56px;
+    font-weight: 700;
+    color: var(--crystal);
+    letter-spacing: 16px;
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+  .tagline {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--crystal3);
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    font-weight: 400;
+  }
+
+  .section-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--crystal3);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  /* PALETTE */
+  .palette-section { margin-bottom: 60px; }
+  .palette { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+  .swatch { width: 72px; text-align: center; }
+  .swatch-color {
+    height: 56px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .swatch-name { font-size: 8px; letter-spacing: 1px; color: var(--crystal3); text-transform: uppercase; font-weight: 500; }
+
+  /* CARDS */
+  .cards-section { margin-bottom: 60px; }
+  .cards-row { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+
+  .doctrine-card {
+    width: 200px;
+    background: var(--void2);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.04);
+  }
+  .card-glow {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 60px;
+    border-radius: 50%;
+    filter: blur(20px);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  .card-top-bar {
+    height: 3px;
+    width: 100%;
+  }
+  .card-inner {
+    padding: 16px;
+    position: relative;
+  }
+  .card-type-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .card-type {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--crystal3);
+  }
+  .card-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+  .card-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--crystal);
+    margin-bottom: 16px;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+  }
+  .card-rule {
+    margin-bottom: 10px;
+  }
+  .rule-label {
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    opacity: 0.7;
+  }
+  .rule-text {
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--crystal2);
+    font-weight: 400;
+  }
+  .card-sep {
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+    margin: 12px 0;
+  }
+  .card-footer {
+    padding: 10px 16px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .vp-pips {
+    display: flex;
+    gap: 4px;
+  }
+  .pip {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: transparent;
+  }
+  .pip.filled { background: white; border-color: white; }
+  .card-tag {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--crystal3);
+  }
+
+  /* FOUNDING CARD */
+  .founding-card {
+    width: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+  }
+
+  /* SCHOOL BOARDS */
+  .boards-section { margin-bottom: 60px; }
+  .boards-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .school-board {
+    width: 140px;
+    background: var(--void2);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  }
+  .board-accent-bar { height: 4px; }
+  .board-body { padding: 16px 12px; }
+  .school-symbol {
+    font-size: 32px;
+    display: block;
+    margin-bottom: 10px;
+    line-height: 1;
+  }
+  .school-name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+  }
+  .school-motto {
+    font-size: 9px;
+    color: var(--crystal3);
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 14px;
+  }
+  .mana-pip-row {
+    display: flex;
+    gap: 5px;
+    margin-top: 4px;
+  }
+  .mana-pip {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+  }
+
+  /* CRYSTAL SIGILS */
+  .sigil-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+  }
+  .sigil-item { text-align: center; }
+  .sigil-svg { display: block; margin: 0 auto 8px; }
+  .sigil-name {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--crystal3);
+  }
+
+  /* HEX MAP */
+  .map-section { margin-bottom: 60px; }
+  .hex-grid { display: flex; justify-content: center; gap: 0; }
+  .hex-col { display: flex; flex-direction: column; gap: 3px; }
+  .hex-col:nth-child(even) { margin-top: 26px; }
+  .hex {
+    width: 52px;
+    height: 60px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    cursor: pointer;
+    transition: filter 0.2s;
+  }
+  .hex:hover { filter: brightness(1.4); }
+  .hex-forge { background: #2A2A3A; }
+  .hex-sanctum { background: #1A2A3A; }
+  .hex-flow { background: #0A2A4A; }
+  .hex-ember { background: #3A1A0A; }
+  .hex-void { background: #1A0A2A; }
+  .hex-label { font-size: 6px; text-align: center; line-height: 1.3; padding: 4px; }
+  .terrain-key { display: flex; justify-content: center; gap: 20px; margin-top: 16px; flex-wrap: wrap; }
+  .terrain-item { display: flex; align-items: center; gap: 8px; }
+  .terrain-dot { width: 8px; height: 8px; border-radius: 2px; }
+  .terrain-name { font-size: 9px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--crystal3); }
+
+  /* VEIL TRACK */
+  .veil-section { margin-bottom: 60px; }
+  .veil-track { display: flex; justify-content: center; gap: 4px; flex-wrap: wrap; }
+  .veil-step {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Space Mono', monospace;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .veil-step.danger { background: rgba(255,30,30,0.12); color: #FF6060; border-color: rgba(255,30,30,0.2); }
+  .veil-step.warning { background: rgba(255,150,30,0.12); color: #FFA060; border-color: rgba(255,150,30,0.2); }
+  .veil-step.safe { background: var(--void3); color: var(--crystal3); }
+  .veil-step.current {
+    background: var(--accent);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 0 20px rgba(107,94,255,0.5);
+  }
+  .veil-label { text-align: center; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--crystal3); margin-top: 10px; font-weight: 500; }
+</style>
+</head>
+<body>
+
+<div class="page-title">Direction II</div>
+<h1>CODEX</h1>
+<p class="tagline">Schools of the Unwritten Law — Crystalline Abstract</p>
+
+<!-- PALETTE -->
+<div class="palette-section" style="margin-top:40px">
+  <div class="section-label">Colour System</div>
+  <div class="palette">
+    <div class="swatch"><div class="swatch-color" style="background:#08080F"></div><div class="swatch-name">Void</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#1E1E2E"></div><div class="swatch-name">Deep</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#F0F4FF"></div><div class="swatch-name">Crystal</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#FF4D1C"></div><div class="swatch-name">Flame</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#1A8FFF"></div><div class="swatch-name">Tide</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#7A8B9E"></div><div class="swatch-name">Iron</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#3DB86A"></div><div class="swatch-name">Earth</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#8A60FF"></div><div class="swatch-name">Void-Mana</div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#6B5EFF"></div><div class="swatch-name">Accent</div></div>
+  </div>
+</div>
+
+<!-- SCHOOL SIGILS -->
+<div class="palette-section">
+  <div class="section-label">School Sigils — Crystal Forms</div>
+  <div class="sigil-row">
+    <!-- Flame sigil -->
+    <div class="sigil-item">
+      <svg class="sigil-svg" width="60" height="60" viewBox="0 0 60 60">
+        <polygon points="30,4 56,52 4,52" fill="none" stroke="#FF4D1C" stroke-width="2"/>
+        <polygon points="30,14 48,46 12,46" fill="rgba(255,77,28,0.1)" stroke="#FF4D1C" stroke-width="1" opacity="0.6"/>
+        <circle cx="30" cy="38" r="4" fill="#FF4D1C"/>
+      </svg>
+      <div class="sigil-name" style="color:#FF4D1C">Flame</div>
+    </div>
+    <!-- Tide sigil -->
+    <div class="sigil-item">
+      <svg class="sigil-svg" width="60" height="60" viewBox="0 0 60 60">
+        <ellipse cx="30" cy="30" rx="24" ry="14" fill="none" stroke="#1A8FFF" stroke-width="2"/>
+        <ellipse cx="30" cy="30" rx="14" ry="24" fill="none" stroke="#1A8FFF" stroke-width="1" opacity="0.5"/>
+        <circle cx="30" cy="30" r="4" fill="#1A8FFF"/>
+      </svg>
+      <div class="sigil-name" style="color:#1A8FFF">Tide</div>
+    </div>
+    <!-- Iron sigil -->
+    <div class="sigil-item">
+      <svg class="sigil-svg" width="60" height="60" viewBox="0 0 60 60">
+        <polygon points="30,4 56,17 56,43 30,56 4,43 4,17" fill="none" stroke="#7A8B9E" stroke-width="2"/>
+        <polygon points="30,14 46,23 46,37 30,46 14,37 14,23" fill="rgba(122,139,158,0.1)" stroke="#7A8B9E" stroke-width="1" opacity="0.6"/>
+        <rect x="26" y="26" width="8" height="8" fill="#7A8B9E" transform="rotate(45 30 30)"/>
+      </svg>
+      <div class="sigil-name" style="color:#7A8B9E">Iron</div>
+    </div>
+    <!-- Earth sigil -->
+    <div class="sigil-item">
+      <svg class="sigil-svg" width="60" height="60" viewBox="0 0 60 60">
+        <circle cx="30" cy="30" r="24" fill="none" stroke="#3DB86A" stroke-width="2"/>
+        <circle cx="30" cy="30" r="14" fill="rgba(61,184,106,0.1)" stroke="#3DB86A" stroke-width="1" opacity="0.6"/>
+        <line x1="30" y1="42" x2="30" y2="56" stroke="#3DB86A" stroke-width="2"/>
+        <line x1="30" y1="50" x2="22" y2="56" stroke="#3DB86A" stroke-width="2"/>
+        <line x1="30" y1="50" x2="38" y2="56" stroke="#3DB86A" stroke-width="2"/>
+        <circle cx="30" cy="30" r="5" fill="#3DB86A"/>
+      </svg>
+      <div class="sigil-name" style="color:#3DB86A">Earth</div>
+    </div>
+    <!-- Wind sigil -->
+    <div class="sigil-item">
+      <svg class="sigil-svg" width="60" height="60" viewBox="0 0 60 60">
+        <path d="M 30 30 Q 50 10 30 4 Q 10 10 30 30 Q 50 50 30 56 Q 10 50 30 30" fill="none" stroke="#E8E0FF" stroke-width="1.5"/>
+        <path d="M 30 30 Q 10 10 4 30 Q 10 50 30 30 Q 50 10 56 30 Q 50 50 30 30" fill="none" stroke="#E8E0FF" stroke-width="1" opacity="0.5"/>
+      </svg>
+      <div class="sigil-name" style="color:#E8E0FF">Wind</div>
+    </div>
+    <!-- Ash sigil -->
+    <div class="sigil-item">
+      <svg class="sigil-svg" width="60" height="60" viewBox="0 0 60 60">
+        <polygon points="30,4 56,30 30,56 4,30" fill="none" stroke="#FF6840" stroke-width="2"/>
+        <polygon points="30,14 46,30 30,46 14,30" fill="rgba(255,104,64,0.1)" stroke="#FF6840" stroke-width="1" opacity="0.5"/>
+        <circle cx="30" cy="30" r="4" fill="none" stroke="#FF6840" stroke-width="2"/>
+      </svg>
+      <div class="sigil-name" style="color:#FF6840">Ash</div>
+    </div>
+  </div>
+</div>
+
+<!-- CARDS -->
+<div class="cards-section">
+  <div class="section-label">Doctrine Cards</div>
+  <div class="cards-row">
+
+    <!-- Iron Vein -->
+    <div class="doctrine-card">
+      <div class="card-glow" style="background: #7A8B9E"></div>
+      <div class="card-top-bar" style="background: linear-gradient(90deg, #4A5A6A, #7A8B9E)"></div>
+      <div class="card-inner">
+        <div class="card-type-row">
+          <div class="card-type">Production</div>
+          <div class="card-icon" style="background:rgba(122,139,158,0.15); color:#7A8B9E">⬡</div>
+        </div>
+        <div class="card-name">Iron Vein</div>
+        <div class="card-rule">
+          <div class="rule-label" style="color:#7A8B9E">When</div>
+          <div class="rule-text">You activate a Forge adjacent to one of your Sanctums.</div>
+        </div>
+        <div class="card-sep"></div>
+        <div class="card-rule">
+          <div class="rule-label" style="color:#7A8B9E">Then</div>
+          <div class="rule-text">That Forge produces +2 additional Weight this activation.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- The Final Hour -->
+    <div class="doctrine-card">
+      <div class="card-glow" style="background: #6B5EFF"></div>
+      <div class="card-top-bar" style="background: linear-gradient(90deg, #4A3ECC, #6B5EFF)"></div>
+      <div class="card-inner">
+        <div class="card-type-row">
+          <div class="card-type">Temporal</div>
+          <div class="card-icon" style="background:rgba(107,94,255,0.15); color:#6B5EFF">◎</div>
+        </div>
+        <div class="card-name">The Final Hour</div>
+        <div class="card-rule">
+          <div class="rule-label" style="color:#6B5EFF">When</div>
+          <div class="rule-text">Round 5 begins.</div>
+        </div>
+        <div class="card-sep"></div>
+        <div class="card-rule">
+          <div class="rule-label" style="color:#6B5EFF">Then</div>
+          <div class="rule-text">Each time you Activate a component this round, it activates twice instead of once.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Deep Roots Founding -->
+    <div class="doctrine-card" style="border-color:rgba(61,184,106,0.3)">
+      <div class="card-glow" style="background: #3DB86A"></div>
+      <div class="card-top-bar" style="background: linear-gradient(90deg, #2A8A4A, #3DB86A); height:4px"></div>
+      <div class="card-inner">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#3DB86A">Founding · Earth</div>
+          <div class="card-icon" style="background:rgba(61,184,106,0.15); color:#3DB86A; font-size:18px">⬤</div>
+        </div>
+        <div class="card-name">Deep Roots</div>
+        <div class="card-rule">
+          <div class="rule-label" style="color:#3DB86A">When</div>
+          <div class="rule-text">An Edict suspends one of your Doctrines.</div>
+        </div>
+        <div class="card-sep" style="background:rgba(61,184,106,0.15)"></div>
+        <div class="card-rule">
+          <div class="rule-label" style="color:#3DB86A">Then</div>
+          <div class="rule-text">That Doctrine scores 50% VP (rounded down) at game end instead of full value.</div>
+        </div>
+        <div class="card-sep" style="background:rgba(61,184,106,0.15)"></div>
+        <div class="card-rule">
+          <div class="rule-label" style="color:#3DB86A">Passive</div>
+          <div class="rule-text">Score +1 VP per component on matching terrain at game end (max 5 VP).</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top-color:rgba(61,184,106,0.15)">
+        <div class="vp-pips">
+          <div class="pip" style="border-color:rgba(61,184,106,0.5)"></div>
+          <div class="pip" style="border-color:rgba(61,184,106,0.5)"></div>
+          <div class="pip" style="border-color:rgba(61,184,106,0.5)"></div>
+        </div>
+        <div class="card-tag" style="color:#3DB86A">Earth Only</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SCHOOL BOARDS -->
+<div class="boards-section">
+  <div class="section-label">School Boards</div>
+  <div class="boards-row">
+
+    <div class="school-board">
+      <div class="board-accent-bar" style="background:linear-gradient(90deg,#CC3300,#FF4D1C)"></div>
+      <div class="board-body">
+        <span class="school-symbol">▲</span>
+        <div class="school-name" style="color:#FF4D1C">Flame</div>
+        <div class="school-motto">Speed and map control. Acts first every round.</div>
+        <div class="mana-pip-row">
+          <div class="mana-pip" style="background:#FF8C42" title="Ember"></div>
+          <div class="mana-pip" style="background:rgba(255,140,66,0.3)"></div>
+          <div class="mana-pip" style="background:rgba(255,140,66,0.3)"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="school-board">
+      <div class="board-accent-bar" style="background:linear-gradient(90deg,#0A60CC,#1A8FFF)"></div>
+      <div class="board-body">
+        <span class="school-symbol">≋</span>
+        <div class="school-name" style="color:#1A8FFF">Tide</div>
+        <div class="school-motto">Flexibility and conversion. Repositions each round.</div>
+        <div class="mana-pip-row">
+          <div class="mana-pip" style="background:#42B8FF" title="Flow"></div>
+          <div class="mana-pip" style="background:rgba(66,184,255,0.3)"></div>
+          <div class="mana-pip" style="background:rgba(66,184,255,0.3)"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="school-board">
+      <div class="board-accent-bar" style="background:linear-gradient(90deg,#4A5A6A,#7A8B9E)"></div>
+      <div class="board-body">
+        <span class="school-symbol">⬡</span>
+        <div class="school-name" style="color:#7A8B9E">Iron</div>
+        <div class="school-motto">Accumulation. Every component grows stronger.</div>
+        <div class="mana-pip-row">
+          <div class="mana-pip" style="background:#A0A8C0" title="Weight"></div>
+          <div class="mana-pip" style="background:rgba(160,168,192,0.3)"></div>
+          <div class="mana-pip" style="background:rgba(160,168,192,0.3)"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="school-board">
+      <div class="board-accent-bar" style="background:linear-gradient(90deg,#1A8A3A,#3DB86A)"></div>
+      <div class="board-body">
+        <span class="school-symbol">⬤</span>
+        <div class="school-name" style="color:#3DB86A">Earth</div>
+        <div class="school-motto">Resilience. Suspended doctrines score 50% VP.</div>
+        <div class="mana-pip-row">
+          <div class="mana-pip" style="background:#8A60FF" title="Void"></div>
+          <div class="mana-pip" style="background:rgba(138,96,255,0.3)"></div>
+          <div class="mana-pip" style="background:rgba(138,96,255,0.3)"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- HEX MAP -->
+<div class="map-section">
+  <div class="section-label">Hex Map</div>
+  <div class="hex-grid">
+    <div class="hex-col">
+      <div class="hex hex-forge"><div class="hex-label">Forge Grounds</div></div>
+      <div class="hex hex-sanctum"><div class="hex-label">Sanctum Hills</div></div>
+      <div class="hex hex-forge"><div class="hex-label">Forge Grounds</div></div>
+    </div>
+    <div class="hex-col">
+      <div class="hex hex-void"><div class="hex-label">Void Rift</div></div>
+      <div class="hex hex-flow"><div class="hex-label">Flow Channel</div></div>
+      <div class="hex hex-sanctum"><div class="hex-label">Sanctum Hills</div></div>
+      <div class="hex hex-void"><div class="hex-label">Void Rift</div></div>
+    </div>
+    <div class="hex-col">
+      <div class="hex hex-ember"><div class="hex-label">Ember Peaks</div></div>
+      <div class="hex hex-forge"><div class="hex-label">Forge Grounds</div></div>
+      <div class="hex hex-flow"><div class="hex-label">Flow Channel</div></div>
+    </div>
+    <div class="hex-col">
+      <div class="hex hex-flow"><div class="hex-label">Flow Channel</div></div>
+      <div class="hex hex-void"><div class="hex-label">Void Rift</div></div>
+      <div class="hex hex-ember"><div class="hex-label">Ember Peaks</div></div>
+      <div class="hex hex-sanctum"><div class="hex-label">Sanctum Hills</div></div>
+    </div>
+    <div class="hex-col">
+      <div class="hex hex-sanctum"><div class="hex-label">Sanctum Hills</div></div>
+      <div class="hex hex-ember"><div class="hex-label">Ember Peaks</div></div>
+      <div class="hex hex-forge"><div class="hex-label">Forge Grounds</div></div>
+    </div>
+  </div>
+  <div class="terrain-key">
+    <div class="terrain-item"><div class="terrain-dot" style="background:#4A4A5A"></div><div class="terrain-name">Forge</div></div>
+    <div class="terrain-item"><div class="terrain-dot" style="background:#2A3A5A"></div><div class="terrain-name">Sanctum</div></div>
+    <div class="terrain-item"><div class="terrain-dot" style="background:#1A3A5A"></div><div class="terrain-name">Flow</div></div>
+    <div class="terrain-item"><div class="terrain-dot" style="background:#4A2A1A"></div><div class="terrain-name">Ember</div></div>
+    <div class="terrain-item"><div class="terrain-dot" style="background:#2A1A3A"></div><div class="terrain-name">Void</div></div>
+  </div>
+</div>
+
+<!-- VEIL TRACK -->
+<div class="veil-section">
+  <div class="section-label">The Veil Track</div>
+  <div class="veil-track">
+    <div class="veil-step danger">1</div>
+    <div class="veil-step danger">2</div>
+    <div class="veil-step danger">3</div>
+    <div class="veil-step warning">4</div>
+    <div class="veil-step warning">5</div>
+    <div class="veil-step warning">6</div>
+    <div class="veil-step current">7</div>
+    <div class="veil-step safe">8</div>
+    <div class="veil-step safe">9</div>
+    <div class="veil-step safe">10</div>
+  </div>
+  <div class="veil-label">The Veil weakens — advance from 10 to 0</div>
+</div>
+
+<p style="text-align:center; font-size:9px; letter-spacing:4px; color:var(--crystal3); text-transform:uppercase; margin-bottom:40px; font-weight:600;">Direction II — Crystalline Abstract · Sharp geometry, saturated Schools, void backgrounds</p>
+
+</body>
+</html>
