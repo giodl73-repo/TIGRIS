@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CODEX — Component Specification</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:         #13100C;
+    --surface:    #1E1810;
+    --surface2:   #2A2218;
+    --surface3:   #382E20;
+    --border:     rgba(201,148,26,0.18);
+    --border-mid: rgba(201,148,26,0.35);
+    --border-hi:  rgba(201,148,26,0.7);
+
+    --gold:       #C9941A;
+    --gold-soft:  #DBA830;
+    --gold-dim:   rgba(201,148,26,0.5);
+    --gold-glow:  rgba(201,148,26,0.12);
+
+    --text-hi:    #F0E8D8;
+    --text-mid:   #C0B090;
+    --text-lo:    #786040;
+
+    --flame:      #FF5020;
+    --tide:       #1A9AFF;
+    --iron:       #8FA0B8;
+    --earth:      #50C060;
+    --wind:       #B0A0FF;
+    --ash:        #FF7040;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text-hi);
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    padding: 48px 20px;
+    min-height: 100vh;
+  }
+
+  .page-meta {
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: var(--text-lo);
+    margin-bottom: 10px;
+  }
+  h1 {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 52px; font-weight: 700;
+    color: var(--text-hi);
+    letter-spacing: 14px;
+    margin-bottom: 6px;
+    line-height: 1;
+    text-shadow: 0 0 40px rgba(201,148,26,0.3);
+  }
+  .subtitle {
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px; font-weight: 400;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 16px;
+  }
+  .divider-ornament {
+    text-align: center;
+    color: var(--gold);
+    font-size: 12px; letter-spacing: 8px;
+    opacity: 0.5;
+    margin: 48px 0;
+  }
+  .section-label {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 8px; font-weight: 600;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    opacity: 0.8;
+  }
+  .section-desc {
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px; font-weight: 400;
+    color: var(--text-mid);
+    max-width: 560px; margin: 0 auto 28px;
+    line-height: 1.6;
+  }
+
+  /* ── COMPONENT ROWS ────────────────────────────────────────── */
+  .component-section {
+    max-width: 920px;
+    margin: 0 auto 40px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px 28px 20px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    position: relative;
+  }
+  .component-section::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+  }
+  .component-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 22px;
+  }
+  .component-name {
+    font-family: 'Cinzel', serif;
+    font-size: 22px; font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--text-hi);
+  }
+  .component-meta {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 8px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--text-lo);
+  }
+  .component-role {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    color: var(--text-mid);
+    margin-bottom: 18px;
+    line-height: 1.55;
+  }
+
+  .token-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .token-cell {
+    text-align: center;
+    flex: 1;
+    min-width: 80px;
+  }
+  .token-school-name {
+    font-family: 'Cinzel', serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    margin-top: 10px;
+    opacity: 0.85;
+  }
+  .token-svg {
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+  }
+
+  /* ── SPECIAL TOKEN SECTION ─────────────────────────────────── */
+  .special-row {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    padding: 8px 0;
+  }
+  .special-cell {
+    text-align: center;
+  }
+  .special-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    margin-top: 12px;
+    color: var(--text-hi);
+  }
+  .special-sublabel {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 8px; font-weight: 500;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--text-lo);
+    margin-top: 3px;
+  }
+
+  /* ── PHYSICAL SPEC TABLE ───────────────────────────────────── */
+  .spec-table {
+    max-width: 920px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  }
+  .spec-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .spec-table th {
+    font-family: 'Cinzel', serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold);
+    padding: 16px 18px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+  }
+  .spec-table td {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px; font-weight: 400;
+    color: var(--text-mid);
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.5;
+  }
+  .spec-table td:first-child {
+    font-family: 'Cinzel', serif;
+    font-size: 12px; font-weight: 700;
+    color: var(--text-hi);
+    letter-spacing: 1px;
+  }
+  .spec-table tr:last-child td { border-bottom: none; }
+  .spec-table tr:hover td { background: rgba(201,148,26,0.04); }
+  .spec-mat {
+    display: inline-block;
+    padding: 3px 8px;
+    border: 1px solid var(--border-mid);
+    border-radius: 3px;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-right: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-meta">Direction IV · Component Specification</div>
+<h1>CODEX</h1>
+<p class="subtitle">Token Geometry — Gilt on Void</p>
+
+<div class="divider-ornament">— ✦ —</div>
+
+<!-- ── FORGE ─────────────────────────────────────────────────── -->
+<div class="component-section">
+  <div class="component-header">
+    <div class="component-name">FORGE</div>
+    <div class="component-meta">6 per School · Bold Hex · Industrial</div>
+  </div>
+  <div class="component-role">Producers of raw mana. Heavy hexagonal silhouette signals weight and permanence — these are the engines of the School's economy.</div>
+
+  <div class="token-row">
+
+    <!-- Flame Forge -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <polygon points="26,3 47,15 47,37 26,49 5,37 5,15" fill="rgba(255,80,32,0.8)" stroke="#C9941A" stroke-width="1.5"/>
+        <polygon points="26,11 40,19 40,33 26,41 12,33 12,19" fill="none" stroke="rgba(255,80,32,0.4)" stroke-width="3"/>
+        <text x="26" y="31" text-anchor="middle" font-family="Cinzel, serif" font-size="14" font-weight="700" fill="#FFF">F</text>
+      </svg>
+      <div class="token-school-name" style="color:#FF5020">Flame</div>
+    </div>
+
+    <!-- Tide Forge -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <polygon points="26,3 47,15 47,37 26,49 5,37 5,15" fill="rgba(26,154,255,0.8)" stroke="#C9941A" stroke-width="1.5"/>
+        <polygon points="26,11 40,19 40,33 26,41 12,33 12,19" fill="none" stroke="rgba(26,154,255,0.4)" stroke-width="3"/>
+        <text x="26" y="31" text-anchor="middle" font-family="Cinzel, serif" font-size="14" font-weight="700" fill="#FFF">F</text>
+      </svg>
+      <div class="token-school-name" style="color:#1A9AFF">Tide</div>
+    </div>
+
+    <!-- Iron Forge -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <polygon points="26,3 47,15 47,37 26,49 5,37 5,15" fill="rgba(143,160,184,0.8)" stroke="#C9941A" stroke-width="1.5"/>
+        <polygon points="26,11 40,19 40,33 26,41 12,33 12,19" fill="none" stroke="rgba(143,160,184,0.4)" stroke-width="3"/>
+        <text x="26" y="31" text-anchor="middle" font-family="Cinzel, serif" font-size="14" font-weight="700" fill="#FFF">F</text>
+      </svg>
+      <div class="token-school-name" style="color:#8FA0B8">Iron</div>
+    </div>
+
+    <!-- Earth Forge -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <polygon points="26,3 47,15 47,37 26,49 5,37 5,15" fill="rgba(80,192,96,0.8)" stroke="#C9941A" stroke-width="1.5"/>
+        <polygon points="26,11 40,19 40,33 26,41 12,33 12,19" fill="none" stroke="rgba(80,192,96,0.4)" stroke-width="3"/>
+        <text x="26" y="31" text-anchor="middle" font-family="Cinzel, serif" font-size="14" font-weight="700" fill="#FFF">F</text>
+      </svg>
+      <div class="token-school-name" style="color:#50C060">Earth</div>
+    </div>
+
+    <!-- Wind Forge -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <polygon points="26,3 47,15 47,37 26,49 5,37 5,15" fill="rgba(176,160,255,0.8)" stroke="#C9941A" stroke-width="1.5"/>
+        <polygon points="26,11 40,19 40,33 26,41 12,33 12,19" fill="none" stroke="rgba(176,160,255,0.4)" stroke-width="3"/>
+        <text x="26" y="31" text-anchor="middle" font-family="Cinzel, serif" font-size="14" font-weight="700" fill="#FFF">F</text>
+      </svg>
+      <div class="token-school-name" style="color:#B0A0FF">Wind</div>
+    </div>
+
+    <!-- Ash Forge -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <polygon points="26,3 47,15 47,37 26,49 5,37 5,15" fill="rgba(255,112,64,0.8)" stroke="#C9941A" stroke-width="1.5"/>
+        <polygon points="26,11 40,19 40,33 26,41 12,33 12,19" fill="none" stroke="rgba(255,112,64,0.4)" stroke-width="3"/>
+        <text x="26" y="31" text-anchor="middle" font-family="Cinzel, serif" font-size="14" font-weight="700" fill="#FFF">F</text>
+      </svg>
+      <div class="token-school-name" style="color:#FF7040">Ash</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── SANCTUM ───────────────────────────────────────────────── -->
+<div class="component-section">
+  <div class="component-header">
+    <div class="component-name">SANCTUM</div>
+    <div class="component-meta">6 per School · Domed Octagon · Sacred</div>
+  </div>
+  <div class="component-role">Storage and scoring nexuses. The arched upper dome evokes reliquary architecture — these hold the School's accumulated doctrine, not its raw industry.</div>
+
+  <div class="token-row">
+
+    <!-- Flame Sanctum -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <path d="M 26 3 Q 40 3 44 12 L 47 20 L 47 42 L 39 48 L 13 48 L 5 42 L 5 20 L 8 12 Q 12 3 26 3 Z" fill="rgba(255,80,32,0.8)" stroke="#C9941A" stroke-width="1.5"/>
+        <path d="M 26 10 Q 36 10 39 17 L 41 22 L 41 40 L 35 43 L 17 43 L 11 40 L 11 22 L 13 17 Q 16 10 26 10 Z" fill="none" stroke="rgba(255,80,32,0.4)" stroke-width="3"/>
+        <text x="26" y="32" text-anchor="middle" font-family="Cinzel, serif" font-size="13" font-weight="700" fill="#FFF">S</text>
+      </svg>
+      <div class="token-school-name" style="color:#FF5020">Flame</div>
+    </div>
+
+    <!-- Tide Sanctum -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <path d="M 26 3 Q 40 3 44 12 L 47 20 L 47 42 L 39 48 L 13 48 L 5 42 L 5 20 L 8 12 Q 12 3 26 3 Z" fill="rgba(26,154,255,0.8)" stroke="#C9941A" stroke-width="1.5"/>
+        <path d="M 26 10 Q 36 10 39 17 L 41 22 L 41 40 L 35 43 L 17 43 L 11 40 L 11 22 L 13 17 Q 16 10 26 10 Z" fill="none" stroke="rgba(26,154,255,0.4)" stroke-width="3"/>
+        <text x="26" y="32" text-anchor="middle" font-family="Cinzel, serif" font-size="13" font-weight="700" fill="#FFF">S</text>
+      </svg>
+      <div class="token-school-name" style="color:#1A9AFF">Tide</div>
+    </div>
+
+    <!-- Iron Sanctum -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <path d="M 26 3 Q 40 3 44 12 L 47 20 L 47 42 L 39 48 L 13 48 L 5 42 L 5 20 L 8 12 Q 12 3 26 3 Z" fill="rgba(143,160,184,0.8)" stroke="#C9941A" stroke-width="1.5"/>
+        <path d="M 26 10 Q 36 10 39 17 L 41 22 L 41 40 L 35 43 L 17 43 L 11 40 L 11 22 L 13 17 Q 16 10 26 10 Z" fill="none" stroke="rgba(143,160,184,0.4)" stroke-width="3"/>
+        <text x="26" y="32" text-anchor="middle" font-family="Cinzel, serif" font-size="13" font-weight="700" fill="#FFF">S</text>
+      </svg>
+      <div class="token-school-name" style="color:#8FA0B8">Iron</div>
+    </div>
+
+    <!-- Earth Sanctum -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <path d="M 26 3 Q 40 3 44 12 L 47 20 L 47 42 L 39 48 L 13 48 L 5 42 L 5 20 L 8 12 Q 12 3 26 3 Z" fill="rgba(80,192,96,0.8)" stroke="#C9941A" stroke-width="1.5"/>
+        <path d="M 26 10 Q 36 10 39 17 L 41 22 L 41 40 L 35 43 L 17 43 L 11 40 L 11 22 L 13 17 Q 16 10 26 10 Z" fill="none" stroke="rgba(80,192,96,0.4)" stroke-width="3"/>
+        <text x="26" y="32" text-anchor="middle" font-family="Cinzel, serif" font-size="13" font-weight="700" fill="#FFF">S</text>
+      </svg>
+      <div class="token-school-name" style="color:#50C060">Earth</div>
+    </div>
+
+    <!-- Wind Sanctum -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <path d="M 26 3 Q 40 3 44 12 L 47 20 L 47 42 L 39 48 L 13 48 L 5 42 L 5 20 L 8 12 Q 12 3 26 3 Z" fill="rgba(176,160,255,0.8)" stroke="#C9941A" stroke-width="1.5"/>
+        <path d="M 26 10 Q 36 10 39 17 L 41 22 L 41 40 L 35 43 L 17 43 L 11 40 L 11 22 L 13 17 Q 16 10 26 10 Z" fill="none" stroke="rgba(176,160,255,0.4)" stroke-width="3"/>
+        <text x="26" y="32" text-anchor="middle" font-family="Cinzel, serif" font-size="13" font-weight="700" fill="#FFF">S</text>
+      </svg>
+      <div class="token-school-name" style="color:#B0A0FF">Wind</div>
+    </div>
+
+    <!-- Ash Sanctum -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <path d="M 26 3 Q 40 3 44 12 L 47 20 L 47 42 L 39 48 L 13 48 L 5 42 L 5 20 L 8 12 Q 12 3 26 3 Z" fill="rgba(255,112,64,0.8)" stroke="#C9941A" stroke-width="1.5"/>
+        <path d="M 26 10 Q 36 10 39 17 L 41 22 L 41 40 L 35 43 L 17 43 L 11 40 L 11 22 L 13 17 Q 16 10 26 10 Z" fill="none" stroke="rgba(255,112,64,0.4)" stroke-width="3"/>
+        <text x="26" y="32" text-anchor="middle" font-family="Cinzel, serif" font-size="13" font-weight="700" fill="#FFF">S</text>
+      </svg>
+      <div class="token-school-name" style="color:#FF7040">Ash</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── CHANNEL ───────────────────────────────────────────────── -->
+<div class="component-section">
+  <div class="component-header">
+    <div class="component-name">CHANNEL</div>
+    <div class="component-meta">6 per School · Elongated Oval · Flowing</div>
+  </div>
+  <div class="component-role">Conduits that redirect mana across the map. The horizontal lozenge with visible flow-lines signals passage — Channels connect rather than contain.</div>
+
+  <div class="token-row">
+
+    <!-- Flame Channel -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <ellipse cx="26" cy="26" rx="22" ry="11" fill="rgba(255,80,32,0.8)" stroke="#C9941A" stroke-width="1.5"/>
+        <ellipse cx="26" cy="26" rx="17" ry="7" fill="none" stroke="rgba(255,80,32,0.4)" stroke-width="3"/>
+        <path d="M 10 26 Q 18 22 26 26 T 42 26" fill="none" stroke="#FFF" stroke-width="1" opacity="0.7"/>
+        <path d="M 10 26 Q 18 30 26 26 T 42 26" fill="none" stroke="#FFF" stroke-width="1" opacity="0.4"/>
+        <text x="26" y="29" text-anchor="middle" font-family="Cinzel, serif" font-size="10" font-weight="700" fill="#FFF">C</text>
+      </svg>
+      <div class="token-school-name" style="color:#FF5020">Flame</div>
+    </div>
+
+    <!-- Tide Channel -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <ellipse cx="26" cy="26" rx="22" ry="11" fill="rgba(26,154,255,0.8)" stroke="#C9941A" stroke-width="1.5"/>
+        <ellipse cx="26" cy="26" rx="17" ry="7" fill="none" stroke="rgba(26,154,255,0.4)" stroke-width="3"/>
+        <path d="M 10 26 Q 18 22 26 26 T 42 26" fill="none" stroke="#FFF" stroke-width="1" opacity="0.7"/>
+        <path d="M 10 26 Q 18 30 26 26 T 42 26" fill="none" stroke="#FFF" stroke-width="1" opacity="0.4"/>
+        <text x="26" y="29" text-anchor="middle" font-family="Cinzel, serif" font-size="10" font-weight="700" fill="#FFF">C</text>
+      </svg>
+      <div class="token-school-name" style="color:#1A9AFF">Tide</div>
+    </div>
+
+    <!-- Iron Channel -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <ellipse cx="26" cy="26" rx="22" ry="11" fill="rgba(143,160,184,0.8)" stroke="#C9941A" stroke-width="1.5"/>
+        <ellipse cx="26" cy="26" rx="17" ry="7" fill="none" stroke="rgba(143,160,184,0.4)" stroke-width="3"/>
+        <path d="M 10 26 Q 18 22 26 26 T 42 26" fill="none" stroke="#FFF" stroke-width="1" opacity="0.7"/>
+        <path d="M 10 26 Q 18 30 26 26 T 42 26" fill="none" stroke="#FFF" stroke-width="1" opacity="0.4"/>
+        <text x="26" y="29" text-anchor="middle" font-family="Cinzel, serif" font-size="10" font-weight="700" fill="#FFF">C</text>
+      </svg>
+      <div class="token-school-name" style="color:#8FA0B8">Iron</div>
+    </div>
+
+    <!-- Earth Channel -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <ellipse cx="26" cy="26" rx="22" ry="11" fill="rgba(80,192,96,0.8)" stroke="#C9941A" stroke-width="1.5"/>
+        <ellipse cx="26" cy="26" rx="17" ry="7" fill="none" stroke="rgba(80,192,96,0.4)" stroke-width="3"/>
+        <path d="M 10 26 Q 18 22 26 26 T 42 26" fill="none" stroke="#FFF" stroke-width="1" opacity="0.7"/>
+        <path d="M 10 26 Q 18 30 26 26 T 42 26" fill="none" stroke="#FFF" stroke-width="1" opacity="0.4"/>
+        <text x="26" y="29" text-anchor="middle" font-family="Cinzel, serif" font-size="10" font-weight="700" fill="#FFF">C</text>
+      </svg>
+      <div class="token-school-name" style="color:#50C060">Earth</div>
+    </div>
+
+    <!-- Wind Channel -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <ellipse cx="26" cy="26" rx="22" ry="11" fill="rgba(176,160,255,0.8)" stroke="#C9941A" stroke-width="1.5"/>
+        <ellipse cx="26" cy="26" rx="17" ry="7" fill="none" stroke="rgba(176,160,255,0.4)" stroke-width="3"/>
+        <path d="M 10 26 Q 18 22 26 26 T 42 26" fill="none" stroke="#FFF" stroke-width="1" opacity="0.7"/>
+        <path d="M 10 26 Q 18 30 26 26 T 42 26" fill="none" stroke="#FFF" stroke-width="1" opacity="0.4"/>
+        <text x="26" y="29" text-anchor="middle" font-family="Cinzel, serif" font-size="10" font-weight="700" fill="#FFF">C</text>
+      </svg>
+      <div class="token-school-name" style="color:#B0A0FF">Wind</div>
+    </div>
+
+    <!-- Ash Channel -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <ellipse cx="26" cy="26" rx="22" ry="11" fill="rgba(255,112,64,0.8)" stroke="#C9941A" stroke-width="1.5"/>
+        <ellipse cx="26" cy="26" rx="17" ry="7" fill="none" stroke="rgba(255,112,64,0.4)" stroke-width="3"/>
+        <path d="M 10 26 Q 18 22 26 26 T 42 26" fill="none" stroke="#FFF" stroke-width="1" opacity="0.7"/>
+        <path d="M 10 26 Q 18 30 26 26 T 42 26" fill="none" stroke="#FFF" stroke-width="1" opacity="0.4"/>
+        <text x="26" y="29" text-anchor="middle" font-family="Cinzel, serif" font-size="10" font-weight="700" fill="#FFF">C</text>
+      </svg>
+      <div class="token-school-name" style="color:#FF7040">Ash</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── SPIRE ─────────────────────────────────────────────────── -->
+<div class="component-section">
+  <div class="component-header">
+    <div class="component-name">SPIRE</div>
+    <div class="component-meta">6 per School · Tall Triangle · Elegant</div>
+  </div>
+  <div class="component-role">Projection components — the School's reach into distant territory. A sharp vertical silhouette distinguishes Spires at a glance from Forges' weight or Sanctums' domes.</div>
+
+  <div class="token-row">
+
+    <!-- Flame Spire -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <polygon points="26,3 42,47 10,47" fill="rgba(255,80,32,0.8)" stroke="#C9941A" stroke-width="1.5" stroke-linejoin="round"/>
+        <polygon points="26,14 37,43 15,43" fill="none" stroke="rgba(255,80,32,0.4)" stroke-width="3" stroke-linejoin="round"/>
+        <text x="26" y="38" text-anchor="middle" font-family="Cinzel, serif" font-size="11" font-weight="700" fill="#FFF">P</text>
+      </svg>
+      <div class="token-school-name" style="color:#FF5020">Flame</div>
+    </div>
+
+    <!-- Tide Spire -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <polygon points="26,3 42,47 10,47" fill="rgba(26,154,255,0.8)" stroke="#C9941A" stroke-width="1.5" stroke-linejoin="round"/>
+        <polygon points="26,14 37,43 15,43" fill="none" stroke="rgba(26,154,255,0.4)" stroke-width="3" stroke-linejoin="round"/>
+        <text x="26" y="38" text-anchor="middle" font-family="Cinzel, serif" font-size="11" font-weight="700" fill="#FFF">P</text>
+      </svg>
+      <div class="token-school-name" style="color:#1A9AFF">Tide</div>
+    </div>
+
+    <!-- Iron Spire -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <polygon points="26,3 42,47 10,47" fill="rgba(143,160,184,0.8)" stroke="#C9941A" stroke-width="1.5" stroke-linejoin="round"/>
+        <polygon points="26,14 37,43 15,43" fill="none" stroke="rgba(143,160,184,0.4)" stroke-width="3" stroke-linejoin="round"/>
+        <text x="26" y="38" text-anchor="middle" font-family="Cinzel, serif" font-size="11" font-weight="700" fill="#FFF">P</text>
+      </svg>
+      <div class="token-school-name" style="color:#8FA0B8">Iron</div>
+    </div>
+
+    <!-- Earth Spire -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <polygon points="26,3 42,47 10,47" fill="rgba(80,192,96,0.8)" stroke="#C9941A" stroke-width="1.5" stroke-linejoin="round"/>
+        <polygon points="26,14 37,43 15,43" fill="none" stroke="rgba(80,192,96,0.4)" stroke-width="3" stroke-linejoin="round"/>
+        <text x="26" y="38" text-anchor="middle" font-family="Cinzel, serif" font-size="11" font-weight="700" fill="#FFF">P</text>
+      </svg>
+      <div class="token-school-name" style="color:#50C060">Earth</div>
+    </div>
+
+    <!-- Wind Spire -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <polygon points="26,3 42,47 10,47" fill="rgba(176,160,255,0.8)" stroke="#C9941A" stroke-width="1.5" stroke-linejoin="round"/>
+        <polygon points="26,14 37,43 15,43" fill="none" stroke="rgba(176,160,255,0.4)" stroke-width="3" stroke-linejoin="round"/>
+        <text x="26" y="38" text-anchor="middle" font-family="Cinzel, serif" font-size="11" font-weight="700" fill="#FFF">P</text>
+      </svg>
+      <div class="token-school-name" style="color:#B0A0FF">Wind</div>
+    </div>
+
+    <!-- Ash Spire -->
+    <div class="token-cell">
+      <svg class="token-svg" width="52" height="52" viewBox="0 0 52 52">
+        <polygon points="26,3 42,47 10,47" fill="rgba(255,112,64,0.8)" stroke="#C9941A" stroke-width="1.5" stroke-linejoin="round"/>
+        <polygon points="26,14 37,43 15,43" fill="none" stroke="rgba(255,112,64,0.4)" stroke-width="3" stroke-linejoin="round"/>
+        <text x="26" y="38" text-anchor="middle" font-family="Cinzel, serif" font-size="11" font-weight="700" fill="#FFF">P</text>
+      </svg>
+      <div class="token-school-name" style="color:#FF7040">Ash</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider-ornament">— ✦ —</div>
+
+<!-- ── SPECIAL TOKENS ────────────────────────────────────────── -->
+<div class="component-section">
+  <div class="component-header">
+    <div class="component-name">SPECIAL TOKENS</div>
+    <div class="component-meta">Scoring · Currency · Narrative</div>
+  </div>
+  <div class="component-role">Smaller pieces that carry global game-state: Iron's namesake currency, the victory pip, and the Veil's threshold marker.</div>
+
+  <div class="special-row">
+
+    <!-- Iron Token -->
+    <div class="special-cell">
+      <svg width="52" height="52" viewBox="0 0 52 52">
+        <circle cx="26" cy="26" r="22" fill="rgba(19,16,12,0.3)" stroke="rgba(201,148,26,0.2)" stroke-width="1"/>
+        <circle cx="26" cy="26" r="12" fill="#C9941A" stroke="#DBA830" stroke-width="1.5"/>
+        <circle cx="26" cy="26" r="9" fill="none" stroke="rgba(19,16,12,0.4)" stroke-width="1"/>
+        <text x="26" y="31" text-anchor="middle" font-family="Cinzel, serif" font-size="14" font-weight="700" fill="#13100C">#</text>
+      </svg>
+      <div class="special-label">Iron Token</div>
+      <div class="special-sublabel">24px · Iron School currency</div>
+    </div>
+
+    <!-- VP Token -->
+    <div class="special-cell">
+      <svg width="52" height="52" viewBox="0 0 52 52">
+        <circle cx="26" cy="26" r="22" fill="rgba(19,16,12,0.3)" stroke="rgba(201,148,26,0.2)" stroke-width="1"/>
+        <circle cx="26" cy="26" r="8" fill="#F0E8D8" stroke="#C9941A" stroke-width="1.2"/>
+        <text x="26" y="29" text-anchor="middle" font-family="Cinzel, serif" font-size="7" font-weight="700" fill="#13100C" letter-spacing="0.5">VP</text>
+      </svg>
+      <div class="special-label">VP Token</div>
+      <div class="special-sublabel">16px · Parchment fill · Universal</div>
+    </div>
+
+    <!-- Veil Track Marker -->
+    <div class="special-cell">
+      <svg width="52" height="52" viewBox="0 0 52 52">
+        <circle cx="26" cy="26" r="22" fill="rgba(19,16,12,0.3)" stroke="rgba(201,148,26,0.2)" stroke-width="1"/>
+        <polygon points="26,10 40,26 26,42 12,26" fill="#C9941A" stroke="#DBA830" stroke-width="1.5"/>
+        <polygon points="26,16 34,26 26,36 18,26" fill="none" stroke="rgba(19,16,12,0.4)" stroke-width="1"/>
+        <circle cx="26" cy="26" r="2" fill="#13100C"/>
+      </svg>
+      <div class="special-label">Veil Marker</div>
+      <div class="special-sublabel">Gilt diamond · Track position</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider-ornament">— ✦ —</div>
+
+<!-- ── PHYSICAL SPEC TABLE ───────────────────────────────────── -->
+<div class="section-label">Physical Specification — Manufacturing Guidance</div>
+<p class="section-desc">Material and dimensional recommendations per component type. Defaults prioritise tactile differentiation — players must distinguish component types by touch alone in a crowded board state.</p>
+
+<div class="spec-table">
+  <table>
+    <thead>
+      <tr>
+        <th style="width:14%">Component</th>
+        <th style="width:14%">Material</th>
+        <th style="width:16%">Footprint</th>
+        <th style="width:14%">Thickness</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Forge</td>
+        <td><span class="spec-mat">Wood</span></td>
+        <td>22 × 25 mm hex</td>
+        <td>10 mm</td>
+        <td>Heaviest build piece; beech or birch with screen-printed gilt border and icon. Weight sells the "industrial" silhouette on table.</td>
+      </tr>
+      <tr>
+        <td>Sanctum</td>
+        <td><span class="spec-mat">Wood</span></td>
+        <td>20 × 24 mm dome</td>
+        <td>9 mm</td>
+        <td>Custom-milled domed octagon; two-pass paint (base School colour, gilt outline). Stackable for VP accumulation.</td>
+      </tr>
+      <tr>
+        <td>Channel</td>
+        <td><span class="spec-mat">Acrylic</span></td>
+        <td>28 × 14 mm oval</td>
+        <td>4 mm</td>
+        <td>Translucent acrylic with etched flow-lines; layered on hex tile to read as "overlay" not "blocker". 3mm alternative for cost target.</td>
+      </tr>
+      <tr>
+        <td>Spire</td>
+        <td><span class="spec-mat">Wood</span></td>
+        <td>14 × 28 mm tri</td>
+        <td>8 mm</td>
+        <td>Tall narrow triangle; lathe-turned if budget allows, otherwise die-cut. Height differential from Forges must be visible across table.</td>
+      </tr>
+      <tr>
+        <td>Iron Token</td>
+        <td><span class="spec-mat">Metal</span><span class="spec-mat">Cardboard</span></td>
+        <td>Ø 24 mm</td>
+        <td>2 mm (metal) / 2.5 mm (card)</td>
+        <td>Premium edition: zinc-alloy with antique-gold finish. Standard: 2.5mm punchboard with gilt-foil stamp. Must clink.</td>
+      </tr>
+      <tr>
+        <td>VP Token</td>
+        <td><span class="spec-mat">Cardboard</span></td>
+        <td>Ø 16 mm</td>
+        <td>2 mm</td>
+        <td>Small parchment discs, laminated matte. Denominations 1/5/10 via printed pip clusters; never by size (players miscount).</td>
+      </tr>
+      <tr>
+        <td>Veil Marker</td>
+        <td><span class="spec-mat">Acrylic</span></td>
+        <td>20 × 20 mm diamond</td>
+        <td>5 mm</td>
+        <td>Gilt-laminated acrylic, single per game. Tall profile ensures visibility — the Veil's position is the game's clock.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="divider-ornament">— ✦ —</div>
+
+<p style="text-align:center; font-family:'Space Grotesk',sans-serif; font-size:9px; font-weight:600; letter-spacing:5px; color:var(--text-lo); text-transform:uppercase; margin-bottom:48px;">Component Spec · 144 tokens · 4 shapes · 6 Schools · Gilded Void</p>
+
+</body>
+</html>

@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CODEX — Founding Doctrine Decks (30 Cards)</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:         #13100C;
+    --surface:    #1E1810;
+    --surface2:   #2A2218;
+    --surface3:   #382E20;
+    --border:     rgba(201,148,26,0.18);
+    --border-mid: rgba(201,148,26,0.35);
+    --border-hi:  rgba(201,148,26,0.70);
+
+    --gold:       #C9941A;
+    --gold-soft:  #DBA830;
+    --gold-dim:   rgba(201,148,26,0.5);
+    --gold-glow:  rgba(201,148,26,0.12);
+
+    --text-hi:    #F0E8D8;
+    --text-mid:   #C0B090;
+    --text-lo:    #786040;
+
+    --flame:      #FF5020;
+    --tide:       #1A9AFF;
+    --iron:       #8FA0B8;
+    --earth:      #50C060;
+    --wind:       #B0A0FF;
+    --ash:        #FF7040;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text-hi);
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    padding: 56px 20px 80px;
+    min-height: 100vh;
+  }
+
+  /* ── PAGE HEADER ───────────────────────────────────────────────── */
+  .page-meta {
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: var(--text-lo); margin-bottom: 10px;
+  }
+  h1 {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 48px; font-weight: 700;
+    color: var(--text-hi); letter-spacing: 14px;
+    margin-bottom: 6px; line-height: 1;
+    text-shadow: 0 0 40px rgba(201,148,26,0.3);
+  }
+  .subtitle {
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px; font-weight: 400;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold-dim); margin-bottom: 16px;
+  }
+  .divider-ornament {
+    text-align: center; color: var(--gold);
+    font-size: 12px; letter-spacing: 8px;
+    opacity: 0.5; margin: 40px 0;
+  }
+
+  /* ── SCHOOL SECTION ────────────────────────────────────────────── */
+  .school-section {
+    margin-bottom: 80px;
+    max-width: 1440px;
+    margin-left: auto; margin-right: auto;
+  }
+  .school-header {
+    display: flex; align-items: center; justify-content: center;
+    gap: 28px; margin-bottom: 8px;
+  }
+  .school-sigil-lg {
+    filter: drop-shadow(0 0 24px currentColor);
+  }
+  .school-title-block { text-align: left; }
+  .school-name {
+    font-family: 'Cinzel', serif;
+    font-size: 44px; font-weight: 700;
+    letter-spacing: 10px; line-height: 1;
+    margin-bottom: 6px;
+  }
+  .school-tagline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--text-lo);
+  }
+  .school-subtitle {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 6px; text-transform: uppercase;
+    color: var(--gold); opacity: 0.7;
+    margin-bottom: 36px;
+  }
+
+  /* ── FOUNDING CARD ─────────────────────────────────────────────── */
+  .cards-row {
+    display: flex; justify-content: center;
+    gap: 22px; flex-wrap: wrap;
+  }
+
+  .founding-card {
+    width: 216px;
+    background: var(--surface);
+    border-radius: 8px;
+    border-width: 1.5px;
+    border-style: solid;
+    overflow: hidden;
+    position: relative;
+    box-shadow:
+      0 24px 64px rgba(0,0,0,0.7),
+      0 0 0 1px rgba(201,148,26,0.06),
+      inset 0 1px 0 rgba(201,148,26,0.1);
+  }
+  .founding-card::after {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+  }
+
+  /* Sigil watermark behind the card name area */
+  .card-watermark {
+    position: absolute;
+    top: 48px; left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .card-accent {
+    height: 4px;
+    position: relative;
+    z-index: 2;
+  }
+  .card-accent::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+    opacity: 0.5;
+  }
+
+  .founding-badge {
+    padding: 7px 16px;
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    position: relative; z-index: 2;
+  }
+
+  .card-header {
+    padding: 14px 16px 12px;
+    position: relative;
+    z-index: 2;
+  }
+  .card-type-row {
+    display: flex; align-items: center;
+    justify-content: space-between; margin-bottom: 10px;
+  }
+  .card-type {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+  }
+  .card-sigil-sm { opacity: 0.65; }
+  .card-name {
+    font-family: 'Cinzel', serif;
+    font-size: 15px; font-weight: 700;
+    color: var(--text-hi); line-height: 1.2;
+    letter-spacing: 0.03em;
+    min-height: 36px;
+  }
+  .card-id {
+    font-family: 'Space Mono', monospace;
+    font-size: 8px; font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-lo);
+    margin-top: 6px;
+  }
+
+  .card-body {
+    padding: 14px 16px;
+    position: relative; z-index: 2;
+  }
+  .rule-block { margin-bottom: 10px; }
+  .rule-block:last-child { margin-bottom: 0; }
+  .rule-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .rule-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10.5px; font-weight: 400;
+    line-height: 1.5; color: var(--text-mid);
+  }
+  .rule-divider {
+    border: none; border-top: 1px solid var(--border);
+    margin: 10px 0;
+  }
+
+  .card-footer {
+    padding: 10px 16px 14px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: relative; z-index: 2;
+  }
+  .card-tag {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px; font-weight: 700;
+    letter-spacing: 2.5px; text-transform: uppercase;
+  }
+  .card-pip-row { display: flex; gap: 5px; }
+  .pip {
+    width: 9px; height: 9px; border-radius: 50%;
+    border: 1px solid; background: transparent;
+  }
+
+  /* ── FOOTER ────────────────────────────────────────────────────── */
+  .page-footer {
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 5px; color: var(--text-lo);
+    text-transform: uppercase; margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-meta">Direction IV — Gilded Void</div>
+<h1>CODEX</h1>
+<p class="subtitle">Founding Doctrine Decks · 6 Schools × 5 Cards</p>
+
+<div class="divider-ornament">— ✦ —</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- FLAME — Spreading Fire                                            -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="school-section">
+  <div class="school-header">
+    <svg class="school-sigil-lg" width="96" height="96" viewBox="0 0 64 64" style="color:#FF5020">
+      <polygon points="32,4 60,56 4,56" fill="rgba(255,80,32,0.08)" stroke="#FF5020" stroke-width="1.5"/>
+      <polygon points="32,16 50,48 14,48" fill="none" stroke="#FF5020" stroke-width="0.8" opacity="0.5"/>
+      <circle cx="32" cy="42" r="4" fill="#FF5020"/>
+      <line x1="32" y1="4" x2="32" y2="16" stroke="#C9941A" stroke-width="1" opacity="0.6"/>
+    </svg>
+    <div class="school-title-block">
+      <div class="school-name" style="color:#FF5020">FLAME</div>
+      <div class="school-tagline">Spreading Fire · Ember · First-Mover</div>
+    </div>
+  </div>
+  <div class="school-subtitle">Founding Doctrine Deck — 5 Cards</div>
+
+  <div class="cards-row">
+
+    <!-- FL9 · Wildfire -->
+    <div class="founding-card" style="border-color:rgba(255,80,32,0.55); background:linear-gradient(180deg, rgba(255,80,32,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#8B2000,#FF5020); color:#FF5020"></div>
+      <div class="founding-badge" style="background:rgba(255,80,32,0.10); color:#FF5020; border-bottom:1px solid rgba(255,80,32,0.25)">Flame · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <polygon points="32,4 60,56 4,56" fill="none" stroke="#FF5020" stroke-width="1.2"/>
+        <circle cx="32" cy="42" r="4" fill="#FF5020"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#FF5020">Conflict · Expansion</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,18 1,18" fill="none" stroke="#FF5020" stroke-width="1.2"/>
+            <circle cx="11" cy="14" r="1.8" fill="#FF5020"/>
+          </svg>
+        </div>
+        <div class="card-name">Wildfire</div>
+        <div class="card-id">FL·09</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">Trigger</div>
+          <div class="rule-text">Once per game — when you take a Build action.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(255,80,32,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">Effect</div>
+          <div class="rule-text">Place 2 components instead of 1 during that action.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(255,80,32,0.18)">
+        <div class="card-tag" style="color:#FF5020">Flame Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(255,80,32,0.5); background:#FF5020"></div>
+          <div class="pip" style="border-color:rgba(255,80,32,0.5)"></div>
+          <div class="pip" style="border-color:rgba(255,80,32,0.5)"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FL2 · Consuming Fire -->
+    <div class="founding-card" style="border-color:rgba(255,80,32,0.55); background:linear-gradient(180deg, rgba(255,80,32,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#8B2000,#FF5020); color:#FF5020"></div>
+      <div class="founding-badge" style="background:rgba(255,80,32,0.10); color:#FF5020; border-bottom:1px solid rgba(255,80,32,0.25)">Flame · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <polygon points="32,4 60,56 4,56" fill="none" stroke="#FF5020" stroke-width="1.2"/>
+        <circle cx="32" cy="42" r="4" fill="#FF5020"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#FF5020">Production · Adjacency</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,18 1,18" fill="none" stroke="#FF5020" stroke-width="1.2"/>
+            <circle cx="11" cy="14" r="1.8" fill="#FF5020"/>
+          </svg>
+        </div>
+        <div class="card-name">Consuming Fire</div>
+        <div class="card-id">FL·02</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">Trigger</div>
+          <div class="rule-text">You activate a component adjacent to at least one opponent component.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(255,80,32,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">Effect</div>
+          <div class="rule-text">That component produces +2 additional Ember this activation.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(255,80,32,0.18)">
+        <div class="card-tag" style="color:#FF5020">Flame Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(255,80,32,0.5); background:#FF5020"></div>
+          <div class="pip" style="border-color:rgba(255,80,32,0.5); background:#FF5020"></div>
+          <div class="pip" style="border-color:rgba(255,80,32,0.5)"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FL7 · Ignition Point -->
+    <div class="founding-card" style="border-color:rgba(255,80,32,0.55); background:linear-gradient(180deg, rgba(255,80,32,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#8B2000,#FF5020); color:#FF5020"></div>
+      <div class="founding-badge" style="background:rgba(255,80,32,0.10); color:#FF5020; border-bottom:1px solid rgba(255,80,32,0.25)">Flame · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <polygon points="32,4 60,56 4,56" fill="none" stroke="#FF5020" stroke-width="1.2"/>
+        <circle cx="32" cy="42" r="4" fill="#FF5020"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#FF5020">Conflict · Recurring</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,18 1,18" fill="none" stroke="#FF5020" stroke-width="1.2"/>
+            <circle cx="11" cy="14" r="1.8" fill="#FF5020"/>
+          </svg>
+        </div>
+        <div class="card-name">Ignition Point</div>
+        <div class="card-id">FL·07</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">Trigger</div>
+          <div class="rule-text">The first time each round you take a Conflict action.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(255,80,32,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">Effect</div>
+          <div class="rule-text">Gain 2 Ember immediately before the action resolves.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(255,80,32,0.18)">
+        <div class="card-tag" style="color:#FF5020">Flame Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(255,80,32,0.5); background:#FF5020"></div>
+          <div class="pip" style="border-color:rgba(255,80,32,0.5); background:#FF5020"></div>
+          <div class="pip" style="border-color:rgba(255,80,32,0.5)"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FL10 · Backdraft -->
+    <div class="founding-card" style="border-color:rgba(255,80,32,0.55); background:linear-gradient(180deg, rgba(255,80,32,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#8B2000,#FF5020); color:#FF5020"></div>
+      <div class="founding-badge" style="background:rgba(255,80,32,0.10); color:#FF5020; border-bottom:1px solid rgba(255,80,32,0.25)">Flame · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <polygon points="32,4 60,56 4,56" fill="none" stroke="#FF5020" stroke-width="1.2"/>
+        <circle cx="32" cy="42" r="4" fill="#FF5020"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#FF5020">Reaction · Defensive</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,18 1,18" fill="none" stroke="#FF5020" stroke-width="1.2"/>
+            <circle cx="11" cy="14" r="1.8" fill="#FF5020"/>
+          </svg>
+        </div>
+        <div class="card-name">Backdraft</div>
+        <div class="card-id">FL·10</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">Trigger</div>
+          <div class="rule-text">An opponent's Conflict action targets one of your components.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(255,80,32,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">Effect</div>
+          <div class="rule-text">Gain 1 Ember and 1 VP immediately.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(255,80,32,0.18)">
+        <div class="card-tag" style="color:#FF5020">Flame Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(255,80,32,0.5); background:#FF5020"></div>
+          <div class="pip" style="border-color:rgba(255,80,32,0.5); background:#FF5020"></div>
+          <div class="pip" style="border-color:rgba(255,80,32,0.5)"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FL13 · The Furnace -->
+    <div class="founding-card" style="border-color:rgba(255,80,32,0.55); background:linear-gradient(180deg, rgba(255,80,32,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#8B2000,#FF5020); color:#FF5020"></div>
+      <div class="founding-badge" style="background:rgba(255,80,32,0.10); color:#FF5020; border-bottom:1px solid rgba(255,80,32,0.25)">Flame · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <polygon points="32,4 60,56 4,56" fill="none" stroke="#FF5020" stroke-width="1.2"/>
+        <circle cx="32" cy="42" r="4" fill="#FF5020"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#FF5020">Conversion · Passive</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,18 1,18" fill="none" stroke="#FF5020" stroke-width="1.2"/>
+            <circle cx="11" cy="14" r="1.8" fill="#FF5020"/>
+          </svg>
+        </div>
+        <div class="card-name">The Furnace</div>
+        <div class="card-id">FL·13</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">Trigger</div>
+          <div class="rule-text">Passive — always active.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(255,80,32,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">Effect</div>
+          <div class="rule-text">Your Weight converts to Ember at 1:1 instead of the default 2:1.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(255,80,32,0.18)">
+        <div class="card-tag" style="color:#FF5020">Flame Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(255,80,32,0.5); background:#FF5020"></div>
+          <div class="pip" style="border-color:rgba(255,80,32,0.5); background:#FF5020"></div>
+          <div class="pip" style="border-color:rgba(255,80,32,0.5)"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider-ornament">— ✦ —</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- TIDE — Turning Water                                              -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="school-section">
+  <div class="school-header">
+    <svg class="school-sigil-lg" width="96" height="96" viewBox="0 0 64 64" style="color:#1A9AFF">
+      <ellipse cx="32" cy="32" rx="26" ry="15" fill="rgba(26,154,255,0.08)" stroke="#1A9AFF" stroke-width="1.5"/>
+      <ellipse cx="32" cy="32" rx="15" ry="26" fill="none" stroke="#1A9AFF" stroke-width="0.8" opacity="0.5"/>
+      <circle cx="32" cy="32" r="4" fill="#1A9AFF"/>
+      <circle cx="32" cy="32" r="10" fill="none" stroke="#C9941A" stroke-width="0.5" opacity="0.4" stroke-dasharray="2,4"/>
+    </svg>
+    <div class="school-title-block">
+      <div class="school-name" style="color:#1A9AFF">TIDE</div>
+      <div class="school-tagline">Turning Water · Flow · Flexibility</div>
+    </div>
+  </div>
+  <div class="school-subtitle">Founding Doctrine Deck — 5 Cards</div>
+
+  <div class="cards-row">
+
+    <!-- TD3 · The Current -->
+    <div class="founding-card" style="border-color:rgba(26,154,255,0.55); background:linear-gradient(180deg, rgba(26,154,255,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#0A3A6E,#1A9AFF); color:#1A9AFF"></div>
+      <div class="founding-badge" style="background:rgba(26,154,255,0.10); color:#1A9AFF; border-bottom:1px solid rgba(26,154,255,0.25)">Tide · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <ellipse cx="32" cy="32" rx="26" ry="15" fill="none" stroke="#1A9AFF" stroke-width="1.2"/>
+        <ellipse cx="32" cy="32" rx="15" ry="26" fill="none" stroke="#1A9AFF" stroke-width="0.8"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#1A9AFF">Cascade · Production</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <ellipse cx="11" cy="11" rx="9" ry="5" fill="none" stroke="#1A9AFF" stroke-width="1.2"/>
+            <ellipse cx="11" cy="11" rx="5" ry="9" fill="none" stroke="#1A9AFF" stroke-width="0.9" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="card-name">The Current</div>
+        <div class="card-id">TD·03</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#1A9AFF">Trigger</div>
+          <div class="rule-text">You activate a Channel.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(26,154,255,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#1A9AFF">Effect</div>
+          <div class="rule-text">All Channels you own adjacent to that Channel also activate for free.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(26,154,255,0.18)">
+        <div class="card-tag" style="color:#1A9AFF">Tide Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(26,154,255,0.5); background:#1A9AFF"></div>
+          <div class="pip" style="border-color:rgba(26,154,255,0.5); background:#1A9AFF"></div>
+          <div class="pip" style="border-color:rgba(26,154,255,0.5); background:#1A9AFF"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TD2 · Rising Tide -->
+    <div class="founding-card" style="border-color:rgba(26,154,255,0.55); background:linear-gradient(180deg, rgba(26,154,255,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#0A3A6E,#1A9AFF); color:#1A9AFF"></div>
+      <div class="founding-badge" style="background:rgba(26,154,255,0.10); color:#1A9AFF; border-bottom:1px solid rgba(26,154,255,0.25)">Tide · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <ellipse cx="32" cy="32" rx="26" ry="15" fill="none" stroke="#1A9AFF" stroke-width="1.2"/>
+        <ellipse cx="32" cy="32" rx="15" ry="26" fill="none" stroke="#1A9AFF" stroke-width="0.8"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#1A9AFF">Conversion · Passive</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <ellipse cx="11" cy="11" rx="9" ry="5" fill="none" stroke="#1A9AFF" stroke-width="1.2"/>
+            <ellipse cx="11" cy="11" rx="5" ry="9" fill="none" stroke="#1A9AFF" stroke-width="0.9" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="card-name">Rising Tide</div>
+        <div class="card-id">TD·02</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#1A9AFF">Trigger</div>
+          <div class="rule-text">Passive — always active.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(26,154,255,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#1A9AFF">Effect</div>
+          <div class="rule-text">Your Flow converts to any mana type at 1:1 instead of the default 2:1.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(26,154,255,0.18)">
+        <div class="card-tag" style="color:#1A9AFF">Tide Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(26,154,255,0.5); background:#1A9AFF"></div>
+          <div class="pip" style="border-color:rgba(26,154,255,0.5); background:#1A9AFF"></div>
+          <div class="pip" style="border-color:rgba(26,154,255,0.5)"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TD6 · The Undertow -->
+    <div class="founding-card" style="border-color:rgba(26,154,255,0.55); background:linear-gradient(180deg, rgba(26,154,255,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#0A3A6E,#1A9AFF); color:#1A9AFF"></div>
+      <div class="founding-badge" style="background:rgba(26,154,255,0.10); color:#1A9AFF; border-bottom:1px solid rgba(26,154,255,0.25)">Tide · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <ellipse cx="32" cy="32" rx="26" ry="15" fill="none" stroke="#1A9AFF" stroke-width="1.2"/>
+        <ellipse cx="32" cy="32" rx="15" ry="26" fill="none" stroke="#1A9AFF" stroke-width="0.8"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#1A9AFF">Reaction · Displacement</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <ellipse cx="11" cy="11" rx="9" ry="5" fill="none" stroke="#1A9AFF" stroke-width="1.2"/>
+            <ellipse cx="11" cy="11" rx="5" ry="9" fill="none" stroke="#1A9AFF" stroke-width="0.9" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="card-name">The Undertow</div>
+        <div class="card-id">TD·06</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#1A9AFF">Trigger</div>
+          <div class="rule-text">An opponent builds a component adjacent to one of yours.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(26,154,255,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#1A9AFF">Effect</div>
+          <div class="rule-text">Move their newly placed component 1 hex in any direction to an empty hex.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(26,154,255,0.18)">
+        <div class="card-tag" style="color:#1A9AFF">Tide Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(26,154,255,0.5); background:#1A9AFF"></div>
+          <div class="pip" style="border-color:rgba(26,154,255,0.5); background:#1A9AFF"></div>
+          <div class="pip" style="border-color:rgba(26,154,255,0.5)"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TD7 · Drift -->
+    <div class="founding-card" style="border-color:rgba(26,154,255,0.55); background:linear-gradient(180deg, rgba(26,154,255,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#0A3A6E,#1A9AFF); color:#1A9AFF"></div>
+      <div class="founding-badge" style="background:rgba(26,154,255,0.10); color:#1A9AFF; border-bottom:1px solid rgba(26,154,255,0.25)">Tide · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <ellipse cx="32" cy="32" rx="26" ry="15" fill="none" stroke="#1A9AFF" stroke-width="1.2"/>
+        <ellipse cx="32" cy="32" rx="15" ry="26" fill="none" stroke="#1A9AFF" stroke-width="0.8"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#1A9AFF">Spatial · Passive</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <ellipse cx="11" cy="11" rx="9" ry="5" fill="none" stroke="#1A9AFF" stroke-width="1.2"/>
+            <ellipse cx="11" cy="11" rx="5" ry="9" fill="none" stroke="#1A9AFF" stroke-width="0.9" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="card-name">Drift</div>
+        <div class="card-id">TD·07</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#1A9AFF">Trigger</div>
+          <div class="rule-text">Passive — always active.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(26,154,255,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#1A9AFF">Effect</div>
+          <div class="rule-text">You may build on any empty hex — no adjacency to your existing components required.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(26,154,255,0.18)">
+        <div class="card-tag" style="color:#1A9AFF">Tide Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(26,154,255,0.5); background:#1A9AFF"></div>
+          <div class="pip" style="border-color:rgba(26,154,255,0.5); background:#1A9AFF"></div>
+          <div class="pip" style="border-color:rgba(26,154,255,0.5)"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TD14 · Tidal Chart -->
+    <div class="founding-card" style="border-color:rgba(26,154,255,0.55); background:linear-gradient(180deg, rgba(26,154,255,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#0A3A6E,#1A9AFF); color:#1A9AFF"></div>
+      <div class="founding-badge" style="background:rgba(26,154,255,0.10); color:#1A9AFF; border-bottom:1px solid rgba(26,154,255,0.25)">Tide · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <ellipse cx="32" cy="32" rx="26" ry="15" fill="none" stroke="#1A9AFF" stroke-width="1.2"/>
+        <ellipse cx="32" cy="32" rx="15" ry="26" fill="none" stroke="#1A9AFF" stroke-width="0.8"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#1A9AFF">Setup · Information</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <ellipse cx="11" cy="11" rx="9" ry="5" fill="none" stroke="#1A9AFF" stroke-width="1.2"/>
+            <ellipse cx="11" cy="11" rx="5" ry="9" fill="none" stroke="#1A9AFF" stroke-width="0.9" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="card-name">Tidal Chart</div>
+        <div class="card-id">TD·14</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#1A9AFF">Trigger</div>
+          <div class="rule-text">Once — at game start, before Convocation drafting begins.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(26,154,255,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#1A9AFF">Effect</div>
+          <div class="rule-text">Look at the top 6 cards of the draft deck and rearrange them in any order.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(26,154,255,0.18)">
+        <div class="card-tag" style="color:#1A9AFF">Tide Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(26,154,255,0.5); background:#1A9AFF"></div>
+          <div class="pip" style="border-color:rgba(26,154,255,0.5); background:#1A9AFF"></div>
+          <div class="pip" style="border-color:rgba(26,154,255,0.5)"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider-ornament">— ✦ —</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- IRON — Patient Forge                                              -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="school-section">
+  <div class="school-header">
+    <svg class="school-sigil-lg" width="96" height="96" viewBox="0 0 64 64" style="color:#8FA0B8">
+      <polygon points="32,4 60,18 60,46 32,60 4,46 4,18" fill="rgba(143,160,184,0.08)" stroke="#8FA0B8" stroke-width="1.5"/>
+      <polygon points="32,16 48,24 48,40 32,48 16,40 16,24" fill="none" stroke="#8FA0B8" stroke-width="0.8" opacity="0.5"/>
+      <rect x="28" y="28" width="8" height="8" fill="#8FA0B8" transform="rotate(45 32 32)"/>
+      <polygon points="32,4 60,18 60,46 32,60 4,46 4,18" fill="none" stroke="#C9941A" stroke-width="0.5" opacity="0.3"/>
+    </svg>
+    <div class="school-title-block">
+      <div class="school-name" style="color:#8FA0B8">IRON</div>
+      <div class="school-tagline">Patient Forge · Weight · Accumulation</div>
+    </div>
+  </div>
+  <div class="school-subtitle">Founding Doctrine Deck — 5 Cards</div>
+
+  <div class="cards-row">
+
+    <!-- IR1 · Tempered -->
+    <div class="founding-card" style="border-color:rgba(143,160,184,0.55); background:linear-gradient(180deg, rgba(143,160,184,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A5A6A,#8FA0B8); color:#8FA0B8"></div>
+      <div class="founding-badge" style="background:rgba(143,160,184,0.10); color:#8FA0B8; border-bottom:1px solid rgba(143,160,184,0.25)">Iron · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <polygon points="32,4 60,18 60,46 32,60 4,46 4,18" fill="none" stroke="#8FA0B8" stroke-width="1.2"/>
+        <rect x="28" y="28" width="8" height="8" fill="#8FA0B8" transform="rotate(45 32 32)"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#8FA0B8">Production · Permanent</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,6 21,16 11,21 1,16 1,6" fill="none" stroke="#8FA0B8" stroke-width="1.2"/>
+            <rect x="8" y="8" width="6" height="6" fill="#8FA0B8" transform="rotate(45 11 11)" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="card-name">Tempered</div>
+        <div class="card-id">IR·01</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">Trigger</div>
+          <div class="rule-text">You finish building a component.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(143,160,184,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">Effect</div>
+          <div class="rule-text">Place 1 Iron Token on it permanently. That component produces +1 of its type whenever activated.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(143,160,184,0.18)">
+        <div class="card-tag" style="color:#8FA0B8">Iron Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(143,160,184,0.5); background:#8FA0B8"></div>
+          <div class="pip" style="border-color:rgba(143,160,184,0.5); background:#8FA0B8"></div>
+          <div class="pip" style="border-color:rgba(143,160,184,0.5); background:#8FA0B8"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IR6 · Iron Discipline -->
+    <div class="founding-card" style="border-color:rgba(143,160,184,0.55); background:linear-gradient(180deg, rgba(143,160,184,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A5A6A,#8FA0B8); color:#8FA0B8"></div>
+      <div class="founding-badge" style="background:rgba(143,160,184,0.10); color:#8FA0B8; border-bottom:1px solid rgba(143,160,184,0.25)">Iron · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <polygon points="32,4 60,18 60,46 32,60 4,46 4,18" fill="none" stroke="#8FA0B8" stroke-width="1.2"/>
+        <rect x="28" y="28" width="8" height="8" fill="#8FA0B8" transform="rotate(45 32 32)"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#8FA0B8">Restraint · VP</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,6 21,16 11,21 1,16 1,6" fill="none" stroke="#8FA0B8" stroke-width="1.2"/>
+            <rect x="8" y="8" width="6" height="6" fill="#8FA0B8" transform="rotate(45 11 11)" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="card-name">Iron Discipline</div>
+        <div class="card-id">IR·06</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">Trigger</div>
+          <div class="rule-text">You end a round having taken no Conflict action this round.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(143,160,184,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">Effect</div>
+          <div class="rule-text">Gain 2 Weight and 1 VP immediately.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(143,160,184,0.18)">
+        <div class="card-tag" style="color:#8FA0B8">Iron Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(143,160,184,0.5); background:#8FA0B8"></div>
+          <div class="pip" style="border-color:rgba(143,160,184,0.5); background:#8FA0B8"></div>
+          <div class="pip" style="border-color:rgba(143,160,184,0.5); background:#8FA0B8"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IR12 · The Alloy -->
+    <div class="founding-card" style="border-color:rgba(143,160,184,0.55); background:linear-gradient(180deg, rgba(143,160,184,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A5A6A,#8FA0B8); color:#8FA0B8"></div>
+      <div class="founding-badge" style="background:rgba(143,160,184,0.10); color:#8FA0B8; border-bottom:1px solid rgba(143,160,184,0.25)">Iron · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <polygon points="32,4 60,18 60,46 32,60 4,46 4,18" fill="none" stroke="#8FA0B8" stroke-width="1.2"/>
+        <rect x="28" y="28" width="8" height="8" fill="#8FA0B8" transform="rotate(45 32 32)"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#8FA0B8">Cascade · Adjacency</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,6 21,16 11,21 1,16 1,6" fill="none" stroke="#8FA0B8" stroke-width="1.2"/>
+            <rect x="8" y="8" width="6" height="6" fill="#8FA0B8" transform="rotate(45 11 11)" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="card-name">The Alloy</div>
+        <div class="card-id">IR·12</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">Trigger</div>
+          <div class="rule-text">You activate a Forge adjacent to one of your Sanctums.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(143,160,184,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">Effect</div>
+          <div class="rule-text">That adjacent Sanctum also activates for free this activation.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(143,160,184,0.18)">
+        <div class="card-tag" style="color:#8FA0B8">Iron Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(143,160,184,0.5); background:#8FA0B8"></div>
+          <div class="pip" style="border-color:rgba(143,160,184,0.5); background:#8FA0B8"></div>
+          <div class="pip" style="border-color:rgba(143,160,184,0.5); background:#8FA0B8"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IR15 · Patience Protocol -->
+    <div class="founding-card" style="border-color:rgba(143,160,184,0.55); background:linear-gradient(180deg, rgba(143,160,184,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A5A6A,#8FA0B8); color:#8FA0B8"></div>
+      <div class="founding-badge" style="background:rgba(143,160,184,0.10); color:#8FA0B8; border-bottom:1px solid rgba(143,160,184,0.25)">Iron · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <polygon points="32,4 60,18 60,46 32,60 4,46 4,18" fill="none" stroke="#8FA0B8" stroke-width="1.2"/>
+        <rect x="28" y="28" width="8" height="8" fill="#8FA0B8" transform="rotate(45 32 32)"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#8FA0B8">Restraint · Stockpile</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,6 21,16 11,21 1,16 1,6" fill="none" stroke="#8FA0B8" stroke-width="1.2"/>
+            <rect x="8" y="8" width="6" height="6" fill="#8FA0B8" transform="rotate(45 11 11)" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="card-name">Patience Protocol</div>
+        <div class="card-id">IR·15</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">Trigger</div>
+          <div class="rule-text">You end a round having taken no Build action this round.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(143,160,184,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">Effect</div>
+          <div class="rule-text">Gain 3 Weight immediately.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(143,160,184,0.18)">
+        <div class="card-tag" style="color:#8FA0B8">Iron Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(143,160,184,0.5); background:#8FA0B8"></div>
+          <div class="pip" style="border-color:rgba(143,160,184,0.5); background:#8FA0B8"></div>
+          <div class="pip" style="border-color:rgba(143,160,184,0.5)"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IR9 · Smelting -->
+    <div class="founding-card" style="border-color:rgba(143,160,184,0.55); background:linear-gradient(180deg, rgba(143,160,184,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A5A6A,#8FA0B8); color:#8FA0B8"></div>
+      <div class="founding-badge" style="background:rgba(143,160,184,0.10); color:#8FA0B8; border-bottom:1px solid rgba(143,160,184,0.25)">Iron · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <polygon points="32,4 60,18 60,46 32,60 4,46 4,18" fill="none" stroke="#8FA0B8" stroke-width="1.2"/>
+        <rect x="28" y="28" width="8" height="8" fill="#8FA0B8" transform="rotate(45 32 32)"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#8FA0B8">Conversion · Passive</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,6 21,16 11,21 1,16 1,6" fill="none" stroke="#8FA0B8" stroke-width="1.2"/>
+            <rect x="8" y="8" width="6" height="6" fill="#8FA0B8" transform="rotate(45 11 11)" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="card-name">Smelting</div>
+        <div class="card-id">IR·09</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">Trigger</div>
+          <div class="rule-text">Passive — always active.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(143,160,184,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">Effect</div>
+          <div class="rule-text">Your Void converts to Weight at 1:1 instead of the default 3:1.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(143,160,184,0.18)">
+        <div class="card-tag" style="color:#8FA0B8">Iron Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(143,160,184,0.5); background:#8FA0B8"></div>
+          <div class="pip" style="border-color:rgba(143,160,184,0.5); background:#8FA0B8"></div>
+          <div class="pip" style="border-color:rgba(143,160,184,0.5)"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider-ornament">— ✦ —</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- EARTH — Rooted Ground                                             -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="school-section">
+  <div class="school-header">
+    <svg class="school-sigil-lg" width="96" height="96" viewBox="0 0 64 64" style="color:#50C060">
+      <circle cx="32" cy="28" r="22" fill="rgba(80,192,96,0.08)" stroke="#50C060" stroke-width="1.5"/>
+      <circle cx="32" cy="28" r="12" fill="none" stroke="#50C060" stroke-width="0.8" opacity="0.5"/>
+      <line x1="32" y1="50" x2="32" y2="60" stroke="#50C060" stroke-width="2"/>
+      <line x1="32" y1="56" x2="24" y2="62" stroke="#50C060" stroke-width="1.5"/>
+      <line x1="32" y1="56" x2="40" y2="62" stroke="#50C060" stroke-width="1.5"/>
+      <circle cx="32" cy="28" r="5" fill="#50C060"/>
+      <circle cx="32" cy="28" r="22" fill="none" stroke="#C9941A" stroke-width="0.5" opacity="0.3"/>
+    </svg>
+    <div class="school-title-block">
+      <div class="school-name" style="color:#50C060">EARTH</div>
+      <div class="school-tagline">Rooted Ground · Flow + Void · Resilience</div>
+    </div>
+  </div>
+  <div class="school-subtitle">Founding Doctrine Deck — 5 Cards</div>
+
+  <div class="cards-row">
+
+    <!-- EA1 · Deep Roots -->
+    <div class="founding-card" style="border-color:rgba(80,192,96,0.55); background:linear-gradient(180deg, rgba(80,192,96,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#1A5020,#50C060); color:#50C060"></div>
+      <div class="founding-badge" style="background:rgba(80,192,96,0.10); color:#50C060; border-bottom:1px solid rgba(80,192,96,0.25)">Earth · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <circle cx="32" cy="28" r="22" fill="none" stroke="#50C060" stroke-width="1.2"/>
+        <line x1="32" y1="50" x2="32" y2="60" stroke="#50C060" stroke-width="2"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#50C060">Resilience · Passive</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22" opacity="0.75">
+            <circle cx="11" cy="9" r="7" fill="none" stroke="#50C060" stroke-width="1.2"/>
+            <line x1="11" y1="16" x2="11" y2="21" stroke="#50C060" stroke-width="1.5"/>
+            <line x1="11" y1="19" x2="7" y2="22" stroke="#50C060" stroke-width="1.2"/>
+            <line x1="11" y1="19" x2="15" y2="22" stroke="#50C060" stroke-width="1.2"/>
+            <circle cx="11" cy="9" r="3" fill="rgba(80,192,96,0.3)" stroke="#50C060" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="card-name">Deep Roots</div>
+        <div class="card-id">EA·01</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">Trigger</div>
+          <div class="rule-text">Passive — always active.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(80,192,96,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">Effect</div>
+          <div class="rule-text">Your Doctrines cannot be suspended by Edicts. At game end, score +2 VP per component on terrain matching your home territory.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(80,192,96,0.18)">
+        <div class="card-tag" style="color:#50C060">Earth Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(80,192,96,0.5); background:#50C060"></div>
+          <div class="pip" style="border-color:rgba(80,192,96,0.5); background:#50C060"></div>
+          <div class="pip" style="border-color:rgba(80,192,96,0.5); background:#50C060"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EA3 · The Overgrowth -->
+    <div class="founding-card" style="border-color:rgba(80,192,96,0.55); background:linear-gradient(180deg, rgba(80,192,96,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#1A5020,#50C060); color:#50C060"></div>
+      <div class="founding-badge" style="background:rgba(80,192,96,0.10); color:#50C060; border-bottom:1px solid rgba(80,192,96,0.25)">Earth · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <circle cx="32" cy="28" r="22" fill="none" stroke="#50C060" stroke-width="1.2"/>
+        <line x1="32" y1="50" x2="32" y2="60" stroke="#50C060" stroke-width="2"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#50C060">Territory · Spatial</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22" opacity="0.75">
+            <circle cx="11" cy="9" r="7" fill="none" stroke="#50C060" stroke-width="1.2"/>
+            <line x1="11" y1="16" x2="11" y2="21" stroke="#50C060" stroke-width="1.5"/>
+            <line x1="11" y1="19" x2="7" y2="22" stroke="#50C060" stroke-width="1.2"/>
+            <line x1="11" y1="19" x2="15" y2="22" stroke="#50C060" stroke-width="1.2"/>
+            <circle cx="11" cy="9" r="3" fill="rgba(80,192,96,0.3)" stroke="#50C060" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="card-name">The Overgrowth</div>
+        <div class="card-id">EA·03</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">Trigger</div>
+          <div class="rule-text">You finish building a component.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(80,192,96,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">Effect</div>
+          <div class="rule-text">Claim 1 adjacent empty hex as your territory (place a marker; no component — blocks opponents, counts for scoring).</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(80,192,96,0.18)">
+        <div class="card-tag" style="color:#50C060">Earth Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(80,192,96,0.5); background:#50C060"></div>
+          <div class="pip" style="border-color:rgba(80,192,96,0.5); background:#50C060"></div>
+          <div class="pip" style="border-color:rgba(80,192,96,0.5); background:#50C060"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EA4 · Root Memory -->
+    <div class="founding-card" style="border-color:rgba(80,192,96,0.55); background:linear-gradient(180deg, rgba(80,192,96,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#1A5020,#50C060); color:#50C060"></div>
+      <div class="founding-badge" style="background:rgba(80,192,96,0.10); color:#50C060; border-bottom:1px solid rgba(80,192,96,0.25)">Earth · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <circle cx="32" cy="28" r="22" fill="none" stroke="#50C060" stroke-width="1.2"/>
+        <line x1="32" y1="50" x2="32" y2="60" stroke="#50C060" stroke-width="2"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#50C060">Reaction · VP</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22" opacity="0.75">
+            <circle cx="11" cy="9" r="7" fill="none" stroke="#50C060" stroke-width="1.2"/>
+            <line x1="11" y1="16" x2="11" y2="21" stroke="#50C060" stroke-width="1.5"/>
+            <circle cx="11" cy="9" r="3" fill="rgba(80,192,96,0.3)" stroke="#50C060" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="card-name">Root Memory</div>
+        <div class="card-id">EA·04</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">Trigger</div>
+          <div class="rule-text">Any of your components is removed from the map by any effect.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(80,192,96,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">Effect</div>
+          <div class="rule-text">Gain 3 VP immediately.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(80,192,96,0.18)">
+        <div class="card-tag" style="color:#50C060">Earth Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(80,192,96,0.5); background:#50C060"></div>
+          <div class="pip" style="border-color:rgba(80,192,96,0.5); background:#50C060"></div>
+          <div class="pip" style="border-color:rgba(80,192,96,0.5); background:#50C060"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EA9 · The Watershed -->
+    <div class="founding-card" style="border-color:rgba(80,192,96,0.55); background:linear-gradient(180deg, rgba(80,192,96,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#1A5020,#50C060); color:#50C060"></div>
+      <div class="founding-badge" style="background:rgba(80,192,96,0.10); color:#50C060; border-bottom:1px solid rgba(80,192,96,0.25)">Earth · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <circle cx="32" cy="28" r="22" fill="none" stroke="#50C060" stroke-width="1.2"/>
+        <line x1="32" y1="50" x2="32" y2="60" stroke="#50C060" stroke-width="2"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#50C060">Production · Passive</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22" opacity="0.75">
+            <circle cx="11" cy="9" r="7" fill="none" stroke="#50C060" stroke-width="1.2"/>
+            <line x1="11" y1="16" x2="11" y2="21" stroke="#50C060" stroke-width="1.5"/>
+            <circle cx="11" cy="9" r="3" fill="rgba(80,192,96,0.3)" stroke="#50C060" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="card-name">The Watershed</div>
+        <div class="card-id">EA·09</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">Trigger</div>
+          <div class="rule-text">Passive — always active.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(80,192,96,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">Effect</div>
+          <div class="rule-text">Your Sanctums produce 1 Void when activated, in addition to their normal Flow output.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(80,192,96,0.18)">
+        <div class="card-tag" style="color:#50C060">Earth Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(80,192,96,0.5); background:#50C060"></div>
+          <div class="pip" style="border-color:rgba(80,192,96,0.5); background:#50C060"></div>
+          <div class="pip" style="border-color:rgba(80,192,96,0.5); background:#50C060"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EA14 · Fertile Ground -->
+    <div class="founding-card" style="border-color:rgba(80,192,96,0.55); background:linear-gradient(180deg, rgba(80,192,96,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#1A5020,#50C060); color:#50C060"></div>
+      <div class="founding-badge" style="background:rgba(80,192,96,0.10); color:#50C060; border-bottom:1px solid rgba(80,192,96,0.25)">Earth · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <circle cx="32" cy="28" r="22" fill="none" stroke="#50C060" stroke-width="1.2"/>
+        <line x1="32" y1="50" x2="32" y2="60" stroke="#50C060" stroke-width="2"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#50C060">Production · Passive</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22" opacity="0.75">
+            <circle cx="11" cy="9" r="7" fill="none" stroke="#50C060" stroke-width="1.2"/>
+            <line x1="11" y1="16" x2="11" y2="21" stroke="#50C060" stroke-width="1.5"/>
+            <circle cx="11" cy="9" r="3" fill="rgba(80,192,96,0.3)" stroke="#50C060" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="card-name">Fertile Ground</div>
+        <div class="card-id">EA·14</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">Trigger</div>
+          <div class="rule-text">Passive — always active.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(80,192,96,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">Effect</div>
+          <div class="rule-text">Each empty hex adjacent to one of your components produces 1 Flow for you at end of each round — no component or activation needed.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(80,192,96,0.18)">
+        <div class="card-tag" style="color:#50C060">Earth Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(80,192,96,0.5); background:#50C060"></div>
+          <div class="pip" style="border-color:rgba(80,192,96,0.5); background:#50C060"></div>
+          <div class="pip" style="border-color:rgba(80,192,96,0.5)"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider-ornament">— ✦ —</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- WIND — Howling Wind                                               -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="school-section">
+  <div class="school-header">
+    <svg class="school-sigil-lg" width="96" height="96" viewBox="0 0 64 64" style="color:#B0A0FF">
+      <path d="M32 32 Q52 10 32 4 Q12 10 32 32 Q52 54 32 60 Q12 54 32 32" fill="none" stroke="#B0A0FF" stroke-width="1.5"/>
+      <path d="M32 32 Q10 10 4 32 Q10 54 32 32 Q54 10 60 32 Q54 54 32 32" fill="none" stroke="#B0A0FF" stroke-width="0.8" opacity="0.5"/>
+      <circle cx="32" cy="32" r="3" fill="#B0A0FF"/>
+    </svg>
+    <div class="school-title-block">
+      <div class="school-name" style="color:#B0A0FF">WIND</div>
+      <div class="school-tagline">Howling Wind · Void · Disruption</div>
+    </div>
+  </div>
+  <div class="school-subtitle">Founding Doctrine Deck — 5 Cards · Expansion School</div>
+
+  <div class="cards-row">
+
+    <!-- W5 · Slipstream -->
+    <div class="founding-card" style="border-color:rgba(176,160,255,0.55); background:linear-gradient(180deg, rgba(176,160,255,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#5848B0,#B0A0FF); color:#B0A0FF"></div>
+      <div class="founding-badge" style="background:rgba(176,160,255,0.10); color:#B0A0FF; border-bottom:1px solid rgba(176,160,255,0.25)">Wind · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <path d="M32 32 Q52 10 32 4 Q12 10 32 32 Q52 54 32 60 Q12 54 32 32" fill="none" stroke="#B0A0FF" stroke-width="1.2"/>
+        <path d="M32 32 Q10 10 4 32 Q10 54 32 32 Q54 10 60 32 Q54 54 32 32" fill="none" stroke="#B0A0FF" stroke-width="1"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#B0A0FF">Disruption · Spatial</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <path d="M11 11 Q18 4 11 1 Q4 4 11 11 Q18 18 11 21 Q4 18 11 11" fill="none" stroke="#B0A0FF" stroke-width="1.2"/>
+            <circle cx="11" cy="11" r="1.5" fill="#B0A0FF"/>
+          </svg>
+        </div>
+        <div class="card-name">Slipstream</div>
+        <div class="card-id">WI·05</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#B0A0FF">Trigger</div>
+          <div class="rule-text">Once per round — you spend 2 Void.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(176,160,255,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#B0A0FF">Effect</div>
+          <div class="rule-text">Move one opponent's component to any adjacent empty hex.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(176,160,255,0.18)">
+        <div class="card-tag" style="color:#B0A0FF">Wind Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(176,160,255,0.5); background:#B0A0FF"></div>
+          <div class="pip" style="border-color:rgba(176,160,255,0.5); background:#B0A0FF"></div>
+          <div class="pip" style="border-color:rgba(176,160,255,0.5); background:#B0A0FF"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- W1 · Scattering Law -->
+    <div class="founding-card" style="border-color:rgba(176,160,255,0.55); background:linear-gradient(180deg, rgba(176,160,255,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#5848B0,#B0A0FF); color:#B0A0FF"></div>
+      <div class="founding-badge" style="background:rgba(176,160,255,0.10); color:#B0A0FF; border-bottom:1px solid rgba(176,160,255,0.25)">Wind · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <path d="M32 32 Q52 10 32 4 Q12 10 32 32 Q52 54 32 60 Q12 54 32 32" fill="none" stroke="#B0A0FF" stroke-width="1.2"/>
+        <path d="M32 32 Q10 10 4 32 Q10 54 32 32 Q54 10 60 32 Q54 54 32 32" fill="none" stroke="#B0A0FF" stroke-width="1"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#B0A0FF">Reaction · Displacement</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <path d="M11 11 Q18 4 11 1 Q4 4 11 11 Q18 18 11 21 Q4 18 11 11" fill="none" stroke="#B0A0FF" stroke-width="1.2"/>
+            <circle cx="11" cy="11" r="1.5" fill="#B0A0FF"/>
+          </svg>
+        </div>
+        <div class="card-name">Scattering Law</div>
+        <div class="card-id">WI·01</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#B0A0FF">Trigger</div>
+          <div class="rule-text">Once per round — after an opponent activates a component.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(176,160,255,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#B0A0FF">Effect</div>
+          <div class="rule-text">Move that component 1 hex in any direction to an adjacent empty hex.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(176,160,255,0.18)">
+        <div class="card-tag" style="color:#B0A0FF">Wind Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(176,160,255,0.5); background:#B0A0FF"></div>
+          <div class="pip" style="border-color:rgba(176,160,255,0.5); background:#B0A0FF"></div>
+          <div class="pip" style="border-color:rgba(176,160,255,0.5); background:#B0A0FF"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- W8 · The Weathervane -->
+    <div class="founding-card" style="border-color:rgba(176,160,255,0.55); background:linear-gradient(180deg, rgba(176,160,255,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#5848B0,#B0A0FF); color:#B0A0FF"></div>
+      <div class="founding-badge" style="background:rgba(176,160,255,0.10); color:#B0A0FF; border-bottom:1px solid rgba(176,160,255,0.25)">Wind · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <path d="M32 32 Q52 10 32 4 Q12 10 32 32 Q52 54 32 60 Q12 54 32 32" fill="none" stroke="#B0A0FF" stroke-width="1.2"/>
+        <path d="M32 32 Q10 10 4 32 Q10 54 32 32 Q54 10 60 32 Q54 54 32 32" fill="none" stroke="#B0A0FF" stroke-width="1"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#B0A0FF">Taxation · Declared</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <path d="M11 11 Q18 4 11 1 Q4 4 11 11 Q18 18 11 21 Q4 18 11 11" fill="none" stroke="#B0A0FF" stroke-width="1.2"/>
+            <circle cx="11" cy="11" r="1.5" fill="#B0A0FF"/>
+          </svg>
+        </div>
+        <div class="card-name">The Weathervane</div>
+        <div class="card-id">WI·08</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#B0A0FF">Trigger</div>
+          <div class="rule-text">At the start of each round — name 1 action type (Build, Activate, Convert, Conflict, or Advance).</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(176,160,255,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#B0A0FF">Effect</div>
+          <div class="rule-text">Each opponent pays 1 extra mana the first time they take that action type this round.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(176,160,255,0.18)">
+        <div class="card-tag" style="color:#B0A0FF">Wind Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(176,160,255,0.5); background:#B0A0FF"></div>
+          <div class="pip" style="border-color:rgba(176,160,255,0.5); background:#B0A0FF"></div>
+          <div class="pip" style="border-color:rgba(176,160,255,0.5); background:#B0A0FF"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- W4 · Interference -->
+    <div class="founding-card" style="border-color:rgba(176,160,255,0.55); background:linear-gradient(180deg, rgba(176,160,255,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#5848B0,#B0A0FF); color:#B0A0FF"></div>
+      <div class="founding-badge" style="background:rgba(176,160,255,0.10); color:#B0A0FF; border-bottom:1px solid rgba(176,160,255,0.25)">Wind · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <path d="M32 32 Q52 10 32 4 Q12 10 32 32 Q52 54 32 60 Q12 54 32 32" fill="none" stroke="#B0A0FF" stroke-width="1.2"/>
+        <path d="M32 32 Q10 10 4 32 Q10 54 32 32 Q54 10 60 32 Q54 54 32 32" fill="none" stroke="#B0A0FF" stroke-width="1"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#B0A0FF">Reaction · Taxation</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <path d="M11 11 Q18 4 11 1 Q4 4 11 11 Q18 18 11 21 Q4 18 11 11" fill="none" stroke="#B0A0FF" stroke-width="1.2"/>
+            <circle cx="11" cy="11" r="1.5" fill="#B0A0FF"/>
+          </svg>
+        </div>
+        <div class="card-name">Interference</div>
+        <div class="card-id">WI·04</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#B0A0FF">Trigger</div>
+          <div class="rule-text">An opponent activates a Forge or Channel adjacent to one of your components.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(176,160,255,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#B0A0FF">Effect</div>
+          <div class="rule-text">That opponent produces 1 fewer mana from that activation (minimum 0).</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(176,160,255,0.18)">
+        <div class="card-tag" style="color:#B0A0FF">Wind Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(176,160,255,0.5); background:#B0A0FF"></div>
+          <div class="pip" style="border-color:rgba(176,160,255,0.5); background:#B0A0FF"></div>
+          <div class="pip" style="border-color:rgba(176,160,255,0.5)"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- W11 · Turbulence -->
+    <div class="founding-card" style="border-color:rgba(176,160,255,0.55); background:linear-gradient(180deg, rgba(176,160,255,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#5848B0,#B0A0FF); color:#B0A0FF"></div>
+      <div class="founding-badge" style="background:rgba(176,160,255,0.10); color:#B0A0FF; border-bottom:1px solid rgba(176,160,255,0.25)">Wind · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <path d="M32 32 Q52 10 32 4 Q12 10 32 32 Q52 54 32 60 Q12 54 32 32" fill="none" stroke="#B0A0FF" stroke-width="1.2"/>
+        <path d="M32 32 Q10 10 4 32 Q10 54 32 32 Q54 10 60 32 Q54 54 32 32" fill="none" stroke="#B0A0FF" stroke-width="1"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#B0A0FF">Conflict · Displacement</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <path d="M11 11 Q18 4 11 1 Q4 4 11 11 Q18 18 11 21 Q4 18 11 11" fill="none" stroke="#B0A0FF" stroke-width="1.2"/>
+            <circle cx="11" cy="11" r="1.5" fill="#B0A0FF"/>
+          </svg>
+        </div>
+        <div class="card-name">Turbulence</div>
+        <div class="card-id">WI·11</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#B0A0FF">Trigger</div>
+          <div class="rule-text">You take a Conflict action and choose to displace rather than destroy.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(176,160,255,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#B0A0FF">Effect</div>
+          <div class="rule-text">The target moves 2 hexes away from yours (owner chooses direction if multiple empty hexes qualify).</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(176,160,255,0.18)">
+        <div class="card-tag" style="color:#B0A0FF">Wind Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(176,160,255,0.5); background:#B0A0FF"></div>
+          <div class="pip" style="border-color:rgba(176,160,255,0.5); background:#B0A0FF"></div>
+          <div class="pip" style="border-color:rgba(176,160,255,0.5); background:#B0A0FF"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider-ornament">— ✦ —</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- ASH — Dying Ember                                                 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<section class="school-section">
+  <div class="school-header">
+    <svg class="school-sigil-lg" width="96" height="96" viewBox="0 0 64 64" style="color:#FF7040">
+      <polygon points="32,4 60,32 32,60 4,32" fill="rgba(255,112,64,0.08)" stroke="#FF7040" stroke-width="1.5"/>
+      <polygon points="32,16 48,32 32,48 16,32" fill="none" stroke="#FF7040" stroke-width="0.8" opacity="0.5"/>
+      <circle cx="32" cy="32" r="5" fill="none" stroke="#FF7040" stroke-width="1.5"/>
+      <polygon points="32,4 60,32 32,60 4,32" fill="none" stroke="#C9941A" stroke-width="0.5" opacity="0.3"/>
+    </svg>
+    <div class="school-title-block">
+      <div class="school-name" style="color:#FF7040">ASH</div>
+      <div class="school-tagline">Dying Ember · Void · Recycling</div>
+    </div>
+  </div>
+  <div class="school-subtitle">Founding Doctrine Deck — 5 Cards · Expansion School</div>
+
+  <div class="cards-row">
+
+    <!-- A3 · Smoldering Core -->
+    <div class="founding-card" style="border-color:rgba(255,112,64,0.55); background:linear-gradient(180deg, rgba(255,112,64,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#8B2A10,#FF7040); color:#FF7040"></div>
+      <div class="founding-badge" style="background:rgba(255,112,64,0.10); color:#FF7040; border-bottom:1px solid rgba(255,112,64,0.25)">Ash · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <polygon points="32,4 60,32 32,60 4,32" fill="none" stroke="#FF7040" stroke-width="1.2"/>
+        <circle cx="32" cy="32" r="5" fill="none" stroke="#FF7040" stroke-width="1.2"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#FF7040">Reaction · Rebirth</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,11 11,21 1,11" fill="none" stroke="#FF7040" stroke-width="1.2"/>
+            <circle cx="11" cy="11" r="2" fill="none" stroke="#FF7040" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="card-name">Smoldering Core</div>
+        <div class="card-id">AS·03</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF7040">Trigger</div>
+          <div class="rule-text">One of your components is destroyed.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(255,112,64,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF7040">Effect</div>
+          <div class="rule-text">Place it on this card. At the start of your next turn, redeploy it on any hex adjacent to a Void Rift for free.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(255,112,64,0.18)">
+        <div class="card-tag" style="color:#FF7040">Ash Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(255,112,64,0.5); background:#FF7040"></div>
+          <div class="pip" style="border-color:rgba(255,112,64,0.5); background:#FF7040"></div>
+          <div class="pip" style="border-color:rgba(255,112,64,0.5); background:#FF7040"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A6 · Cinders of War -->
+    <div class="founding-card" style="border-color:rgba(255,112,64,0.55); background:linear-gradient(180deg, rgba(255,112,64,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#8B2A10,#FF7040); color:#FF7040"></div>
+      <div class="founding-badge" style="background:rgba(255,112,64,0.10); color:#FF7040; border-bottom:1px solid rgba(255,112,64,0.25)">Ash · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <polygon points="32,4 60,32 32,60 4,32" fill="none" stroke="#FF7040" stroke-width="1.2"/>
+        <circle cx="32" cy="32" r="5" fill="none" stroke="#FF7040" stroke-width="1.2"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#FF7040">Reaction · Decay</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,11 11,21 1,11" fill="none" stroke="#FF7040" stroke-width="1.2"/>
+            <circle cx="11" cy="11" r="2" fill="none" stroke="#FF7040" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="card-name">Cinders of War</div>
+        <div class="card-id">AS·06</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF7040">Trigger</div>
+          <div class="rule-text">An opponent destroys one of your components via a Conflict action.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(255,112,64,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF7040">Effect</div>
+          <div class="rule-text">That opponent's attacking component loses 1 permanent production (mark it with a decay token).</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(255,112,64,0.18)">
+        <div class="card-tag" style="color:#FF7040">Ash Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(255,112,64,0.5); background:#FF7040"></div>
+          <div class="pip" style="border-color:rgba(255,112,64,0.5); background:#FF7040"></div>
+          <div class="pip" style="border-color:rgba(255,112,64,0.5); background:#FF7040"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A12 · Ashfall Doctrine -->
+    <div class="founding-card" style="border-color:rgba(255,112,64,0.55); background:linear-gradient(180deg, rgba(255,112,64,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#8B2A10,#FF7040); color:#FF7040"></div>
+      <div class="founding-badge" style="background:rgba(255,112,64,0.10); color:#FF7040; border-bottom:1px solid rgba(255,112,64,0.25)">Ash · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <polygon points="32,4 60,32 32,60 4,32" fill="none" stroke="#FF7040" stroke-width="1.2"/>
+        <circle cx="32" cy="32" r="5" fill="none" stroke="#FF7040" stroke-width="1.2"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#FF7040">Reaction · Void-Gain</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,11 11,21 1,11" fill="none" stroke="#FF7040" stroke-width="1.2"/>
+            <circle cx="11" cy="11" r="2" fill="none" stroke="#FF7040" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="card-name">Ashfall Doctrine</div>
+        <div class="card-id">AS·12</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF7040">Trigger</div>
+          <div class="rule-text">Any player's Doctrine is suspended by any effect (Edict, Veil Event, or other).</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(255,112,64,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF7040">Effect</div>
+          <div class="rule-text">Gain 2 Void immediately.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(255,112,64,0.18)">
+        <div class="card-tag" style="color:#FF7040">Ash Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(255,112,64,0.5); background:#FF7040"></div>
+          <div class="pip" style="border-color:rgba(255,112,64,0.5); background:#FF7040"></div>
+          <div class="pip" style="border-color:rgba(255,112,64,0.5); background:#FF7040"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A1 · From the Ashes -->
+    <div class="founding-card" style="border-color:rgba(255,112,64,0.55); background:linear-gradient(180deg, rgba(255,112,64,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#8B2A10,#FF7040); color:#FF7040"></div>
+      <div class="founding-badge" style="background:rgba(255,112,64,0.10); color:#FF7040; border-bottom:1px solid rgba(255,112,64,0.25)">Ash · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <polygon points="32,4 60,32 32,60 4,32" fill="none" stroke="#FF7040" stroke-width="1.2"/>
+        <circle cx="32" cy="32" r="5" fill="none" stroke="#FF7040" stroke-width="1.2"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#FF7040">Reaction · Board-Wide</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,11 11,21 1,11" fill="none" stroke="#FF7040" stroke-width="1.2"/>
+            <circle cx="11" cy="11" r="2" fill="none" stroke="#FF7040" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="card-name">From the Ashes</div>
+        <div class="card-id">AS·01</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF7040">Trigger</div>
+          <div class="rule-text">Any component anywhere on the board is destroyed.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(255,112,64,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF7040">Effect</div>
+          <div class="rule-text">Gain 1 Void immediately.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(255,112,64,0.18)">
+        <div class="card-tag" style="color:#FF7040">Ash Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(255,112,64,0.5); background:#FF7040"></div>
+          <div class="pip" style="border-color:rgba(255,112,64,0.5); background:#FF7040"></div>
+          <div class="pip" style="border-color:rgba(255,112,64,0.5); background:#FF7040"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A2 · The Salvage -->
+    <div class="founding-card" style="border-color:rgba(255,112,64,0.55); background:linear-gradient(180deg, rgba(255,112,64,0.03), var(--surface) 30%)">
+      <div class="card-accent" style="background:linear-gradient(90deg,#8B2A10,#FF7040); color:#FF7040"></div>
+      <div class="founding-badge" style="background:rgba(255,112,64,0.10); color:#FF7040; border-bottom:1px solid rgba(255,112,64,0.25)">Ash · Founding Doctrine</div>
+      <svg class="card-watermark" width="120" height="120" viewBox="0 0 64 64">
+        <polygon points="32,4 60,32 32,60 4,32" fill="none" stroke="#FF7040" stroke-width="1.2"/>
+        <circle cx="32" cy="32" r="5" fill="none" stroke="#FF7040" stroke-width="1.2"/>
+      </svg>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type" style="color:#FF7040">Setup · Salvage</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,11 11,21 1,11" fill="none" stroke="#FF7040" stroke-width="1.2"/>
+            <circle cx="11" cy="11" r="2" fill="none" stroke="#FF7040" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="card-name">The Salvage</div>
+        <div class="card-id">AS·02</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF7040">Trigger</div>
+          <div class="rule-text">Once — immediately after Convocation ends.</div>
+        </div>
+        <hr class="rule-divider" style="border-color:rgba(255,112,64,0.18)">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF7040">Effect</div>
+          <div class="rule-text">Look at all cut Doctrine cards and claim 2. You now hold 7 Doctrines, but 2 of your choice may not score VP at game end.</div>
+        </div>
+      </div>
+      <div class="card-footer" style="border-top:1px solid rgba(255,112,64,0.18)">
+        <div class="card-tag" style="color:#FF7040">Ash Only</div>
+        <div class="card-pip-row">
+          <div class="pip" style="border-color:rgba(255,112,64,0.5); background:#FF7040"></div>
+          <div class="pip" style="border-color:rgba(255,112,64,0.5); background:#FF7040"></div>
+          <div class="pip" style="border-color:rgba(255,112,64,0.5)"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider-ornament">— ✦ —</div>
+
+<p class="page-footer">Direction IV · Gilded Void · 30 Founding Doctrines · 6 Schools</p>
+
+</body>
+</html>
