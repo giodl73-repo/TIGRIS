@@ -114,7 +114,7 @@ it shapes which of the 25 Doctrine cards you chase.
 
 | # | Name | Text | L | S | I | B | F | Total |
 |---|---|---|---|---|---|---|---|---|
-| EA1 | **Deep Roots** | Your Doctrines cannot be suspended by Edicts. Score +2 VP per component on matching terrain at game end. | 5 | 5 | 4 | 4 | 5 | **23** |
+| EA1 | **Deep Roots** | Your Doctrines cannot be suspended by Edicts. Score +1 VP per component on matching terrain at game end (max 5 VP). | 5 | 5 | 4 | 4 | 5 | **23** |
 | EA2 | **Ancient Bark** | Opponents pay +1 mana to build on any hex adjacent to your components. | 5 | 4 | 4 | 4 | 4 | **21** |
 | EA3 | **The Overgrowth** | After building a component, immediately claim 1 adjacent empty hex as territory (no component — counts for Deep Territory scoring and blocks opponents). | 4 | 5 | 4 | 4 | 5 | **22** |
 | EA4 | **Root Memory** | When any of your components is removed by any effect, gain 3 VP immediately. | 5 | 4 | 4 | 4 | 5 | **22** |
