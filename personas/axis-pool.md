@@ -280,10 +280,11 @@ Columns: **Earned / Refuted / Contested / Ignored** counts are cumulative across
 | A29 Forgiveness Curve | 0 | 0 | 0 | 0 | **live** | New axis v2.25. Measures snowball-vs-recovery spectrum. Primary advocate: Feld. |
 | A30 Strategy Ergodicity | 0 | 0 | 0 | 0 | **live** | New axis v2.25. Measures width of viable strategy space. Primary advocate: Vaccarino. |
 | A31 Failure Texture | 0 | 0 | 0 | 0 | **live** | New axis v2.25. Measures narrative/dramatic quality of the losing experience. Primary advocate: Stegmaier. |
-| A32 Information Architecture Type | 0 | 0 | 0 | 0 | **live** | New axis v2.25. Measures structural type of hidden information (0=transparent to 10=inverted visibility). Primary advocate: Lacerda/Chvátil. |
+| A32 Information Architecture Type | 1 | 0 | 0 | 0 | **live (FIRST EARN v2.24.84)** | **First earn: ESTUARY #152 (Chvátil; hidden-valuations/obligation type; score 7). Adoption threshold: needs 2nd earn in a different game.** Primary advocate: Lacerda/Chvátil. |
 
 ## Changelog
 
+- **v2.24.84** — 2026-04-23 — **ESTUARY (game #152; TIGRIS original #30; Lacerda own-anchor B1; HOP-027). 14 earned. B1↔B4 OP 5-3 (126th TP; NEW PAIR — C1↔B4). B5↔B1 OP 6-2 (127th TP; NEW PAIR — B5↔B1). A32 FIRST EARN (hidden-valuations/obligation type; score 7; 1st in corpus). B6 +1R formal (additive ≠ multiplicative). Lacerda own-anchor gap closed (98 games since VIADUCT #53). 143rd 0-silent-retire.**
 - **v2.24.81** — 2026-04-21 — **High Society (game #150; MILESTONE #150). Corpus complete at 150 games (69 full-pipeline + 81 fast-track).** C1↔A1 6-2 (123rd TP; 4th C1↔A1 confirmation — Knizia signature pair strongest corpus OP). 142nd 0-silent-retire. **28 axes all adopted (or retired C5 / dormant D3 et al.): Pool state = 27 live/adopted + 1 retired = complete.**
 - **v2.24.66** — 2026-04-21 — **Chess (game #135). A28 Cognitive Load Profile adopted** (2nd earn across 2 different games — Hive#80 + Chess#135; adoption threshold met). A28↔D2 6-2 (108th TP; 2nd A28↔D2). Adoption event #4 this batch.
 - **v2.24.42** — 2026-04-21 — **Space Alert (game #111). A27 Physical Affordance confirmed adopted** (2nd earn across 2 different games — Klask#76 + Space Alert#111). A27 → adopted (threshold met retroactively via 2nd-earn confirmation).
