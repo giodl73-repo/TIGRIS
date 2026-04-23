@@ -133,3 +133,31 @@ or is displaced.
 ---
 
 *CODEX v0.1 — playtester draft. Report: turn length, Veil pacing, Edict feel.*
+
+---
+
+## EXPANSIONS & VARIANT RULES
+
+### Draft Pool Rotation (recommended)
+Before laying out the 7 initial draft cards, remove 5 cards at random from the 25-card
+pool and set them aside unseen. The draft proceeds from the remaining 20 cards.
+Effect: Some games The Final Hour doesn't exist. Some games Iron Vein is cut.
+Players must adapt to what the pool offers, not what they planned to draft.
+
+### Veil Events (recommended)
+Shuffle the 20 Veil Event cards. Place the deck face-down near the Veil track.
+Each time the Veil advances 1 step, the active player flips the top Veil Event card
+and reads it aloud. The effect applies immediately and lasts until the start of the
+next round unless otherwise stated.
+Remove from deck before shuffling: Eternal Night (too swingy for first games).
+
+### 6-School Roster (Wind + Ash)
+Add the Wind and Ash School boards, Founding Doctrine decks, and components.
+For 4-player games: players collectively choose or draft which 4 of 6 Schools play.
+Adds 15 new School combinations (C(6,4) = 15).
+
+### Modular Map Tiles
+Replace the fixed map with the 12-tile modular system.
+Setup: Place the 4 active School tiles in their corners. Shuffle the 6 Variable tiles
+and place them in the remaining positions. Each Variable tile may be rotated freely.
+3-player variant: Remove 1 Variable tile randomly before placement.
