@@ -15,7 +15,7 @@ updated: 2026-04-20
 
 ## Counter
 
-Last assigned ID: HOP-029.
+Last assigned ID: HOP-033.
 
 ## Schema
 
@@ -34,6 +34,46 @@ Last assigned ID: HOP-029.
 ## Entries
 
 <!-- /tigris-ideate appends below this line. -->
+
+### HOP-033 — Prism
+- **One-liner:** A 2–4 player card-drafting game where the shared market (the Prism) physically rotates each round, revealing a new card-face configuration that changes which synergies are live. No single strategy survives across rotations — the Prism prevents dominant-strategy calcification. Players influence rotation speed by spending certain card types, creating a meta-game around when to accelerate or slow the market shift.
+- **Anchor guess:** vaccarino / A30 + A4
+- **Sources:** gap (Vaccarino 2nd own-anchor; 82 games since MATRIX #69); primitives (P-006 deck-building + P-013 simultaneous action); axis pool (A30 Strategy Ergodicity at 0E — new live axis needing first earn; A4 Variance Calibration is Vaccarino's corpus signature)
+- **Tension hypothesis:** Vaccarino defends A30 — the Prism rotation mechanic deliberately prevents any dominant strategy; each rotation changes which card synergies are available, forcing players to adapt rather than optimize toward a solved line. A4 earns via structured variance: Prism rotation speed is calibrated (not random), so players can manage their exposure to market shifts. Primary predicted collision: A30↔A7 OP — strategy ergodicity (A30: no dominant strategy by design) vs. replayability (A7: does Prism rotation generate genuinely different strategic territory across plays, or is it surface variety?). A30 asks "how wide is the viable strategy space in any given game?"; A7 asks "does the game feel different on play 20 vs play 1?" — adjacent but non-identical registers.
+- **Status:** fresh
+- **Created:** 2026-04-23
+- **Updated:** 2026-04-23
+- **Notes:** First designed earn candidate for A30 Strategy Ergodicity (0E, live). Vaccarino's corpus signature — Dominion is A30=10 canonical; Prism should rival it on strategy-space width. New axis A30 needs this earn to establish the corpus baseline.
+
+### HOP-032 — Ruin
+- **One-liner:** A 2–5 player competitive Euro where a "tide tables" mechanism ensures dominant players face escalating pressure while trailing players unlock structured comeback paths. At game end, the scoring phase generates an explicit defeat narrative for each player — the margin and texture of loss is designed to be readable as a story, not just a number deficit. Simultaneous-action round structure scales identically from 2 to 5 players.
+- **Anchor guess:** stegmaier / A31 + D3
+- **Sources:** gap (Stegmaier 2nd own-anchor; 92 games since CHORUS #59); primitives (P-013 simultaneous action + P-014 lock-in); axis pool (A31 Failure Texture at 0E — new live axis; D3 Count-Robustness is Stegmaier's corpus signature)
+- **Tension hypothesis:** Stegmaier defends A31 — the Tide Tables mechanism means losing is architecturally interesting: the moment the tide turned is visible in the record, and the scoring reveals which strategic path led to collapse. A31 asks whether defeat produces a retellable story; Ruin's design makes the loss narrative the explicit output of the scoring phase. D3 earns via simultaneous-action structure (identical rules at 2–5; the tide tables mechanism scales by adjusting the magnitude of catch-up bonuses, not the rules themselves). Primary predicted collision: A31↔B2 OP — failure texture (A31: is the losing experience narrative?) vs. catastrophe pressure (B2: are reversal events mechanically punishing?). Both fire on the tide-turn moment; A31 cares about the story quality of the collapse, B2 cares about the mechanical severity.
+- **Status:** fresh
+- **Created:** 2026-04-23
+- **Updated:** 2026-04-23
+- **Notes:** First designed earn candidate for A31 Failure Texture (0E, live). Stegmaier's CODEX contribution (A31 scored high on Stegmaier's palette). D3 at 104E (strongest in corpus) — Ruin should earn it cleanly.
+
+### HOP-031 — Debt
+- **One-liner:** A 3–4 player Feld-style rondel game where falling behind activates Debt tokens — a visible "disadvantage" currency that also unlocks exclusive rondel positions unavailable to leading players. Three incommensurable scoring tracks (Guilds, Monuments, Influence) reward incompatible investment paths. Debt is both the game's anti-snowball mechanism and its primary catch-up engine: spending debt to access premium positions makes recovery feel earned, not gifted.
+- **Anchor guess:** feld / A29 + C6
+- **Sources:** gap (Feld 2nd own-anchor; 87 games since CAULDRON #64); primitives (P-009 rondel); axis pool (A29 Forgiveness Curve at 0E — new live axis; C6 Point-Salad Incommensurability is Feld's corpus signature)
+- **Tension hypothesis:** Feld defends A29 — the Debt mechanic places DEBT precisely at A29=5 to 7 (neutral-to-forgiving): mistakes are painful (debt tokens are visible shame) but recoverable (debt tokens are also premium-access keys). A29 measures the snowball-vs-recovery spectrum; Debt's design targets the middle intentionally, not as a deficiency. C6 earns via three genuinely incommensurable scoring tracks (Guilds VP = connected district count; Monuments VP = tallest rondel-position stack; Influence VP = cards held at scoring — different optimization languages, non-convertible). Primary predicted collision: A29↔C1 OP — forgiveness curve (A29: can you recover from mistakes?) vs. tension budget (C1: are resources always scarce?). The debt-as-premium-access mechanic means recovery is available but not free — A29 and C1 fire on the same mechanism from different analytical angles (forgiveness vs. cost).
+- **Status:** fresh
+- **Created:** 2026-04-23
+- **Updated:** 2026-04-23
+- **Notes:** First designed earn candidate for A29 Forgiveness Curve (0E, live). Feld's DEBT is a named anti-snowball design — distinct from CAULDRON (B2 catastrophe) and CRUCIBLE (B2 targeted). C6 is Feld's strongest corpus axis; this is the 3rd C6-anchored Feld original after GARNER #23 and CAULDRON #64.
+
+### HOP-030 — Pasture
+- **One-liner:** A 2–4 player transhumance Euro where players move livestock between mountain pastures seasonally, managing a multi-step pastoral conversion chain: Milk → Butter → Aged Cheese → Market Sale. Pastures deplete when overgrazed — scarcity bites structurally across the arc, not just at the feeding phase. The seasonal movement of herds creates a lock-in dynamic: overcommitting to highland pasture in summer forecloses the valley routes needed for winter trade.
+- **Anchor guess:** rosenberg / C3 + B3
+- **Sources:** gap (Rosenberg 2nd own-anchor; 84 games since DELUGE #67); primitives (P-003 farming + P-014 lock-in); mining (Rosenberg's B3 corpus — Le Havre iron→coke→steel→ship depth-4 as structural reference; Hallertau seasonal farming as thematic reference)
+- **Tension hypothesis:** Rosenberg defends C3 — pasture depletion is permanent within a season; overgrazing destroys a hex's productivity until the winter fallow. Scarcity bites when a player's herd is too large for available pasture. B3 earns via the conversion chain depth: Graze → Milk → Process → Age → Sell is a minimum depth-4 chain, with processing buildings as conditional mid-chain nodes (C4 secondary earn). Primary predicted collision: C3↔B1 OP (established pair, 40th TP at DELUGE #67) — scarcity pressure (C3: grazing depletes pasture) vs. system gearing (B1: Graze→Milk→Process→Age→Sell is pipeline architecture). Same pair confirmation would be the 2nd C3↔B1 instance and strengthen that adjacency.
+- **Status:** fresh
+- **Created:** 2026-04-23
+- **Updated:** 2026-04-23
+- **Notes:** C3↔B1 OP is an established pair (first at DELUGE #67). Confirming it here as the 2nd instance would be strong corpus evidence. B3 at 23E — well-earned. C3 at 33E. Both strong axes for Rosenberg territory. Design deliberately echoes Hallertau/Le Havre terrain without repeating either.
 
 ### HOP-029 — Cipher
 - **One-liner:** A 3–5 player information-deduction game with a novel asymmetric information architecture: each player's knowledge structure is different by design, not just by deal. Player A knows all card suits but no values; Player B knows all values but no suits; Player C knows nothing but can observe other players' reactions; etc. The asymmetry is structural — built into the role cards distributed at setup — not cosmetic.

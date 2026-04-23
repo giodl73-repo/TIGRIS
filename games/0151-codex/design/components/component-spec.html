@@ -606,6 +606,132 @@
 
 <div class="divider-ornament">— ✦ —</div>
 
+<!-- ── VEIL TRACK ────────────────────────────────────────────── -->
+<div class="section-label">The Veil Track</div>
+<p class="section-desc">A shared doom clock — 10 steps from full Veil to Unraveling. The Marker advances after every round and accelerates on engine growth events. Its position is public information at all times.</p>
+
+<div class="component-section">
+  <div class="component-header">
+    <div class="component-name">VEIL TRACK</div>
+    <div class="component-meta">1 per game · 280 × 60 mm strip · Spine of the arc</div>
+  </div>
+  <div class="component-role">The Veil Track defines the game's pressure envelope. It starts at 10 and counts to 0; when it reaches 0 the Unraveling begins. Depth accelerates doom — building a 5th component, activating 3+ Forges, or destroying via Conflict each add +1 advance. The track carries Veil Event card slots so flipped effects are legible at all player counts.</div>
+
+  <!-- SVG track diagram -->
+  <div style="overflow-x:auto; padding: 8px 0;">
+  <svg width="840" height="120" viewBox="0 0 840 120" style="display:block; margin:0 auto; max-width:100%;">
+    <defs>
+      <linearGradient id="vg" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%"   stop-color="#C9941A" stop-opacity="0.6"/>
+        <stop offset="60%"  stop-color="#C9941A" stop-opacity="0.2"/>
+        <stop offset="100%" stop-color="#8B1A1A" stop-opacity="0.7"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Track bed -->
+    <rect x="10" y="30" width="820" height="60" rx="8"
+          fill="rgba(30,24,16,0.9)" stroke="rgba(201,148,26,0.35)" stroke-width="1.5"/>
+    <!-- Gradient pulse overlay -->
+    <rect x="10" y="30" width="820" height="60" rx="8"
+          fill="url(#vg)" opacity="0.18"/>
+
+    <!-- Step cells (10 → 0) -->
+    <!-- Each cell is 820/11 ≈ 74.5px wide; we use 74px + adjust -->
+    <!-- positions: step 10 at left, step 0 at right -->
+    <!-- x offset: 10 + (10-step)*74.5 -->
+
+    <!-- Step dividers and labels -->
+    <g font-family="Cinzel, serif" font-weight="700" text-anchor="middle">
+
+      <!-- Step 10 -->
+      <rect x="10" y="30" width="74" height="60" rx="6"
+            fill="rgba(201,148,26,0.08)" stroke="rgba(201,148,26,0.25)" stroke-width="1"/>
+      <text x="47" y="65" font-size="22" fill="#DBA830">10</text>
+      <text x="47" y="82" font-size="7" fill="rgba(201,148,26,0.5)" letter-spacing="1">START</text>
+
+      <!-- Steps 9 through 4 -->
+      <rect x="84" y="30" width="74" height="60" fill="rgba(201,148,26,0.04)" stroke="rgba(201,148,26,0.15)" stroke-width="1"/>
+      <text x="121" y="65" font-size="22" fill="#C0B090">9</text>
+
+      <rect x="158" y="30" width="74" height="60" fill="rgba(201,148,26,0.04)" stroke="rgba(201,148,26,0.15)" stroke-width="1"/>
+      <text x="195" y="65" font-size="22" fill="#C0B090">8</text>
+
+      <rect x="232" y="30" width="74" height="60" fill="rgba(201,148,26,0.06)" stroke="rgba(201,148,26,0.2)" stroke-width="1"/>
+      <text x="269" y="65" font-size="22" fill="#C0B090">7</text>
+      <text x="269" y="82" font-size="7" fill="rgba(201,148,26,0.45)" letter-spacing="1">EVENT</text>
+
+      <rect x="306" y="30" width="74" height="60" fill="rgba(201,148,26,0.04)" stroke="rgba(201,148,26,0.15)" stroke-width="1"/>
+      <text x="343" y="65" font-size="22" fill="#C0B090">6</text>
+
+      <rect x="380" y="30" width="74" height="60" fill="rgba(201,148,26,0.06)" stroke="rgba(201,148,26,0.2)" stroke-width="1"/>
+      <text x="417" y="65" font-size="22" fill="#C0B090">5</text>
+      <text x="417" y="82" font-size="7" fill="rgba(201,148,26,0.45)" letter-spacing="1">EVENT</text>
+
+      <!-- Step 4 — warning zone begins -->
+      <rect x="454" y="30" width="74" height="60" fill="rgba(180,60,10,0.08)" stroke="rgba(180,60,10,0.3)" stroke-width="1"/>
+      <text x="491" y="65" font-size="22" fill="#D08050">4</text>
+
+      <rect x="528" y="30" width="74" height="60" fill="rgba(180,60,10,0.10)" stroke="rgba(180,60,10,0.35)" stroke-width="1"/>
+      <text x="565" y="65" font-size="22" fill="#D08050">3</text>
+      <text x="565" y="82" font-size="7" fill="rgba(200,80,20,0.6)" letter-spacing="1">EVENT</text>
+
+      <rect x="602" y="30" width="74" height="60" fill="rgba(180,60,10,0.14)" stroke="rgba(180,60,10,0.4)" stroke-width="1"/>
+      <text x="639" y="65" font-size="22" fill="#E08040">2</text>
+
+      <rect x="676" y="30" width="74" height="60" fill="rgba(180,60,10,0.18)" stroke="rgba(180,60,10,0.5)" stroke-width="1"/>
+      <text x="713" y="65" font-size="22" fill="#F07030">1</text>
+      <text x="713" y="82" font-size="7" fill="rgba(220,90,20,0.65)" letter-spacing="1">EVENT</text>
+
+      <!-- Step 0 — Unraveling -->
+      <rect x="750" y="30" width="80" height="60" rx="6"
+            fill="rgba(140,20,10,0.35)" stroke="rgba(200,40,20,0.6)" stroke-width="1.5"/>
+      <text x="790" y="62" font-size="22" fill="#FF5020">0</text>
+      <text x="790" y="79" font-size="7" fill="rgba(255,80,32,0.8)" letter-spacing="1">UNRAVEL</text>
+
+    </g>
+
+    <!-- Veil Marker example position (shown at step 7) -->
+    <g transform="translate(269, 30)">
+      <polygon points="0,-14 12,0 0,14 -12,0" fill="#C9941A" stroke="#DBA830" stroke-width="1.5" opacity="0.9"/>
+      <circle cx="0" cy="0" r="2" fill="#13100C"/>
+    </g>
+
+    <!-- Arrow showing direction of travel -->
+    <g transform="translate(10, 14)">
+      <line x1="0" y1="0" x2="790" y2="0" stroke="rgba(201,148,26,0.3)" stroke-width="1" stroke-dasharray="4 4"/>
+      <polygon points="794,0 786,-4 786,4" fill="rgba(201,148,26,0.5)"/>
+      <text x="0" y="-4" font-family="Space Grotesk, sans-serif" font-size="8" fill="rgba(201,148,26,0.5)" letter-spacing="2">ADVANCE →</text>
+    </g>
+
+    <!-- Warning zone bracket -->
+    <rect x="454" y="96" width="376" height="18" rx="3" fill="rgba(180,60,10,0.12)" stroke="rgba(180,60,10,0.25)" stroke-width="1"/>
+    <text x="642" y="109" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="7" font-weight="600" fill="rgba(200,80,30,0.7)" letter-spacing="2">CRITICAL ZONE — STEP 4 AND BELOW</text>
+  </svg>
+  </div>
+
+  <!-- Track rules summary -->
+  <div style="margin-top:18px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+    <div>
+      <div style="font-family:'Cinzel',serif; font-size:9px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">Advance Triggers</div>
+      <ul style="font-family:'Space Grotesk',sans-serif; font-size:11px; color:var(--text-mid); line-height:1.7; list-style:none; padding:0;">
+        <li>+1 after every round (automatic)</li>
+        <li>+1 when any player builds their 5th component</li>
+        <li>+1 when any player activates 3+ Forges in a round</li>
+        <li>+1 when a Conflict action destroys a component</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-family:'Cinzel',serif; font-size:9px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">Veil Events (steps 7, 5, 3, 1)</div>
+      <ul style="font-family:'Space Grotesk',sans-serif; font-size:11px; color:var(--text-mid); line-height:1.7; list-style:none; padding:0;">
+        <li>Flip top card of 20-card Veil Event deck</li>
+        <li>Effect active until start of next round</li>
+        <li>Cards are not reshuffled — order matters</li>
+        <li>Veil's Eye hex slows advance by 1 while controlled</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 <!-- ── PHYSICAL SPEC TABLE ───────────────────────────────────── -->
 <div class="section-label">Physical Specification — Manufacturing Guidance</div>
 <p class="section-desc">Material and dimensional recommendations per component type. Defaults prioritise tactile differentiation — players must distinguish component types by touch alone in a crowded board state.</p>
@@ -670,6 +796,13 @@
         <td>20 × 20 mm diamond</td>
         <td>5 mm</td>
         <td>Gilt-laminated acrylic, single per game. Tall profile ensures visibility — the Veil's position is the game's clock.</td>
+      </tr>
+      <tr>
+        <td>Veil Track</td>
+        <td><span class="spec-mat">Cardboard</span></td>
+        <td>280 × 60 mm strip</td>
+        <td>2 mm</td>
+        <td>10-step track strip (steps 10→0 left to right). Steps 7, 5, 3, 1 carry Veil Event card slots (small recessed frame, 45 × 30 mm). Steps 4–0 printed on a warm-red tint to signal critical zone. Single gilt-foil border. Matte laminate on face; gloss on card-slot recesses to distinguish. Print in two layers: base track offset-printed, Veil Event slot frames spot-UV. Recommended: fold-out board extension or separate strip seated in the main board margin.</td>
       </tr>
     </tbody>
   </table>
