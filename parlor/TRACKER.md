@@ -7,7 +7,7 @@ Sibling to TIGRIS (euro), marathon (D&D), artisan (CERES).
 
 | # | Slug | Title | Anchor | Stage | Notes |
 |---|---|---|---|---|---|
-| 1 | upstage | UPSTAGE | Chvátil/A26 | concept | Scene-stealing party game. 4–8p, 20–30 min. |
+| 1 | upstage | UPSTAGE | Chvátil/A26 | **complete** | Scene-stealing party game. 4–8p, 20–30 min. 6 earned. A26↔A27 OP (131st TP; 3rd instance). DOUBLE mechanic. |
 
 ## Pipeline spec
 
