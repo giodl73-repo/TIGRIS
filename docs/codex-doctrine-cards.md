@@ -161,7 +161,7 @@ Tiebreaker: prefer higher S + I scores (synergy and identity matter most).
 ### Production (5)
 | Card | Text |
 |---|---|
-| **Iron Vein** | **Trigger:** You activate a Forge that is adjacent to one of your Spires. **Effect:** That Forge produces +2 additional Weight this activation. |
+| **Iron Vein** | **Trigger:** You activate a Forge that is adjacent to one of your Sanctums. **Effect:** That Forge produces +2 additional Weight this activation. |
 | **Tidal Mill** | **Trigger:** You activate a Channel that is adjacent to at least one other Channel you own. **Effect:** That Channel produces +1 additional Flow this activation. |
 | **Sanctum Chain** | **Trigger:** You activate a Sanctum that is adjacent to at least one other Sanctum you own. **Effect:** That Sanctum produces +1 additional mana of its type this activation. |
 | **Iron Bloom** | **Trigger:** You finish building a component. **Effect:** Immediately activate that component once for free. |
@@ -183,7 +183,7 @@ Tiebreaker: prefer higher S + I scores (synergy and identity matter most).
 | **Expansion Law** | **Trigger:** Once per round, when you take your first Build action. **Effect:** That Build action ignores the adjacency requirement — place the component on any empty hex. |
 | **Contested Ground** | **Trigger:** You activate a component that is adjacent to at least one opponent component. **Effect:** That component produces +2 additional mana of its type this activation. |
 | **Deep Territory** | **Trigger:** Passive — always active. **Effect:** At game end, score 2 VP for each different territory type you have at least 1 component on. |
-| **Encirclement** | **Trigger:** Your components fully surround an opponent's component (all adjacent hexes occupied by yours). **Effect:** Gain 4 VP immediately. |
+| **Encirclement** | **Trigger:** Your components occupy 3 or more of the 6 hexes adjacent to an opponent's component. **Effect:** Gain 2 VP immediately (3–4 sides), 3 VP (5 sides), or 4 VP (all 6 sides). |
 
 ### Temporal (5)
 | Card | Text |

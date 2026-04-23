@@ -103,7 +103,7 @@ means every turn matters.
 **Color:** Brown/green. **Home terrain:** Sanctum Hills + Forge Grounds.
 **Core identity:** Resilience and territory. Immune to Edicts. Rewards wide territorial presence.
 **Founding Doctrine deck (draw 1):**
-- *Deep Roots:* Doctrines cannot be suspended by Edicts. +2 VP per component on matching terrain.
+- *Deep Roots:* Doctrines cannot be suspended by Edicts. +1 VP per component on matching terrain (max 5 VP).
 - *The Overgrowth:* After building, immediately claim 1 adjacent empty hex as territory.
 - *Root Memory:* When any of your components is removed, gain 3 VP immediately.
 - *The Watershed:* Sanctums also produce Void when activated (dual-output).
@@ -227,7 +227,7 @@ Selected highlights:
 - Diagonal types (Ember↔Weight, Flow↔Void): 3:1
 - Opposite types (Ember↔Void): 4:1
 
-**Storage cap:** 8 mana total per player between rounds.
+**Storage cap:** 12 mana total per player between rounds.
 
 ---
 

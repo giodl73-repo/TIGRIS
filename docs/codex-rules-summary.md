@@ -67,7 +67,7 @@ triggers, it happens.
 
 **4-player recommended: Simultaneous Activation.** All players declare their Activate actions simultaneously (point to the component), then resolve in turn order. This prevents cascade chains (like The Current) from creating extended single-player sequences. Use this rule from your first 4-player game.
 
-**Mana storage:** Each player stores up to 8 mana total across all types between rounds.
+**Mana storage:** Each player stores up to 12 mana total across all types between rounds.
 Excess is lost unless you have **Flow Memory** or **Overflow** Doctrines.
 
 ---
@@ -76,7 +76,7 @@ Excess is lost unless you have **Flow Memory** or **Overflow** Doctrines.
 
 The Veil starts at 10 and ticks down 1 each round. It also advances when:
 - Any player builds their 5th component (+1)
-- Any player activates 3+ Forges in one round (+1)
+- Any player activates 3+ Forges in one round — **once per player per game** (+1)
 - A Conflict action destroys a component (+1)
 
 Control **The Veil's Eye** hex to slow it by 1 each round.
@@ -90,7 +90,14 @@ When the Veil hits 0 → Unraveling begins immediately.
 **Step 1 — Final Activation:** Each player activates all components once, in turn order.
 
 **Step 2 — Edicts:** Starting with the last player, each player plays 1 **Edict**:
-name one of any opponent's Doctrine cards — it is suspended and scores no VP this game.
+name one of any opponent's Doctrine cards — strip all VP tokens banked on that card and
+it scores no further VP this game.
+
+**VP token rule:** Each time a Doctrine generates VP during play, place 1 VP token on
+that card. Edict suspension removes those tokens and blocks future VP. This means Edicts
+matter even against engine-enablers — the mana they generated translated to stored
+activations, and stripping the card strips that value.
+
 *Players with the **Legislative Strike** Doctrine name 2 Doctrines.*
 *Players with the **Earth Founding Doctrine** are immune — their Doctrines cannot be suspended.*
 
@@ -132,11 +139,11 @@ or is displaced.
 | **Flame** | *First to Burn:* Always act first each round. Your first action costs no mana. | Map control, tempo denial |
 | **Tide** | *Ebb and Flow:* Once per round, move one of your components to an adjacent empty hex. | Adaptation, spatial flexibility |
 | **Iron** | *Tempered:* Each component you build gains 1 Iron Token (+1 production permanently). | Slow snowball, engine depth |
-| **Earth** | *Deep Roots:* Your Doctrines cannot be suspended by Edicts. Score +2 VP per component on matching terrain at game end. | Resilience, late-game scoring |
+| **Earth** | *Deep Roots:* Your Doctrines cannot be suspended by Edicts. Score +1 VP per component on matching terrain at game end (max 5 VP). | Resilience, late-game scoring |
 
 ---
 
-*CODEX v0.1 — playtester draft. Report: turn length, Veil pacing, Edict feel.*
+*CODEX v0.3 — post-5-playtest revision. Changes: Deep Roots +1/max5, Iron Vein Forge+Sanctum, cap 12, Encirclement scaled, Edict VP tokens, Veil 3-Forge once/game.*
 
 ---
 
