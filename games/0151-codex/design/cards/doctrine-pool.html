@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CODEX — Doctrine Pool</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:         #13100C;
+    --surface:    #1E1810;
+    --surface2:   #2A2218;
+    --surface3:   #382E20;
+    --border:     rgba(201,148,26,0.18);
+    --border-mid: rgba(201,148,26,0.35);
+    --border-hi:  rgba(201,148,26,0.7);
+
+    --gold:       #C9941A;
+    --gold-soft:  #DBA830;
+    --gold-dim:   rgba(201,148,26,0.5);
+    --gold-glow:  rgba(201,148,26,0.12);
+
+    --text-hi:    #F0E8D8;
+    --text-mid:   #C0B090;
+    --text-lo:    #786040;
+
+    --production: #8FA0B8;
+    --conversion: #9060FF;
+    --spatial:    #50C060;
+    --temporal:   #7060EE;
+    --conflict:   #FF5020;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text-hi);
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    padding: 48px 20px 64px;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ────────────────────────────────────────────────── */
+  .page-meta {
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: var(--text-lo);
+    margin-bottom: 10px;
+  }
+  h1 {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 52px; font-weight: 700;
+    color: var(--text-hi);
+    letter-spacing: 14px;
+    margin-bottom: 6px;
+    line-height: 1;
+    text-shadow: 0 0 40px rgba(201,148,26,0.3);
+  }
+  .subtitle {
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px; font-weight: 400;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 16px;
+  }
+  .divider-ornament {
+    text-align: center;
+    color: var(--gold); font-size: 12px;
+    letter-spacing: 8px; opacity: 0.5;
+    margin: 48px 0;
+  }
+
+  /* ── SECTION HEADERS ───────────────────────────────────────── */
+  .type-section { margin-bottom: 24px; }
+  .type-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .type-title {
+    font-family: 'Cinzel', serif;
+    font-size: 24px; font-weight: 700;
+    letter-spacing: 8px; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .type-sub {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 9px; font-weight: 500;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--text-lo);
+  }
+  .type-rule {
+    width: 140px; height: 1px;
+    margin: 14px auto 0;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+    opacity: 0.4;
+  }
+
+  /* ── CARDS GRID ────────────────────────────────────────────── */
+  .cards-row {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 56px;
+  }
+
+  .doctrine-card {
+    width: 220px;
+    min-height: 296px;
+    background: var(--surface);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow:
+      0 24px 64px rgba(0,0,0,0.7),
+      0 0 0 1px rgba(201,148,26,0.06),
+      inset 0 1px 0 rgba(201,148,26,0.1);
+  }
+  .doctrine-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    pointer-events: none;
+  }
+
+  .card-accent {
+    height: 3px;
+    position: relative;
+  }
+  .card-accent::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+    opacity: 0.4;
+  }
+
+  .card-header {
+    padding: 14px 16px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card-type-row {
+    display: flex; align-items: center;
+    justify-content: space-between; margin-bottom: 8px;
+  }
+  .card-type {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--text-lo);
+  }
+  .card-sigil-sm { opacity: 0.65; }
+  .card-name {
+    font-family: 'Cinzel', serif;
+    font-size: 15px; font-weight: 700;
+    color: var(--text-hi);
+    line-height: 1.25;
+    letter-spacing: 0.03em;
+  }
+
+  .card-body {
+    padding: 14px 16px;
+    flex: 1;
+  }
+  .rule-block { margin-bottom: 10px; }
+  .rule-block:last-child { margin-bottom: 0; }
+  .rule-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .rule-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px; font-weight: 400;
+    line-height: 1.55; color: var(--text-mid);
+  }
+  .rule-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 10px 0;
+  }
+
+  .card-footer {
+    padding: 10px 16px 14px;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center;
+    justify-content: space-between;
+  }
+  .vp-pips { display: flex; gap: 5px; }
+  .pip {
+    width: 9px; height: 9px; border-radius: 50%;
+    border: 1px solid var(--border-mid);
+    background: transparent;
+  }
+  .pip.filled { background: var(--gold); border-color: var(--gold); }
+  .card-tag {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text-lo);
+  }
+
+  /* ── FOOTER ────────────────────────────────────────────────── */
+  .footer-note {
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 5px;
+    color: var(--text-lo);
+    text-transform: uppercase;
+    margin-top: 24px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-meta">Shared Pool · 25 Cards</div>
+<h1>CODEX</h1>
+<p class="subtitle">Doctrine Pool — Gilded Void</p>
+<div class="divider-ornament">— ✦ —</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PRODUCTION                                                   -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="type-section">
+  <div class="type-header" style="color:#8FA0B8">
+    <div class="type-title">Production</div>
+    <div class="type-sub">Raw Output from Components · 5 Cards</div>
+    <div class="type-rule"></div>
+  </div>
+  <div class="cards-row">
+
+    <!-- Iron Vein -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A5A6A,#8FA0B8); color:#8FA0B8"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Production</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,6 21,16 11,21 1,16 1,6" fill="none" stroke="#8FA0B8" stroke-width="1.2"/>
+            <rect x="8" y="8" width="6" height="6" fill="#8FA0B8" transform="rotate(45 11 11)" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="card-name">Iron Vein</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">When</div>
+          <div class="rule-text">You activate a Forge adjacent to one of your Sanctums.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">Then</div>
+          <div class="rule-text">That Forge produces +2 additional Weight this activation.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Tidal Mill -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A5A6A,#8FA0B8); color:#8FA0B8"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Production</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,6 21,16 11,21 1,16 1,6" fill="none" stroke="#8FA0B8" stroke-width="1.2"/>
+            <path d="M5,11 Q8,7 11,11 T17,11" fill="none" stroke="#8FA0B8" stroke-width="1.2" opacity="0.8"/>
+          </svg>
+        </div>
+        <div class="card-name">Tidal Mill</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">When</div>
+          <div class="rule-text">You activate a Channel adjacent to at least one other Channel you own.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">Then</div>
+          <div class="rule-text">That Channel produces +1 additional Flow this activation (banks VP token).</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Sanctum Chain -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A5A6A,#8FA0B8); color:#8FA0B8"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Production</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,6 21,16 11,21 1,16 1,6" fill="none" stroke="#8FA0B8" stroke-width="1.2"/>
+            <circle cx="7" cy="11" r="2" fill="none" stroke="#8FA0B8" stroke-width="1"/>
+            <circle cx="15" cy="11" r="2" fill="none" stroke="#8FA0B8" stroke-width="1"/>
+            <line x1="9" y1="11" x2="13" y2="11" stroke="#8FA0B8" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="card-name">Sanctum Chain</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">When</div>
+          <div class="rule-text">You activate a Sanctum adjacent to at least one other Sanctum you own.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">Then</div>
+          <div class="rule-text">That Sanctum produces +1 additional mana of its type this activation.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Iron Bloom -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A5A6A,#8FA0B8); color:#8FA0B8"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Production</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,6 21,16 11,21 1,16 1,6" fill="none" stroke="#8FA0B8" stroke-width="1.2"/>
+            <circle cx="11" cy="11" r="3" fill="#8FA0B8" opacity="0.6"/>
+            <circle cx="11" cy="11" r="6" fill="none" stroke="#8FA0B8" stroke-width="0.8" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="card-name">Iron Bloom</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">When</div>
+          <div class="rule-text">You finish building a component.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">Then</div>
+          <div class="rule-text">Immediately activate that component once for free.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Living Root -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A5A6A,#8FA0B8); color:#8FA0B8"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Production</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,6 21,16 11,21 1,16 1,6" fill="none" stroke="#8FA0B8" stroke-width="1.2"/>
+            <line x1="11" y1="6" x2="11" y2="16" stroke="#8FA0B8" stroke-width="1"/>
+            <line x1="11" y1="13" x2="7" y2="17" stroke="#8FA0B8" stroke-width="1"/>
+            <line x1="11" y1="13" x2="15" y2="17" stroke="#8FA0B8" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="card-name">Living Root</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">When</div>
+          <div class="rule-text">You activate a Channel on an Earth territory hex.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#8FA0B8">Then</div>
+          <div class="rule-text">That Channel produces +1 Flow and +1 Void in addition to its normal output.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider-ornament">— ✦ —</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- CONVERSION                                                   -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="type-section">
+  <div class="type-header" style="color:#9060FF">
+    <div class="type-title">Conversion</div>
+    <div class="type-sub">Mana Transformation · 5 Cards</div>
+    <div class="type-rule"></div>
+  </div>
+  <div class="cards-row">
+
+    <!-- Transmutation -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A3088,#9060FF); color:#9060FF"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Conversion</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <circle cx="11" cy="11" r="9" fill="none" stroke="#9060FF" stroke-width="1.2"/>
+            <path d="M5,11 L17,11 M11,5 L11,17" stroke="#9060FF" stroke-width="1" opacity="0.6"/>
+            <circle cx="11" cy="11" r="2.5" fill="#9060FF" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="card-name">Transmutation</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#9060FF">When</div>
+          <div class="rule-text">Passive — always active.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#9060FF">Then</div>
+          <div class="rule-text">Your Flow converts to any mana type at 1:1 instead of the default 2:1.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- The Great Work -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A3088,#9060FF); color:#9060FF"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Conversion</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,2 20,8 20,14 11,20 2,14 2,8" fill="none" stroke="#9060FF" stroke-width="1.2"/>
+            <circle cx="11" cy="11" r="4" fill="#9060FF" opacity="0.4"/>
+            <circle cx="11" cy="11" r="2" fill="#9060FF"/>
+          </svg>
+        </div>
+        <div class="card-name">The Great Work</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#9060FF">When</div>
+          <div class="rule-text">You end your turn holding at least 1 of each of the 4 mana types simultaneously.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#9060FF">Then</div>
+          <div class="rule-text">Score 1 VP immediately.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Void Gateway -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A3088,#9060FF); color:#9060FF"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Conversion</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <ellipse cx="11" cy="11" rx="9" ry="5" fill="none" stroke="#9060FF" stroke-width="1.2"/>
+            <ellipse cx="11" cy="11" rx="5" ry="9" fill="none" stroke="#9060FF" stroke-width="1" opacity="0.6"/>
+            <circle cx="11" cy="11" r="1.5" fill="#9060FF"/>
+          </svg>
+        </div>
+        <div class="card-name">Void Gateway</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#9060FF">When</div>
+          <div class="rule-text">You spend 4 Void.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#9060FF">Then</div>
+          <div class="rule-text">Place 1 component on any adjacent empty hex without using a Build action.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Void Alchemy -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A3088,#9060FF); color:#9060FF"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Conversion</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <path d="M7,4 Q4,11 7,18 M15,4 Q18,11 15,18" fill="none" stroke="#9060FF" stroke-width="1.2"/>
+            <circle cx="11" cy="11" r="3" fill="none" stroke="#9060FF" stroke-width="1"/>
+            <circle cx="11" cy="11" r="1" fill="#9060FF"/>
+          </svg>
+        </div>
+        <div class="card-name">Void Alchemy</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#9060FF">When</div>
+          <div class="rule-text">You spend 3 Void.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#9060FF">Then</div>
+          <div class="rule-text">Copy any one opponent's Doctrine effect and apply it as your own for this round.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Stone Memory -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A3088,#9060FF); color:#9060FF"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Conversion</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <rect x="4" y="6" width="14" height="10" fill="none" stroke="#9060FF" stroke-width="1.2"/>
+            <line x1="4" y1="11" x2="18" y2="11" stroke="#9060FF" stroke-width="0.8" opacity="0.6"/>
+            <line x1="11" y1="6" x2="11" y2="16" stroke="#9060FF" stroke-width="0.8" opacity="0.6"/>
+            <circle cx="7.5" cy="8.5" r="1" fill="#9060FF" opacity="0.8"/>
+            <circle cx="14.5" cy="13.5" r="1" fill="#9060FF" opacity="0.8"/>
+          </svg>
+        </div>
+        <div class="card-name">Stone Memory</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#9060FF">When</div>
+          <div class="rule-text">You spend Weight to build a component.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#9060FF">Then</div>
+          <div class="rule-text">Half the Weight spent (rounded down, min 1) converts to Void instead of being lost.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider-ornament">— ✦ —</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SPATIAL                                                      -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="type-section">
+  <div class="type-header" style="color:#50C060">
+    <div class="type-title">Spatial</div>
+    <div class="type-sub">Territory, Adjacency, Map Presence · 5 Cards</div>
+    <div class="type-rule"></div>
+  </div>
+  <div class="cards-row">
+
+    <!-- The Spider's Web -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#285030,#50C060); color:#50C060"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Spatial</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <circle cx="11" cy="11" r="2" fill="#50C060"/>
+            <line x1="11" y1="11" x2="4" y2="4" stroke="#50C060" stroke-width="0.8"/>
+            <line x1="11" y1="11" x2="18" y2="4" stroke="#50C060" stroke-width="0.8"/>
+            <line x1="11" y1="11" x2="4" y2="18" stroke="#50C060" stroke-width="0.8"/>
+            <line x1="11" y1="11" x2="18" y2="18" stroke="#50C060" stroke-width="0.8"/>
+            <line x1="11" y1="11" x2="11" y2="2" stroke="#50C060" stroke-width="0.8"/>
+            <line x1="11" y1="11" x2="11" y2="20" stroke="#50C060" stroke-width="0.8"/>
+            <line x1="11" y1="11" x2="2" y2="11" stroke="#50C060" stroke-width="0.8"/>
+            <line x1="11" y1="11" x2="20" y2="11" stroke="#50C060" stroke-width="0.8"/>
+          </svg>
+        </div>
+        <div class="card-name">The Spider's Web</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">When</div>
+          <div class="rule-text">Passive — always active.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">Then</div>
+          <div class="rule-text">At game end, score 1 VP per component in your single largest connected group.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Expansion Law -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#285030,#50C060); color:#50C060"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Spatial</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <circle cx="11" cy="11" r="2" fill="#50C060"/>
+            <circle cx="11" cy="11" r="5" fill="none" stroke="#50C060" stroke-width="0.8" opacity="0.6"/>
+            <circle cx="11" cy="11" r="8" fill="none" stroke="#50C060" stroke-width="0.8" opacity="0.3"/>
+            <path d="M11,3 L11,1 M11,19 L11,21 M3,11 L1,11 M19,11 L21,11" stroke="#50C060" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="card-name">Expansion Law</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">When</div>
+          <div class="rule-text">Once per round, when you take your first Build action.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">Then</div>
+          <div class="rule-text">That Build ignores adjacency — place the component on any empty hex.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Contested Ground -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#285030,#50C060); color:#50C060"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Spatial</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="8,4 14,4 18,11 14,18 8,18 4,11" fill="none" stroke="#50C060" stroke-width="1.2"/>
+            <line x1="4" y1="11" x2="18" y2="11" stroke="#50C060" stroke-width="1.5"/>
+            <circle cx="7" cy="11" r="1.5" fill="#50C060"/>
+            <circle cx="15" cy="11" r="1.5" fill="#50C060" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="card-name">Contested Ground</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">When</div>
+          <div class="rule-text">You activate a component adjacent to at least one opponent component.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">Then</div>
+          <div class="rule-text">That component produces +2 additional mana of its type this activation.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Deep Territory -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#285030,#50C060); color:#50C060"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Spatial</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,2 20,7 20,15 11,20 2,15 2,7" fill="none" stroke="#50C060" stroke-width="1.2"/>
+            <line x1="6" y1="6" x2="16" y2="6" stroke="#50C060" stroke-width="0.8" opacity="0.5"/>
+            <line x1="5" y1="11" x2="17" y2="11" stroke="#50C060" stroke-width="0.8" opacity="0.5"/>
+            <line x1="6" y1="16" x2="16" y2="16" stroke="#50C060" stroke-width="0.8" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="card-name">Deep Territory</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">When</div>
+          <div class="rule-text">Passive — always active.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">Then</div>
+          <div class="rule-text">At game end, score 2 VP for each different territory type you have at least 1 component on.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Encirclement -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#285030,#50C060); color:#50C060"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Spatial</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <circle cx="11" cy="11" r="3" fill="#50C060" opacity="0.4"/>
+            <circle cx="11" cy="4" r="1.5" fill="#50C060"/>
+            <circle cx="11" cy="18" r="1.5" fill="#50C060"/>
+            <circle cx="4.5" cy="7.5" r="1.5" fill="#50C060"/>
+            <circle cx="17.5" cy="7.5" r="1.5" fill="#50C060"/>
+            <circle cx="4.5" cy="14.5" r="1.5" fill="#50C060"/>
+            <circle cx="17.5" cy="14.5" r="1.5" fill="#50C060"/>
+          </svg>
+        </div>
+        <div class="card-name">Encirclement</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">When</div>
+          <div class="rule-text">Your components occupy 3+ of the 6 hexes adjacent to an opponent's component.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#50C060">Then</div>
+          <div class="rule-text">Gain 2 VP (3–4 sides), 3 VP (5 sides), or 4 VP (all 6 sides) immediately.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider-ornament">— ✦ —</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- TEMPORAL                                                     -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="type-section">
+  <div class="type-header" style="color:#7060EE">
+    <div class="type-title">Temporal</div>
+    <div class="type-sub">Timing, Rounds, Sequence · 5 Cards</div>
+    <div class="type-rule"></div>
+  </div>
+  <div class="cards-row">
+
+    <!-- The Final Hour -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A3AAA,#7060EE); color:#7060EE"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Temporal</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <circle cx="11" cy="11" r="9" fill="none" stroke="#7060EE" stroke-width="1.2"/>
+            <line x1="11" y1="11" x2="11" y2="4" stroke="#7060EE" stroke-width="1.5"/>
+            <line x1="11" y1="11" x2="16" y2="14" stroke="#7060EE" stroke-width="1.2"/>
+            <circle cx="11" cy="11" r="2" fill="#7060EE"/>
+          </svg>
+        </div>
+        <div class="card-name">The Final Hour</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#7060EE">When</div>
+          <div class="rule-text">Round 5 begins.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#7060EE">Then</div>
+          <div class="rule-text">Each time you Activate a component this round, it activates twice instead of once.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Momentum -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A3AAA,#7060EE); color:#7060EE"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Temporal</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <path d="M3,17 L8,12 L12,14 L19,6" fill="none" stroke="#7060EE" stroke-width="1.4"/>
+            <polygon points="19,6 15,5 17,9" fill="#7060EE"/>
+            <circle cx="3" cy="17" r="1.2" fill="#7060EE"/>
+          </svg>
+        </div>
+        <div class="card-name">Momentum</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#7060EE">When</div>
+          <div class="rule-text">You end a round having produced more total mana this round than last round.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#7060EE">Then</div>
+          <div class="rule-text">Gain 2 VP immediately.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Dawn Law -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A3AAA,#7060EE); color:#7060EE"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Temporal</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <path d="M4,15 Q11,6 18,15" fill="none" stroke="#7060EE" stroke-width="1.4"/>
+            <line x1="3" y1="18" x2="19" y2="18" stroke="#7060EE" stroke-width="1"/>
+            <line x1="11" y1="4" x2="11" y2="8" stroke="#7060EE" stroke-width="1"/>
+            <line x1="5" y1="8" x2="7" y2="10" stroke="#7060EE" stroke-width="1"/>
+            <line x1="17" y1="8" x2="15" y2="10" stroke="#7060EE" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="card-name">Dawn Law</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#7060EE">When</div>
+          <div class="rule-text">Once — your first Build action in round 1 only.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#7060EE">Then</div>
+          <div class="rule-text">Place 2 components instead of 1 during that action.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Patient Iron -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A3AAA,#7060EE); color:#7060EE"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Temporal</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <circle cx="11" cy="11" r="9" fill="none" stroke="#7060EE" stroke-width="1.2"/>
+            <path d="M6,6 L16,16 M6,16 L16,6" stroke="#7060EE" stroke-width="0.6" opacity="0.3"/>
+            <line x1="11" y1="11" x2="11" y2="6" stroke="#7060EE" stroke-width="1.5"/>
+            <line x1="11" y1="11" x2="14" y2="13" stroke="#7060EE" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <div class="card-name">Patient Iron</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#7060EE">When</div>
+          <div class="rule-text">You end a round having taken no Conflict action this round.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#7060EE">Then</div>
+          <div class="rule-text">Gain 2 Weight.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Temporal Loop -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#4A3AAA,#7060EE); color:#7060EE"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Temporal</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <path d="M11,3 A8,8 0 1,1 3,11" fill="none" stroke="#7060EE" stroke-width="1.4"/>
+            <polygon points="11,3 8,1 8,5" fill="#7060EE"/>
+            <circle cx="11" cy="11" r="2" fill="#7060EE" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="card-name">Temporal Loop</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#7060EE">When</div>
+          <div class="rule-text">Once per game, at the start of your turn.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#7060EE">Then</div>
+          <div class="rule-text">Repeat every action you took last round, each at half mana cost (rounded up).</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider-ornament">— ✦ —</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- CONFLICT                                                     -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="type-section">
+  <div class="type-header" style="color:#FF5020">
+    <div class="type-title">Conflict</div>
+    <div class="type-sub">Interaction, Interference, Edicts · 5 Cards</div>
+    <div class="type-rule"></div>
+  </div>
+  <div class="cards-row">
+
+    <!-- Counter-Doctrine -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#8B2000,#FF5020); color:#FF5020"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Conflict</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <path d="M4,4 L18,18 M4,18 L18,4" stroke="#FF5020" stroke-width="1.6"/>
+            <circle cx="11" cy="11" r="4" fill="none" stroke="#FF5020" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="card-name">Counter-Doctrine</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">When</div>
+          <div class="rule-text">An opponent's Conflict Doctrine targets you.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">Then</div>
+          <div class="rule-text">That Doctrine also applies to the opponent who activated it.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Legislative Strike -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#8B2000,#FF5020); color:#FF5020"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Conflict</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <rect x="3" y="5" width="16" height="2" fill="#FF5020"/>
+            <rect x="3" y="10" width="16" height="2" fill="#FF5020" opacity="0.7"/>
+            <rect x="3" y="15" width="10" height="2" fill="#FF5020" opacity="0.4"/>
+            <line x1="15" y1="13" x2="19" y2="17" stroke="#FF5020" stroke-width="1.5"/>
+            <line x1="19" y1="13" x2="15" y2="17" stroke="#FF5020" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="card-name">Legislative Strike</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">When</div>
+          <div class="rule-text">Passive — always active.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">Then</div>
+          <div class="rule-text">During the Unraveling, your Edict names 2 opponent Doctrines to suspend instead of 1.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Scorched Earth -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#8B2000,#FF5020); color:#FF5020"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Conflict</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <polygon points="11,1 21,18 1,18" fill="none" stroke="#FF5020" stroke-width="1.2"/>
+            <line x1="11" y1="6" x2="11" y2="14" stroke="#FF5020" stroke-width="1.5"/>
+            <circle cx="11" cy="16" r="1.5" fill="#FF5020"/>
+          </svg>
+        </div>
+        <div class="card-name">Scorched Earth</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">When</div>
+          <div class="rule-text">An opponent builds a component adjacent to one of yours.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">Then</div>
+          <div class="rule-text">That opponent pays 1 additional mana of any type (banks VP token).</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Raiding Party -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#8B2000,#FF5020); color:#FF5020"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Conflict</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <path d="M4,11 L14,11 L11,8 M14,11 L11,14" fill="none" stroke="#FF5020" stroke-width="1.5" stroke-linejoin="round"/>
+            <circle cx="17" cy="11" r="2" fill="none" stroke="#FF5020" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <div class="card-name">Raiding Party</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">When</div>
+          <div class="rule-text">Once per round, when you have a component adjacent to an opponent component.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">Then</div>
+          <div class="rule-text">Steal 1 mana of any type from that opponent.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+    <!-- Tribute Law -->
+    <div class="doctrine-card">
+      <div class="card-accent" style="background:linear-gradient(90deg,#8B2000,#FF5020); color:#FF5020"></div>
+      <div class="card-header">
+        <div class="card-type-row">
+          <div class="card-type">Conflict</div>
+          <svg class="card-sigil-sm" width="22" height="22" viewBox="0 0 22 22">
+            <path d="M5,6 L17,6 L15,16 L7,16 Z" fill="none" stroke="#FF5020" stroke-width="1.2"/>
+            <circle cx="11" cy="11" r="2" fill="#FF5020" opacity="0.7"/>
+            <line x1="11" y1="3" x2="11" y2="6" stroke="#FF5020" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="card-name">Tribute Law</div>
+      </div>
+      <div class="card-body">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">When</div>
+          <div class="rule-text">An opponent builds a component adjacent to one of yours.</div>
+        </div>
+        <hr class="rule-divider">
+        <div class="rule-block">
+          <div class="rule-label" style="color:#FF5020">Then</div>
+          <div class="rule-text">That opponent must give you 1 mana of your choice before the build resolves.</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="vp-pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
+        <div class="card-tag">All Schools</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider-ornament">— ✦ —</div>
+<p class="footer-note">CODEX — 25 Shared Doctrines · Direction IV Gilded Void · Cinzel + Space Grotesk</p>
+
+</body>
+</html>
