@@ -6,6 +6,7 @@ Per-artifact pipeline state. Most recent rows on top.
 
 | Version | Date | Bet | Summary | Proposed by |
 |---|---|---|---|---|
+| **v2.24.84** | 2026-04-23 | parliament | **ESTUARY (game #152; TIGRIS original #30; Lacerda/B1; HOP-027). 14 earned. C1↔B4 OP 5-3 (126th TP; new pair). B5↔B1 OP 6-2 (127th TP; new pair). A32 FIRST EARN (hidden-valuations type). B6 +1R. Lacerda own-anchor closed (98 games). 143rd 0-silent-retire.** | ESTUARY original |
 | **v2.24.81** | 2026-04-21 | parliament | **High Society (game #150; review; Knizia/C1; BGG 2941; weight 1.11). MILESTONE #150. C1↔A1 6-2 (123rd TP; 4th C1↔A1 confirmation). 7 earned / 142nd 0-silent-retire. CORPUS COMPLETE.** | High Society review |
 | **v2.24.80** | 2026-04-21 | fast-track | **Project L (game #149; review; Kramer-Kiesling/A1; BGG 260325; weight 1.47). A1↔C7 5-3 (122nd TP). 8 earned / 141st.** | Project L review |
 | **v2.24.79** | 2026-04-21 | fast-track | **Heat: Pedal to the Metal (game #148; review; Feld/B2; BGG 366013; weight 2.69). B2↔A4 6-2 (121st TP). 9 earned / 140th.** | Heat review |
