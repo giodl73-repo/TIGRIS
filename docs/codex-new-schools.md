@@ -65,11 +65,11 @@ Tiebreaker at 22: W4 (I=4), W8 (I=5), W11 (I=4) — W8 edges on I. Final top 5: 
 
 | # | Name | Text |
 |---|---|---|
-| **W5** | **Slipstream** | Once per round, you may spend 2 Void to move an opponent's component to any adjacent empty hex. |
-| **W1** | **Scattering Law** | Once per round, after an opponent activates a component, you may move that component 1 hex in any direction (to an empty hex). |
-| **W8** | **The Weathervane** | At the start of each round, name 1 action type (Build, Activate, Convert, Conflict, or Advance). Your opponents pay 1 extra mana for the first time they take that action this round. |
-| **W4** | **Interference** | When an opponent activates a Forge or Channel adjacent to one of your components, they produce 1 fewer mana of that activation (minimum 0). |
-| **W11** | **Turbulence** | When you take a Conflict action, you may choose to displace rather than destroy: the target component moves 2 hexes away from yours (owner's choice of direction, if multiple options exist). |
+| **W5** | **Slipstream** | **Trigger:** Once per round, when you spend 2 Void. **Effect:** Move one opponent's component to any adjacent empty hex. |
+| **W1** | **Scattering Law** | **Trigger:** Once per round, after an opponent activates a component. **Effect:** Move that component 1 hex in any direction to an adjacent empty hex. |
+| **W8** | **The Weathervane** | **Trigger:** At the start of each round, you name 1 action type (Build, Activate, Convert, Conflict, or Advance). **Effect:** Each opponent pays 1 extra mana the first time they take that action type this round. |
+| **W4** | **Interference** | **Trigger:** An opponent activates a Forge or Channel adjacent to one of your components. **Effect:** That opponent produces 1 fewer mana from that activation (minimum 0). |
+| **W11** | **Turbulence** | **Trigger:** You take a Conflict action and choose to displace rather than destroy. **Effect:** The target component moves 2 hexes away from yours (target owner chooses direction if multiple empty hexes qualify). |
 
 ### Wind — Notable Combos to Watch
 
@@ -125,11 +125,11 @@ Tiebreaker at 23: A1 (I=4), A6 (I=5), A12 (I=4) — A6 edges on I. Three-way ret
 
 | # | Name | Text |
 |---|---|---|
-| **A3** | **Smoldering Core** | When one of your components is destroyed, place it on this card instead of returning it to stock. At the start of your next turn, redeploy it on any hex adjacent to a Void Rift for free. |
-| **A6** | **Cinders of War** | Whenever an opponent destroys one of your components via Conflict, that opponent's attacking component loses 1 permanent production (mark with a decay token). |
-| **A12** | **Ashfall Doctrine** | Each time any player's Doctrine is suspended (via Edict, Veil Event, or any other effect), you gain 2 Void. |
-| **A1** | **From the Ashes** | When any component is destroyed anywhere on the board, gain 1 Void. |
-| **A2** | **The Salvage** | After Convocation, look at all cut Doctrine cards. Claim 2 of them. You now have 7 Doctrines; 2 may not score VP at game end (your choice). |
+| **A3** | **Smoldering Core** | **Trigger:** One of your components is destroyed. **Effect:** Place it on this card; at the start of your next turn, redeploy it on any hex adjacent to a Void Rift for free. |
+| **A6** | **Cinders of War** | **Trigger:** An opponent destroys one of your components via a Conflict action. **Effect:** That opponent's attacking component loses 1 permanent production (mark it with a decay token). |
+| **A12** | **Ashfall Doctrine** | **Trigger:** Any player's Doctrine is suspended by any effect (Edict, Veil Event, or other). **Effect:** Gain 2 Void immediately. |
+| **A1** | **From the Ashes** | **Trigger:** Any component anywhere on the board is destroyed. **Effect:** Gain 1 Void immediately. |
+| **A2** | **The Salvage** | **Trigger:** Once — immediately after Convocation ends. **Effect:** Look at all cut Doctrine cards and claim 2; you now hold 7 Doctrines, but 2 of your choice may not score VP at game end. |
 
 ### Ash — Notable Combos to Watch
 

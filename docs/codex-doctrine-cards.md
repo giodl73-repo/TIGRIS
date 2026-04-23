@@ -161,47 +161,47 @@ Tiebreaker: prefer higher S + I scores (synergy and identity matter most).
 ### Production (5)
 | Card | Text |
 |---|---|
-| **Iron Vein** | Each Forge adjacent to a Spire produces +2 Weight when activated. |
-| **Tidal Mill** | Each Channel adjacent to another Channel produces +1 Flow. |
-| **Sanctum Chain** | Each Sanctum adjacent to another Sanctum produces +1 of its mana type. |
-| **Iron Bloom** | Immediately after building a component, activate it for free once. |
-| **Living Root** | Channels on Earth territory produce +1 Flow AND +1 Void when activated. |
+| **Iron Vein** | **Trigger:** You activate a Forge that is adjacent to one of your Spires. **Effect:** That Forge produces +2 additional Weight this activation. |
+| **Tidal Mill** | **Trigger:** You activate a Channel that is adjacent to at least one other Channel you own. **Effect:** That Channel produces +1 additional Flow this activation. |
+| **Sanctum Chain** | **Trigger:** You activate a Sanctum that is adjacent to at least one other Sanctum you own. **Effect:** That Sanctum produces +1 additional mana of its type this activation. |
+| **Iron Bloom** | **Trigger:** You finish building a component. **Effect:** Immediately activate that component once for free. |
+| **Living Root** | **Trigger:** You activate a Channel that is on an Earth territory hex. **Effect:** That Channel produces +1 Flow and +1 Void in addition to its normal output this activation. |
 
 ### Conversion (5)
 | Card | Text |
 |---|---|
-| **Transmutation** | Flow converts to any mana type at 1:1 (default: 2:1). |
-| **The Great Work** | While you hold all 4 mana types simultaneously, score 1 VP per round. |
-| **Void Gateway** | Spend 4 Void to build a component without using a build action. |
-| **Void Alchemy** | Spend 3 Void to copy any opponent's Doctrine effect for one round. |
-| **Stone Memory** | Weight you spend on building converts to Void at 2:1 instead of being lost. |
+| **Transmutation** | **Trigger:** Passive — always active. **Effect:** Your Flow converts to any mana type at 1:1 instead of the default 2:1. |
+| **The Great Work** | **Trigger:** You end your turn while holding at least 1 of each of the 4 mana types simultaneously. **Effect:** Score 1 VP immediately. |
+| **Void Gateway** | **Trigger:** You spend 4 Void. **Effect:** Place 1 component on any adjacent empty hex without using a Build action. |
+| **Void Alchemy** | **Trigger:** You spend 3 Void. **Effect:** Copy any one opponent's Doctrine effect and apply it as your own for this round. |
+| **Stone Memory** | **Trigger:** You spend Weight to build a component. **Effect:** Half of the Weight spent (rounded down, minimum 1) converts to Void instead of being lost. |
 
 ### Spatial (5)
 | Card | Text |
 |---|---|
-| **The Spider's Web** | Score 1 VP per component in your largest connected group. |
-| **Expansion Law** | Your first build action each round ignores adjacency restrictions. |
-| **Contested Ground** | Your components adjacent to opponent components produce +2 of their type. |
-| **Deep Territory** | Score 2 VP for each different territory type you have at least 1 component on. |
-| **Encirclement** | If your components fully surround an opponent's component, gain 4 VP immediately. |
+| **The Spider's Web** | **Trigger:** Passive — always active. **Effect:** At game end, score 1 VP per component in your single largest connected group of components. |
+| **Expansion Law** | **Trigger:** Once per round, when you take your first Build action. **Effect:** That Build action ignores the adjacency requirement — place the component on any empty hex. |
+| **Contested Ground** | **Trigger:** You activate a component that is adjacent to at least one opponent component. **Effect:** That component produces +2 additional mana of its type this activation. |
+| **Deep Territory** | **Trigger:** Passive — always active. **Effect:** At game end, score 2 VP for each different territory type you have at least 1 component on. |
+| **Encirclement** | **Trigger:** Your components fully surround an opponent's component (all adjacent hexes occupied by yours). **Effect:** Gain 4 VP immediately. |
 
 ### Temporal (5)
 | Card | Text |
 |---|---|
-| **The Final Hour** | In round 5, all your components activate twice. |
-| **Momentum** | Each round you produce more total mana than the previous round, gain 2 VP. |
-| **Dawn Law** | In round 1, place 2 components on your first build action. |
-| **Patient Iron** | Each round you take no Conflict action, gain 2 Weight. |
-| **Temporal Loop** | Once per game, repeat all actions from your previous round at half mana cost. |
+| **The Final Hour** | **Trigger:** Round 5 begins. **Effect:** Each time you Activate a component this round, it activates twice instead of once. |
+| **Momentum** | **Trigger:** You end a round having produced more total mana this round than you produced last round. **Effect:** Gain 2 VP immediately. |
+| **Dawn Law** | **Trigger:** Once — your first Build action in round 1 only. **Effect:** Place 2 components instead of 1 during that action. |
+| **Patient Iron** | **Trigger:** You end a round having taken no Conflict action this round. **Effect:** Gain 2 Weight. |
+| **Temporal Loop** | **Trigger:** Once per game, at the start of your turn. **Effect:** Repeat every action you took last round, each costing half its normal mana (rounded up). |
 
 ### Conflict (5)
 | Card | Text |
 |---|---|
-| **Counter-Doctrine** | When an opponent's Conflict doctrine targets you, it also applies to them. |
-| **Legislative Strike** | Your Edict in the Unraveling targets 2 Doctrines instead of 1. |
-| **Scorched Earth** | When any opponent builds adjacent to you, they pay 1 extra mana. |
-| **Raiding Party** | Once per round, steal 1 mana from an opponent with an adjacent component. |
-| **Tribute Law** | Each opponent who builds adjacent to you must give you 1 mana of their choice. |
+| **Counter-Doctrine** | **Trigger:** An opponent's Conflict Doctrine targets you. **Effect:** That Doctrine also applies to the opponent who activated it. |
+| **Legislative Strike** | **Trigger:** Passive — always active. **Effect:** During the Unraveling, your Edict names 2 opponent Doctrines to suspend instead of 1. |
+| **Scorched Earth** | **Trigger:** Any opponent builds a component adjacent to one of yours. **Effect:** That opponent pays 1 additional mana of any type to complete the build. |
+| **Raiding Party** | **Trigger:** Once per round, when you have a component adjacent to an opponent component. **Effect:** Steal 1 mana of any type from that opponent. |
+| **Tribute Law** | **Trigger:** An opponent builds a component adjacent to one of yours. **Effect:** That opponent must give you 1 mana of your choice before the build resolves. |
 
 ---
 

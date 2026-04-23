@@ -65,6 +65,8 @@ If the Veil reaches 0, the Unraveling begins immediately (even mid-round).
 Any Doctrine whose conditions are met fires automatically. You don't choose — if it
 triggers, it happens.
 
+**4-player recommended: Simultaneous Activation.** All players declare their Activate actions simultaneously (point to the component), then resolve in turn order. This prevents cascade chains (like The Current) from creating extended single-player sequences. Use this rule from your first 4-player game.
+
 **Mana storage:** Each player stores up to 8 mana total across all types between rounds.
 Excess is lost unless you have **Flow Memory** or **Overflow** Doctrines.
 
@@ -118,6 +120,8 @@ Some Doctrines (Counter-Doctrine, Ancient Law) modify conflict resolution.
 **The Fault Line:** While two players each have a component adjacent to a Fault Line hex,
 neither component produces anything. The standoff lasts until one player removes theirs
 or is displaced.
+
+**Deep Roots interaction:** Earth's Deep Roots Founding Doctrine (Edict immunity) cannot be combined with the Legislative Strike Doctrine card. If Earth draws Deep Roots and drafts Legislative Strike, Legislative Strike is immediately returned to the cut pile and Earth drafts a replacement. Rationale: Edict immunity + double Edict suspension is a dominant strategy that removes tension from the Unraveling phase.
 
 ---
 

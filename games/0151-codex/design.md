@@ -109,6 +109,8 @@ means every turn matters.
 - *The Watershed:* Sanctums also produce Void when activated (dual-output).
 - *Fertile Ground:* Empty hexes adjacent to your components produce 1 Flow passively each round.
 
+**Design constraint:** Deep Roots + Legislative Strike is a banned combination (see Key Rules). If Earth draws Deep Roots and drafts Legislative Strike during Convocation, Legislative Strike is immediately returned to the cut pile and Earth drafts a replacement card.
+
 ---
 
 ## The Two Expansion Schools
