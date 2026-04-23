@@ -138,40 +138,40 @@ it shapes which of the 25 Doctrine cards you chase.
 ## FINAL FOUNDING DOCTRINE DECKS (5 per School)
 
 ### Flame Deck
-| Card | Name | Core identity |
+| Card | Name | Text |
 |---|---|---|
-| FL9 | **Wildfire** | Once per game: place 2 components in 1 build action |
-| FL2 | **Consuming Fire** | Adjacent-to-opponent production bonus (+2 Ember) |
-| FL7 | **Ignition Point** | First Conflict action each round generates Ember |
-| FL10 | **Backdraft** | Being targeted earns Ember + VP (rewards aggression magnet) |
-| FL13 | **The Furnace** | Weight converts to Ember at 1:1 |
+| FL9 | **Wildfire** | **Trigger:** Once per game, when you take a Build action. **Effect:** Place 2 components instead of 1 during that action. |
+| FL2 | **Consuming Fire** | **Trigger:** You activate a component that is adjacent to at least one opponent component. **Effect:** That component produces +2 additional Ember this activation. |
+| FL7 | **Ignition Point** | **Trigger:** The first time each round you take a Conflict action. **Effect:** Gain 2 Ember immediately before the action resolves. |
+| FL10 | **Backdraft** | **Trigger:** An opponent's Conflict action targets one of your components. **Effect:** Gain 1 Ember and 1 VP immediately. |
+| FL13 | **The Furnace** | **Trigger:** Passive — always active. **Effect:** Your Weight converts to Ember at 1:1 instead of the default 2:1. |
 
 ### Tide Deck
-| Card | Name | Core identity |
+| Card | Name | Text |
 |---|---|---|
-| TD3 | **The Current** | Chain-activate all adjacent Channels |
-| TD2 | **Rising Tide** | Flow converts to any mana at 1:1 |
-| TD6 | **The Undertow** | Move opponent components when they build adjacent |
-| TD7 | **Drift** | Build anywhere — ignore adjacency |
-| TD14 | **Tidal Chart** | Rearrange top 6 draft cards at game start |
+| TD3 | **The Current** | **Trigger:** You activate a Channel. **Effect:** All Channels you own that are adjacent to that Channel also activate for free. |
+| TD2 | **Rising Tide** | **Trigger:** Passive — always active. **Effect:** Your Flow converts to any mana type at 1:1 instead of the default 2:1. |
+| TD6 | **The Undertow** | **Trigger:** An opponent builds a component adjacent to one of yours. **Effect:** Immediately move that opponent's newly placed component 1 hex in any direction to an empty hex. |
+| TD7 | **Drift** | **Trigger:** Passive — always active. **Effect:** Your components do not need to be adjacent to your existing components — you may build on any empty hex on the map. |
+| TD14 | **Tidal Chart** | **Trigger:** Once — at the very start of the game, before Convocation drafting begins. **Effect:** Look at the top 6 cards of the draft deck and rearrange them in any order. |
 
 ### Iron Deck
-| Card | Name | Core identity |
+| Card | Name | Text |
 |---|---|---|
-| IR1 | **Tempered** | Iron Tokens: permanent +1 production per component built |
-| IR6 | **Iron Discipline** | No Conflict = +2 Weight +1 VP per round |
-| IR12 | **The Alloy** | Forge adjacent to Sanctum: Sanctum activates free |
-| IR15 | **Patience Protocol** | No build action = +3 Weight |
-| IR9 | **Smelting** | Void converts to Weight at 1:1 |
+| IR1 | **Tempered** | **Trigger:** You finish building a component. **Effect:** Place 1 Iron Token on it permanently; that component produces +1 of its type whenever activated. |
+| IR6 | **Iron Discipline** | **Trigger:** You end a round having taken no Conflict action this round. **Effect:** Gain 2 Weight and 1 VP immediately. |
+| IR12 | **The Alloy** | **Trigger:** You activate a Forge that is adjacent to one of your Sanctums. **Effect:** That adjacent Sanctum also activates for free this activation. |
+| IR15 | **Patience Protocol** | **Trigger:** You end a round having taken no Build action this round. **Effect:** Gain 3 Weight immediately. |
+| IR9 | **Smelting** | **Trigger:** Passive — always active. **Effect:** Your Void converts to Weight at 1:1 instead of the default 3:1. |
 
 ### Earth Deck
-| Card | Name | Core identity |
+| Card | Name | Text |
 |---|---|---|
-| EA1 | **Deep Roots** | Edict-immune; +2 VP/component on matching terrain |
-| EA3 | **The Overgrowth** | After building: claim 1 adjacent hex as territory |
-| EA4 | **Root Memory** | When a component is removed: gain 3 VP immediately |
-| EA9 | **The Watershed** | Sanctums also produce Void (dual-output) |
-| EA14 | **Fertile Ground** | Adjacent empty hexes produce 1 Flow passively |
+| EA1 | **Deep Roots** | **Trigger:** Passive — always active. **Effect:** Your Doctrines cannot be suspended by Edicts; additionally, at game end score +2 VP per component you have on terrain matching your home territory type. |
+| EA3 | **The Overgrowth** | **Trigger:** You finish building a component. **Effect:** Immediately claim 1 adjacent empty hex as your territory (place a marker; no component — blocks opponents and counts for territory scoring). |
+| EA4 | **Root Memory** | **Trigger:** Any of your components is removed from the map by any effect. **Effect:** Gain 3 VP immediately. |
+| EA9 | **The Watershed** | **Trigger:** Passive — always active. **Effect:** Your Sanctums also produce 1 Void when activated, in addition to their normal Flow output. |
+| EA14 | **Fertile Ground** | **Trigger:** Passive — always active. **Effect:** Each empty hex adjacent to one of your components produces 1 Flow for you at the end of each round, without requiring a component or activation. |
 
 ---
 
