@@ -99,7 +99,7 @@ matter even against engine-enablers — the mana they generated translated to st
 activations, and stripping the card strips that value.
 
 *Players with the **Legislative Strike** Doctrine name 2 Doctrines.*
-*Players with the **Earth Founding Doctrine** are partially immune — their Doctrines cannot be **suspended** (they remain active and score future VP), but VP tokens already banked on their cards **can** be stripped by Edicts. Earth protects its engine; it does not protect its scored VP.*
+*Players with the **Earth Founding Doctrine** have **resilient** Doctrines — they can be suspended by Edicts, but they score **50% of their VP value (rounded down)** even when suspended. Earth's engine weakens under attack; it never collapses completely.*
 
 **Step 3 — Scoring:**
 - Score VP from Doctrine cards that generate end-game VP
@@ -128,7 +128,7 @@ Some Doctrines (Counter-Doctrine, Ancient Law) modify conflict resolution.
 neither component produces anything. The standoff lasts until one player removes theirs
 or is displaced.
 
-**Deep Roots interaction:** Earth's Deep Roots Founding Doctrine (Edict immunity) cannot be combined with the Legislative Strike Doctrine card. If Earth draws Deep Roots and drafts Legislative Strike, Legislative Strike is immediately returned to the cut pile and Earth drafts a replacement. Rationale: Edict immunity + double Edict suspension is a dominant strategy that removes tension from the Unraveling phase.
+**Deep Roots + Legislative Strike:** With v0.5's 50% rule, this combination is no longer banned. Earth with LS suspends 2 Doctrines but its own Doctrines score 50% when suspended — the asymmetry is reduced enough that the combination is acceptable.
 
 ---
 
@@ -139,7 +139,7 @@ or is displaced.
 | **Flame** | *First to Burn:* Always act first each round. Your first action costs no mana. | Map control, tempo denial |
 | **Tide** | *Ebb and Flow:* Once per round, move one of your components to an adjacent empty hex. | Adaptation, spatial flexibility |
 | **Iron** | *Tempered:* Each component you build gains 1 Iron Token (+1 production permanently). | Slow snowball, engine depth |
-| **Earth** | *Deep Roots:* Your Doctrines cannot be suspended by Edicts (they stay active). However, VP tokens banked on your cards can still be stripped. Score +1 VP per component on matching terrain at game end (max 5 VP). | Resilience, late-game scoring |
+| **Earth** | *Deep Roots:* Your Doctrines may be suspended by Edicts, but score 50% VP (rounded down) even when suspended. Score +1 VP per component on matching terrain at game end (max 5 VP). | Resilience, late-game scoring |
 
 ---
 
