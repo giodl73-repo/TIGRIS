@@ -15,7 +15,7 @@ updated: 2026-04-20
 
 ## Counter
 
-Last assigned ID: HOP-033.
+Last assigned ID: HOP-034.
 
 ## Schema
 
@@ -34,6 +34,16 @@ Last assigned ID: HOP-033.
 ## Entries
 
 <!-- /tigris-ideate appends below this line. -->
+
+### HOP-034 — Tells
+- **One-liner:** A 3–6 player social/physical game where players navigate a shared space of elevated positions while simultaneously executing a hidden personal protocol — a private sequence of physical gestures, positions, and pauses only they know. Other players score by correctly reading which protocol you're running; you score by completing yours without being read. The visible race to positions is a designed misdirection: the real game is in the physical layer everyone is pretending not to watch.
+- **Anchor guess:** chvatil / A26
+- **Sources:** gap (docs/tiger-beat-gaps.md Gap 1 E+R — 0 corpus games at E≥7 + R≥7; nearest Codenames at dist=3.5); primitives (P-013 simultaneous action + P-015 hidden role); session research (Twister: position-as-zero-sum-resource; Johnny Whoops: misdirection-as-designed-mechanic; Wavelength: social-calibration-compounds; Hanabi: information-inversion)
+- **Tension hypothesis:** Chvátil defends A26 — the game's social contract is the implicit norm that everyone pretends the visible game (position racing) is the real game, while actually playing the hidden physical protocol layer. Break that norm (point at someone's elbow pattern, say "I see your protocol") and the contract collapses. A26 at maximum: the norm cannot be rule-encoded; it IS the atmosphere that makes misdirection durable rather than just a puzzle. A27 earns via physical protocol being non-digitizable — you need bodies executing real gestures in real space. Primary predicted collision: A26↔A27 OP — social contract dependency (A26: the implicit norm that makes misdirection work) vs. physical affordance (A27: the body is the scoring surface). Secondary collision candidate: B5↔A26 — architectural novelty (B5: the visible game as a designed red herring has no corpus sibling) vs. social contract (A26: the norm that sustains it). Gap 1 E+R targeted directly: A26 drives E; A7 + role-rotation drives R.
+- **Status:** fresh
+- **Created:** 2026-04-23
+- **Updated:** 2026-04-23
+- **Notes:** First TIGRIS original explicitly targeting Gap 1 (E+R) from the 150-game PCA corpus. Design gap nearest game is Codenames (dist=3.5) — TELLS should land at E=8, R=8 vs Codenames at E=5.7, R=5.0. Key design challenge: weight must stay ≤2.0 (physical + social games cannot sustain high cognitive overhead simultaneously). Mysterium adjacency noted: Mysterium earns A26 via implicit communication norms (dreamgiver cannot speak); TELLS extends this by making misdirection the core mechanic rather than a constraint.
 
 ### HOP-033 — Prism
 - **One-liner:** A 2–4 player card-drafting game where the shared market (the Prism) physically rotates each round, revealing a new card-face configuration that changes which synergies are live. No single strategy survives across rotations — the Prism prevents dominant-strategy calcification. Players influence rotation speed by spending certain card types, creating a meta-game around when to accelerate or slow the market shift.
