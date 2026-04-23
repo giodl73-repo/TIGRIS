@@ -1,0 +1,126 @@
+{
+  "clusters": {
+    "1": [
+      "Crokinole",
+      "Love Letter",
+      "Skull",
+      "Hanabi",
+      "Cant Stop",
+      "Hive"
+    ],
+    "0": [
+      "Codenames"
+    ],
+    "5": [
+      "Azul",
+      "Dominion",
+      "7 Wonders",
+      "Concordia"
+    ],
+    "3": [
+      "Catan",
+      "Secret Hitler",
+      "HAUL"
+    ],
+    "2": [
+      "Pandemic",
+      "Chess"
+    ],
+    "4": [
+      "Agricola",
+      "Brass Birmingham",
+      "Spirit Island",
+      "CRUCIBLE"
+    ]
+  },
+  "centers": [
+    [
+      2.8,
+      5.9,
+      1.9,
+      8.4,
+      7.4
+    ],
+    [
+      5.03,
+      6.02,
+      2.67,
+      8.35,
+      5.88
+    ],
+    [
+      7.05,
+      6.75,
+      4.55,
+      7.3,
+      6.65
+    ],
+    [
+      5.87,
+      6.13,
+      4.9,
+      6.27,
+      5.7
+    ],
+    [
+      7.0,
+      5.53,
+      7.25,
+      4.97,
+      7.42
+    ],
+    [
+      3.67,
+      4.17,
+      5.3,
+      7.28,
+      6.8
+    ]
+  ],
+  "gaps": [
+    {
+      "name": "High-Tension Elegant Light",
+      "profile": {
+        "T": 8,
+        "I": 4,
+        "G": 2,
+        "E": 9,
+        "R": 5
+      },
+      "desc": "A punishing push-your-luck or time-pressure game with minimal rules. B2-driven but learnable in 5 min. No clear example in corpus."
+    },
+    {
+      "name": "High-Interaction Low-Architecture",
+      "profile": {
+        "T": 3,
+        "I": 9,
+        "G": 2,
+        "E": 7,
+        "R": 7
+      },
+      "desc": "Maximum direct player contest without production depth. Like Crokinole but with more strategic range \u2014 a competitive dexterity game with genuine strategic ergodicity."
+    },
+    {
+      "name": "Deep-Architecture Highly-Forgiving",
+      "profile": {
+        "T": 2,
+        "I": 5,
+        "G": 8,
+        "E": 6,
+        "R": 8
+      },
+      "desc": "Le Havre depth but highly forgiving \u2014 a deep Euro where mistakes are recoverable. Currently all high-G games are also high-T (punishing). This region is empty."
+    },
+    {
+      "name": "High-Elegance High-Range Abstract",
+      "profile": {
+        "T": 3,
+        "I": 6,
+        "G": 2,
+        "E": 9,
+        "R": 9
+      },
+      "desc": "Maximally elegant AND maximally ergodic. Dominion approaches this but has low I. Codenames approaches this but has low R. The combination is unexplored."
+    }
+  ]
+}
