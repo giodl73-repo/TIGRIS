@@ -162,9 +162,22 @@ Upstaging:
 5. Their Role card governs their performance — they may keep the same direction or
    play their own role's energy into the scene
 
-**Multiple upstages:** If two players' triggers fire simultaneously, the first to
-physically arrive at the Stage Holder takes the scene. The second player may sit or
-attempt to upstage the new Stage Holder on their next trigger.
+**The DOUBLE — Dual Upstage:** If two players' triggers fire within 3 seconds of
+each other, both may cross simultaneously and call *"DOUBLE"* aloud as they go.
+When both arrive at the Stage Holder, they co-perform the scene together as a duo.
+The DOUBLE requires both players to commit — if one crosses and the other hesitates,
+the first arrival takes the scene solo (standard upstage).
+
+DOUBLE scoring: if the scene closes with both performers still co-holding the stage,
+each scores 1 VP (2 VP total generated). If one of the duo is upstaged by a third
+player before close, only the final Stage Holder at close scores.
+
+The DOUBLE is the highest-variance play in UPSTAGE — a legendary duo is the most
+common Star token winner, and a failed duo (one performer overwhelms the other,
+or they play against each other instead of together) is the most memorable failure.
+
+**Solo upstage — single trigger:** If only one player's trigger fires, standard solo
+upstage rules apply (first-arrival, no DOUBLE declared).
 
 A player may only upstage once per scene (their UPSTAGE card is flipped face-down
 after use). They draw a new card at the start of the next scene.
@@ -352,6 +365,14 @@ trigger who, so the performer's choices carry social weight. A performer who tur
 their back knows what they're risking. This converts UPSTAGE from a surprise mechanic
 into a pressure mechanic: the audience is watching WITH information about what might
 happen next.
+
+**Why the DOUBLE?**
+Solo upstages have one dramatic register: one person takes the stage from another.
+The DOUBLE adds a second register: two people arrive together, and now the scene
+must accommodate both. The social negotiation of how to co-perform — who leads, who
+follows, whether to compete or collaborate — generates a different kind of drama than
+a solo takeover. The DOUBLE also makes the face-up trigger cards more interesting:
+players can see when two triggers are likely to fire at once and anticipate the duo.
 
 **Why 50 Role cards and not 10?**
 The directions on Role cards are the game's content engine. A small deck produces
