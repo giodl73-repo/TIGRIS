@@ -99,7 +99,7 @@ matter even against engine-enablers — the mana they generated translated to st
 activations, and stripping the card strips that value.
 
 *Players with the **Legislative Strike** Doctrine name 2 Doctrines.*
-*Players with the **Earth Founding Doctrine** are immune — their Doctrines cannot be suspended.*
+*Players with the **Earth Founding Doctrine** are partially immune — their Doctrines cannot be **suspended** (they remain active and score future VP), but VP tokens already banked on their cards **can** be stripped by Edicts. Earth protects its engine; it does not protect its scored VP.*
 
 **Step 3 — Scoring:**
 - Score VP from Doctrine cards that generate end-game VP
@@ -139,7 +139,7 @@ or is displaced.
 | **Flame** | *First to Burn:* Always act first each round. Your first action costs no mana. | Map control, tempo denial |
 | **Tide** | *Ebb and Flow:* Once per round, move one of your components to an adjacent empty hex. | Adaptation, spatial flexibility |
 | **Iron** | *Tempered:* Each component you build gains 1 Iron Token (+1 production permanently). | Slow snowball, engine depth |
-| **Earth** | *Deep Roots:* Your Doctrines cannot be suspended by Edicts. Score +1 VP per component on matching terrain at game end (max 5 VP). | Resilience, late-game scoring |
+| **Earth** | *Deep Roots:* Your Doctrines cannot be suspended by Edicts (they stay active). However, VP tokens banked on your cards can still be stripped. Score +1 VP per component on matching terrain at game end (max 5 VP). | Resilience, late-game scoring |
 
 ---
 

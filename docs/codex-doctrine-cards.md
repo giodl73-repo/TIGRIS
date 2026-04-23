@@ -162,7 +162,7 @@ Tiebreaker: prefer higher S + I scores (synergy and identity matter most).
 | Card | Text |
 |---|---|
 | **Iron Vein** | **Trigger:** You activate a Forge that is adjacent to one of your Sanctums. **Effect:** That Forge produces +2 additional Weight this activation. |
-| **Tidal Mill** | **Trigger:** You activate a Channel that is adjacent to at least one other Channel you own. **Effect:** That Channel produces +1 additional Flow this activation. |
+| **Tidal Mill** | **Trigger:** You activate a Channel that is adjacent to at least one other Channel you own. **Effect:** That Channel produces +1 additional Flow this activation. Place 1 VP token on this card (score at game end). |
 | **Sanctum Chain** | **Trigger:** You activate a Sanctum that is adjacent to at least one other Sanctum you own. **Effect:** That Sanctum produces +1 additional mana of its type this activation. |
 | **Iron Bloom** | **Trigger:** You finish building a component. **Effect:** Immediately activate that component once for free. |
 | **Living Root** | **Trigger:** You activate a Channel that is on an Earth territory hex. **Effect:** That Channel produces +1 Flow and +1 Void in addition to its normal output this activation. |
@@ -199,7 +199,7 @@ Tiebreaker: prefer higher S + I scores (synergy and identity matter most).
 |---|---|
 | **Counter-Doctrine** | **Trigger:** An opponent's Conflict Doctrine targets you. **Effect:** That Doctrine also applies to the opponent who activated it. |
 | **Legislative Strike** | **Trigger:** Passive — always active. **Effect:** During the Unraveling, your Edict names 2 opponent Doctrines to suspend instead of 1. |
-| **Scorched Earth** | **Trigger:** Any opponent builds a component adjacent to one of yours. **Effect:** That opponent pays 1 additional mana of any type to complete the build. |
+| **Scorched Earth** | **Trigger:** Any opponent builds a component adjacent to one of yours. **Effect:** That opponent pays 1 additional mana of any type to complete the build. Place 1 VP token on this card (score at game end). |
 | **Raiding Party** | **Trigger:** Once per round, when you have a component adjacent to an opponent component. **Effect:** Steal 1 mana of any type from that opponent. |
 | **Tribute Law** | **Trigger:** An opponent builds a component adjacent to one of yours. **Effect:** That opponent must give you 1 mana of your choice before the build resolves. |
 
