@@ -1,0 +1,31 @@
+\section{Methods}
+\label{sec:method}
+
+\subsection{Data}
+
+We use the TIGRIS corpus of 150 games scored on 32 axes~\cite{dellaLibera2026corpus}.
+All axes are normalized to a 1--10 scale before analysis. Games with missing values
+on more than 4 axes ($< 2\%$ of the corpus) are excluded from PCA analysis.
+
+\subsection{Three Normalization Approaches}
+
+We compare three normalization methods applied before PCA:
+
+\textbf{Raw (N1):} No normalization beyond per-axis z-scoring across all games.
+This is the standard approach and produces the dominant general quality PC.
+
+\textbf{Weight-normalized (N2):} Each axis score is divided by BGG weight before
+z-scoring, removing the portion of variance explained by overall game complexity.
+This partially suppresses the general factor.
+
+\textbf{Within-game z-score (N3):} For each game, we compute the mean and standard
+deviation of that game's scores across all 32 axes and z-score each axis score
+relative to that game's own distribution. This removes the game-level quality signal
+entirely, leaving only the pattern of relative axis emphasis.
+
+\subsection{PCA and Scree Analysis}
+
+PCA is applied to each normalized dataset using singular value decomposition.
+We report: scree plots showing variance explained per component, component loadings
+for the top 5 PCs, and the top 3 axis correlates of each PC under N3.
+Component labels are assigned post-hoc based on the highest-loading axes.

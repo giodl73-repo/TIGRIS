@@ -1,0 +1,30 @@
+\section{Introduction}
+\label{sec:intro}
+
+Empirical study of board game design has been hampered by the absence of a large-scale,
+consistently-scored corpus: existing evaluations are either narrow in scope, inconsistent
+in methodology, or rely on community aggregate ratings that conflate popularity with quality.
+This paper addresses that gap by introducing the TIGRIS corpus --- 150 games scored on 32
+axes by independent evaluators under a structured protocol --- and establishing the
+reliability infrastructure required to use the corpus as an empirical foundation for
+subsequent analysis.
+
+\subsection{Motivation}
+
+Board games represent a rich but under-studied domain for design research: they are
+discrete, rule-governed artifacts with well-defined mechanical components, yet they produce
+emergent social and strategic experiences that resist simple decomposition.
+Prior quantitative work has largely relied on BoardGameGeek's community-assigned weight
+scores~\cite{woods2012eurogames}, which capture perceived complexity but not design
+character, or on single-axis expert rankings that cannot support multivariate analysis.
+The TIGRIS corpus is designed to fill this gap: 32 axes covering tension, interaction
+architecture, elegance, range, and accessibility dimensions, scored at a granularity
+sufficient to distinguish games within the same weight band.
+
+\subsection{Contributions}
+
+This paper makes three contributions: (1) the TIGRIS corpus itself, released as an open
+dataset; (2) a two-mode scoring protocol distinguishing fast-track estimates from
+full-pipeline scores, with explicit reliability thresholds for each mode; and (3)
+per-axis Cronbach's $\alpha$ reliability reports establishing the psychometric foundation
+for downstream analysis.

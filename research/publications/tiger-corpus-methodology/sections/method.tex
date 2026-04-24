@@ -1,0 +1,68 @@
+\section{Corpus Construction and Validation}
+\label{sec:method}
+
+\subsection{Game Selection}
+
+The 150-game corpus covers BGG weight 1.07--4.70, publication years 1876--2024,
+and player counts 1--8. The corpus is stratified across mechanism types:
+party/social games (weight $< 2.0$, $n=42$), medium-weight Euros (2.0--3.0, $n=48$),
+heavy Euros ($> 3.0$, $n=35$), abstract strategy ($n=8$), originals designed within
+the TIGRIS factory ($n=17$).
+
+\subsection{Axis Definitions and Scoring Rubric}
+
+The 32 axes are organized in four bands (A--D) plus four new axes (A29--A32)
+introduced in this work.
+Each axis is defined with \emph{anchor descriptors} at scores 0, 5, and 10,
+specifying games that exemplify each anchor point.
+For example, A3 (Interaction) anchors: 0 = ``Wingspan base game (parallel tableau optimization)'';
+5 = ``Catan (indirect competition via resource blocking)'';
+10 = ``Crokinole (the game is the physical contest)''.
+
+The four new axes are:
+\begin{itemize}
+  \item \textbf{A29 Forgiveness Curve} (0 = punishing snowball $\to$ 10 = forgiving recovery)
+  \item \textbf{A30 Strategy Ergodicity} (0 = single optimal path/solved $\to$ 10 = many equally-valid strategies)
+  \item \textbf{A31 Failure Texture} (0 = boring loss, just a point deficit $\to$ 10 = dramatic narrative failure)
+  \item \textbf{A32 Information Architecture Type} (0 = fully transparent $\to$ 10 = inverted visibility)
+\end{itemize}
+
+\subsection{Two Scoring Protocols}
+
+\textbf{Full-pipeline (Parliament procedure), 69 games:}
+An adversarial multi-persona review in which 8 evaluator personas draft stakes on axes,
+argue for/against each axis via narrated playthrough argument records, and classify each
+stake as earned/refuted/contested. This produces Parliament-confirmed scores grounded in
+explicit argument records.
+
+\textbf{Fast-track independent assessment, 81 games:}
+A single evaluator assigns honest 0--10 scores to all 32 axes independently,
+without adversarial procedure. Scores are based on the evaluator's direct knowledge
+of the game's rules and mechanisms, cross-referenced against published rules and BGG data.
+The fast-track protocol is designed to avoid the \emph{Parliament drafting bias}
+identified in preliminary analysis: the adversarial procedure inflates scores because
+evaluators draft their preferred axes and then find evidence for them,
+producing a general quality factor that explains 81\% of raw-score variance.
+Fast-track scores reduce this to $\approx$73\% and within-game normalization to 50\%.
+
+\subsection{Inter-Rater Reliability Study Design}
+
+We validate the instrument via a held-out reliability study.
+The 20-game held-out sample was selected to represent the full design space:
+5 light games (weight $<$2.0), 5 medium Euros (2.0--3.0), 5 heavy games ($>$3.0),
+3 originals, and 2 abstract strategy games.
+
+Five rater profiles were recruited to represent distinct expert communities:
+\begin{enumerate}
+  \item \textbf{Marcus} — Euro game designer, 15 years experience, Feld/Rosenberg tradition;
+  \item \textbf{Priya} — Cognitive scientist, studies reasoning and decision-making in games;
+  \item \textbf{Jin} — Accessibility researcher, party game enthusiast;
+  \item \textbf{Elena} — BGG power user, has rated $>$800 games;
+  \item \textbf{Theo} — Competitive abstract strategy player (Chess, Go, Hive).
+\end{enumerate}
+
+Raters scored all 20 games on all 32 axes independently, with no access to each other's
+scores. Each rater received the axis definitions and anchor descriptors but not
+the game-specific scores from the TIGRIS corpus.
+We compute Cronbach's $\alpha$~\citep{cronbach1951coefficient} treating each rater as an
+item and each game as an observation, per axis.

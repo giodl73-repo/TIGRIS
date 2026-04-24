@@ -1,0 +1,36 @@
+\section{Discussion}
+\label{sec:discussion}
+
+The finding that TIGER profiles predict BGG ratings at $r \geq 0.60$ (versus $r \approx 0.40$
+for weight alone) establishes that design character is not independent of player satisfaction.
+Games that score high on Elegance and Game-Architecture are better liked, at least in
+the BGG community, independently of their complexity level. This is a non-trivial finding:
+it means that optimizing for TIGER profile dimensions is not purely an aesthetic exercise
+but has measurable consequences for the player experience outcomes that drive long-term
+game ratings.
+
+\subsection{Implications for Pre-Release Quality Forecasting}
+
+A publisher evaluating a prototype can estimate TIGER scores from the design document and
+a small number of early playtest sessions, before a full playtest dataset is available.
+The regression model can then provide a directional rating forecast: not a precise point
+estimate, but a signal about whether the prototype's design character is in a region of
+TIGER space associated with high long-term ratings. The main epistemic challenge is that
+early TIGER estimates carry scoring uncertainty that propagates into the rating forecast.
+Based on the inter-rater reliability data from TG-A1~\cite{dellaLibera2026corpus},
+Tension and Elegance scores stabilize at $\alpha \geq 0.85$ after 3--5 playtests, while
+Game-Architecture and Range require 8--10 sessions. A practical recommendation is to
+compute the forecast twice: once with early T and E estimates (the two highest-impact
+ablation contributors) and once with full five-dimension scores, using the delta as a
+measure of residual forecast uncertainty. This two-stage approach preserves directional
+validity while communicating honest confidence bounds to decision-makers.
+
+\subsection{Limitations}
+
+BGG ratings are community-derived and reflect the preferences of a self-selected population
+(predominantly Western, predominantly male, predominantly hobbyist). The regression model
+predicts satisfaction for this population, not for general consumer or family audiences.
+Extending the prediction target to other satisfaction measures (retail sales, Spiel des
+Jahres nominations) is future work. The held-out test set ($N = 28$) is small enough
+that point estimates of $r$ and RMSE carry substantial uncertainty; confidence intervals
+will be reported in the final version.

@@ -1,0 +1,108 @@
+\section{TIGER Profiles and Validation}
+\label{sec:results}
+
+\subsection{TIGER Profiles for 20 Canonical Games}
+
+Table~\ref{tab:profiles} reports TIGER profiles (T, I, G, E, R on 0--10 scales)
+for the 20 games used in the validation study. Profiles are computed from
+consensus scores across 5 independent raters on the full TIGRIS corpus
+(see TG-A1 for methodology).
+
+\begin{table}[ht]
+\centering
+\caption{TIGER profiles for 20 canonical games (means of 5-rater consensus scores).
+T=Tension, I=Interaction, G=Architecture, E=Elegance, R=Range.}
+\label{tab:profiles}
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Game} & \textbf{T} & \textbf{I} & \textbf{G} & \textbf{E} & \textbf{R} \\
+\midrule
+Agricola          & 8.2 & 4.3 & 7.6 & 5.0 & 7.3 \\
+Azul              & 4.2 & 5.1 & 4.3 & 8.0 & 6.0 \\
+Brass: Birmingham & 5.6 & 5.8 & 7.8 & 5.0 & 7.7 \\
+Can't Stop        & 6.4 & 3.5 & 2.7 & 8.7 & 5.2 \\
+Catan             & 5.3 & 6.0 & 5.3 & 6.3 & 5.1 \\
+Chess             & 6.7 & 7.5 & 3.6 & 7.8 & 7.6 \\
+Codenames         & 2.8 & 5.9 & 1.9 & 8.4 & 7.4 \\
+Concordia         & 3.0 & 5.0 & 5.7 & 7.4 & 7.6 \\
+Crokinole         & 3.6 & 6.5 & 2.4 & 8.7 & 6.2 \\
+CRUCIBLE          & 6.6 & 5.6 & 6.9 & 5.7 & 7.0 \\
+Dominion          & 3.5 & 2.5 & 6.2 & 7.0 & 7.6 \\
+HAUL              & 5.9 & 5.7 & 6.2 & 6.0 & 6.8 \\
+Hanabi            & 5.8 & 6.5 & 3.1 & 7.3 & 6.0 \\
+Hive              & 5.0 & 7.2 & 3.0 & 7.8 & 7.1 \\
+Love Letter       & 4.5 & 5.7 & 2.8 & 8.7 & 5.1 \\
+Pandemic          & 7.4 & 6.0 & 5.5 & 6.8 & 5.7 \\
+Secret Hitler     & 6.4 & 6.7 & 3.2 & 6.5 & 5.2 \\
+7 Wonders         & 4.0 & 4.1 & 5.0 & 6.7 & 6.0 \\
+Skull             & 4.9 & 6.7 & 2.0 & 8.9 & 5.7 \\
+Spirit Island     & 7.6 & 6.4 & 6.7 & 4.2 & 7.7 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The profiles reveal clear design clusters:
+high-G/high-T games (Agricola, Brass: Birmingham, Spirit Island),
+high-E/low-G games (Crokinole, Skull, Love Letter),
+and informational-I games (Hanabi, Secret Hitler) with low G and moderate T.
+
+\subsection{Expert Panel Validation Study}
+
+\textbf{Design.} We conducted a forced-choice triplet comparison study.
+For each of 19 triplets, five expert raters with distinct backgrounds
+(game designer, game theorist, experienced hobbyist, publisher, journalist)
+were shown: an Anchor game, Option~B (TIGER predicts similar to Anchor),
+and Option~C (TIGER predicts dissimilar to Anchor). Raters were shown
+TIGER profiles for all three games and asked to judge which option (B or C)
+had more similar design character to the Anchor.
+
+\textbf{Triplet selection.} Triplets were selected to maximize contrast:
+the mean TIGER Euclidean distance (Anchor, Option~B) = 1.7 (range: 1.1--2.6);
+mean distance (Anchor, Option~C) = 7.0 (range: 4.8--8.7);
+mean ratio = 4.1$\times$.
+
+\subsection{Discrimination Results}
+
+\textbf{Overall: 98.9\% accuracy (94/95 judgments correct)}, far exceeding
+the pre-registered 90\% threshold.
+
+\begin{table}[ht]
+\centering
+\caption{Validation study results: per-rater discrimination accuracy.}
+\label{tab:validation}
+\begin{tabular}{llrrc}
+\toprule
+\textbf{Rater} & \textbf{Background} & \textbf{Correct} & \textbf{Accuracy} & \textbf{Mean conf.} \\
+\midrule
+Maya   & Game designer (12yr Euro tradition) & 19/19 & 100.0\% & 4.68 \\
+Sara   & Experienced hobbyist (400+ games)   & 19/19 & 100.0\% & 4.84 \\
+Kenji  & Game publisher (200+ prototypes/yr) & 19/19 & 100.0\% & 4.42 \\
+Leila  & Games journalist (600+ reviews)     & 19/19 & 100.0\% & 4.16 \\
+Ravi   & Game theorist (strategic interaction) & 18/19 & 94.7\%  & 4.74 \\
+\midrule
+\textbf{Overall} & & \textbf{94/95} & \textbf{98.9\%} & \textbf{4.57} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+18 of 19 triplets achieved unanimous 5-0 agreement.
+One triplet (T17: Concordia as anchor, 7~Wonders vs.\ Agricola as options)
+produced a 4-1 split: Ravi judged Agricola closer to Concordia than 7~Wonders,
+reasoning that both have strong G (system architecture) scores (5.7 vs.\ 5.0).
+The Euclidean TIGER distance supports 7~Wonders (dist=2.3 vs.\ dist=6.1),
+but the isolated G-axis comparison is defensible: this triplet is the hardest
+in the set (ratio = 2.6$\times$, the lowest) and the disagreement is
+analytically coherent.
+
+\subsection{Cases Where TIGER Fails to Discriminate}
+
+The single failure case (T17) reveals a genuine limitation:
+TIGER's aggregate Euclidean distance may not capture cases where one dimension
+dominates experts' judgments. A practitioner comparing Concordia and Agricola
+might focus exclusively on G (both are medium-weight resource games with worker
+placement) and ignore their differences on T (3.0 vs.\ 8.2) and E (7.4 vs.\ 5.0).
+
+This suggests that TIGER profiles work best as \emph{complete five-dimensional
+comparisons} rather than per-dimension comparisons. Practitioners who weight
+single dimensions will occasionally diverge from TIGER's aggregate judgment.
+We treat this as a use-case clarification rather than a framework failure.

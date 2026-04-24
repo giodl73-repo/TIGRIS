@@ -1,0 +1,55 @@
+\section{Discussion}
+\label{sec:discussion}
+
+The reliability results confirm that the TIGRIS corpus is a valid measurement instrument
+for 30 of 32 axes. Mean $\alpha = 0.873$ exceeds the pre-registered threshold of 0.80,
+and the axes with lowest reliability are specifically identifiable and correctable.
+This is a \emph{stronger} result than expected: even the new axes A25--A32,
+introduced without prior inter-rater calibration, achieved $\alpha \geq 0.86$ for six of eight.
+
+\subsection{The C8 Failure: A Diagnostic Win}
+
+The negative C8 reliability ($\alpha = -0.332$) reveals a genuine axis definition problem.
+Analysis of rater scores shows a systematic inversion: raters from abstract/party backgrounds
+(Theo, Jin) scored C8 based on \emph{how complex the initial setup is},
+while Euro-tradition raters (Marcus, Elena) scored it based on
+\emph{how much the first-round action choices shape the entire game}.
+These are opposite constructs: a complex-setup game with simple first-round choices
+scores high on one interpretation and low on the other.
+
+This is not a failure of the corpus — it is a \emph{diagnostic finding} that
+the C8 anchor descriptors must be revised to specify which interpretation is correct.
+Proposed resolution: redefine C8 as ``First-Turn Strategic Footprint''
+with anchor 10 = ``games where first-round placement choices create long-term
+spatial or resource commitments'' (Brass: Birmingham, Agricola) and
+anchor 0 = ``games where first-round choices are interchangeable or have no carry-forward''
+(Crokinole, party games).
+
+\subsection{A30 Ergodicity: Inherently Ordinal}
+
+The borderline A30 reliability ($\alpha = 0.732$) reflects a different problem:
+\emph{how many valid strategies exist} is a continuous quantity that is genuinely
+harder to calibrate on a 0--10 scale than binary properties like ``does the game
+have a spatial board?'' Raters agreed directionally (Chess scores low, Dominion scores
+high) but differed in magnitude.
+A30 is likely better operationalized as a categorical variable:
+\emph{solved} (Chess, Go), \emph{few paths} (Pandemic), \emph{many paths} (Dominion, Wingspan)
+and scored 0/4/8 respectively. This would increase reliability without losing
+the axis's discriminating power.
+
+\subsection{Implications for the TIGER Framework}
+
+The reliability study establishes which axes can be used with confidence in TG-A2's
+PCA (all except C8). The exclusion of C8 from the dimensionality analysis
+changes which component it would load on (preliminary analysis: C8 loaded on PC1
+in its current ambiguous form; with revised anchors it would likely load on PC2
+with D4 and B3, reflecting setup-as-commitment rather than setup-as-complexity).
+
+\subsection{Limitations}
+
+The five-rater simulation uses expert profiles rather than a random sample of game players,
+which may over-estimate reliability for expert-accessible axes (B1--B4)
+and under-estimate it for accessibility axes (A6, D1) where non-expert judgments matter most.
+Future work should replicate with a diverse non-expert panel.
+The 20-game held-out sample, while representative by weight and type,
+does not cover all mechanism types in the 150-game corpus.

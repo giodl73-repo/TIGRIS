@@ -1,0 +1,109 @@
+\section{Reliability Results}
+\label{sec:results}
+
+\subsection{Overall Inter-Rater Reliability}
+
+The inter-rater reliability study (5 raters $\times$ 20 games $\times$ 32 axes)
+produced the following results:
+
+\begin{itemize}
+  \item \textbf{Overall mean Cronbach's $\alpha$: 0.873}
+  \item \textbf{30 of 32 axes: $\alpha \geq 0.80$} (GOOD reliability threshold)
+  \item \textbf{1 axis: $0.70 \leq \alpha < 0.80$} (A30, Strategy Ergodicity: $\alpha = 0.732$)
+  \item \textbf{1 axis: $\alpha < 0.0$} (C8, First-Turn Compression: $\alpha = -0.332$; rater disagreement requiring anchor revision)
+\end{itemize}
+
+These results exceed the TG-A1 pre-registered threshold of $\alpha \geq 0.80$ overall,
+confirming that the TIGRIS corpus is a reliable measurement instrument for 30 of 32 axes.
+
+\subsection{Per-Axis Reliability}
+
+Table~\ref{tab:icc} reports Cronbach's $\alpha$ for all 32 axes, organized by band.
+
+\begin{table}[ht]
+\centering
+\caption{Inter-rater Cronbach's $\alpha$ by axis (5 raters, 20-game held-out sample)}
+\label{tab:icc}
+\begin{tabular}{llr}
+\toprule
+\textbf{Axis} & \textbf{Name} & \textbf{$\alpha$} \\
+\midrule
+A1 & Elegance & 0.922 \\
+A2 & Decision Density & 0.925 \\
+A3 & Interaction & 0.901 \\
+A4 & Variance Calibration & 0.964 \\
+A5 & Pacing / Downtime & 0.852 \\
+A6 & Teachability & 0.958 \\
+A7 & Replayability & 0.856 \\
+\midrule
+B1 & System Gearing & 0.964 \\
+B2 & Catastrophe Pressure & 0.933 \\
+B3 & Conversion Chain Depth & 0.971 \\
+B4 & Information Cost & 0.909 \\
+B5 & Architectural Novelty & 0.832 \\
+B6 & Scoring Multipliers & 0.950 \\
+\midrule
+C1 & Tension Budget & 0.886 \\
+C2 & Minimum Score Shape & 0.800 \\
+C3 & Scarcity Bite & 0.950 \\
+C4 & Engine-Garden Dependency & 0.951 \\
+C6 & Point-Salad Incommensurability & 0.879 \\
+C7 & Action Menu Clarity & 0.959 \\
+C8* & First-Turn Compression & -0.332 \\
+\midrule
+D1 & Family-to-Expert Scaling & 0.925 \\
+D2 & Spatial Interaction & 0.980 \\
+D3 & Count Robustness & 0.883 \\
+D4 & Late-Game Lock-in & 0.917 \\
+\midrule
+A25 & Emotional Arc & 0.903 \\
+A26 & Social Contract Dependency & 0.949 \\
+A27 & Physical Affordance & 0.947 \\
+A28 & Cognitive Load Profile & 0.959 \\
+A29 & Forgiveness Curve & 0.874 \\
+A30$^\dagger$ & Strategy Ergodicity & 0.732 \\
+A31 & Failure Texture & 0.860 \\
+A32 & Information Architecture Type & 0.972 \\
+\midrule
+\multicolumn{2}{l}{\textbf{Overall mean}} & \textbf{0.873} \\
+\bottomrule
+\multicolumn{3}{l}{\footnotesize * Requires anchor revision (negative $\alpha$ = systematic rater disagreement)} \\
+\multicolumn{3}{l}{\footnotesize $^\dagger$ Borderline acceptable; anchor descriptors to be strengthened} \\
+\end{tabular}
+\end{table}
+
+\subsection{Patterns by Band and Rater Profile}
+
+Band B (Euro-specific mechanics) and Band D (accessibility) show the highest reliability
+($\alpha$ range: 0.832--0.980), reflecting clear mechanical definitions that translate
+well across rater backgrounds. Band A general axes (e.g., A6 Teachability: $\alpha = 0.958$)
+are highly reliable, confirming that these dimensions are legible even to raters from
+different traditions.
+
+The two problematic axes reveal distinct failure modes:
+\begin{itemize}
+  \item \textbf{C8 (First-Turn Compression, $\alpha = -0.332$):} Raters disagreed
+  systematically — some scored it as \emph{how complex the setup is} while others scored it
+  as \emph{how much the first-round decisions matter}. The negative $\alpha$ indicates
+  rater orderings were inverted relative to each other. Anchor revision required before
+  this axis can be used in TG-A2.
+
+  \item \textbf{A30 (Strategy Ergodicity, $\alpha = 0.732$):} Acceptable but borderline.
+  Raters agreed directionally but differed in magnitude — the abstract strategy specialist
+  (Theo) scored Chess at A30=0 (completely solved) while others scored it 1--2.
+  The 0--10 scale for ``number of viable strategic paths'' is inherently harder to calibrate
+  than binary properties.
+\end{itemize}
+
+\subsection{Corpus Summary Statistics}
+
+The 150-game corpus covers BGG weight 1.07 (Just One) to 4.70 (On Mars),
+with a median weight of 2.8. Mean axis scores across the corpus range from
+2.1 (C2 Minimum Score Shape) to 7.4 (D3 Count Robustness), reflecting the
+expected distribution: most games are robust to player count but few have
+deliberately designed minimum-score floors.
+
+The highest-scoring games by overall axis breadth (sum of all axis scores)
+are the heavy Euros (Brass: Birmingham, Terra Mystica, Lisboa) and the most
+distinctive games by within-game z-score fingerprint are Hanabi (B4/A26/A32),
+Crokinole (A1/A3/A27), and HAUL (B3/B1/C3).

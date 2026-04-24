@@ -1,0 +1,99 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Normalization Comparison}
+
+Table~\ref{tab:pca_comparison} reports the variance explained by the top 5 principal
+components under each normalization method. The effect of normalization choice is decisive.
+
+\begin{table}[h]
+\centering
+\caption{Variance explained by top 5 PCs under three normalization methods (150 games, 32 axes).}
+\label{tab:pca_comparison}
+\begin{tabular}{lrrrrrr}
+\toprule
+\textbf{Normalization} & \textbf{PC1} & \textbf{PC2} & \textbf{PC3} & \textbf{PC4} & \textbf{PC5} & \textbf{Cum.} \\
+\midrule
+N1 (Raw scores)          & 81.3\% & 3.9\% & 2.7\% & 2.3\% & 2.1\% & 92.3\% \\
+N2 (Weight-normalized)   & 72.6\% & 8.1\% & 5.9\% & 3.3\% & 2.8\% & 92.7\% \\
+N3 (Within-game z-score) & 50.0\% & 18.2\% & 9.9\% & 6.3\% & 5.1\% & 89.5\% \\
+\bottomrule
+\multicolumn{7}{l}{\footnotesize Components for 80\% variance: N1=1, N2=2, N3=4.}
+\end{tabular}
+\end{table}
+
+Under N1, a single dominant component explains 81.3\% of variance, reflecting the
+general quality factor (games that score high on one axis tend to score high on all).
+N2 reduces this to 72.6\% by removing the correlation with BGG weight, revealing
+PC2 as a production-architecture factor. N3 further reduces PC1 to 50.0\%, requires
+4 components for 80\% coverage, and distributes variance more evenly across components.
+
+\subsection{Top Axis Correlations and the General Factor}
+
+Under N3 normalization, the strongest correlations reveal the structure of the
+residual PC1 (50\%): the ``accessibility bundle'' (A1 Elegance, A6 Teachability,
+C7 Action-Menu Clarity, D3 Count-Robustness, A5 Pacing) co-vary at $r > 0.95$
+in within-game normalized space. These axes measure \emph{the same underlying
+construct}: how efficiently the game creates engagement relative to its own average.
+
+Critically, the normalization also reveals genuine \emph{negative} correlations:
+A32 (Information Architecture Type) negatively correlates with D3 ($r = -0.779$),
+D1 ($r = -0.777$), and A2 ($r = -0.777$). Games with inverted-visibility or
+hidden-identity information structures are \emph{incompatible} with high count-robustness
+and decision-density — this is a real design trade-off, not a measurement artifact.
+
+\subsection{Component Loadings Under N3}
+
+Table~\ref{tab:loadings} shows the top axis loadings for each PC under N3.
+
+\begin{table}[h]
+\centering
+\caption{Top axis loadings per PC under N3 (within-game z-score normalization).}
+\label{tab:loadings}
+\begin{tabular}{llll}
+\toprule
+\textbf{PC} & \textbf{\% var.} & \textbf{Top positive loadings} & \textbf{Top negative loadings} \\
+\midrule
+PC1 & 50.0 & A2(+0.25), C1(+0.20), A7(+0.20), C7(+0.20) & A31(−0.26), A32(−0.25) \\
+PC2 & 18.2 & C3(+0.33), D4(+0.33), B3(+0.33), B1(+0.22) & A26(−0.07) \\
+PC3 &  9.9 & B2(+0.39), C1(+0.27), A3(+0.24) & B6(−0.32), A5(−0.28) \\
+PC4 &  6.3 & A28(+0.44), B4(+0.39), A3(+0.24) & D2(−0.44), A32(−0.37) \\
+PC5 &  5.1 & C8(+0.58), A25(+0.37) & D2(−0.46), A5(−0.22) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Naming the Five Dimensions}
+
+The four components required for 80\% coverage, plus the structured PC1, correspond to
+five theoretically coherent design dimensions. Following the TIGER acronym established
+in TG-B1, we assign labels \emph{by construct}, not by PCA order:
+
+\begin{description}
+  \item[\textbf{E — Elegance/Entry}] corresponds to PC1's accessibility bundle
+    (A1, A6, C7, D3, A5 co-vary strongly). Measures: how efficiently rules create engagement.
+    \emph{Canonical high}: Crokinole, Codenames, Azul.
+
+  \item[\textbf{G — Game-Architecture}] corresponds to PC2 (18.2\%). Measures: depth of
+    the production/resource pipeline. C3 (scarcity), D4 (lock-in), B3 (conversion chain)
+    define this component. \emph{Canonical high}: Brass: Birmingham, Agricola, HAUL.
+
+  \item[\textbf{T — Tension}] corresponds to PC3 (9.9\%). B2 (catastrophe pressure) loads
+    strongly positive; A5 (pacing) loads negative — punishing games move slower.
+    Measures: what kind of pressure the game creates.
+    \emph{Canonical high}: CRUCIBLE, Spirit Island, Agricola.
+
+  \item[\textbf{I — Interaction}] corresponds to PC4 (6.3\%). D2 (spatial interaction)
+    loads negative; A28 (cognitive load type) and B4 (information cost) load positive.
+    Separates \emph{spatial contest} games (Crokinole, Chess) from \emph{informational
+    contest} games (Hanabi, Secret Hitler).
+
+  \item[\textbf{R — Range}] corresponds to PC5 and residual variance around A30
+    (Strategy Ergodicity). Measures: how many viable strategic paths exist.
+    \emph{Canonical high}: Dominion, Wingspan. \emph{Canonical low}: Chess.
+\end{description}
+
+Note that component order differs from TIGER naming order.
+E (Elegance) corresponds to PC1 (largest), G (Architecture) to PC2,
+T (Tension) to PC3, I (Interaction) to PC4, and R (Range) to residual PC5.
+The TIGER acronym is ordered for memorability, not by variance contribution.

@@ -1,0 +1,30 @@
+\section{Data and Methods}
+\label{sec:method}
+
+\subsection{Data}
+
+We use the TIGRIS corpus~\cite{dellaLibera2026corpus} with BGG ratings retrieved via
+the BGG XML API in March 2026. Games with fewer than 500 BGG ratings are excluded
+to reduce noise in the prediction target, leaving $N = 138$ games. The corpus is split
+80/20 into training (110 games) and held-out test sets (28 games), stratified by BGG
+weight quartile.
+
+\subsection{Feature Sets}
+
+Three feature sets are evaluated:
+\textbf{(F1) Weight-only:} BGG weight as a single predictor (baseline).
+\textbf{(F2) TIGER-only:} The five TIGER dimension scores derived from within-game
+normalized PCA~\cite{dellaLibera2026pca}.
+\textbf{(F3) TIGER + Weight:} All five TIGER dimensions plus BGG weight.
+
+\subsection{Model}
+
+Ordinary least squares regression with L2 regularization (Ridge regression, $\lambda$
+selected by 5-fold cross-validation on the training set). Results are reported on the
+held-out test set only. Pearson $r$ and RMSE are the primary evaluation metrics.
+
+\subsection{Ablation Analysis}
+
+To identify the contribution of individual TIGER dimensions, we train models with each
+dimension held out in turn (leave-one-dimension-out ablation) and report the change in
+RMSE relative to the full F2 model. Dimensions are ranked by their ablation impact.

@@ -1,0 +1,27 @@
+\section{Introduction}
+\label{sec:intro}
+
+Every game has a design DNA: a characteristic pattern of what it emphasizes relative
+to what it could emphasize, expressed across the full space of design axes. Two games
+with identical average scores across 32 axes are not identical games --- they differ in
+which axes they prioritize, and that pattern of relative emphasis is what designers,
+publishers, and players respond to when they describe a game as ``very Knizia'' or
+``quintessential Lacerda''. This paper introduces the design fingerprint as a formal
+object and the within-game z-score as its correct computational representation.
+
+\subsection{Why Raw Scores Obscure Design Character}
+
+When game scores are analyzed without normalization, the dominant signal is overall
+quality: high-rated games score above the corpus mean on almost every axis, and
+low-rated games score below. The \emph{pattern} of relative emphasis --- which axes
+a game elevates above its own average --- is masked by this quality signal.
+Within-game z-score normalization removes the quality signal by subtracting each
+game's own mean before analysis, leaving only the relative emphasis pattern.
+
+\subsection{Fingerprints as Design Objects}
+
+A design fingerprint is the vector of within-game z-scores across all 32 axes,
+representing each game's characteristic deviation from its own average.
+Fingerprints are quality-neutral by construction: a simple filler game and a
+complex euro game can have similar fingerprints if they emphasize the same
+relative mix of design axes.

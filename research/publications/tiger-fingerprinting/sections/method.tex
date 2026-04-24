@@ -1,0 +1,37 @@
+\section{Three Normalization Methods}
+\label{sec:method}
+
+\subsection{Raw Scoring (Baseline)}
+
+Raw axis scores from the TIGRIS corpus are used without normalization. PCA on the raw
+matrix produces PC1 = 81\% of total variance, confirming the dominance of the general
+quality factor. This establishes the baseline against which normalization methods
+are compared.
+
+\subsection{Weight-Normalized Scoring}
+
+Each game's axis scores are divided by its BGG weight before analysis, reducing the
+correlation between overall quality and axis profile. This reduces PC1 to 73\% but
+does not suppress the general factor sufficiently for fingerprint analysis.
+
+\subsection{Within-Game Z-Score Normalization}
+
+For each game $g$ with axis score vector $\mathbf{s}_g \in \mathbb{R}^{32}$, we compute
+the within-game z-score:
+\[
+  z_{g,a} = \frac{s_{g,a} - \mu_g}{\sigma_g}
+\]
+where $\mu_g$ and $\sigma_g$ are the mean and standard deviation of $g$'s scores across
+all 32 axes. The resulting vector $\mathbf{z}_g$ is the game's design fingerprint:
+a quality-neutral representation of its relative axis emphasis. Games with $\sigma_g < 0.5$
+(near-uniform scores across all axes) are flagged as ``low-distinctiveness'' and excluded
+from fingerprint clustering analysis.
+
+\subsection{Fingerprint Distance and Clustering}
+
+Pairwise Euclidean distance between fingerprints is used as the similarity metric.
+Because within-game z-scoring removes magnitude (all vectors have the same mean of 0
+within each game), Euclidean distance in the projected five-dimensional TIGER space
+measures profile shape difference directly. K-means clustering with $k = 6$ (selected
+by elbow method on within-cluster inertia) identifies fingerprint clusters used in
+the design space analysis (TG-C2).

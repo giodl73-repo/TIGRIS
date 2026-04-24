@@ -1,0 +1,10 @@
+paper_id: TG-A1
+title: "The TIGRIS Corpus: Methodology for Multi-Axis Game Design Scoring Across 150 Games"
+track: A
+stage: draft
+round: 0
+score: ~
+venue: "CHI / FDG 2027"
+authors:
+  - Giovanni Della-Libera
+data_source: "C:/src/tigris/data/axis-matrix-v2.csv"

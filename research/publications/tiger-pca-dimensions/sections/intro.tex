@@ -1,0 +1,28 @@
+\section{Introduction}
+\label{sec:intro}
+
+How many independent ways can board games differ from one another? This question is
+not merely taxonomic --- it is foundational for any framework that claims to characterize
+game design rather than rank it. If most variation in multi-axis scores is explained by
+a single quality factor, then dimensional frameworks are window-dressing on a single
+underlying continuum. If multiple genuinely independent dimensions exist, then games
+occupy a space, and that space can be navigated.
+
+\subsection{The General Factor Problem}
+
+Raw principal component analysis of multi-axis game scores consistently produces a dominant
+first component that we call the \emph{general quality factor}: all axes load positively
+on PC1, and PC1 explains the majority of total variance~\cite{dellaLibera2026corpus}.
+This is expected --- better-designed games tend to score higher on all axes simultaneously,
+producing positive intercorrelations that PCA collapses into a single dimension. The
+general factor is real, but it is not useful for characterizing how games differ.
+
+\subsection{The Normalization Insight}
+
+The central methodological contribution of this paper is the demonstration that
+\emph{within-game z-score normalization} --- computing each axis score relative to
+that game's own mean and standard deviation across all axes --- suppresses the general
+factor and reveals the structure of residual variation. The result is a space of
+design distinctiveness rather than design quality, and PCA on this normalized space
+yields 4--5 genuinely independent components that correspond to theoretically coherent
+design dimensions.

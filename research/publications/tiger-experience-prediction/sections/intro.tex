@@ -1,0 +1,26 @@
+\section{Introduction}
+\label{sec:intro}
+
+BoardGameGeek's community rating aggregates the satisfaction judgments of hundreds of
+thousands of players, making it the closest available proxy for long-term player
+experience in the board game domain. Can the design profile of a game --- its position
+in TIGER space --- predict that satisfaction score? If yes, TIGER profiles are not
+merely descriptive but predictive, and the framework gains practical utility for
+publishers and designers evaluating games before release.
+
+\subsection{The BGG Rating as a Prediction Target}
+
+BGG ratings are noisy, influenced by recency bias, publisher marketing, and
+community demographics, but they represent the largest available dataset of player
+experience judgments for board games~\cite{booth2021game}. Prior work has shown that
+BGG weight (perceived complexity) correlates with rating within specific genres but
+not across the full catalog~\cite{woods2012eurogames}. This paper tests whether
+TIGER's five-dimensional profile provides a richer predictor than weight alone.
+
+\subsection{Hypothesis}
+
+We hypothesize that TIGER profiles predict BGG ratings at $r \geq 0.60$ correlation
+on a held-out test set, representing $\geq 15\%$ RMSE improvement over the weight-only
+baseline. This threshold is set to exceed the weight-only baseline by a margin that
+would be practically meaningful for pre-release quality forecasting --- not merely
+statistically significant.

@@ -1,0 +1,10 @@
+paper_id: TG-C1
+title: "Predicting Player Experience from TIGER Profiles: A Validated Regression Model"
+track: C
+stage: draft
+round: 0
+score: ~
+venue: "CHI / FDG 2027"
+authors:
+  - Giovanni Della-Libera
+data_source: "C:/src/tigris/data/axis-matrix-v2.csv"

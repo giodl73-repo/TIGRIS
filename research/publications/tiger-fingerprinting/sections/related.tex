@@ -1,0 +1,18 @@
+\section{Related Work}
+\label{sec:related}
+
+The concept of a design fingerprint --- a characteristic multi-dimensional signature that
+identifies an artifact's distinctive pattern of feature emphasis --- has been applied
+in several domains. In music, timbre fingerprints derived from MFCC features identify
+instrument signatures independent of pitch and loudness~\cite{aucouturier2003music}.
+In visual art, style fingerprints derived from CNN feature maps identify artist signatures
+independent of subject matter~\cite{gatys2016image}. The common structure is within-item
+normalization: subtracting a global quality signal to expose relative emphasis.
+
+In game design, the closest prior work is BGG's ``family'' and ``mechanic'' tag system,
+which creates a form of discrete fingerprint from community-assigned category labels.
+Our approach differs in using continuous scored axes rather than binary tags, and in
+computing fingerprints as the relative deviation from a game's own average rather than
+as an absolute vector --- a distinction that becomes critical when comparing games across
+quality tiers. The within-game z-score normalization follows the psychometric tradition
+of ipsative scoring~\cite{meade2004psychometric} adapted for design analysis.

@@ -1,0 +1,31 @@
+\section{Method}
+\label{sec:method}
+
+\subsection{TIGER Fingerprint Space}
+
+We embed all 150 corpus games in the five-dimensional TIGER space using the
+within-game z-score normalization and PCA projection described in TG-A2 and
+TG-B2~\cite{dellaLibera2026pca, dellaLibera2026fingerprint}. Each game is represented
+as a five-dimensional TIGER coordinate $(T, I, G, E, R)$ where each dimension is
+on a 0--10 scale.
+
+\subsection{Sparse Cluster Identification}
+
+K-means clustering with $k = 6$ (selected by elbow method on within-cluster inertia
+over $k \in \{3, \ldots, 10\}$) is applied to the TIGER coordinate space.
+Cluster density is measured as the number of corpus games per unit volume of
+TIGER space (estimated via Gaussian kernel density estimation with bandwidth 1.5 in
+standardised TIGER coordinates). Cluster centroids with density in the bottom quartile
+are classified as sparse, and sparse coordinates at maximum distance from all corpus games
+are selected as design gap candidates.
+
+\subsection{Expert Validation Study}
+
+Sparse cluster descriptions are translated into natural-language design briefs:
+one paragraph describing the design character implied by the cluster's TIGER
+profile, without reference to any existing game. Five experienced game designers
+(each with $\geq 2$ published titles) participate in a structured interview:
+they read each brief, rate its commercial viability (1--5 scale), and assess
+whether any existing game already occupies that space. Briefs rated $\geq 3.5$
+by $\geq 3$ of 5 designers and assessed as genuinely unexplored by $\geq 3$
+designers are classified as validated opportunities.

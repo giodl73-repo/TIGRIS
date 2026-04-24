@@ -79,6 +79,17 @@ Open any game's `panel/SUMMARY.md` for a completed review. [`games/0001-parliame
 
 Rubric v2.24.85 · 153 games · 32-axis Pool · latest: [RITE #153](games/0153-rite/) (Gap 1 entered) + [UPSTAGE](parlor/games/0001-upstage/) (PARLOR party-game pipeline launched). Resume point: [`docs/handoff/2026-04-23-post-rite-upstage.md`](docs/handoff/2026-04-23-post-rite-upstage.md). Full architecture spec: [`docs/specs/2026-04-19-tigris-v2.0-design.md`](docs/specs/2026-04-19-tigris-v2.0-design.md).
 
+## Research
+
+Six papers document the TIGER BEAT framework and its corpus. LaTeX sources in [`research/publications/`](research/publications/); build all PDFs with `make -C research`.
+
+- [TIGER: A Five-Dimensional Framework for Game Design Analysis](research/publications/tiger-framework/) — core framework
+- [The TIGRIS Corpus: Methodology for Multi-Axis Game Design Scoring](research/publications/tiger-corpus-methodology/)
+- [Five Independent Dimensions of Game Design Space](research/publications/tiger-pca-dimensions/)
+- [Design Fingerprinting: Within-Game Normalization](research/publications/tiger-fingerprinting/)
+- [Predicting Player Experience from TIGER Profiles](research/publications/tiger-experience-prediction/)
+- [Filling the Design Space: Using TIGER Profiles to Identify Gaps](research/publications/tiger-design-gaps/)
+
 ## License
 
 [MIT](LICENSE) — © 2026 Gio Della-Libera.

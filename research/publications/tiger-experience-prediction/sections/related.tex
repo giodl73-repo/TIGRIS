@@ -1,0 +1,17 @@
+\section{Related Work}
+\label{sec:related}
+
+Player experience modeling has a long history in games research, from Sweetser and
+Wyeth's GameFlow model~\cite{sweetser2005gameflow} to Nacke and Lindley's~\cite{nacke2008flow}
+physiological measurements of engagement. For board games specifically, Booth~\cite{booth2021game}
+identifies social, strategic, and thematic dimensions of play experience, and Rogerson
+et al.~\cite{rogerson2016its} study how board game complexity affects player perception.
+None of this prior work grounds experience prediction in a multi-axis design corpus.
+
+BGG rating prediction from structured features has been studied by Lara-Cabrera et
+al.~\cite{laracabrera2014analysis}, who find that publisher, year, and genre predict
+rating with moderate accuracy but that mechanical features are more informative. Our
+work differs in using empirically-derived PCA dimensions (TIGER) rather than hand-coded
+mechanical features. The regression methodology follows standard machine learning
+practice~\cite{bishop2006pattern} with an explicit held-out test set to prevent the
+over-fitting that has affected several prior BGG prediction studies.

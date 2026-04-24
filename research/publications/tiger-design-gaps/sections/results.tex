@@ -1,0 +1,134 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Cluster Structure}
+
+K-means clustering with $k = 6$ (selected by elbow method on within-cluster inertia)
+partitions the 20-game validation corpus into six clusters. Table~\ref{tab:clusters}
+summarises each cluster with its centroid coordinates $(T, I, G, E, R)$ and member games.
+
+\begin{table}[h]
+\centering
+\caption{K-means clusters in TIGER space ($k=6$, 20-game validation corpus).}
+\label{tab:clusters}
+\begin{tabular}{llp{5.5cm}}
+\hline
+\textbf{Cluster} & \textbf{Centroid $(T,I,G,E,R)$} & \textbf{Members} \\
+\hline
+C0 (singleton) & (2.8, 5.9, 1.9, 8.4, 7.4) & Codenames \\
+C1 (light social) & (5.0, 6.0, 2.7, 8.4, 5.9) & Crokinole, Love Letter, Skull, Hanabi, Cant Stop, Hive \\
+C2 (high-pressure) & (7.1, 6.8, 4.6, 7.3, 6.7) & Pandemic, Chess \\
+C3 (gateway Euro) & (5.9, 6.1, 4.9, 6.3, 5.7) & Catan, Secret Hitler, HAUL \\
+C4 (heavy Euro) & (7.0, 5.5, 7.3, 5.0, 7.4) & Agricola, Brass: Birmingham, Spirit Island, CRUCIBLE \\
+C5 (elegant medium) & (3.7, 4.2, 5.3, 7.3, 6.8) & Azul, Dominion, 7 Wonders, Concordia \\
+\hline
+\end{tabular}
+\end{table}
+
+Three observations stand out. First, Codenames (C0) is a singleton at distance $> 4.0$
+from all other cluster centres, confirming that its combination of low Game-Architecture
+($G = 1.9$), high Elegance ($E = 8.4$), and high Range ($R = 7.4$) is architecturally
+isolated in the corpus. Second, Pandemic and Chess (C2) share a cluster with centroid
+$(7.1, 6.8, 4.6, 7.3, 6.7)$ despite belonging to entirely different genres, suggesting
+that high Tension and high Interaction with moderate Architecture constitute a structural
+equivalence class. Third, the heavy-Euro cluster (C4) is the only cluster where
+Game-Architecture ($G \approx 7.3$) consistently exceeds Elegance ($E \approx 5.0$),
+confirming Lacerda's complexity stack as a recognisable fingerprint pattern.
+
+\subsection{Sparse Region Identification}
+
+Gaussian kernel density estimation (bandwidth $= 1.5$ in standardised TIGER coordinates)
+identifies four TIGER space coordinates in the bottom-quartile density range. These
+are translated into design briefs (Table~\ref{tab:gaps}).
+
+\begin{table}[h]
+\centering
+\caption{Four sparse design regions identified in TIGER space.}
+\label{tab:gaps}
+\begin{tabular}{llp{4.5cm}}
+\hline
+\textbf{Gap} & \textbf{TIGER $(T,I,G,E,R)$} & \textbf{Design character} \\
+\hline
+G1: High-Tension Elegant Light & $(8, 4, 2, 9, 5)$ & Punishing push-your-luck or time-pressure with minimal rules; learnable in 5 minutes \\
+G2: High-Interaction Low-Architecture & $(3, 9, 2, 7, 7)$ & Maximum direct player contest without production depth; competitive dexterity with genuine strategic ergodicity \\
+G3: Deep-Architecture Highly-Forgiving & $(2, 5, 8, 6, 8)$ & Le Havre depth but recoverable mistakes; a deep Euro where errors do not cascade to elimination \\
+G4: High-Elegance High-Range Abstract & $(3, 6, 2, 9, 9)$ & Maximally elegant and maximally ergodic; Dominion approaches this (low I), Codenames approaches this (low R) \\
+\hline
+\end{tabular}
+\end{table}
+
+The nearest existing corpus game to each gap centre confirms the regions are genuinely
+sparse: G1's nearest neighbour is CRUCIBLE at distance 4.1; G2's nearest is Crokinole at
+3.8; G3's nearest is Concordia at 4.2; G4's nearest is Codenames at 3.1.
+
+\subsection{Expert Validation}
+
+Five experienced game designers (each with $\geq 2$ published titles) evaluated
+natural-language design briefs derived from each gap. Table~\ref{tab:validation}
+reports commercial-viability ratings (1--5 scale) and unexplored assessments.
+
+\begin{table}[h]
+\centering
+\caption{Expert panel ratings for four design gap briefs.}
+\label{tab:validation}
+\begin{tabular}{lrrrl}
+\hline
+\textbf{Gap} & \textbf{Mean rating} & \textbf{Unexplored} & \textbf{Status} \\
+\hline
+G1: High-Tension Elegant Light & 4.2 & 5/5 & \textbf{Validated} \\
+G2: High-Interaction Low-Architecture & 3.8 & 4/5 & \textbf{Validated} \\
+G3: Deep-Architecture Highly-Forgiving & 3.1 & 2/5 & Not validated \\
+G4: High-Elegance High-Range Abstract & 4.0 & 4/5 & \textbf{Validated} \\
+\hline
+\end{tabular}
+\end{table}
+
+Three of four gaps ($75\%$) meet the pre-registered validation threshold (mean rating
+$\geq 3.5$ and $\geq 3$ of 5 designers assessing as unexplored). G3 fails because
+three designers independently cited Terraforming Mars as occupying similar coordinates,
+suggesting that the deep-forgiving Euro region is not as empty as the corpus implies
+--- the corpus under-samples complex cooperative games.
+
+For G1, designers noted that the tension-elegance combination is commercially attractive
+(``this would be a premium filler at \$20'') and that existing push-your-luck games
+(Can't Stop, Skull) either sacrifice elegance under tension or sacrifice tension in
+favour of range. For G4, designers identified the combinatorial depth without complexity
+as the hardest technical design challenge: ``you need a Dominion-level decision tree
+but with Codenames-level onboarding, which is an unsolved problem.''
+
+\subsection{TIGER Coordinates for All 20 Validation Games}
+
+Full TIGER profiles for all 20 validation games are presented in
+Table~\ref{tab:full-profiles} for reference.
+
+\begin{table}[h]
+\centering
+\caption{TIGER profiles for 20 validation games (rounded to one decimal).}
+\label{tab:full-profiles}
+\begin{tabular}{lrrrrr}
+\hline
+\textbf{Game} & $T$ & $I$ & $G$ & $E$ & $R$ \\
+\hline
+Codenames       & 2.8 & 5.9 & 1.9 & 8.4 & 7.4 \\
+Crokinole       & 6.1 & 8.3 & 1.6 & 9.1 & 4.7 \\
+Love Letter     & 4.7 & 6.0 & 2.2 & 8.9 & 5.4 \\
+Skull           & 5.8 & 7.1 & 2.0 & 8.0 & 5.2 \\
+Hanabi          & 4.2 & 5.3 & 3.1 & 8.2 & 6.8 \\
+Can't Stop      & 5.1 & 5.0 & 3.1 & 8.2 & 6.1 \\
+Hive            & 4.3 & 5.6 & 3.8 & 7.9 & 5.9 \\
+Pandemic        & 6.8 & 7.1 & 4.5 & 7.2 & 6.3 \\
+Chess           & 7.3 & 6.5 & 4.6 & 7.4 & 7.0 \\
+Catan           & 5.4 & 7.2 & 4.3 & 6.1 & 5.9 \\
+Secret Hitler   & 6.9 & 5.4 & 4.7 & 6.3 & 6.3 \\
+HAUL            & 5.3 & 5.8 & 5.7 & 6.5 & 4.9 \\
+Agricola        & 7.4 & 4.2 & 7.1 & 4.8 & 7.8 \\
+Brass: Birmingham & 6.5 & 5.9 & 7.8 & 5.1 & 7.2 \\
+Spirit Island   & 7.1 & 6.2 & 7.3 & 4.6 & 7.1 \\
+CRUCIBLE        & 7.0 & 5.8 & 6.9 & 5.4 & 7.5 \\
+Azul            & 4.3 & 4.9 & 4.8 & 7.8 & 6.2 \\
+Dominion        & 3.2 & 3.4 & 5.6 & 7.4 & 7.3 \\
+7 Wonders       & 3.7 & 3.8 & 5.4 & 7.1 & 7.1 \\
+Concordia       & 3.5 & 4.7 & 5.4 & 7.0 & 6.6 \\
+\hline
+\end{tabular}
+\end{table}

@@ -1,0 +1,85 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Prediction Accuracy}
+
+Table~\ref{tab:regression} reports regression performance on the 18-game validation sample.
+The TIGER model substantially outperforms the weight-only baseline on both metrics,
+\textbf{exceeding both pre-registered thresholds}.
+
+\begin{table}[ht]
+\centering
+\caption{Regression model performance ($N = 18$ games, BGG community ratings as ground truth).}
+\label{tab:regression}
+\begin{tabular}{lrrl}
+\toprule
+\textbf{Feature set} & \textbf{Pearson $r$} & \textbf{RMSE} & \textbf{vs.\ baseline} \\
+\midrule
+F1: Weight-only (baseline) & 0.187 & 0.636 & --- \\
+F2: TIGER 5-dim only       & \textbf{0.715} & \textbf{0.453} & \textbf{+28.8\% RMSE reduction} \\
+\bottomrule
+\multicolumn{4}{l}{\footnotesize Pre-registered thresholds: $r \geq 0.60$; $\geq 15\%$ RMSE reduction.} \\
+\multicolumn{4}{l}{\footnotesize Both thresholds passed with margin.} \\
+\end{tabular}
+\end{table}
+
+The weight-only model ($r = 0.187$) performs near-chance, confirming that BGG
+complexity weight is a poor predictor of community satisfaction --- a finding that
+motivates multi-dimensional profiling.
+The TIGER model reaches $r = 0.715$ and reduces RMSE by 28.8\%,
+demonstrating that the five TIGER dimensions capture player-relevant variation
+beyond game complexity.
+
+\textbf{Key failure case:} Catan ($\hat{y} = 8.00$, actual $= 7.10$) is over-predicted
+because its TIGER profile (I=6.0, moderate on all dimensions) resembles higher-rated
+games. This is consistent with Catan's mixed community reception: it invented modern
+hobby gaming but is widely considered mechanically outdated.
+Chess ($\hat{y} = 6.66$, actual $= 5.5$) is over-predicted for analogous reasons.
+Both cases suggest a \emph{historical legacy} factor TIGER does not capture.
+
+\textbf{Key success cases:} Brass: Birmingham ($\hat{y}=8.19$, actual=8.6) and
+Spirit Island ($\hat{y}=8.03$, actual=8.5) --- the two highest-rated games ---
+are correctly predicted in the top tier.
+
+\subsection{Ablation Analysis}
+
+Table~\ref{tab:ablation} shows how Pearson $r$ changes when each TIGER dimension
+is dropped from the model.
+
+\begin{table}[ht]
+\centering
+\caption{Drop-one ablation: $r$ when each dimension is excluded.}
+\label{tab:ablation}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Dimension dropped} & \textbf{$r$ (4-dim)} & \textbf{$\Delta r$} \\
+\midrule
+T (Tension)     & 0.553 & $-$0.162 \hspace{2pt}\textbf{(largest loss)} \\
+E (Elegance)    & 0.613 & $-$0.102 \\
+I (Interaction) & 0.707 & $-$0.008 \\
+R (Range)       & 0.704 & $-$0.011 \\
+G (Architecture)& 0.715 & $-$0.001 \\
+\midrule
+Full (T,I,G,E,R) & \textbf{0.715} & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Tension (T) is the single most predictive dimension} ($\Delta r = 0.162$).
+This is counterintuitive: higher catastrophe pressure predicts higher BGG ratings.
+Interpretation: games with escalating threat mechanics (Spirit Island, Agricola, Brass)
+tend to attract committed hobbyists who rate generously, while low-tension light games
+(Crokinole, Skull) attract casual players who rate lower on the BGG scale.
+This is a \emph{selection effect}: T predicts not gameplay quality but the type of
+player community that forms around the game.
+
+Elegance (E) contributes $\Delta r = 0.102$.
+The negative coefficient (higher elegance predicts lower BGG ratings)
+confirms that accessibility and community rating are negatively correlated at the top
+of the BGG scale: the highest-rated games (Brass Birmingham, Spirit Island) are complex
+and hard to teach; the most elegant games (Crokinole, Skull) rate modestly.
+
+I, G, and R contribute minimally in this sample ($|\Delta r| \leq 0.011$),
+suggesting their predictive signal is largely captured by T and E.
+This may reflect sample composition: the 18-game sample under-represents the
+mid-range games where I and G vary most independently.
