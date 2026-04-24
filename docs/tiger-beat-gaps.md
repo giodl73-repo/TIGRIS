@@ -1,7 +1,9 @@
 ---
 title: TIGER BEAT Design Gap Opportunities
 created: 2026-04-22
+updated: 2026-04-23
 source: tiger-beat-gap.py on 150-game corpus
+rubric_version: v2.24.85
 status: canonical
 ---
 
@@ -13,7 +15,11 @@ problem, not an accident. Nearest existing game + design concept + 5 meetup insp
 ---
 
 ## GAP 1: E+R — Experiential + Range
-**0 games in corpus. Nearest: Codenames (dist=3.5)**
+**2 games in corpus.** ~~0 games. Nearest: Codenames (dist=3.5).~~
+
+**Corpus entries:**
+- **RITE #153** (TIGRIS original, Chvátil/A26, 3–6p, 30 min) — E=8.5, R=8. Room party game with social contracts + physical dexterity. Gap 1 anchor confirmed.
+- **UPSTAGE PARLOR #1** (PARLOR original, Chvátil/A26, 4–8p, 20–30 min) — E≈8, R≈8. Scene-stealing party game; DOUBLE mechanic. PARLOR pipeline's first entry.
 
 **The tension:** Physical/social games have fixed ritual structure (low R).
 Replayable games tend to be mechanically procedural (low E).
@@ -120,7 +126,10 @@ commitments. The stakes live in the social/physical layer, not the score track.
 ---
 
 ## GAP 5: T+G+R — High Tension + Deep Architecture + Range
-**0 games. Nearest: Ark Nova (dist=5.2). The holy grail.**
+**1 game in corpus.** ~~0 games. Nearest: Ark Nova (dist=5.2). The holy grail.~~
+
+**Corpus entries:**
+- **CODEX #151** (TIGRIS original, Knizia/A1, 2–5p, 90–120 min) — Schools of Magic engine-builder on shared hex map. 21 earned stakes (full Parliament v2). First intra-axis collision in corpus. Gap 5 anchor confirmed.
 
 **The tension:** This is three hard things simultaneously:
 - Deep engines need long learning curves (limits new-player range)
@@ -151,10 +160,10 @@ of one setup doesn't transfer cleanly.
 
 ## Summary Table
 
-| Gap | TIGER coords | Nearest game | Dist | Core tension | Meetup archetype |
+| Gap | TIGER coords | Status | Corpus entries | Core tension | Meetup archetype |
 |---|---|---|---|---|---|
-| E+R | T=5 I=5 G=3 E=8 R=8 | Codenames | 3.5 | Ritual vs Procedural | Crokinole × Secret Hitler |
-| G+E | T=5 I=5 G=7 E=8 R=5 | Underwater Cities | 3.6 | Cognitive vs Embodied | Lisboa × Gloomhaven |
-| G+R | T=4 I=4 G=8 E=4 R=8 | Ark Nova | 5.2 | Mastery vs Variety | Dominion × Brass Birmingham |
-| T+E | T=8 I=5 G=3 E=8 R=5 | Clank! | 4.4 | Mechanical vs Social stakes | Chinatown × Skull |
-| T+G+R | T=8 I=4 G=8 E=4 R=8 | Ark Nova | 5.2 | All three simultaneously | Through the Ages × Spirit Island |
+| E+R | T=5 I=5 G=3 E=8 R=8 | **FILLED ×2** | RITE #153 + UPSTAGE PARLOR #1 | Ritual vs Procedural | Crokinole × Secret Hitler |
+| G+E | T=5 I=5 G=7 E=8 R=5 | **EMPTY** | — | Cognitive vs Embodied | Lisboa × Gloomhaven |
+| G+R | T=4 I=4 G=8 E=4 R=8 | **EMPTY** | — | Mastery vs Variety | Dominion × Brass Birmingham |
+| T+E | T=8 I=5 G=3 E=8 R=5 | **EMPTY** | — | Mechanical vs Social stakes | Chinatown × Skull |
+| T+G+R | T=8 I=4 G=8 E=4 R=8 | **FILLED ×1** | CODEX #151 | All three simultaneously | Through the Ages × Spirit Island |
