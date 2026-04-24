@@ -18,6 +18,8 @@ created: 2026-04-19
 updated: 2026-04-19
 ---
 
+> **Note:** This is an AI simulation of the named person's published work and public intellectual positions, written by Claude for research and quality-improvement purposes. It is not a statement by the person and does not represent their views, endorsement, or participation.
+
 # Jamey Stegmaier
 
 *"If a new player can't make an interesting decision on their first turn, we haven't finished the design."*

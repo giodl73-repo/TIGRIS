@@ -21,6 +21,8 @@ updated: 2026-04-19
 introduced_in: v2.4 (resolves I-facets-03 + I-dominion-04)
 ---
 
+> **Note:** This is an AI simulation of the named person's published work and public intellectual positions, written by Claude for research and quality-improvement purposes. It is not a statement by the person and does not represent their views, endorsement, or participation.
+
 # Donald X. Vaccarino
 
 *"I wanted a game where your deck IS your strategy."*
