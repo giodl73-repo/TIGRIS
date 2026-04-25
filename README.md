@@ -83,12 +83,12 @@ Rubric v2.24.85 · 153 games · 32-axis Pool · latest: [RITE #153](games/0153-r
 
 Six papers document the TIGER BEAT framework and its corpus. LaTeX sources in [`research/publications/`](research/publications/); build all PDFs with `make -C research`.
 
-- [TIGER: A Five-Dimensional Framework for Game Design Analysis](research/publications/tiger-framework/) — core framework
-- [The TIGRIS Corpus: Methodology for Multi-Axis Game Design Scoring](research/publications/tiger-corpus-methodology/)
-- [Five Independent Dimensions of Game Design Space](research/publications/tiger-pca-dimensions/)
-- [Design Fingerprinting: Within-Game Normalization](research/publications/tiger-fingerprinting/)
-- [Predicting Player Experience from TIGER Profiles](research/publications/tiger-experience-prediction/)
-- [Filling the Design Space: Using TIGER Profiles to Identify Gaps](research/publications/tiger-design-gaps/)
+- [TIGER: A Five-Dimensional Framework for Game Design Analysis](research/publications/tiger-framework/main.pdf) — core framework
+- [The TIGRIS Corpus: Methodology for Multi-Axis Game Design Scoring](research/publications/tiger-corpus-methodology/main.pdf)
+- [Five Independent Dimensions of Game Design Space](research/publications/tiger-pca-dimensions/main.pdf)
+- [Design Fingerprinting: Within-Game Normalization](research/publications/tiger-fingerprinting/main.pdf)
+- [Predicting Player Experience from TIGER Profiles](research/publications/tiger-experience-prediction/main.pdf)
+- [Filling the Design Space: Using TIGER Profiles to Identify Gaps](research/publications/tiger-design-gaps/main.pdf)
 
 ## License
 
