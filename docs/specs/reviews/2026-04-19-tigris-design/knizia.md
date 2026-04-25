@@ -5,7 +5,7 @@ stage: panel
 version: 1.0.0
 rubric_version: v1.0
 author: knizia
-artifact_under_review: C:\src\tigris\docs\specs\2026-04-19-tigris-design.md
+artifact_under_review: tigris\docs\specs\2026-04-19-tigris-design.md
 created: 2026-04-19
 updated: 2026-04-19
 ---

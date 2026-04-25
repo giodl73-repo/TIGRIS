@@ -99,4 +99,4 @@ Lisboa (game #11) pipeline artifacts complete:
 - panel/SUMMARY.md
 - handoff.md (this file)
 
-All 7 deliverables written to C:\src\tigris\games\0011-lisboa\. No shared-state files modified. Ready for team-lead status report and central integration.
+All 7 deliverables written to tigris\games\0011-lisboa\. No shared-state files modified. Ready for team-lead status report and central integration.

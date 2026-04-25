@@ -11,11 +11,11 @@ rubric_version: v1.0
 bet_version: chorus
 supersedes: none
 inherits_from:
-  - C:\src\marathon (7-stage pipeline, innovation log, seed tracker, player lenses)
-  - C:\src\puzzlehunt (blind persona testing, staged gates, content-driven mechanism)
-  - C:\src\chronicle (Anchor Rule, rubric amendments, multi-lens friction)
-  - C:\src\artisan (tiered simulation stack, matrix format, scale-as-axis)
-  - C:\src\rmm (signal-artifact discipline, handoff continuity)
+  - marathon (7-stage pipeline, innovation log, seed tracker, player lenses)
+  - puzzlehunt (blind persona testing, staged gates, content-driven mechanism)
+  - chronicle (Anchor Rule, rubric amendments, multi-lens friction)
+  - artisan (tiered simulation stack, matrix format, scale-as-axis)
+  - rmm (signal-artifact discipline, handoff continuity)
 ---
 
 > **This v1.0 spec has been superseded** by `docs/specs/2026-04-19-tigris-v2.0-design.md` (the Parliament restructure). See `docs/specs/reviews/2026-04-19-tigris-design/SUMMARY.md` for the panel review that triggered the restructure, and `personas/playtest-innovations.md` for the full amendment history. v1.0 is kept in the repo as history — do not use it as a current reference.
@@ -84,7 +84,7 @@ CONCEPT → DESIGN → TIER-A → [GATE] → TIER-B → PANEL → INNOVATE → H
 ## 4. Directory Layout
 
 ```
-C:\src\tigris\
+tigris\
 ├── CLAUDE.md                       # house rules, forbidden words, frontmatter contract
 ├── README.md                       # project overview + pipeline map
 ├── TRACKER.md                      # per-game status log, rubric version history
