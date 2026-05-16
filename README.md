@@ -4,6 +4,10 @@
 
 Claude Code-driven. Markdown-first. Euro tradition. TIGRIS reviews published games, designs new ones, and — most unusually — has built up an empirical map of what "design space" actually looks like by doing so at scale.
 
+**Review roles:** This repo uses
+[ROLES](https://github.com/giodl73-repo/ROLES), the `.roles` convention for
+repository-local review panels.
+
 ## What TIGRIS has done
 
 **Reviewed 150 games.** Every review is a Parliament: eight designer personas (Knizia, Rosenberg, Feld, Lacerda, Chvátil, Kramer–Kiesling, Stegmaier, Vaccarino) plant incompatible stakes against the design, then a narrated playthrough attacks, defends, and collides them. 69 games went through the full three-phase pipeline; 81 more went through a faster variant to build out the corpus. [`TRACKER.md`](TRACKER.md) has every row.
