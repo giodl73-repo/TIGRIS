@@ -101,5 +101,8 @@ design decision.
 ## Open Design Flags
 
 1. D3 contested (4p vs 8p experience diverges) — calibration needed
-2. 8-player chaos (pile-on risk) — test first-arrival rule before imposing chain limit
-3. Chorus role may feel passive at 8p — extra UPSTAGE card as compensation TBD
+2. 8-player chaos (pile-on risk) — simulator supports first-arrival by default,
+   with a 3-upstage chain limit only as an observed-chaos guardrail
+3. DOUBLE visibility — simulator favors `double-spotlight` as the next live-test
+   variant because it raises memorable co-play without making scoring heavier
+4. Chorus role may feel passive at 8p — extra UPSTAGE card as compensation TBD

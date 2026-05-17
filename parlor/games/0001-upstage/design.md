@@ -348,6 +348,30 @@ the stage at close among ALL active performers.
 Each successful upstage earns 0.5 VP (not just scene close). Rounds to nearest whole
 at game end. This rewards committing to the upstage even if you don't close the scene.
 
+### Simulator-promoted variant — Double Spotlight
+The UPSTAGE simulator tested a `double-spotlight` rules variant after the first
+PARLOR review. It modestly increases trigger legibility and explicitly celebrates
+DOUBLE moments. The useful signal: DOUBLE rate rises without requiring a broad
+rewrite of scoring or trigger rules. For the next live test, use this as the
+preferred variant when the table is comfortable with co-performance:
+
+1. before the first scene, teach DOUBLE as the signature moment of the game,
+2. during the Star vote recap, explicitly invite players to remember DOUBLE
+   moments,
+3. if a DOUBLE closes a scene, let both players briefly name the duo moment
+   before scoring.
+
+Do not add automatic bonus VP yet. The simulator signal supports spotlighting
+DOUBLE socially, not converting it into another points engine.
+
+### Simulator guardrail — 8-player chain limit
+The simulator also tested `eight-player-chain-limit` for the panel's pile-on
+concern. It removed repeated high-player chaos, but it also traded away some raw
+upstage pressure. Keep the standard first-arrival rule for 4-6 players. At 8
+players, use the chain limit only if a table has already shown pile-on behavior:
+no more than 3 committed upstages may resolve in a single scene; later trigger
+fires are acknowledged, then held for the next scene.
+
 ---
 
 ## 10. Designer Notes
@@ -431,4 +455,6 @@ UPSTAGE is a PARLOR pipeline game (4-persona, 8-stake review). Predicted collisi
    Multiple upstages firing at once could create a pile-on (4 players all crossing at
    once). Hard rule: only 2 upstages can chain in a single scene? Or first-arrival
    rule? First physical arrival is fastest and fairest — test this before imposing a
-   chain limit.
+   chain limit. Simulator follow-up supports keeping first-arrival as the default,
+   with a 3-upstage chain limit reserved as an 8-player guardrail after pile-on is
+   observed.
