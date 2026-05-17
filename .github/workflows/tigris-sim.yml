@@ -1,0 +1,50 @@
+name: TIGRIS sim gates
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tigris-sim:
+    name: TIGRIS sim
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+
+      - name: Allow GitHub Cargo dependencies
+        run: |
+          git config --global url."https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
+      - name: Format check
+        run: cargo fmt --manifest-path tools/tigris-sim/Cargo.toml -- --check
+
+      - name: Test
+        run: cargo test --quiet --manifest-path tools/tigris-sim/Cargo.toml
+
+      - name: Release build
+        run: cargo build --quiet --release --manifest-path tools/tigris-sim/Cargo.toml
+
+      - name: MUDDLE launcher smoke
+        run: |
+          cat > tools/tigris-sim/target/tigris-smoke.script <<'EOF'
+          go board
+          draft axis
+          place tiger
+          end turn
+          challenge ai
+          go score
+          inspect ai
+          quit
+          EOF
+          tools/tigris-sim/target/release/tigris-muddle --script tools/tigris-sim/target/tigris-smoke.script --save tools/tigris-sim/target/tigris-smoke.muddle --transcript tools/tigris-sim/target/tigris-smoke.txt
+          ! grep -E "Command failed|UnknownCommand|Error:" tools/tigris-sim/target/tigris-smoke.txt
