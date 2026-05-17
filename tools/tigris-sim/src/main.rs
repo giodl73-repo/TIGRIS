@@ -55,9 +55,48 @@ struct ParliamentResult {
     report: ValidationReport,
 }
 
+#[derive(Debug, Clone)]
+struct BatchSummary {
+    runs: usize,
+    average_collisions: f64,
+    adoption_rate: f64,
+    no_collision_rate: f64,
+    no_adoption_rate: f64,
+    average_winning_score: f64,
+    chair_wins: BTreeMap<String, u32>,
+}
+
 fn main() {
     let seed = option_value("--seed").unwrap_or_else(|| "parliament-smoke".to_string());
-    let result = simulate_parliament(&seed, 4);
+    let player_count = option_value("--players")
+        .and_then(|value| value.parse::<usize>().ok())
+        .filter(|players| (3..=4).contains(players))
+        .unwrap_or(4);
+    let runs = option_value("--runs")
+        .and_then(|value| value.parse::<usize>().ok())
+        .unwrap_or(1);
+    if runs > 1 {
+        let results = simulate_batch(&seed, runs, player_count);
+        let summary = summarize_batch(&results);
+        println!("TIGRIS simulator: Parliament batch");
+        println!("seed: {seed}");
+        println!("players: {player_count}");
+        println!("runs: {}", summary.runs);
+        println!("average_collisions: {:.2}", summary.average_collisions);
+        println!("adoption_rate: {:.1}%", summary.adoption_rate);
+        println!("no_collision_rate: {:.1}%", summary.no_collision_rate);
+        println!("no_adoption_rate: {:.1}%", summary.no_adoption_rate);
+        println!(
+            "average_winning_score: {:.2}",
+            summary.average_winning_score
+        );
+        for (chair, wins) in summary.chair_wins {
+            println!("wins:{}={}", chair, wins);
+        }
+        return;
+    }
+
+    let result = simulate_parliament(&seed, player_count);
     println!("TIGRIS simulator: Parliament");
     println!("run_id: {}", result.run.run_id);
     println!("status: {}", result.report.status());
@@ -246,6 +285,57 @@ fn simulate_parliament(seed: &str, player_count: usize) -> ParliamentResult {
     }
 }
 
+fn simulate_batch(seed: &str, runs: usize, player_count: usize) -> Vec<ParliamentResult> {
+    (0..runs)
+        .map(|idx| simulate_parliament(&format!("{seed}-{idx}"), player_count))
+        .collect()
+}
+
+fn summarize_batch(results: &[ParliamentResult]) -> BatchSummary {
+    let collision_sum = results.iter().map(|result| result.collisions).sum::<u32>();
+    let adopted_runs = results
+        .iter()
+        .filter(|result| metric_value(result, "adopted_axes") > 0.0)
+        .count();
+    let no_collision_runs = results
+        .iter()
+        .filter(|result| result.collisions == 0)
+        .count();
+    let no_adoption_runs = results.len().saturating_sub(adopted_runs);
+    let mut chair_wins = BTreeMap::new();
+    let winning_score_sum = results
+        .iter()
+        .map(|result| {
+            let winner = result
+                .chairs
+                .iter()
+                .max_by_key(|chair| final_score(chair))
+                .expect("parliament result should have chairs");
+            *chair_wins.entry(winner.id.clone()).or_insert(0) += 1;
+            final_score(winner)
+        })
+        .sum::<i32>();
+
+    BatchSummary {
+        runs: results.len(),
+        average_collisions: collision_sum as f64 / results.len().max(1) as f64,
+        adoption_rate: percent_of(adopted_runs as u32, results.len() as u32),
+        no_collision_rate: percent_of(no_collision_runs as u32, results.len() as u32),
+        no_adoption_rate: percent_of(no_adoption_runs as u32, results.len() as u32),
+        average_winning_score: winning_score_sum as f64 / results.len().max(1) as f64,
+        chair_wins,
+    }
+}
+
+fn metric_value(result: &ParliamentResult, name: &str) -> f64 {
+    result
+        .metrics
+        .iter()
+        .find(|metric| metric.name == name)
+        .map(|metric| metric.value)
+        .unwrap_or(0.0)
+}
+
 fn adjacent(left: &str, right: &str) -> bool {
     ADJACENCIES
         .iter()
@@ -276,5 +366,15 @@ mod tests {
         assert_eq!(result.chairs.len(), 4);
         assert!(result.chairs.iter().all(|chair| chair.trace.actions > 0));
         assert!(!result.metrics.is_empty());
+    }
+
+    #[test]
+    fn batch_summary_reports_adoption_pressure() {
+        let results = simulate_batch("batch", 8, 4);
+        let summary = summarize_batch(&results);
+
+        assert_eq!(summary.runs, 8);
+        assert!(summary.average_collisions >= 0.0);
+        assert!(!summary.chair_wins.is_empty());
     }
 }

@@ -88,6 +88,7 @@ telemetry.
 ```powershell
 cd tools\tigris-sim
 cargo run --quiet -- --seed parliament-smoke
+cargo run --quiet -- --seed parliament-smoke --runs 20 --players 4
 ```
 
 ## Status

@@ -13,6 +13,7 @@ metric primitives.
 ```powershell
 cargo test --quiet
 cargo run --quiet -- --seed parliament-smoke
+cargo run --quiet -- --seed parliament-smoke --runs 20 --players 4
 ```
 
 ## Current validation signal
@@ -20,4 +21,5 @@ cargo run --quiet -- --seed parliament-smoke
 - Collision count and collision rate.
 - Axis adoption/refutation pressure.
 - Per-chair action and blocked-turn traces.
+- Batch adoption rate, no-collision rate, no-adoption rate, and win spread.
 - RALLY validation status and findings.
