@@ -38,13 +38,16 @@ cargo run --quiet --bin tigris-muddle
   eight-player chaos, score spread, and RALLY comparison-report status.
 - MUDDLE solo-play table loop with deterministic Parliament AI opponent,
   command transcript, save/resume, recent log, inventory, and score panels.
+- RALLY tabletop primitives for AI-opponent turn order, score tracking, and
+  pressure/token bookkeeping.
 
 ## MUDDLE AI opponent host
 
 `tigris-muddle` mounts `parliament_ai_muddle_host()` through the shared MUDDLE
 runner. The first AI slice is deterministic on purpose: the opponent drafts
 axes, builds pressure, counter-drafts when pressure is armed, and can be
-challenged by the human chair.
+challenged by the human chair. Shared table bookkeeping uses RALLY's
+`TurnOrder`, `ScoreTrack`, and `TokenPool`; TIGRIS keeps Parliament policy local.
 
 ```powershell
 @("go board", "draft axis", "place tiger", "end turn", "challenge ai", "quit") |

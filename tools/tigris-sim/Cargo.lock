@@ -45,7 +45,7 @@ dependencies = [
 [[package]]
 name = "rally-core"
 version = "0.1.0"
-source = "git+https://github.com/giodl73-repo/RALLY.git#f64d8d4a5a04d8890ebcb9448ce28eb4f25861e7"
+source = "git+https://github.com/giodl73-repo/RALLY.git#c2e4252c0b99999d7fed34345fe5dea969e9aff7"
 
 [[package]]
 name = "tigris-sim"

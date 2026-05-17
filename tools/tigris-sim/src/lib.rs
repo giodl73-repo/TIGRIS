@@ -4,6 +4,7 @@ use muddle_core::{
     MuddleCommand, MuddleCommandHint, MuddleCommandOutcome, MuddleError, MuddleExit, MuddleHost,
     MuddleInventoryItem, MuddleResource, MuddleRoom,
 };
+use rally_core::{ScoreTrack, TokenPool, TurnOrder};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct TigrisMuddleSurface {
@@ -49,6 +50,9 @@ pub struct TigrisAiOpponentState {
     pub human_score: i32,
     pub ai_score: i32,
     pub ai_pressure: u32,
+    pub turn_order: TurnOrder,
+    pub scores: ScoreTrack,
+    pub tokens: TokenPool,
     pub human_axis: Option<String>,
     pub ai_axis: Option<String>,
     pub last_ai_move: String,
@@ -171,6 +175,9 @@ impl TigrisAiOpponentMuddleHost {
                 human_score: 0,
                 ai_score: 0,
                 ai_pressure: 1,
+                turn_order: TurnOrder::new(["human", "ai"]),
+                scores: ScoreTrack::new(["human", "ai"]),
+                tokens: TokenPool::new([("ai_pressure", 1), ("tiger_marker", 0)]),
                 human_axis: None,
                 ai_axis: None,
                 last_ai_move: "AI waits for the opening draft.".to_string(),
@@ -201,11 +208,14 @@ impl TigrisAiOpponentMuddleHost {
     }
 
     fn ai_turn(&mut self) -> String {
-        self.state.round += 1;
+        self.state.turn_order.advance();
+        self.state.turn_order.advance();
+        self.state.round = self.state.turn_order.round();
         if self.state.human_axis.is_none() {
             self.state.ai_axis = Some("Elegance".to_string());
-            self.state.ai_score += 1;
-            self.state.ai_pressure += 1;
+            self.state.ai_score = self.state.scores.add("ai", 1);
+            self.state.tokens.gain("ai_pressure", 1);
+            self.state.ai_pressure = self.state.tokens.count("ai_pressure") as u32;
             self.state.last_ai_move =
                 "AI drafted Elegance because the human chair left the axis pool open.".to_string();
             return self.state.last_ai_move.clone();
@@ -213,8 +223,12 @@ impl TigrisAiOpponentMuddleHost {
 
         if self.state.ai_pressure >= 3 {
             self.state.ai_axis = Some("Anti-Catch-up Pressure".to_string());
-            self.state.ai_score += 2;
-            self.state.ai_pressure = 1;
+            self.state.ai_score = self.state.scores.add("ai", 2);
+            self.state.tokens.spend(
+                "ai_pressure",
+                self.state.tokens.count("ai_pressure").saturating_sub(1),
+            );
+            self.state.ai_pressure = self.state.tokens.count("ai_pressure") as u32;
             self.state.last_ai_move =
                 "AI counter-drafted Anti-Catch-up Pressure and converted stored pressure."
                     .to_string();
@@ -222,8 +236,9 @@ impl TigrisAiOpponentMuddleHost {
         }
 
         self.state.ai_axis = Some("Scarcity Bite".to_string());
-        self.state.ai_score += 1;
-        self.state.ai_pressure += 1;
+        self.state.ai_score = self.state.scores.add("ai", 1);
+        self.state.tokens.gain("ai_pressure", 1);
+        self.state.ai_pressure = self.state.tokens.count("ai_pressure") as u32;
         self.state.last_ai_move =
             "AI drafted Scarcity Bite to threaten the next collision window.".to_string();
         self.state.last_ai_move.clone()
@@ -349,7 +364,8 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
                 ))
             }
             ("board", "place tiger") => {
-                self.state.human_score += 1;
+                self.state.tokens.gain("tiger_marker", 1);
+                self.state.human_score = self.state.scores.add("human", 1);
                 Ok(MuddleCommandOutcome::stay(format!(
                     "Tiger marker placed on {}. Human gains 1 point.",
                     self.state
@@ -360,14 +376,19 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
             }
             ("board", "challenge ai") => {
                 if self.state.ai_pressure >= 3 {
-                    self.state.human_score += 2;
-                    self.state.ai_pressure = 1;
+                    self.state.human_score = self.state.scores.add("human", 2);
+                    self.state.tokens.spend(
+                        "ai_pressure",
+                        self.state.tokens.count("ai_pressure").saturating_sub(1),
+                    );
+                    self.state.ai_pressure = self.state.tokens.count("ai_pressure") as u32;
                     Ok(MuddleCommandOutcome::stay(
                         "Challenge lands. Human scores 2 and resets AI pressure.",
                     ))
                 } else {
-                    self.state.ai_score += 1;
-                    self.state.ai_pressure += 1;
+                    self.state.ai_score = self.state.scores.add("ai", 1);
+                    self.state.tokens.gain("ai_pressure", 1);
+                    self.state.ai_pressure = self.state.tokens.count("ai_pressure") as u32;
                     Ok(MuddleCommandOutcome::stay(
                         "Challenge is early. AI gains 1 and pressure rises.",
                     ))
