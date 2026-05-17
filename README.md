@@ -90,6 +90,7 @@ cd tools\tigris-sim
 cargo run --quiet -- --seed parliament-smoke
 cargo run --quiet -- --seed parliament-smoke --runs 20 --players 4
 cargo run --quiet -- --seed parliament-smoke --compare-variants --runs 20 --players 4
+cargo run --quiet -- --game upstage --seed upstage-smoke --players 8 --compare-variants --runs 24
 ```
 
 ## Status

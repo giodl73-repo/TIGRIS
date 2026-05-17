@@ -4,9 +4,11 @@ Seeded board-game simulation pilot for TIGRIS.
 
 The first adapter targets `games/0001-parliament/` and models the argument
 loop at a coarse systems level: axis draft, stakes, adjacency collisions,
-defense/refutation marks, adoption pressure, and final scores. TIGRIS owns the
-Parliament-specific policy; RALLY supplies deterministic run, actor trace, and
-metric primitives.
+defense/refutation marks, adoption pressure, and final scores. The second
+adapter targets `parlor/games/0001-upstage/` and models party-game robustness:
+trigger fires, committed upstages, DOUBLE moments, false upstages, pile-on
+chaos, and score spread. TIGRIS owns game-specific policy; RALLY supplies
+deterministic run, actor trace, metric, validation, and comparison primitives.
 
 ## Commands
 
@@ -15,6 +17,9 @@ cargo test --quiet
 cargo run --quiet -- --seed parliament-smoke
 cargo run --quiet -- --seed parliament-smoke --runs 20 --players 4
 cargo run --quiet -- --seed parliament-smoke --compare-variants --runs 20 --players 4
+cargo run --quiet -- --game upstage --seed upstage-smoke --players 8
+cargo run --quiet -- --game upstage --seed upstage-smoke --players 8 --runs 24
+cargo run --quiet -- --game upstage --seed upstage-smoke --players 8 --compare-variants --runs 24
 ```
 
 ## Current validation signal
@@ -28,6 +33,8 @@ cargo run --quiet -- --seed parliament-smoke --compare-variants --runs 20 --play
   `regressed`) against baseline adoption rate, collision count, and
   no-adoption rate.
 - RALLY validation status and findings.
+- UPSTAGE trigger pressure, DOUBLE rate, false-upstage/commitment risk,
+  eight-player chaos, score spread, and RALLY comparison-report status.
 
 ## Rule variants
 
@@ -42,3 +49,18 @@ cargo run --quiet -- --seed parliament-smoke --compare-variants --runs 20 --play
 Early signal from `--compare-variants --runs 20`: `tournament-pressure` improves
 adoption pressure without making adoption automatic, while `lower-adoption`
 appears too permissive.
+
+## UPSTAGE variants
+
+| Variant | Purpose |
+|---|---|
+| `baseline` | Current UPSTAGE trigger and commitment model. |
+| `warmup-scene` | Tests whether a rehearsal scene improves commitment. |
+| `clearer-triggers` | Tests more legible physical trigger cards. |
+| `double-spotlight` | Tests whether explicit reward for DOUBLE moments raises memorable co-play. |
+| `eight-player-chain-limit` | Tests a high-player-count guardrail against pile-on chaos. |
+
+Early signal from `--game upstage --compare-variants --runs 24 --players 8`:
+`double-spotlight` raises DOUBLE moments while improving most comparison metrics,
+and `eight-player-chain-limit` removes pile-on chaos but trades away some raw
+upstage pressure.
