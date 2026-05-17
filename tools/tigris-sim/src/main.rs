@@ -1,5 +1,6 @@
 use rally_core::{
-    percent_of, ActorTrace, SimulationMetric, SimulationRun, ValidationFinding, ValidationReport,
+    percent_of, ActorTrace, ComparisonDelta, ComparisonReport, SimulationMetric, SimulationRun,
+    ValidationFinding, ValidationReport,
 };
 use std::collections::BTreeMap;
 use std::env;
@@ -133,6 +134,8 @@ fn main() {
         .unwrap_or(1);
     if has_flag("--compare-variants") {
         let runs = runs.max(20);
+        let baseline_results = simulate_batch(&seed, runs, player_count, BASELINE);
+        let baseline = summarize_batch(&baseline_results);
         println!("TIGRIS simulator: Parliament variant comparison");
         println!("seed: {seed}");
         println!("players: {player_count}");
@@ -140,9 +143,27 @@ fn main() {
         for variant in VARIANTS {
             let results = simulate_batch(&seed, runs, player_count, *variant);
             let summary = summarize_batch(&results);
+            let comparison =
+                compare_to_baseline("0001-parliament", &baseline, variant.name, &summary);
+            let status = if variant.name == "baseline" {
+                "baseline".to_string()
+            } else {
+                comparison.status().to_string()
+            };
+            let improved = if variant.name == "baseline" {
+                "-".to_string()
+            } else {
+                format!(
+                    "{}/{}",
+                    comparison.improved_count(),
+                    comparison.deltas.len()
+                )
+            };
             println!(
-                "variant:{} avg_collisions={:.2} adoption_rate={:.1}% no_collision={:.1}% no_adoption={:.1}% avg_winner={:.2}",
+                "variant:{} status={} improved={} avg_collisions={:.2} adoption_rate={:.1}% no_collision={:.1}% no_adoption={:.1}% avg_winner={:.2}",
                 variant.name,
+                status,
+                improved,
                 summary.average_collisions,
                 summary.adoption_rate,
                 summary.no_collision_rate,
@@ -432,6 +453,31 @@ fn summarize_batch(results: &[ParliamentResult]) -> BatchSummary {
     }
 }
 
+fn compare_to_baseline(
+    subject: &str,
+    baseline: &BatchSummary,
+    candidate_id: &str,
+    candidate: &BatchSummary,
+) -> ComparisonReport {
+    let mut report = ComparisonReport::new(subject, "baseline", candidate_id);
+    report.add_delta(ComparisonDelta::higher_is_better(
+        "adoption_rate",
+        baseline.adoption_rate,
+        candidate.adoption_rate,
+    ));
+    report.add_delta(ComparisonDelta::higher_is_better(
+        "average_collisions",
+        baseline.average_collisions,
+        candidate.average_collisions,
+    ));
+    report.add_delta(ComparisonDelta::lower_is_better(
+        "no_adoption_rate",
+        baseline.no_adoption_rate,
+        candidate.no_adoption_rate,
+    ));
+    report
+}
+
 fn metric_value(result: &ParliamentResult, name: &str) -> f64 {
     result
         .metrics
@@ -499,5 +545,20 @@ mod tests {
 
         assert!(tuned.adoption_rate >= baseline.adoption_rate);
         assert!(tuned.average_collisions >= baseline.average_collisions);
+    }
+
+    #[test]
+    fn comparison_report_marks_tournament_pressure_improved() {
+        let baseline = summarize_batch(&simulate_batch("comparison", 20, 4, BASELINE));
+        let tuned = summarize_batch(&simulate_batch(
+            "comparison",
+            20,
+            4,
+            find_variant("tournament-pressure").unwrap(),
+        ));
+        let report =
+            compare_to_baseline("0001-parliament", &baseline, "tournament-pressure", &tuned);
+
+        assert_eq!(report.status(), "improved");
     }
 }

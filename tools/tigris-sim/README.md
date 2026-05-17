@@ -24,6 +24,9 @@ cargo run --quiet -- --seed parliament-smoke --compare-variants --runs 20 --play
 - Per-chair action and blocked-turn traces.
 - Batch adoption rate, no-collision rate, no-adoption rate, and win spread.
 - Rule-variant comparison for adoption-pressure tuning.
+- RALLY comparison-report status for each variant (`improved`, `mixed`, or
+  `regressed`) against baseline adoption rate, collision count, and
+  no-adoption rate.
 - RALLY validation status and findings.
 
 ## Rule variants
