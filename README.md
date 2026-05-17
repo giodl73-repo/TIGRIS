@@ -79,6 +79,17 @@ Open any game's `panel/SUMMARY.md` for a completed review. [`games/0001-parliame
 - **Current state.** [`TRACKER.md`](TRACKER.md) for per-game history, or the newest file in [`docs/handoff/`](docs/handoff/) for a session resume point.
 - **Run the factory.** [`CLAUDE.md`](CLAUDE.md) (house rules), then the skills in [`.claude/skills/`](.claude/skills/): [`tigris-ideate`](.claude/skills/tigris-ideate/SKILL.md), [`tigris-concept`](.claude/skills/tigris-concept/SKILL.md), [`tigris-design`](.claude/skills/tigris-design/SKILL.md), [`tigris-panel`](.claude/skills/tigris-panel/SKILL.md), [`tigris-amendment`](.claude/skills/tigris-amendment/SKILL.md), [`tigris-handoff`](.claude/skills/tigris-handoff/SKILL.md).
 
+## Simulator
+
+`tools/tigris-sim/` is the RALLY-backed board-game simulation pilot. It starts
+with Parliament and reports seeded axis-collision, adoption, and chair-activity
+telemetry.
+
+```powershell
+cd tools\tigris-sim
+cargo run --quiet -- --seed parliament-smoke
+```
+
 ## Status
 
 Rubric v2.24.85 · 153 games · 32-axis Pool · latest: [RITE #153](games/0153-rite/) (Gap 1 entered) + [UPSTAGE](parlor/games/0001-upstage/) (PARLOR party-game pipeline launched). Resume point: [`docs/handoff/2026-04-23-post-rite-upstage.md`](docs/handoff/2026-04-23-post-rite-upstage.md). Full architecture spec: [`docs/specs/2026-04-19-tigris-v2.0-design.md`](docs/specs/2026-04-19-tigris-v2.0-design.md).
