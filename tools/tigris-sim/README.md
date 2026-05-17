@@ -20,6 +20,7 @@ cargo run --quiet -- --seed parliament-smoke --compare-variants --runs 20 --play
 cargo run --quiet -- --game upstage --seed upstage-smoke --players 8
 cargo run --quiet -- --game upstage --seed upstage-smoke --players 8 --runs 24
 cargo run --quiet -- --game upstage --seed upstage-smoke --players 8 --compare-variants --runs 24
+cargo run --quiet --bin tigris-muddle
 ```
 
 ## Current validation signal
@@ -35,6 +36,22 @@ cargo run --quiet -- --game upstage --seed upstage-smoke --players 8 --compare-v
 - RALLY validation status and findings.
 - UPSTAGE trigger pressure, DOUBLE rate, false-upstage/commitment risk,
   eight-player chaos, score spread, and RALLY comparison-report status.
+- MUDDLE solo-play table loop with deterministic Parliament AI opponent,
+  command transcript, save/resume, recent log, inventory, and score panels.
+
+## MUDDLE AI opponent host
+
+`tigris-muddle` mounts `parliament_ai_muddle_host()` through the shared MUDDLE
+runner. The first AI slice is deterministic on purpose: the opponent drafts
+axes, builds pressure, counter-drafts when pressure is armed, and can be
+challenged by the human chair.
+
+```powershell
+@("go board", "draft axis", "place tiger", "end turn", "challenge ai", "quit") |
+  cargo run --quiet --bin tigris-muddle -- --save target\tigris-ai.muddle --transcript target\tigris-ai.txt
+@("status", "quit") |
+  cargo run --quiet --bin tigris-muddle -- --load target\tigris-ai.muddle
+```
 
 ## Rule variants
 

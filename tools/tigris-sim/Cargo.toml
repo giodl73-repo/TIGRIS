@@ -9,5 +9,11 @@ edition = "2021"
 name = "tigris-sim"
 path = "src/main.rs"
 
+[[bin]]
+name = "tigris-muddle"
+path = "src/bin/tigris-muddle.rs"
+
 [dependencies]
+muddle-cli = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
+muddle-core = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
 rally-core = { git = "https://github.com/giodl73-repo/RALLY.git" }
