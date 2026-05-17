@@ -28,6 +28,62 @@ const ADJACENCIES: &[(&str, &str)] = &[
     ("Variance Calibration", "Catastrophe Pressure"),
 ];
 
+const EXPANDED_ADJACENCIES: &[(&str, &str)] = &[
+    ("Architectural Novelty", "Interaction"),
+    ("Minimum-Score Shape", "Anti-Catch-up Pressure"),
+    ("Scarcity Bite", "Late-Game Lock-in"),
+    ("Elegance", "Decision Density"),
+];
+
+#[derive(Debug, Clone, Copy)]
+struct RuleVariant {
+    name: &'static str,
+    adoption_threshold: u32,
+    collision_credit: i32,
+    expanded_adjacency: bool,
+    challenge_chance: u32,
+}
+
+const BASELINE: RuleVariant = RuleVariant {
+    name: "baseline",
+    adoption_threshold: 2,
+    collision_credit: 2,
+    expanded_adjacency: false,
+    challenge_chance: 65,
+};
+
+const VARIANTS: &[RuleVariant] = &[
+    BASELINE,
+    RuleVariant {
+        name: "expanded-adjacency",
+        adoption_threshold: 2,
+        collision_credit: 2,
+        expanded_adjacency: true,
+        challenge_chance: 65,
+    },
+    RuleVariant {
+        name: "lower-adoption",
+        adoption_threshold: 1,
+        collision_credit: 2,
+        expanded_adjacency: false,
+        challenge_chance: 65,
+    },
+    RuleVariant {
+        name: "collision-boost",
+        adoption_threshold: 2,
+        collision_credit: 3,
+        expanded_adjacency: false,
+        challenge_chance: 75,
+    },
+    RuleVariant {
+        name: "tournament-pressure",
+        adoption_threshold: 2,
+        collision_credit: 3,
+        expanded_adjacency: true,
+        challenge_chance: 75,
+    },
+];
+
 #[derive(Debug, Clone)]
 struct Chair {
     id: String,
@@ -75,11 +131,37 @@ fn main() {
     let runs = option_value("--runs")
         .and_then(|value| value.parse::<usize>().ok())
         .unwrap_or(1);
+    if has_flag("--compare-variants") {
+        let runs = runs.max(20);
+        println!("TIGRIS simulator: Parliament variant comparison");
+        println!("seed: {seed}");
+        println!("players: {player_count}");
+        println!("runs_per_variant: {runs}");
+        for variant in VARIANTS {
+            let results = simulate_batch(&seed, runs, player_count, *variant);
+            let summary = summarize_batch(&results);
+            println!(
+                "variant:{} avg_collisions={:.2} adoption_rate={:.1}% no_collision={:.1}% no_adoption={:.1}% avg_winner={:.2}",
+                variant.name,
+                summary.average_collisions,
+                summary.adoption_rate,
+                summary.no_collision_rate,
+                summary.no_adoption_rate,
+                summary.average_winning_score
+            );
+        }
+        return;
+    }
+    let variant = option_value("--variant")
+        .as_deref()
+        .and_then(find_variant)
+        .unwrap_or(BASELINE);
     if runs > 1 {
-        let results = simulate_batch(&seed, runs, player_count);
+        let results = simulate_batch(&seed, runs, player_count, variant);
         let summary = summarize_batch(&results);
         println!("TIGRIS simulator: Parliament batch");
         println!("seed: {seed}");
+        println!("variant: {}", variant.name);
         println!("players: {player_count}");
         println!("runs: {}", summary.runs);
         println!("average_collisions: {:.2}", summary.average_collisions);
@@ -96,9 +178,10 @@ fn main() {
         return;
     }
 
-    let result = simulate_parliament(&seed, player_count);
+    let result = simulate_parliament(&seed, player_count, variant);
     println!("TIGRIS simulator: Parliament");
     println!("run_id: {}", result.run.run_id);
+    println!("variant: {}", variant.name);
     println!("status: {}", result.report.status());
     println!("collisions: {}", result.collisions);
     println!("axes_seen: {}", result.axis_states.len());
@@ -119,6 +202,10 @@ fn main() {
     }
 }
 
+fn has_flag(name: &str) -> bool {
+    env::args().any(|arg| arg == name)
+}
+
 fn option_value(name: &str) -> Option<String> {
     let args = env::args().collect::<Vec<_>>();
     args.windows(2)
@@ -126,8 +213,19 @@ fn option_value(name: &str) -> Option<String> {
         .map(|pair| pair[1].clone())
 }
 
-fn simulate_parliament(seed: &str, player_count: usize) -> ParliamentResult {
-    let run = SimulationRun::new("tigris-sim", "0001-parliament", seed);
+fn find_variant(name: &str) -> Option<RuleVariant> {
+    VARIANTS
+        .iter()
+        .copied()
+        .find(|variant| variant.name == name)
+}
+
+fn simulate_parliament(seed: &str, player_count: usize, variant: RuleVariant) -> ParliamentResult {
+    let run = SimulationRun::new(
+        "tigris-sim",
+        &format!("0001-parliament-{}", variant.name),
+        seed,
+    );
     let mut rng = run.rng();
     let mut draft_pool = AXES.iter().map(|axis| axis.to_string()).collect::<Vec<_>>();
     let mut chairs = (0..player_count)
@@ -166,7 +264,7 @@ fn simulate_parliament(seed: &str, player_count: usize) -> ParliamentResult {
 
         for left in 0..stakes.len() {
             for right in left + 1..stakes.len() {
-                if adjacent(&stakes[left].1, &stakes[right].1) {
+                if adjacent(&stakes[left].1, &stakes[right].1, variant) {
                     collisions += 1;
                     let left_wins = rng.percent_chance(55);
                     let winner_axis = if left_wins {
@@ -201,14 +299,14 @@ fn simulate_parliament(seed: &str, player_count: usize) -> ParliamentResult {
                                 stakes[right].0.as_str()
                             }
                     }) {
-                        chair.collision_points += 2;
+                        chair.collision_points += variant.collision_credit;
                     }
                 }
             }
         }
 
         for (idx, (_, axis, stake)) in stakes.iter().enumerate() {
-            let challenged = rng.percent_chance(65);
+            let challenged = rng.percent_chance(variant.challenge_chance);
             let chair = &mut chairs[idx];
             if !challenged {
                 chair.trace.record_blocked_turn();
@@ -236,16 +334,16 @@ fn simulate_parliament(seed: &str, player_count: usize) -> ParliamentResult {
             .axes
             .iter()
             .filter(|axis| {
-                axis_states
-                    .get(*axis)
-                    .is_some_and(|state| state.defended >= 2 && state.refuted == 0)
+                axis_states.get(*axis).is_some_and(|state| {
+                    state.defended >= variant.adoption_threshold && state.refuted == 0
+                })
             })
             .count() as u32;
     }
 
     let adopted = axis_states
         .values()
-        .filter(|state| state.defended >= 2 && state.refuted == 0)
+        .filter(|state| state.defended >= variant.adoption_threshold && state.refuted == 0)
         .count() as u32;
     let refuted = axis_states
         .values()
@@ -270,6 +368,8 @@ fn simulate_parliament(seed: &str, player_count: usize) -> ParliamentResult {
         SimulationMetric::new("collision_rate", percent_of(collisions, 4)),
         SimulationMetric::new("adopted_axes", adopted as f64),
         SimulationMetric::new("refuted_axes", refuted as f64),
+        SimulationMetric::new("adoption_threshold", variant.adoption_threshold as f64),
+        SimulationMetric::new("collision_credit", variant.collision_credit as f64),
     ];
 
     ParliamentResult {
@@ -285,9 +385,14 @@ fn simulate_parliament(seed: &str, player_count: usize) -> ParliamentResult {
     }
 }
 
-fn simulate_batch(seed: &str, runs: usize, player_count: usize) -> Vec<ParliamentResult> {
+fn simulate_batch(
+    seed: &str,
+    runs: usize,
+    player_count: usize,
+    variant: RuleVariant,
+) -> Vec<ParliamentResult> {
     (0..runs)
-        .map(|idx| simulate_parliament(&format!("{seed}-{idx}"), player_count))
+        .map(|idx| simulate_parliament(&format!("{seed}-{idx}"), player_count, variant))
         .collect()
 }
 
@@ -336,10 +441,14 @@ fn metric_value(result: &ParliamentResult, name: &str) -> f64 {
         .unwrap_or(0.0)
 }
 
-fn adjacent(left: &str, right: &str) -> bool {
+fn adjacent(left: &str, right: &str, variant: RuleVariant) -> bool {
     ADJACENCIES
         .iter()
         .any(|(a, b)| (left == *a && right == *b) || (left == *b && right == *a))
+        || (variant.expanded_adjacency
+            && EXPANDED_ADJACENCIES
+                .iter()
+                .any(|(a, b)| (left == *a && right == *b) || (left == *b && right == *a)))
 }
 
 fn final_score(chair: &Chair) -> i32 {
@@ -352,8 +461,8 @@ mod tests {
 
     #[test]
     fn parliament_sim_is_repeatable() {
-        let left = simulate_parliament("fixed", 4);
-        let right = simulate_parliament("fixed", 4);
+        let left = simulate_parliament("fixed", 4, BASELINE);
+        let right = simulate_parliament("fixed", 4, BASELINE);
 
         assert_eq!(left.collisions, right.collisions);
         assert_eq!(final_score(&left.chairs[0]), final_score(&right.chairs[0]));
@@ -361,7 +470,7 @@ mod tests {
 
     #[test]
     fn parliament_sim_tracks_designer_activity() {
-        let result = simulate_parliament("activity", 4);
+        let result = simulate_parliament("activity", 4, BASELINE);
 
         assert_eq!(result.chairs.len(), 4);
         assert!(result.chairs.iter().all(|chair| chair.trace.actions > 0));
@@ -370,11 +479,25 @@ mod tests {
 
     #[test]
     fn batch_summary_reports_adoption_pressure() {
-        let results = simulate_batch("batch", 8, 4);
+        let results = simulate_batch("batch", 8, 4, BASELINE);
         let summary = summarize_batch(&results);
 
         assert_eq!(summary.runs, 8);
         assert!(summary.average_collisions >= 0.0);
         assert!(!summary.chair_wins.is_empty());
+    }
+
+    #[test]
+    fn tournament_pressure_variant_improves_adoption_pressure() {
+        let baseline = summarize_batch(&simulate_batch("variant", 20, 4, BASELINE));
+        let tuned = summarize_batch(&simulate_batch(
+            "variant",
+            20,
+            4,
+            find_variant("tournament-pressure").unwrap(),
+        ));
+
+        assert!(tuned.adoption_rate >= baseline.adoption_rate);
+        assert!(tuned.average_collisions >= baseline.average_collisions);
     }
 }
