@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 use muddle_core::{
     MuddleCommand, MuddleCommandHint, MuddleCommandOutcome, MuddleError, MuddleExit, MuddleHost,
-    MuddleInventoryItem, MuddleResource, MuddleRoom,
+    MuddleInventoryItem, MuddleResource, MuddleRoom, MuddleVisualNode,
 };
 use rally_core::{ScoreTrack, TokenPool, TurnOrder};
 
@@ -416,6 +416,80 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
             .collect()
     }
 
+    fn visual_nodes(&self, current_room: &str) -> Vec<MuddleVisualNode> {
+        let pressure_frame = if self.state.ai_pressure >= 3 {
+            "armed"
+        } else {
+            "building"
+        };
+        let mut children = vec![
+            MuddleVisualNode::sprite(
+                "parliament-board-map",
+                "Parliament board",
+                "sprites/tigris/parliament-board.png",
+                "A table-board-score strip for the Parliament AI slice.",
+            )
+            .with_layer(0)
+            .with_rect(0, 0, 8, 4),
+            MuddleVisualNode::text("current-room-label", "Current room", current_room)
+                .with_layer(30)
+                .with_rect(1, 0, 4, 1),
+            tigris_room_token("table-token", "Table", "table", current_room, 1),
+            tigris_room_token("board-token", "Board", "board", current_room, 2),
+            tigris_room_token("score-token", "Score", "score", current_room, 3),
+            MuddleVisualNode::sprite(
+                "ai-pressure-badge",
+                "AI pressure",
+                "sprites/tigris/ai-pressure.png",
+                format!("AI pressure {}", self.state.ai_pressure),
+            )
+            .with_layer(20)
+            .with_rect(1, 5, 2, 1)
+            .with_frame(pressure_frame),
+            MuddleVisualNode::text(
+                "score-state-label",
+                "Score state",
+                format!("Human {} / AI {}", self.state.human_score, self.state.ai_score),
+            )
+            .with_layer(30)
+            .with_rect(3, 5, 4, 1),
+        ];
+
+        if self.state.amendment_scored {
+            children.push(
+                MuddleVisualNode::sprite(
+                    "amendment-scored-badge",
+                    "Amendment scored",
+                    "sprites/tigris/amendment.png",
+                    "Parliament amendment scored badge.",
+                )
+                .with_layer(20)
+                .with_rect(5, 5, 2, 1)
+                .with_frame("scored"),
+            );
+        }
+        if self.state.parliament_closed {
+            children.push(
+                MuddleVisualNode::sprite(
+                    "parliament-closed-badge",
+                    "Parliament closed",
+                    "sprites/tigris/closed-parliament.png",
+                    "Closed Parliament badge.",
+                )
+                .with_layer(20)
+                .with_rect(7, 5, 2, 1)
+                .with_frame("closed")
+                .with_animation("pulse"),
+            );
+        }
+
+        vec![MuddleVisualNode::group(
+            "tigris-parliament-scene",
+            "TIGRIS Parliament scene",
+            children,
+        )]
+    }
+
     fn export_checkpoint(&self) -> Option<String> {
         Some(format!(
             "round={};human_score={};ai_score={};ai_pressure={};persona_chosen={};stake_tokens={};collision_markers={};defended_marks={};adopted_axes={};amendment_scored={};parliament_closed={};tiger_marker={};human_axis={};ai_axis={};last_ai_move={}",
@@ -702,6 +776,29 @@ fn parse_checkpoint_bool(key: &str, value: &str) -> Result<bool, MuddleError> {
     }
 }
 
+fn tigris_room_token(
+    id: &str,
+    label: &str,
+    room_id: &str,
+    current_room: &str,
+    order: i32,
+) -> MuddleVisualNode {
+    let frame = if current_room == room_id {
+        "active"
+    } else {
+        "idle"
+    };
+    MuddleVisualNode::sprite(
+        id,
+        label,
+        format!("sprites/tigris/{room_id}.png"),
+        format!("{label} room token"),
+    )
+    .with_layer(10)
+    .with_rect(order * 2 - 1, 2, 1, 1)
+    .with_frame(frame)
+}
+
 fn parse_checkpoint_i32(key: &str, value: &str) -> Result<i32, MuddleError> {
     value
         .parse::<i32>()
@@ -777,6 +874,40 @@ mod tests {
 
         assert_eq!(session.current_room, "score");
         assert!(host.state().parliament_closed);
+    }
+
+    #[test]
+    fn ai_opponent_emits_visual_scene_nodes() {
+        let mut host = parliament_ai_muddle_host();
+        let mut session = MuddleSession::for_host(&host).expect("host has start room");
+        for command in [
+            "choose persona",
+            "go board",
+            "draft axis",
+            "stake claim",
+            "reveal collision",
+            "place tiger",
+            "end turn",
+            "challenge ai",
+            "go score",
+            "score amendment",
+            "close parliament",
+        ] {
+            session
+                .play_turn(&mut host, MuddleCommand::parse(command))
+                .expect("command plays");
+        }
+
+        let visuals = host.visual_nodes(&session.current_room);
+        let scene = visuals
+            .iter()
+            .find(|node| node.id == "tigris-parliament-scene")
+            .expect("scene group exists");
+        assert!(scene.children.iter().any(|node| node.id == "score-token"));
+        assert!(scene
+            .children
+            .iter()
+            .any(|node| node.id == "parliament-closed-badge"));
     }
 
     #[test]
