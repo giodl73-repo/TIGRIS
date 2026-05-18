@@ -449,7 +449,10 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
             MuddleVisualNode::text(
                 "score-state-label",
                 "Score state",
-                format!("Human {} / AI {}", self.state.human_score, self.state.ai_score),
+                format!(
+                    "Human {} / AI {}",
+                    self.state.human_score, self.state.ai_score
+                ),
             )
             .with_layer(30)
             .with_rect(3, 5, 4, 1),
