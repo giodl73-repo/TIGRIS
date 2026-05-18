@@ -563,6 +563,9 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
                 "You move to the Parliament axis board.",
                 "board",
             )),
+            ("table", "go score") => Ok(MuddleCommandOutcome::stay(
+                "The score ledger opens after the board state is established. Go board first.",
+            )),
             ("board", "go table") => Ok(MuddleCommandOutcome::move_to(
                 "You return to the Parliament table.",
                 "table",
@@ -747,6 +750,33 @@ mod tests {
             .expect("exit succeeds");
 
         assert_eq!(outcome.next_room, Some("board".to_string()));
+    }
+
+    #[test]
+    fn ai_opponent_guides_friction_commands() {
+        let mut host = parliament_ai_muddle_host();
+        let mut session = MuddleSession::for_host(&host).expect("host has start room");
+        for command in [
+            "go score",
+            "choose persona",
+            "go board",
+            "draft axis",
+            "stake claim",
+            "reveal collision",
+            "place tiger",
+            "end turn",
+            "challenge ai",
+            "go score",
+            "score amendment",
+            "close parliament",
+        ] {
+            session
+                .play_turn(&mut host, MuddleCommand::parse(command))
+                .expect("friction command remains guided");
+        }
+
+        assert_eq!(session.current_room, "score");
+        assert!(host.state().parliament_closed);
     }
 
     #[test]
