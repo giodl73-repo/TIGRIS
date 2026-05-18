@@ -22,6 +22,7 @@ cargo run --quiet -- --game upstage --seed upstage-smoke --players 8 --runs 24
 cargo run --quiet -- --game upstage --seed upstage-smoke --players 8 --compare-variants --runs 24
 cargo run --quiet --bin tigris-muddle
 cargo run --quiet --bin tigris-muddle-window -- --open
+cargo run --quiet --bin tigris-muddle-window -- --save target\tigris-ai.window.muddle --transcript target\tigris-ai.window.txt --open
 ```
 
 ## Current validation signal
@@ -57,6 +58,7 @@ challenged by the human chair. Shared table bookkeeping uses RALLY's
 @("status", "quit") |
   cargo run --quiet --bin tigris-muddle -- --load target\tigris-ai.muddle
 cargo run --quiet --bin tigris-muddle-window -- --open
+cargo run --quiet --bin tigris-muddle-window -- --load target\tigris-ai.window.muddle --save target\tigris-ai.window.muddle --transcript target\tigris-ai.window.txt --open
 ```
 
 ## Rule variants
