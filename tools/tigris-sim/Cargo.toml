@@ -17,8 +17,14 @@ path = "src/bin/tigris-muddle.rs"
 name = "tigris-muddle-window"
 path = "src/bin/tigris-muddle-window.rs"
 
+[[bin]]
+name = "tigris-muddle-macroquad"
+path = "src/bin/tigris-muddle-macroquad.rs"
+
 [dependencies]
+macroquad = "0.4"
 muddle-cli = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
 muddle-core = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
+muddle-macroquad = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
 muddle-window = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
 rally-core = { git = "https://github.com/giodl73-repo/RALLY.git" }

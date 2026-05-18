@@ -91,7 +91,14 @@ cargo run --quiet -- --seed parliament-smoke
 cargo run --quiet -- --seed parliament-smoke --runs 20 --players 4
 cargo run --quiet -- --seed parliament-smoke --compare-variants --runs 20 --players 4
 cargo run --quiet -- --game upstage --seed upstage-smoke --players 8 --compare-variants --runs 24
+cd tools\tigris-sim
+cargo run --quiet --bin tigris-muddle-macroquad
 ```
+
+The native MUDDLE/Macroquad launcher opens the Parliament AI table directly with
+default save/transcript/import/export paths. The first visible table arc is:
+`go board`, `draft axis`, `place tiger`, `end turn`, `challenge ai`, `go score`,
+`inspect ai`.
 
 ## Status
 
