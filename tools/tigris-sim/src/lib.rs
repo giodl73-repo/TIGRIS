@@ -330,6 +330,102 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
             .collect()
     }
 
+    fn export_checkpoint(&self) -> Option<String> {
+        Some(format!(
+            "round={};human_score={};ai_score={};ai_pressure={};tiger_marker={};human_axis={};ai_axis={};last_ai_move={}",
+            self.state.round,
+            self.state.human_score,
+            self.state.ai_score,
+            self.state.ai_pressure,
+            self.state.tokens.count("tiger_marker"),
+            self.state.human_axis.as_deref().unwrap_or("none"),
+            self.state.ai_axis.as_deref().unwrap_or("none"),
+            self.state.last_ai_move
+        ))
+    }
+
+    fn import_checkpoint(&mut self, checkpoint: &str) -> Result<(), MuddleError> {
+        let mut round = None;
+        let mut human_score = None;
+        let mut ai_score = None;
+        let mut ai_pressure = None;
+        let mut tiger_marker = None;
+        let mut human_axis = None;
+        let mut ai_axis = None;
+        let mut last_ai_move = None;
+
+        for part in checkpoint.split(';') {
+            let (key, value) =
+                part.split_once('=')
+                    .ok_or_else(|| MuddleError::InvalidHostCheckpoint {
+                        message: format!("malformed checkpoint field `{part}`"),
+                    })?;
+            match key {
+                "round" => round = Some(parse_checkpoint_u32(key, value)?),
+                "human_score" => human_score = Some(parse_checkpoint_i32(key, value)?),
+                "ai_score" => ai_score = Some(parse_checkpoint_i32(key, value)?),
+                "ai_pressure" => ai_pressure = Some(parse_checkpoint_u32(key, value)?),
+                "tiger_marker" => tiger_marker = Some(parse_checkpoint_i32(key, value)?),
+                "human_axis" => human_axis = Some(parse_checkpoint_option(value)),
+                "ai_axis" => ai_axis = Some(parse_checkpoint_option(value)),
+                "last_ai_move" => last_ai_move = Some(value.to_string()),
+                _ => {
+                    return Err(MuddleError::InvalidHostCheckpoint {
+                        message: format!("unknown checkpoint field `{key}`"),
+                    });
+                }
+            }
+        }
+
+        let round = round.ok_or_else(|| MuddleError::InvalidHostCheckpoint {
+            message: "missing round checkpoint field".to_string(),
+        })?;
+        let human_score = human_score.ok_or_else(|| MuddleError::InvalidHostCheckpoint {
+            message: "missing human_score checkpoint field".to_string(),
+        })?;
+        let ai_score = ai_score.ok_or_else(|| MuddleError::InvalidHostCheckpoint {
+            message: "missing ai_score checkpoint field".to_string(),
+        })?;
+        let ai_pressure = ai_pressure.ok_or_else(|| MuddleError::InvalidHostCheckpoint {
+            message: "missing ai_pressure checkpoint field".to_string(),
+        })?;
+        let tiger_marker = tiger_marker.ok_or_else(|| MuddleError::InvalidHostCheckpoint {
+            message: "missing tiger_marker checkpoint field".to_string(),
+        })?;
+
+        let mut turn_order = TurnOrder::new(["human", "ai"]);
+        for _ in 1..round {
+            turn_order.advance();
+            turn_order.advance();
+        }
+        let mut scores = ScoreTrack::new(["human", "ai"]);
+        scores.add("human", human_score);
+        scores.add("ai", ai_score);
+
+        self.state = TigrisAiOpponentState {
+            round,
+            human_score,
+            ai_score,
+            ai_pressure,
+            turn_order,
+            scores,
+            tokens: TokenPool::new([
+                ("ai_pressure", ai_pressure as i32),
+                ("tiger_marker", tiger_marker),
+            ]),
+            human_axis: human_axis.ok_or_else(|| MuddleError::InvalidHostCheckpoint {
+                message: "missing human_axis checkpoint field".to_string(),
+            })?,
+            ai_axis: ai_axis.ok_or_else(|| MuddleError::InvalidHostCheckpoint {
+                message: "missing ai_axis checkpoint field".to_string(),
+            })?,
+            last_ai_move: last_ai_move.ok_or_else(|| MuddleError::InvalidHostCheckpoint {
+                message: "missing last_ai_move checkpoint field".to_string(),
+            })?,
+        };
+        Ok(())
+    }
+
     fn handle_command(
         &mut self,
         room_id: &str,
@@ -410,9 +506,34 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
     }
 }
 
+fn parse_checkpoint_option(value: &str) -> Option<String> {
+    if value == "none" {
+        None
+    } else {
+        Some(value.to_string())
+    }
+}
+
+fn parse_checkpoint_i32(key: &str, value: &str) -> Result<i32, MuddleError> {
+    value
+        .parse::<i32>()
+        .map_err(|_| MuddleError::InvalidHostCheckpoint {
+            message: format!("invalid integer checkpoint field `{key}={value}`"),
+        })
+}
+
+fn parse_checkpoint_u32(key: &str, value: &str) -> Result<u32, MuddleError> {
+    value
+        .parse::<u32>()
+        .map_err(|_| MuddleError::InvalidHostCheckpoint {
+            message: format!("invalid unsigned checkpoint field `{key}={value}`"),
+        })
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
+    use muddle_core::MuddleSession;
 
     #[test]
     fn ai_opponent_advances_after_end_turn() {
@@ -460,5 +581,43 @@ mod tests {
         assert!(outcome.response.contains("Challenge lands"));
         assert_eq!(host.state().ai_pressure, 1);
         assert_eq!(host.state().human_score, 2);
+    }
+
+    #[test]
+    fn ai_opponent_resumes_from_checkpoint_save() {
+        let mut host = parliament_ai_muddle_host();
+        let mut session = MuddleSession::for_host(&host).expect("host has start room");
+        for command in ["go board", "draft axis", "place tiger", "end turn"] {
+            session
+                .play_turn(&mut host, MuddleCommand::parse(command))
+                .expect("command plays");
+        }
+
+        let save = session.save_for_host(&host);
+        assert!(save
+            .host_checkpoint
+            .as_deref()
+            .unwrap_or_default()
+            .contains("human_axis=Tension Budget"));
+
+        let checkpoint_only_save = muddle_core::MuddleSessionSave {
+            current_room: "board".to_string(),
+            commands: vec!["go board".to_string()],
+            host_checkpoint: save.host_checkpoint,
+        };
+        let mut resumed_host = parliament_ai_muddle_host();
+        let mut resumed = MuddleSession::resume_for_host(&mut resumed_host, &checkpoint_only_save)
+            .expect("session resumes from host checkpoint");
+        resumed
+            .play_turn(&mut resumed_host, MuddleCommand::parse("challenge ai"))
+            .expect("checkpoint restored AI pressure");
+
+        assert_eq!(resumed.current_room, "board");
+        assert_eq!(
+            resumed_host.state().human_axis.as_deref(),
+            Some("Tension Budget")
+        );
+        assert!(resumed_host.state().human_score >= 1);
+        assert!(resumed_host.state().ai_score >= 1);
     }
 }

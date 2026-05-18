@@ -39,7 +39,8 @@ cargo run --quiet --bin tigris-muddle-window -- --save target\tigris-ai.window.m
 - UPSTAGE trigger pressure, DOUBLE rate, false-upstage/commitment risk,
   eight-player chaos, score spread, and RALLY comparison-report status.
 - MUDDLE solo-play table loop with deterministic Parliament AI opponent,
-  command transcript, save/resume, recent log, inventory, and score panels.
+  command transcript, checkpoint save/resume, recent log, inventory, and score
+  panels.
 - RALLY tabletop primitives for AI-opponent turn order, score tracking, and
   pressure/token bookkeeping.
 
@@ -51,6 +52,8 @@ MUDDLE window runner. The first AI slice is deterministic on purpose: the oppone
 axes, builds pressure, counter-drafts when pressure is armed, and can be
 challenged by the human chair. Shared table bookkeeping uses RALLY's
 `TurnOrder`, `ScoreTrack`, and `TokenPool`; TIGRIS keeps Parliament policy local.
+The host exports/imports checkpoints for round, score, pressure, marker, axis,
+and last-AI-move state so MUDDLE saves do not depend only on command replay.
 
 ```powershell
 @("go board", "draft axis", "place tiger", "end turn", "challenge ai", "quit") |
