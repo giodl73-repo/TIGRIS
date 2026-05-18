@@ -50,6 +50,13 @@ pub struct TigrisAiOpponentState {
     pub human_score: i32,
     pub ai_score: i32,
     pub ai_pressure: u32,
+    pub persona_chosen: bool,
+    pub stake_tokens: u32,
+    pub collision_markers: u32,
+    pub defended_marks: u32,
+    pub adopted_axes: u32,
+    pub amendment_scored: bool,
+    pub parliament_closed: bool,
     pub turn_order: TurnOrder,
     pub scores: ScoreTrack,
     pub tokens: TokenPool,
@@ -109,9 +116,24 @@ pub fn parliament_ai_muddle_surface() -> TigrisMuddleSurface {
                 description: "Show the current solo table state.",
             },
             TigrisMuddleCommand {
+                room_id: "table",
+                command: "choose persona",
+                description: "Seat the human designer before drafting.",
+            },
+            TigrisMuddleCommand {
                 room_id: "board",
                 command: "draft axis",
                 description: "Draft Tension Budget for the human chair.",
+            },
+            TigrisMuddleCommand {
+                room_id: "board",
+                command: "stake claim",
+                description: "Commit stake tokens to the drafted axis.",
+            },
+            TigrisMuddleCommand {
+                room_id: "board",
+                command: "reveal collision",
+                description: "Reveal an adjacency collision against the AI axis.",
             },
             TigrisMuddleCommand {
                 room_id: "board",
@@ -132,6 +154,16 @@ pub fn parliament_ai_muddle_surface() -> TigrisMuddleSurface {
                 room_id: "score",
                 command: "inspect ai",
                 description: "Inspect the AI opponent plan.",
+            },
+            TigrisMuddleCommand {
+                room_id: "score",
+                command: "score amendment",
+                description: "Score raw points and mark adopted axes.",
+            },
+            TigrisMuddleCommand {
+                room_id: "score",
+                command: "close parliament",
+                description: "Close the table after amendment scoring.",
             },
         ],
     }
@@ -175,6 +207,13 @@ impl TigrisAiOpponentMuddleHost {
                 human_score: 0,
                 ai_score: 0,
                 ai_pressure: 1,
+                persona_chosen: false,
+                stake_tokens: 0,
+                collision_markers: 0,
+                defended_marks: 0,
+                adopted_axes: 0,
+                amendment_scored: false,
+                parliament_closed: false,
                 turn_order: TurnOrder::new(["human", "ai"]),
                 scores: ScoreTrack::new(["human", "ai"]),
                 tokens: TokenPool::new([("ai_pressure", 1), ("tiger_marker", 0)]),
@@ -196,12 +235,19 @@ impl TigrisAiOpponentMuddleHost {
                 room_id: room_id.to_string(),
             })?;
         Ok(MuddleCommandOutcome::stay(format!(
-            "{}\n| tigris: round={} human={} ai={} pressure={} human_axis={} ai_axis={}",
+            "{}\n| tigris: round={} human={} ai={} pressure={} persona={} stakes={} collisions={} defended={} adopted={} amendment={} closed={} human_axis={} ai_axis={}",
             room.ascii_card(),
             self.state.round,
             self.state.human_score,
             self.state.ai_score,
             self.state.ai_pressure,
+            self.state.persona_chosen,
+            self.state.stake_tokens,
+            self.state.collision_markers,
+            self.state.defended_marks,
+            self.state.adopted_axes,
+            self.state.amendment_scored,
+            self.state.parliament_closed,
             self.state.human_axis.as_deref().unwrap_or("none"),
             self.state.ai_axis.as_deref().unwrap_or("none")
         )))
@@ -272,11 +318,31 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
                 label: "pressure".to_string(),
                 value: self.state.ai_pressure.to_string(),
             },
+            MuddleResource {
+                label: "stakes".to_string(),
+                value: self.state.stake_tokens.to_string(),
+            },
+            MuddleResource {
+                label: "collisions".to_string(),
+                value: self.state.collision_markers.to_string(),
+            },
+            MuddleResource {
+                label: "adopted".to_string(),
+                value: self.state.adopted_axes.to_string(),
+            },
         ]
     }
 
     fn inventory_panel(&self) -> Vec<MuddleInventoryItem> {
         vec![
+            MuddleInventoryItem {
+                label: "persona".to_string(),
+                detail: if self.state.persona_chosen {
+                    "Knizia seat".to_string()
+                } else {
+                    "unseated".to_string()
+                },
+            },
             MuddleInventoryItem {
                 label: "human tiger".to_string(),
                 detail: self
@@ -289,6 +355,16 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
             MuddleInventoryItem {
                 label: "ai plan".to_string(),
                 detail: self.state.last_ai_move.clone(),
+            },
+            MuddleInventoryItem {
+                label: "amendment".to_string(),
+                detail: if self.state.parliament_closed {
+                    "closed".to_string()
+                } else if self.state.amendment_scored {
+                    "scored".to_string()
+                } else {
+                    "pending".to_string()
+                },
             },
             MuddleInventoryItem {
                 label: "collision marker".to_string(),
@@ -309,12 +385,22 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
 
     fn objective_panel(&self, current_room: &str) -> Vec<String> {
         match current_room {
+            "table" if !self.state.persona_chosen => {
+                vec!["Choose a designer persona, then go board.".to_string()]
+            }
             "table" => vec!["Go board to start the solo AI-opponent loop.".to_string()],
             "board" => vec![
-                "Draft an axis, place a tiger marker, then end turn.".to_string(),
+                "Draft an axis, stake a claim, reveal collision, place a tiger, then end turn."
+                    .to_string(),
                 "Challenge the AI once pressure reaches 3.".to_string(),
             ],
-            "score" => vec!["Inspect AI to understand deterministic counterplay.".to_string()],
+            "score" if !self.state.amendment_scored => {
+                vec!["Inspect AI, then score amendment to classify adoption.".to_string()]
+            }
+            "score" if !self.state.parliament_closed => {
+                vec!["Close parliament after amendment scoring.".to_string()]
+            }
+            "score" => vec!["Parliament closed; reset or review transcript.".to_string()],
             _ => Vec::new(),
         }
     }
@@ -332,11 +418,18 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
 
     fn export_checkpoint(&self) -> Option<String> {
         Some(format!(
-            "round={};human_score={};ai_score={};ai_pressure={};tiger_marker={};human_axis={};ai_axis={};last_ai_move={}",
+            "round={};human_score={};ai_score={};ai_pressure={};persona_chosen={};stake_tokens={};collision_markers={};defended_marks={};adopted_axes={};amendment_scored={};parliament_closed={};tiger_marker={};human_axis={};ai_axis={};last_ai_move={}",
             self.state.round,
             self.state.human_score,
             self.state.ai_score,
             self.state.ai_pressure,
+            self.state.persona_chosen,
+            self.state.stake_tokens,
+            self.state.collision_markers,
+            self.state.defended_marks,
+            self.state.adopted_axes,
+            self.state.amendment_scored,
+            self.state.parliament_closed,
             self.state.tokens.count("tiger_marker"),
             self.state.human_axis.as_deref().unwrap_or("none"),
             self.state.ai_axis.as_deref().unwrap_or("none"),
@@ -349,6 +442,13 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
         let mut human_score = None;
         let mut ai_score = None;
         let mut ai_pressure = None;
+        let mut persona_chosen = None;
+        let mut stake_tokens = None;
+        let mut collision_markers = None;
+        let mut defended_marks = None;
+        let mut adopted_axes = None;
+        let mut amendment_scored = None;
+        let mut parliament_closed = None;
         let mut tiger_marker = None;
         let mut human_axis = None;
         let mut ai_axis = None;
@@ -365,6 +465,15 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
                 "human_score" => human_score = Some(parse_checkpoint_i32(key, value)?),
                 "ai_score" => ai_score = Some(parse_checkpoint_i32(key, value)?),
                 "ai_pressure" => ai_pressure = Some(parse_checkpoint_u32(key, value)?),
+                "persona_chosen" => persona_chosen = Some(parse_checkpoint_bool(key, value)?),
+                "stake_tokens" => stake_tokens = Some(parse_checkpoint_u32(key, value)?),
+                "collision_markers" => {
+                    collision_markers = Some(parse_checkpoint_u32(key, value)?);
+                }
+                "defended_marks" => defended_marks = Some(parse_checkpoint_u32(key, value)?),
+                "adopted_axes" => adopted_axes = Some(parse_checkpoint_u32(key, value)?),
+                "amendment_scored" => amendment_scored = Some(parse_checkpoint_bool(key, value)?),
+                "parliament_closed" => parliament_closed = Some(parse_checkpoint_bool(key, value)?),
                 "tiger_marker" => tiger_marker = Some(parse_checkpoint_i32(key, value)?),
                 "human_axis" => human_axis = Some(parse_checkpoint_option(value)),
                 "ai_axis" => ai_axis = Some(parse_checkpoint_option(value)),
@@ -407,6 +516,13 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
             human_score,
             ai_score,
             ai_pressure,
+            persona_chosen: persona_chosen.unwrap_or(false),
+            stake_tokens: stake_tokens.unwrap_or(0),
+            collision_markers: collision_markers.unwrap_or(0),
+            defended_marks: defended_marks.unwrap_or(0),
+            adopted_axes: adopted_axes.unwrap_or(0),
+            amendment_scored: amendment_scored.unwrap_or(false),
+            parliament_closed: parliament_closed.unwrap_or(false),
             turn_order,
             scores,
             tokens: TokenPool::new([
@@ -437,6 +553,12 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
         }
 
         match (room_id, normalized.as_str()) {
+            ("table", "choose persona") => {
+                self.state.persona_chosen = true;
+                Ok(MuddleCommandOutcome::stay(
+                    "Human chair takes the Knizia persona board and preferred-axis card.",
+                ))
+            }
             ("table", "go board") => Ok(MuddleCommandOutcome::move_to(
                 "You move to the Parliament axis board.",
                 "board",
@@ -454,9 +576,34 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
                 "board",
             )),
             ("board", "draft axis") => {
+                if !self.state.persona_chosen {
+                    self.state.persona_chosen = true;
+                }
                 self.state.human_axis = Some("Tension Budget".to_string());
                 Ok(MuddleCommandOutcome::stay(
                     "Human chair drafts Tension Budget. AI pressure remains visible.",
+                ))
+            }
+            ("board", "stake claim") if self.state.human_axis.is_none() => Ok(
+                MuddleCommandOutcome::stay("Draft an axis before committing stake tokens."),
+            ),
+            ("board", "stake claim") => {
+                self.state.stake_tokens = 2;
+                self.state.human_score = self.state.scores.add("human", 1);
+                Ok(MuddleCommandOutcome::stay(
+                    "Human chair stakes 2 tokens on Tension Budget and earns an opening point.",
+                ))
+            }
+            ("board", "reveal collision") if self.state.stake_tokens == 0 => Ok(
+                MuddleCommandOutcome::stay("Commit a stake before checking for axis collisions."),
+            ),
+            ("board", "reveal collision") => {
+                self.state.collision_markers += 1;
+                self.state.defended_marks += 1;
+                self.state.tokens.gain("ai_pressure", 1);
+                self.state.ai_pressure = self.state.tokens.count("ai_pressure") as u32;
+                Ok(MuddleCommandOutcome::stay(
+                    "Tension Budget collides with the AI's Scarcity Bite lane. Defense credit recorded; pressure rises.",
                 ))
             }
             ("board", "place tiger") => {
@@ -498,6 +645,34 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
                 "AI opponent: deterministic pressure bot. Last move: {}",
                 self.state.last_ai_move
             ))),
+            ("score", "score amendment") if self.state.amendment_scored => {
+                Ok(MuddleCommandOutcome::stay(
+                    "Amendment already scored. Close parliament when ready.",
+                ))
+            }
+            ("score", "score amendment") => {
+                if self.state.defended_marks > 0 && self.state.stake_tokens > 0 {
+                    self.state.adopted_axes = 1;
+                    self.state.human_score = self.state.scores.add("human", 3);
+                }
+                self.state.amendment_scored = true;
+                Ok(MuddleCommandOutcome::stay(format!(
+                    "Amendment scored: {} adopted axes, {} collision markers, human {} to AI {}.",
+                    self.state.adopted_axes,
+                    self.state.collision_markers,
+                    self.state.human_score,
+                    self.state.ai_score
+                )))
+            }
+            ("score", "close parliament") if !self.state.amendment_scored => Ok(
+                MuddleCommandOutcome::stay("Score amendment before closing Parliament."),
+            ),
+            ("score", "close parliament") => {
+                self.state.parliament_closed = true;
+                Ok(MuddleCommandOutcome::stay(
+                    "Parliament closes. The ledger records Tension Budget as adopted for the next session.",
+                ))
+            }
             _ => Err(MuddleError::UnknownCommand {
                 room_id: room_id.to_string(),
                 command: command.clone(),
@@ -511,6 +686,16 @@ fn parse_checkpoint_option(value: &str) -> Option<String> {
         None
     } else {
         Some(value.to_string())
+    }
+}
+
+fn parse_checkpoint_bool(key: &str, value: &str) -> Result<bool, MuddleError> {
+    match value {
+        "true" => Ok(true),
+        "false" => Ok(false),
+        _ => Err(MuddleError::InvalidHostCheckpoint {
+            message: format!("invalid boolean checkpoint field `{key}={value}`"),
+        }),
     }
 }
 

@@ -10,7 +10,7 @@ fn main() -> std::io::Result<()> {
             description:
                 "TIGRIS Parliament: product-owned MUDDLE host with a deterministic AI opponent.",
             suggested_commands:
-                "`go board`, `draft axis`, `place tiger`, `end turn`, `challenge ai`, `quit`.",
+                "`choose persona`, `go board`, `draft axis`, `stake claim`, `reveal collision`, `place tiger`, `end turn`, `challenge ai`, `go score`, `score amendment`, `close parliament`, `quit`.",
         },
     )
     .map(|_| ())

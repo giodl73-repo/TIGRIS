@@ -97,8 +97,9 @@ cargo run --quiet --bin tigris-muddle-macroquad
 
 The native MUDDLE/Macroquad launcher opens the Parliament AI table directly with
 default save/transcript/import/export paths. The first visible table arc is:
-`go board`, `draft axis`, `place tiger`, `end turn`, `challenge ai`, `go score`,
-`inspect ai`.
+`choose persona`, `go board`, `draft axis`, `stake claim`, `reveal collision`,
+`place tiger`, `end turn`, `challenge ai`, `go score`, `inspect ai`,
+`score amendment`, `close parliament`.
 
 ## Status
 

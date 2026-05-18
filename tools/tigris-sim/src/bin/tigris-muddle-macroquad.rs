@@ -36,9 +36,9 @@ async fn main() {
     let registrations = vec![MuddleClientHostRegistration {
         name: HOST_NAME,
         category: "Games",
-        description: "TIGRIS Parliament: native AI-opponent table slice.",
+        description: "TIGRIS Parliament: native AI-opponent amendment slice.",
         suggested_commands:
-            "`go board`, `draft axis`, `place tiger`, `end turn`, `challenge ai`, `go score`, `inspect ai`.",
+            "`choose persona`, `go board`, `draft axis`, `stake claim`, `reveal collision`, `place tiger`, `end turn`, `challenge ai`, `go score`, `score amendment`, `close parliament`.",
         create: || Box::new(parliament_ai_muddle_host()),
     }];
 

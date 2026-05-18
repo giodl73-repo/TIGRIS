@@ -7,7 +7,8 @@ fn main() -> std::io::Result<()> {
         category: "Games",
         description:
             "TIGRIS Parliament: product-owned MUDDLE window host with a deterministic AI opponent.",
-        suggested_commands: "`go board`, `draft axis`, `place tiger`, `end turn`, `challenge ai`.",
+        suggested_commands:
+            "`choose persona`, `go board`, `draft axis`, `stake claim`, `reveal collision`, `place tiger`, `end turn`, `challenge ai`, `go score`, `score amendment`, `close parliament`.",
         create: || Box::new(parliament_ai_muddle_host()),
     }])
 }
