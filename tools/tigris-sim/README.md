@@ -21,6 +21,7 @@ cargo run --quiet -- --game upstage --seed upstage-smoke --players 8
 cargo run --quiet -- --game upstage --seed upstage-smoke --players 8 --runs 24
 cargo run --quiet -- --game upstage --seed upstage-smoke --players 8 --compare-variants --runs 24
 cargo run --quiet --bin tigris-muddle
+cargo run --quiet --bin tigris-muddle-window -- --open
 ```
 
 ## Current validation signal
@@ -44,7 +45,8 @@ cargo run --quiet --bin tigris-muddle
 ## MUDDLE AI opponent host
 
 `tigris-muddle` mounts `parliament_ai_muddle_host()` through the shared MUDDLE
-runner. The first AI slice is deterministic on purpose: the opponent drafts
+CLI runner, and `tigris-muddle-window` mounts the same host through the shared
+MUDDLE window runner. The first AI slice is deterministic on purpose: the opponent drafts
 axes, builds pressure, counter-drafts when pressure is armed, and can be
 challenged by the human chair. Shared table bookkeeping uses RALLY's
 `TurnOrder`, `ScoreTrack`, and `TokenPool`; TIGRIS keeps Parliament policy local.
@@ -54,6 +56,7 @@ challenged by the human chair. Shared table bookkeeping uses RALLY's
   cargo run --quiet --bin tigris-muddle -- --save target\tigris-ai.muddle --transcript target\tigris-ai.txt
 @("status", "quit") |
   cargo run --quiet --bin tigris-muddle -- --load target\tigris-ai.muddle
+cargo run --quiet --bin tigris-muddle-window -- --open
 ```
 
 ## Rule variants

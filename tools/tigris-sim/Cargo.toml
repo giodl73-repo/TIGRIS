@@ -13,7 +13,12 @@ path = "src/main.rs"
 name = "tigris-muddle"
 path = "src/bin/tigris-muddle.rs"
 
+[[bin]]
+name = "tigris-muddle-window"
+path = "src/bin/tigris-muddle-window.rs"
+
 [dependencies]
 muddle-cli = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
 muddle-core = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
+muddle-window = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
 rally-core = { git = "https://github.com/giodl73-repo/RALLY.git" }
