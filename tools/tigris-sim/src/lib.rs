@@ -1381,6 +1381,102 @@ mod tests {
     }
 
     #[test]
+    fn table_experience_lenses_complete_with_readable_beats() {
+        let lenses: [(&str, &[&str], &[&str]); 3] = [
+            (
+                "first-time-designer",
+                &[
+                    "look",
+                    "inspect table",
+                    "choose persona",
+                    "look",
+                    "go board",
+                    "inspect board",
+                    "draft axis",
+                    "stake claim",
+                    "inspect collision",
+                    "reveal collision",
+                    "place tiger",
+                    "end turn",
+                    "inspect pressure",
+                    "challenge ai",
+                    "go score",
+                    "inspect ledger",
+                    "score amendment",
+                    "close parliament",
+                ],
+                &["parliament read", "next action", "persona"],
+            ),
+            (
+                "competitive-optimizer",
+                &[
+                    "status",
+                    "choose persona",
+                    "go board",
+                    "draft axis",
+                    "stake claim",
+                    "reveal collision",
+                    "place tiger",
+                    "end turn",
+                    "inspect pressure",
+                    "challenge ai",
+                    "go score",
+                    "inspect ai",
+                    "score amendment",
+                    "close parliament",
+                ],
+                &["phase=", "pressure", "Challenge"],
+            ),
+            (
+                "confused-observer",
+                &[
+                    "go score",
+                    "inspect table",
+                    "choose persona",
+                    "go board",
+                    "inspect axis",
+                    "stake claim",
+                    "draft axis",
+                    "stake claim",
+                    "reveal collision",
+                    "inspect collision",
+                    "place tiger",
+                    "end turn",
+                    "go score",
+                    "close parliament",
+                    "score amendment",
+                    "inspect ledger",
+                    "close parliament",
+                ],
+                &["Go board first", "Draft an axis", "Score amendment"],
+            ),
+        ];
+
+        for (name, commands, expected_markers) in lenses {
+            let mut host = parliament_ai_muddle_host();
+            let mut session = MuddleSession::for_host(&host).expect("host has start room");
+            let mut transcript = String::new();
+
+            for command in commands {
+                let turn = session
+                    .play_turn(&mut host, MuddleCommand::parse(command))
+                    .unwrap_or_else(|error| panic!("{name} command `{command}` failed: {error:?}"));
+                transcript.push_str(&turn.response);
+                transcript.push('\n');
+            }
+
+            assert_eq!(session.current_room, "score", "{name} finishes at score");
+            assert!(host.state().parliament_closed, "{name} closes Parliament");
+            for marker in expected_markers {
+                assert!(
+                    transcript.contains(marker),
+                    "{name} transcript should contain `{marker}`"
+                );
+            }
+        }
+    }
+
+    #[test]
     fn challenge_can_reset_armed_ai_pressure() {
         let mut host = parliament_ai_muddle_host();
 

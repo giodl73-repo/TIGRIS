@@ -5,7 +5,7 @@
 - Lifecycle state: MUDDLE native beautification pass
 - Current version: v0.visual-table
 - Last evidence source: Macroquad Parliament play review and TIGRIS role review
-- Next gate: novice/table-experience persona transcript over the richer table
+- Next gate: RALLY-backed policy variants once table-experience lenses stay clean
 
 ## Experience thesis
 
@@ -46,7 +46,9 @@ becomes a forward-only rubric change.
    and ledger explanation without mutating state.
 4. Add state-readable phase, subject-card, and next-action beats so the native
    table explains what the player should do and why it matters.
-5. Raise the visual-smoke density gate so TIGRIS cannot regress to a sparse
+5. Add first-time-designer, competitive-optimizer, and confused-observer lenses
+   so comprehension is tested alongside visual richness.
+6. Raise the visual-smoke density gate so TIGRIS cannot regress to a sparse
    three-token scene.
 
 ## Non-goals

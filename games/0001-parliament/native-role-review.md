@@ -20,8 +20,18 @@
    playable without source-code context.
 5. Raise TRACKER's TIGRIS visual-smoke thresholds to match the richer table.
 
-## Next review question
+## Follow-up validation slice
 
-Should the next TIGRIS pass simulate multiple table-experience lenses against
-the native slice: first-time designer, competitive optimizer, and confused
-observer?
+The follow-up implementation added three table-experience lenses against the
+native slice:
+
+1. `first-time-designer` checks that look/inspect/readable beats explain the
+   table before optimization.
+2. `competitive-optimizer` checks that phase, pressure, AI, and challenge reads
+   support efficient play.
+3. `confused-observer` checks that out-of-order commands remain guided and
+   recover into a closed Parliament.
+
+These lenses are covered in the TIGRIS harness and the portfolio
+`test-muddle-personas.ps1` script so future native beautification must preserve
+comprehension, not only visual density.
