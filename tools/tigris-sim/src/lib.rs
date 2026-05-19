@@ -121,6 +121,11 @@ pub fn parliament_ai_muddle_surface() -> TigrisMuddleSurface {
                 description: "Seat the human designer before drafting.",
             },
             TigrisMuddleCommand {
+                room_id: "table",
+                command: "inspect table",
+                description: "Inspect the persona mat, pool deck, and table promise.",
+            },
+            TigrisMuddleCommand {
                 room_id: "board",
                 command: "draft axis",
                 description: "Draft Tension Budget for the human chair.",
@@ -151,9 +156,24 @@ pub fn parliament_ai_muddle_surface() -> TigrisMuddleSurface {
                 description: "Advance to the deterministic AI opponent turn.",
             },
             TigrisMuddleCommand {
+                room_id: "board",
+                command: "inspect board",
+                description: "Inspect the axis board, collision lane, and pressure dial.",
+            },
+            TigrisMuddleCommand {
+                room_id: "board",
+                command: "inspect collision",
+                description: "Inspect why the current axis collision matters.",
+            },
+            TigrisMuddleCommand {
                 room_id: "score",
                 command: "inspect ai",
                 description: "Inspect the AI opponent plan.",
+            },
+            TigrisMuddleCommand {
+                room_id: "score",
+                command: "inspect ledger",
+                description: "Inspect the score ledger and amendment stickers.",
             },
             TigrisMuddleCommand {
                 room_id: "score",
@@ -251,6 +271,101 @@ impl TigrisAiOpponentMuddleHost {
             self.state.human_axis.as_deref().unwrap_or("none"),
             self.state.ai_axis.as_deref().unwrap_or("none")
         )))
+    }
+
+    fn room_detail(&self, room_id: &str) -> &'static str {
+        match room_id {
+            "table" => {
+                "Table read: persona mat, axis pool deck, stake bowls, and the empty AI chair."
+            }
+            "board" => {
+                "Board read: axis cards, collision lane, tiger marker, pressure dial, and dissent tags."
+            }
+            "score" => {
+                "Ledger read: raw score track, adopted-axis sticker, closure gavel, and next-session note."
+            }
+            _ => "Parliament table state is ready.",
+        }
+    }
+
+    fn parliament_prompt(&self, room_id: &str) -> &'static str {
+        match room_id {
+            "table" if self.state.persona_chosen => {
+                "Read: Knizia is seated; the table now wants an axis draft."
+            }
+            "table" => "Read: this game starts by choosing the design lens you will defend.",
+            "board" if self.state.collision_markers > 0 => {
+                "Read: collision is the argument becoming visible on the board."
+            }
+            "board" if self.state.human_axis.is_some() => {
+                "Read: Tension Budget needs stake, pressure, and a tiger marker to matter."
+            }
+            "board" => "Read: draft an axis before the AI turns pressure into a counterclaim.",
+            "score" if self.state.parliament_closed => {
+                "Read: Parliament closed with a next-session rubric change."
+            }
+            "score" if self.state.amendment_scored => {
+                "Read: scoring only counts if the amendment record explains why."
+            }
+            "score" => "Read: the ledger converts table argument into forward-only evidence.",
+            _ => "Read: every token should explain a design disagreement.",
+        }
+    }
+
+    fn inspect(&self, room_id: &str, target: &str) -> MuddleCommandOutcome {
+        let response = match (room_id, target) {
+            ("table", "table") | ("table", "persona") => {
+                if self.state.persona_chosen {
+                    "The Knizia persona board is seated beside a minimum-score reminder: balance stake points with adoption, or lose on shape."
+                } else {
+                    "The empty persona mat asks who is making the argument. Without a designer lens, the axis draft is just vocabulary."
+                }
+            }
+            ("table", "pool") | ("table", "deck") => {
+                "The Axis Pool deck is the centerpiece: cards can become adopted, contested, ignored, or retired across sessions."
+            }
+            ("board", "board") | ("board", "axis") => {
+                if self.state.human_axis.is_some() {
+                    "Tension Budget is drafted into the human lane. Stake tokens decide whether it is merely named or actually defended."
+                } else {
+                    "The board is arranged around empty axis lanes. Draft first so the pressure dial has something to threaten."
+                }
+            }
+            ("board", "collision") => {
+                if self.state.collision_markers > 0 {
+                    "The collision lane shows Tension Budget grinding against Scarcity Bite. That visible disagreement is the evidence Parliament wants."
+                } else {
+                    "The collision lane is quiet. Stake a claim, then reveal collision to force the axes to disagree in public."
+                }
+            }
+            ("board", "pressure") => {
+                if self.state.ai_pressure >= 3 {
+                    "The AI pressure dial is red: a challenge can now turn stored pressure into human points."
+                } else {
+                    "The AI pressure dial is amber: it is building toward a counter-draft but not armed yet."
+                }
+            }
+            ("score", "ledger") | ("score", "amendment") => {
+                if self.state.parliament_closed {
+                    "The ledger is closed with Tension Budget marked as adopted for the next session."
+                } else if self.state.amendment_scored {
+                    "The ledger has raw points and an adopted-axis sticker waiting for the closing gavel."
+                } else {
+                    "The ledger is blank until scoring translates defended marks and collisions into amendment evidence."
+                }
+            }
+            ("score", "ai") => {
+                return MuddleCommandOutcome::stay(format!(
+                    "AI opponent: deterministic pressure bot. Last move: {}",
+                    self.state.last_ai_move
+                ));
+            }
+            _ => return MuddleCommandOutcome::stay(format!(
+                "You inspect Parliament details. {}",
+                self.room_detail(room_id)
+            )),
+        };
+        MuddleCommandOutcome::stay(response)
     }
 
     fn ai_turn(&mut self) -> String {
@@ -379,7 +494,7 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
 
     fn map_panel(&self, current_room: &str) -> Option<String> {
         Some(format!(
-            "[table] -> [board] -> [score] | current={current_room}"
+            "[table: persona] -> [board: argument] -> [score: amendment] | current={current_room}"
         ))
     }
 
@@ -422,21 +537,135 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
         } else {
             "building"
         };
+        let persona_frame = if self.state.persona_chosen {
+            "active"
+        } else {
+            "idle"
+        };
+        let axis_frame = if self.state.human_axis.is_some() {
+            "scored"
+        } else {
+            "idle"
+        };
+        let stake_frame = if self.state.stake_tokens > 0 {
+            "building"
+        } else {
+            "idle"
+        };
+        let collision_frame = if self.state.collision_markers > 0 {
+            "armed"
+        } else {
+            "idle"
+        };
+        let tiger_frame = if self.state.tokens.count("tiger_marker") > 0 {
+            "claimed"
+        } else {
+            "idle"
+        };
+        let ledger_frame = if self.state.parliament_closed {
+            "closed"
+        } else if self.state.amendment_scored {
+            "scored"
+        } else {
+            "idle"
+        };
         let mut children = vec![
             MuddleVisualNode::sprite(
                 "parliament-board-map",
                 "Parliament board",
                 "sprites/tigris/parliament-board.png",
-                "A table-board-score strip for the Parliament AI slice.",
+                "A table-board-score strip for the Parliament AI slice with table zones and evidence lanes.",
             )
             .with_layer(0)
-            .with_rect(0, 0, 8, 4),
+            .with_rect(0, 0, 12, 6)
+            .with_frame("idle"),
             MuddleVisualNode::text("current-room-label", "Current room", current_room)
                 .with_layer(30)
-                .with_rect(1, 0, 4, 1),
+                .with_rect(0, 0, 3, 1),
+            MuddleVisualNode::text(
+                "parliament-title",
+                "Table thesis",
+                "Parliament: argument -> evidence -> amendment",
+            )
+            .with_layer(30)
+            .with_rect(3, 0, 6, 1),
+            MuddleVisualNode::text(
+                "parliament-prompt",
+                "Player read",
+                self.parliament_prompt(current_room),
+            )
+            .with_layer(30)
+            .with_rect(0, 7, 12, 1),
             tigris_room_token("table-token", "Table", "table", current_room, 1),
             tigris_room_token("board-token", "Board", "board", current_room, 2),
             tigris_room_token("score-token", "Score", "score", current_room, 3),
+            MuddleVisualNode::sprite(
+                "persona-mat",
+                "Persona mat",
+                "sprites/tigris/persona-mat.png",
+                if self.state.persona_chosen {
+                    "Knizia persona seated with minimum-score reminder."
+                } else {
+                    "Empty persona mat waiting for the human designer."
+                },
+            )
+            .with_layer(12)
+            .with_rect(0, 1, 2, 1)
+            .with_frame(persona_frame),
+            MuddleVisualNode::sprite(
+                "axis-pool-deck",
+                "Axis Pool deck",
+                "sprites/tigris/axis-pool.png",
+                "Oversized axis cards: the table's evolving vocabulary.",
+            )
+            .with_layer(12)
+            .with_rect(2, 1, 2, 1)
+            .with_frame("building"),
+            MuddleVisualNode::sprite(
+                "human-axis-card",
+                "Human axis card",
+                "sprites/tigris/tension-budget.png",
+                self.state.human_axis.as_deref().unwrap_or("Undrafted axis lane."),
+            )
+            .with_layer(14)
+            .with_rect(4, 1, 2, 1)
+            .with_frame(axis_frame),
+            MuddleVisualNode::sprite(
+                "stake-token-bowl",
+                "Stake token bowl",
+                "sprites/tigris/stake-tokens.png",
+                format!("{} stake tokens committed.", self.state.stake_tokens),
+            )
+            .with_layer(14)
+            .with_rect(6, 1, 2, 1)
+            .with_frame(stake_frame),
+            MuddleVisualNode::sprite(
+                "collision-lane",
+                "Collision lane",
+                "sprites/tigris/collision-lane.png",
+                format!("{} visible axis collisions.", self.state.collision_markers),
+            )
+            .with_layer(15)
+            .with_rect(4, 3, 3, 1)
+            .with_frame(collision_frame),
+            MuddleVisualNode::sprite(
+                "tiger-marker",
+                "Tiger marker",
+                "sprites/tigris/tiger-marker.png",
+                format!("{} tiger markers placed.", self.state.tokens.count("tiger_marker")),
+            )
+            .with_layer(16)
+            .with_rect(7, 3, 2, 1)
+            .with_frame(tiger_frame),
+            MuddleVisualNode::sprite(
+                "ai-chair",
+                "AI chair",
+                "sprites/tigris/ai-chair.png",
+                self.state.last_ai_move.clone(),
+            )
+            .with_layer(14)
+            .with_rect(9, 1, 2, 1)
+            .with_frame(pressure_frame),
             MuddleVisualNode::sprite(
                 "ai-pressure-badge",
                 "AI pressure",
@@ -444,7 +673,7 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
                 format!("AI pressure {}", self.state.ai_pressure),
             )
             .with_layer(20)
-            .with_rect(1, 5, 2, 1)
+            .with_rect(9, 3, 2, 1)
             .with_frame(pressure_frame),
             MuddleVisualNode::text(
                 "score-state-label",
@@ -455,7 +684,51 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
                 ),
             )
             .with_layer(30)
-            .with_rect(3, 5, 4, 1),
+            .with_rect(0, 6, 4, 1),
+            MuddleVisualNode::sprite(
+                "rubric-ledger",
+                "Rubric ledger",
+                "sprites/tigris/rubric-ledger.png",
+                format!(
+                    "Ledger: adopted={} amendment={} closed={}",
+                    self.state.adopted_axes,
+                    self.state.amendment_scored,
+                    self.state.parliament_closed
+                ),
+            )
+            .with_layer(18)
+            .with_rect(4, 5, 3, 1)
+            .with_frame(ledger_frame),
+            MuddleVisualNode::sprite(
+                "dissent-tags",
+                "Dissent tags",
+                "sprites/tigris/dissent-tags.png",
+                format!("{} defended marks recorded.", self.state.defended_marks),
+            )
+            .with_layer(18)
+            .with_rect(7, 5, 2, 1)
+            .with_frame(if self.state.defended_marks > 0 {
+                "scored"
+            } else {
+                "idle"
+            }),
+            MuddleVisualNode::sprite(
+                "adoption-sticker",
+                "Adoption sticker",
+                "sprites/tigris/adoption-sticker.png",
+                if self.state.adopted_axes > 0 {
+                    "Gold sticker ready for the next rubric session."
+                } else {
+                    "Sticker space reserved until amendment scoring."
+                },
+            )
+            .with_layer(18)
+            .with_rect(9, 5, 2, 1)
+            .with_frame(if self.state.adopted_axes > 0 {
+                "claimed"
+            } else {
+                "idle"
+            }),
         ];
 
         if self.state.amendment_scored {
@@ -467,7 +740,7 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
                     "Parliament amendment scored badge.",
                 )
                 .with_layer(20)
-                .with_rect(5, 5, 2, 1)
+                .with_rect(4, 6, 2, 1)
                 .with_frame("scored"),
             );
         }
@@ -480,7 +753,7 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
                     "Closed Parliament badge.",
                 )
                 .with_layer(20)
-                .with_rect(7, 5, 2, 1)
+                .with_rect(6, 6, 2, 1)
                 .with_frame("closed")
                 .with_animation("pulse"),
             );
@@ -630,6 +903,15 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
         }
 
         match (room_id, normalized.as_str()) {
+            (_, "inspect table") => Ok(self.inspect(room_id, "table")),
+            (_, "inspect persona") => Ok(self.inspect(room_id, "persona")),
+            (_, "inspect pool") | (_, "inspect deck") => Ok(self.inspect(room_id, "pool")),
+            (_, "inspect board") => Ok(self.inspect(room_id, "board")),
+            (_, "inspect axis") => Ok(self.inspect(room_id, "axis")),
+            (_, "inspect collision") => Ok(self.inspect(room_id, "collision")),
+            (_, "inspect pressure") => Ok(self.inspect(room_id, "pressure")),
+            (_, "inspect ledger") => Ok(self.inspect(room_id, "ledger")),
+            (_, "inspect amendment") => Ok(self.inspect(room_id, "amendment")),
             ("table", "choose persona") => {
                 self.state.persona_chosen = true;
                 Ok(MuddleCommandOutcome::stay(
@@ -721,10 +1003,7 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
                 let ai_move = self.ai_turn();
                 Ok(MuddleCommandOutcome::stay(format!("End turn. {ai_move}")))
             }
-            ("score", "inspect ai") => Ok(MuddleCommandOutcome::stay(format!(
-                "AI opponent: deterministic pressure bot. Last move: {}",
-                self.state.last_ai_move
-            ))),
+            ("score", "inspect ai") => Ok(self.inspect(room_id, "ai")),
             ("score", "score amendment") if self.state.amendment_scored => {
                 Ok(MuddleCommandOutcome::stay(
                     "Amendment already scored. Close parliament when ready.",
@@ -911,6 +1190,57 @@ mod tests {
             .children
             .iter()
             .any(|node| node.id == "parliament-closed-badge"));
+        assert!(scene.children.len() >= 20);
+        assert!(scene
+            .children
+            .iter()
+            .any(|node| node.id == "parliament-prompt"));
+        assert!(scene
+            .children
+            .iter()
+            .any(|node| node.id == "collision-lane"));
+        assert!(scene.children.iter().any(|node| node.id == "rubric-ledger"));
+        assert!(
+            scene
+                .children
+                .iter()
+                .filter(|node| node
+                    .sprite
+                    .as_ref()
+                    .and_then(|sprite| sprite.frame.as_deref())
+                    .is_some())
+                .count()
+                >= 16
+        );
+    }
+
+    #[test]
+    fn ai_opponent_inspect_beats_are_recoverable_and_state_neutral() {
+        let mut host = parliament_ai_muddle_host();
+        let mut session = MuddleSession::for_host(&host).expect("host has start room");
+
+        let turn = session
+            .play_turn(&mut host, MuddleCommand::parse("inspect table"))
+            .expect("table inspection succeeds");
+        assert!(turn.response.contains("persona"));
+        assert_eq!(session.current_room, "table");
+        assert!(!host.state().persona_chosen);
+
+        session
+            .play_turn(&mut host, MuddleCommand::parse("go board"))
+            .expect("board is reachable");
+        let turn = session
+            .play_turn(&mut host, MuddleCommand::parse("inspect collision"))
+            .expect("collision inspection succeeds");
+        assert!(turn.response.contains("collision lane"));
+        assert_eq!(session.current_room, "board");
+        assert_eq!(host.state().collision_markers, 0);
+
+        let surface = parliament_ai_muddle_surface();
+        assert!(surface
+            .commands
+            .iter()
+            .any(|command| command.command == "inspect ledger"));
     }
 
     #[test]
