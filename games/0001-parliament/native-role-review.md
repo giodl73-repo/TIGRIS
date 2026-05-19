@@ -8,6 +8,7 @@
 | Mechanism Tension Editor | Where does this mechanism force a player to care? | Scores and pressure existed, but the board did not show why pressure mattered. | Add stake bowl, collision lane, AI pressure, tiger marker, and dissent tags. |
 | Table Experience Observer | Did players experience the intended pressure, arc, interaction, and texture? | The arc was command-complete but not self-explanatory. | Add player-read prompts and non-mutating inspections for comprehension. |
 | Axis Governance Steward | Did the play record earn this axis change? | Closeout text named adoption, but the visual layer needed ledger discipline. | Tie ledger, adoption sticker, and close badge to scored/closed state only. |
+| Physical Surface Director | Does the native app look like a table players can sit at? | The artifacts improved the table, but the surface still risked reading as floating UI cards. | Add tabletop plane, side rails, table edges, and placement shadows before adding more policy variants. |
 
 ## Approved slice
 
@@ -19,6 +20,8 @@
 4. Add phase, subject-card, and next-action reads so the richer table is also
    playable without source-code context.
 5. Raise TRACKER's TIGRIS visual-smoke thresholds to match the richer table.
+6. Preserve tabletop physicality: the scene must keep explicit surface, side,
+   and placement nodes in addition to card/token artifacts.
 
 ## Follow-up validation slice
 

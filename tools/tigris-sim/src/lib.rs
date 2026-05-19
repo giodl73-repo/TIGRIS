@@ -674,11 +674,65 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
                 "parliament-board-map",
                 "Parliament board",
                 "sprites/tigris/parliament-board.png",
-                "A table-board-score strip for the Parliament AI slice with table zones and evidence lanes.",
+                "A physical parchment tabletop with seated sides, table rails, and evidence lanes.",
             )
             .with_layer(0)
             .with_rect(0, 0, 12, 6)
             .with_frame("tigris-parchment"),
+            MuddleVisualNode::sprite(
+                "tabletop-surface",
+                "Tabletop surface",
+                "sprites/tigris/tabletop-surface.png",
+                "The actual Parliament table surface: cards, bowls, lanes, and ledger sit on this plane.",
+            )
+            .with_layer(1)
+            .with_rect(0, 1, 12, 5)
+            .with_frame("tigris-parchment"),
+            MuddleVisualNode::sprite(
+                "player-side-rail",
+                "Player side rail",
+                "sprites/tigris/player-side-rail.png",
+                "Human chair side of the table, closest to the player.",
+            )
+            .with_layer(2)
+            .with_rect(0, 6, 6, 1)
+            .with_frame("tigris-green"),
+            MuddleVisualNode::sprite(
+                "ai-side-rail",
+                "AI side rail",
+                "sprites/tigris/ai-side-rail.png",
+                "Opposing AI chair side of the table.",
+            )
+            .with_layer(2)
+            .with_rect(6, 6, 6, 1)
+            .with_frame(pressure_frame),
+            MuddleVisualNode::sprite(
+                "left-table-edge",
+                "Left table edge",
+                "sprites/tigris/left-table-edge.png",
+                "Left physical edge of the table, so the scene reads as an object in the room.",
+            )
+            .with_layer(2)
+            .with_rect(0, 1, 1, 5)
+            .with_frame("tigris-ink"),
+            MuddleVisualNode::sprite(
+                "right-table-edge",
+                "Right table edge",
+                "sprites/tigris/right-table-edge.png",
+                "Right physical edge of the table, framing the AI pressure side.",
+            )
+            .with_layer(2)
+            .with_rect(11, 1, 1, 5)
+            .with_frame("tigris-ink"),
+            MuddleVisualNode::sprite(
+                "placement-grid-shadow",
+                "Placement shadows",
+                "sprites/tigris/placement-grid-shadow.png",
+                "Soft shadows under the card lanes and token bowls mark exact tabletop placement.",
+            )
+            .with_layer(3)
+            .with_rect(1, 2, 10, 3)
+            .with_frame("tigris-ledger"),
             MuddleVisualNode::text("current-room-label", "Current room", current_room)
                 .with_layer(30)
                 .with_rect(0, 0, 3, 1),
@@ -1314,8 +1368,17 @@ mod tests {
         assert!(scene
             .children
             .iter()
+            .any(|node| node.id == "tabletop-surface"));
+        assert!(scene
+            .children
+            .iter()
+            .any(|node| node.id == "player-side-rail"));
+        assert!(scene.children.iter().any(|node| node.id == "ai-side-rail"));
+        assert!(scene
+            .children
+            .iter()
             .any(|node| node.id == "parliament-closed-badge"));
-        assert!(scene.children.len() >= 24);
+        assert!(scene.children.len() >= 30);
         assert!(scene
             .children
             .iter()
@@ -1341,7 +1404,7 @@ mod tests {
                     .and_then(|sprite| sprite.frame.as_deref())
                     .is_some())
                 .count()
-                >= 16
+                >= 22
         );
         assert!(scene.children.iter().any(|node| {
             node.sprite

@@ -3,9 +3,10 @@
 ## Status
 
 - Lifecycle state: MUDDLE native beautification pass
-- Current version: v0.visual-table
-- Last evidence source: Macroquad Parliament play review and TIGRIS role review
-- Next gate: RALLY-backed policy variants once table-experience lenses stay clean
+- Current version: v0.physical-tabletop
+- Last evidence source: Macroquad Parliament physical-surface review and TIGRIS role review
+- Next gate: Extend the same physical-surface standard across AMAZE escape rooms
+  and BANISH's video-game world layer.
 
 ## Experience thesis
 
@@ -14,6 +15,11 @@ generic command runner. A player should see three zones at a glance: persona
 seating, axis-board disagreement, and score-ledger amendment. The visual scene
 should make TIGRIS' factory promise visible: argument becomes evidence, evidence
 becomes a forward-only rubric change.
+
+The current physical-surface pass makes the table itself visible: tabletop
+plane, left/right table edges, player and AI rails, and placement shadows under
+cards and bowls. Future art can replace the semantic sprites, but the app now
+has explicit nodes for tabletop, sides, and placements.
 
 ## Visual pillars
 
@@ -24,6 +30,7 @@ becomes a forward-only rubric change.
 | Visible dissent | Where does pressure bite? | Collision lane, AI chair, pressure dial, dissent tags |
 | Evidence ledger | Why did the session matter? | Raw score label, rubric ledger, adoption sticker, close gavel |
 | Factory continuity | What changes next time? | Closed Parliament badge and next-session amendment prompt |
+| Physical tabletop | Where are the objects in the room? | Tabletop surface, side rails, table edges, and placement shadows behind the existing artifacts |
 
 ## Role review
 
@@ -50,6 +57,8 @@ becomes a forward-only rubric change.
    so comprehension is tested alongside visual richness.
 6. Raise the visual-smoke density gate so TIGRIS cannot regress to a sparse
    three-token scene.
+7. Require physical table nodes in TIGRIS tests and TRACKER visual smoke so the
+   scene cannot regress to floating UI boxes.
 
 ## Non-goals
 
