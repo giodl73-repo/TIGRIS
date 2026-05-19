@@ -2,10 +2,11 @@ use std::collections::HashMap;
 
 use court_core::{
     CourtAction, CourtActionAvailability, CourtAssessmentClaim, CourtAssessmentTarget,
-    CourtCompletionOutcome, CourtCritiqueFinding, CourtExperience, CourtExperienceIntent,
-    CourtFindingSeverity, CourtFindingSource, CourtFocusTestFinding, CourtPlaytestSession,
-    CourtPostmortemNote, CourtPrototypeRevision, CourtProvenance, CourtSceneNode, CourtSceneRole,
-    CourtSnapshot, CourtSnapshotMetadata, CourtSurfaceKind, CourtValidationPacket,
+    CourtCompletionOutcome, CourtCritiqueFinding, CourtEvidenceKind, CourtEvidenceReference,
+    CourtExperience, CourtExperienceIntent, CourtFindingSeverity, CourtFindingSource,
+    CourtFocusTestFinding, CourtPlaytestSession, CourtPostmortemNote, CourtPrototypeRevision,
+    CourtProvenance, CourtSceneNode, CourtSceneRole, CourtSnapshot, CourtSnapshotMetadata,
+    CourtSurfaceKind, CourtValidationPacket,
 };
 use muddle_core::{
     MuddleCommand, MuddleCommandHint, MuddleCommandOutcome, MuddleError, MuddleExit, MuddleHost,
@@ -318,6 +319,26 @@ pub fn parliament_ai_court_validation_packet() -> CourtValidationPacket {
                 "No RALLY run migration.".to_string(),
             ],
         }],
+        evidence_references: vec![
+            CourtEvidenceReference {
+                owner_repo: "TIGRIS".to_string(),
+                artifact_ref:
+                    "tools\\tigris-sim\\src\\lib.rs::table_experience_lenses_complete_with_readable_beats"
+                        .to_string(),
+                evidence_kind: CourtEvidenceKind::MuddlePathTest,
+                summary:
+                    "Product-owned MUDDLE test proves Parliament table comprehension lenses and closeout."
+                        .to_string(),
+            },
+            CourtEvidenceReference {
+                owner_repo: "TIGRIS".to_string(),
+                artifact_ref: "tools\\tigris-sim\\README.md::Rule variants".to_string(),
+                evidence_kind: CourtEvidenceKind::RallyValidation,
+                summary:
+                    "TIGRIS keeps RALLY-backed Parliament variant and validation evidence outside COURT."
+                        .to_string(),
+            },
+        ],
         playtest_sessions: vec![CourtPlaytestSession {
             session_id: "parliament-table-smoke".to_string(),
             audience: "adapter reviewers".to_string(),
@@ -1489,6 +1510,10 @@ mod tests {
         assert!(snapshot.has_scene_role(CourtSceneRole::Prop));
         assert_eq!(validation.experience_id, snapshot.experience.id);
         assert!(validation.has_assessment_claim(CourtAssessmentClaim::Simulation));
+        assert!(validation.has_evidence_reference(
+            "TIGRIS",
+            "tools\\tigris-sim\\src\\lib.rs::table_experience_lenses_complete_with_readable_beats"
+        ));
         assert_eq!(plan.title, "TIGRIS Parliament AI Table");
         assert_eq!(plan.player_command_count, snapshot.actions.len());
         assert_eq!(plan.diagnostics.len(), 0);
