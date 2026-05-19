@@ -12,7 +12,7 @@
 ## Approved slice
 
 1. Beautify the TIGRIS Parliament Macroquad scene with product-owned table
-   artifacts and stateful frames.
+   artifacts and stateful TIGRIS palette frames.
 2. Keep the existing solve path stable.
 3. Add optional inspect beats only as explanation; they must not alter score,
    pressure, room, or amendment state.

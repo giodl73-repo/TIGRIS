@@ -533,41 +533,41 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
 
     fn visual_nodes(&self, current_room: &str) -> Vec<MuddleVisualNode> {
         let pressure_frame = if self.state.ai_pressure >= 3 {
-            "armed"
+            "tigris-red"
         } else {
-            "building"
+            "tigris-gold"
         };
         let persona_frame = if self.state.persona_chosen {
-            "active"
+            "tigris-green"
         } else {
-            "idle"
+            "tigris-parchment"
         };
         let axis_frame = if self.state.human_axis.is_some() {
-            "scored"
+            "tigris-ink"
         } else {
-            "idle"
+            "tigris-parchment"
         };
         let stake_frame = if self.state.stake_tokens > 0 {
-            "building"
+            "tigris-gold"
         } else {
-            "idle"
+            "tigris-parchment"
         };
         let collision_frame = if self.state.collision_markers > 0 {
-            "armed"
+            "tigris-red"
         } else {
-            "idle"
+            "tigris-parchment"
         };
         let tiger_frame = if self.state.tokens.count("tiger_marker") > 0 {
-            "claimed"
+            "tigris-gold"
         } else {
-            "idle"
+            "tigris-parchment"
         };
         let ledger_frame = if self.state.parliament_closed {
-            "closed"
+            "tigris-closed"
         } else if self.state.amendment_scored {
-            "scored"
+            "tigris-ledger"
         } else {
-            "idle"
+            "tigris-parchment"
         };
         let mut children = vec![
             MuddleVisualNode::sprite(
@@ -578,7 +578,7 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
             )
             .with_layer(0)
             .with_rect(0, 0, 12, 6)
-            .with_frame("idle"),
+            .with_frame("tigris-parchment"),
             MuddleVisualNode::text("current-room-label", "Current room", current_room)
                 .with_layer(30)
                 .with_rect(0, 0, 3, 1),
@@ -620,7 +620,7 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
             )
             .with_layer(12)
             .with_rect(2, 1, 2, 1)
-            .with_frame("building"),
+            .with_frame("tigris-ink"),
             MuddleVisualNode::sprite(
                 "human-axis-card",
                 "Human axis card",
@@ -708,9 +708,9 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
             .with_layer(18)
             .with_rect(7, 5, 2, 1)
             .with_frame(if self.state.defended_marks > 0 {
-                "scored"
+                "tigris-green"
             } else {
-                "idle"
+                "tigris-parchment"
             }),
             MuddleVisualNode::sprite(
                 "adoption-sticker",
@@ -725,9 +725,9 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
             .with_layer(18)
             .with_rect(9, 5, 2, 1)
             .with_frame(if self.state.adopted_axes > 0 {
-                "claimed"
+                "tigris-gold"
             } else {
-                "idle"
+                "tigris-parchment"
             }),
         ];
 
@@ -741,7 +741,7 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
                 )
                 .with_layer(20)
                 .with_rect(4, 6, 2, 1)
-                .with_frame("scored"),
+                .with_frame("tigris-ledger"),
             );
         }
         if self.state.parliament_closed {
@@ -754,7 +754,7 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
                 )
                 .with_layer(20)
                 .with_rect(6, 6, 2, 1)
-                .with_frame("closed")
+                .with_frame("tigris-closed")
                 .with_animation("pulse"),
             );
         }
@@ -1066,9 +1066,9 @@ fn tigris_room_token(
     order: i32,
 ) -> MuddleVisualNode {
     let frame = if current_room == room_id {
-        "active"
+        "tigris-green"
     } else {
-        "idle"
+        "tigris-ink"
     };
     MuddleVisualNode::sprite(
         id,
@@ -1212,6 +1212,12 @@ mod tests {
                 .count()
                 >= 16
         );
+        assert!(scene.children.iter().any(|node| {
+            node.sprite
+                .as_ref()
+                .and_then(|sprite| sprite.frame.as_deref())
+                == Some("tigris-closed")
+        }));
     }
 
     #[test]

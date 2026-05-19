@@ -36,7 +36,9 @@ becomes a forward-only rubric change.
 
 ## Implementation plan
 
-1. Keep MUDDLE product-neutral; use existing generic frame states.
+1. Keep MUDDLE product-neutral; use reusable TIGRIS frame names in the shared
+   renderer: `tigris-parchment`, `tigris-ink`, `tigris-gold`, `tigris-red`,
+   `tigris-green`, `tigris-ledger`, and `tigris-closed`.
 2. Add TIGRIS-owned visual nodes for persona mat, axis deck, stake bowl,
    collision lane, AI chair, pressure dial, tiger marker, dissent tags, rubric
    ledger, adoption sticker, and close badge.
