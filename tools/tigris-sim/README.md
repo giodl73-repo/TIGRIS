@@ -40,7 +40,8 @@ cargo run --quiet --bin tigris-muddle-window -- --save target\tigris-ai.window.m
   eight-player chaos, score spread, and RALLY comparison-report status.
 - MUDDLE solo-play table loop with deterministic Parliament AI opponent,
   command transcript, checkpoint save/resume, recent log, inventory, score
-  panels, stateful native visual table artifacts, and optional inspect beats.
+  panels, stateful native visual table artifacts, readable phase/subject/next
+  action beats, and optional inspect beats.
 - RALLY tabletop primitives for AI-opponent turn order, score tracking, and
   pressure/token bookkeeping.
 

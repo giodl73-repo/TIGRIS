@@ -44,7 +44,9 @@ becomes a forward-only rubric change.
    ledger, adoption sticker, and close badge.
 3. Add optional `inspect ...` commands for table, board/collision, pressure, AI,
    and ledger explanation without mutating state.
-4. Raise the visual-smoke density gate so TIGRIS cannot regress to a sparse
+4. Add state-readable phase, subject-card, and next-action beats so the native
+   table explains what the player should do and why it matters.
+5. Raise the visual-smoke density gate so TIGRIS cannot regress to a sparse
    three-token scene.
 
 ## Non-goals

@@ -16,7 +16,9 @@
 2. Keep the existing solve path stable.
 3. Add optional inspect beats only as explanation; they must not alter score,
    pressure, room, or amendment state.
-4. Raise TRACKER's TIGRIS visual-smoke thresholds to match the richer table.
+4. Add phase, subject-card, and next-action reads so the richer table is also
+   playable without source-code context.
+5. Raise TRACKER's TIGRIS visual-smoke thresholds to match the richer table.
 
 ## Next review question
 

@@ -74,7 +74,7 @@ pub fn parliament_ai_muddle_surface() -> TigrisMuddleSurface {
             TigrisMuddleRoom {
                 id: "table",
                 title: "Parliament Table",
-                description: "A solo Parliament table with one human chair and a deterministic AI opponent.",
+                description: "A parchment-and-ink argument table: seat a designer persona, read the Axis Pool, then carry the claim to the board.",
                 exits: vec![TigrisMuddleExit {
                     command: "go board",
                     target_room: "board",
@@ -84,7 +84,7 @@ pub fn parliament_ai_muddle_surface() -> TigrisMuddleSurface {
             TigrisMuddleRoom {
                 id: "board",
                 title: "Axis Board",
-                description: "Draft axes, place tiger markers, challenge the AI, then end turn to let the AI respond.",
+                description: "A live disagreement board where axis cards, stake bowls, collision lane, AI pressure, and tiger markers make the argument visible.",
                 exits: vec![
                     TigrisMuddleExit {
                         command: "go table",
@@ -101,7 +101,7 @@ pub fn parliament_ai_muddle_surface() -> TigrisMuddleSurface {
             TigrisMuddleRoom {
                 id: "score",
                 title: "Score Ledger",
-                description: "Review adoption pressure, AI counterplay, and the current solo-play score.",
+                description: "A rubric ledger for turning defended stakes and collisions into amendment evidence for the next Parliament session.",
                 exits: vec![TigrisMuddleExit {
                     command: "go board",
                     target_room: "board",
@@ -255,8 +255,11 @@ impl TigrisAiOpponentMuddleHost {
                 room_id: room_id.to_string(),
             })?;
         Ok(MuddleCommandOutcome::stay(format!(
-            "{}\n| tigris: round={} human={} ai={} pressure={} persona={} stakes={} collisions={} defended={} adopted={} amendment={} closed={} human_axis={} ai_axis={}",
+            "{}\n| parliament read: {}\n| next action: {}\n| tigris: phase={} round={} human={} ai={} pressure={} persona={} stakes={} collisions={} defended={} adopted={} amendment={} closed={} human_axis={} ai_axis={}",
             room.ascii_card(),
+            self.table_read(room_id),
+            self.next_action(room_id),
+            self.phase_label(),
             self.state.round,
             self.state.human_score,
             self.state.ai_score,
@@ -271,6 +274,79 @@ impl TigrisAiOpponentMuddleHost {
             self.state.human_axis.as_deref().unwrap_or("none"),
             self.state.ai_axis.as_deref().unwrap_or("none")
         )))
+    }
+
+    fn phase_label(&self) -> &'static str {
+        if self.state.parliament_closed {
+            "closed"
+        } else if self.state.amendment_scored {
+            "closing"
+        } else if self.state.human_axis.is_some() || self.state.collision_markers > 0 {
+            "argument"
+        } else if self.state.persona_chosen {
+            "draft"
+        } else {
+            "seating"
+        }
+    }
+
+    fn table_read(&self, room_id: &str) -> &'static str {
+        match room_id {
+            "table" if self.state.persona_chosen => {
+                "The Knizia mat is no longer decoration; it tells the player to win by balanced proof."
+            }
+            "table" => {
+                "The empty persona mat, Axis Pool deck, and AI chair explain that every claim needs a point of view."
+            }
+            "board" if self.state.collision_markers > 0 => {
+                "The red collision lane is the table's drama: disagreement is now evidence, not flavor."
+            }
+            "board" if self.state.stake_tokens > 0 => {
+                "The stake bowl is gold, so the axis is no longer just named; it has something at risk."
+            }
+            "board" => {
+                "The board waits for an axis card to become a defended argument under AI pressure."
+            }
+            "score" if self.state.parliament_closed => {
+                "The close badge and adoption sticker show the factory moving forward without silent changes."
+            }
+            "score" if self.state.amendment_scored => {
+                "The ledger is scored but not closed; the table still needs the final governance act."
+            }
+            "score" => {
+                "The ledger is blank until defended marks and collisions explain why the rubric should change."
+            }
+            _ => "Parliament is a table where design claims must become visible evidence.",
+        }
+    }
+
+    fn next_action(&self, room_id: &str) -> &'static str {
+        match room_id {
+            "table" if !self.state.persona_chosen => "choose persona",
+            "table" => "go board",
+            "board" if self.state.human_axis.is_none() => "draft axis",
+            "board" if self.state.stake_tokens == 0 => "stake claim",
+            "board" if self.state.collision_markers == 0 => "reveal collision",
+            "board" if self.state.tokens.count("tiger_marker") == 0 => "place tiger",
+            "board" if self.state.round == 1 => "end turn",
+            "board" if self.state.ai_pressure >= 3 => "challenge ai",
+            "board" => "go score",
+            "score" if !self.state.amendment_scored => "score amendment",
+            "score" if !self.state.parliament_closed => "close parliament",
+            "score" => "review transcript",
+            _ => "look",
+        }
+    }
+
+    fn subject_card(&self) -> &'static str {
+        match self.phase_label() {
+            "seating" => "Subject card: a mid-weight Euro about arguing over game taste waits face down.",
+            "draft" => "Subject card: choose which axis will be accountable before the AI fills the vacuum.",
+            "argument" => "Subject card: Tension Budget vs Scarcity Bite is live on the table.",
+            "closing" => "Subject card: evidence has been scored; governance is waiting for closure.",
+            "closed" => "Subject card: next session inherits the adopted Tension Budget record.",
+            _ => "Subject card: Parliament turns table moments into rubric evidence.",
+        }
     }
 
     fn room_detail(&self, room_id: &str) -> &'static str {
@@ -419,7 +495,7 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
         vec![
             MuddleResource {
                 label: "round".to_string(),
-                value: self.state.round.to_string(),
+                value: format!("{} ({})", self.state.round, self.phase_label()),
             },
             MuddleResource {
                 label: "human".to_string(),
@@ -431,7 +507,11 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
             },
             MuddleResource {
                 label: "pressure".to_string(),
-                value: self.state.ai_pressure.to_string(),
+                value: if self.state.ai_pressure >= 3 {
+                    format!("{} armed", self.state.ai_pressure)
+                } else {
+                    format!("{} building", self.state.ai_pressure)
+                },
             },
             MuddleResource {
                 label: "stakes".to_string(),
@@ -453,9 +533,9 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
             MuddleInventoryItem {
                 label: "persona".to_string(),
                 detail: if self.state.persona_chosen {
-                    "Knizia seat".to_string()
+                    "Knizia seat - balance proof".to_string()
                 } else {
-                    "unseated".to_string()
+                    "unseated - choose a lens".to_string()
                 },
             },
             MuddleInventoryItem {
@@ -483,10 +563,12 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
             },
             MuddleInventoryItem {
                 label: "collision marker".to_string(),
-                detail: if self.state.ai_pressure >= 3 {
-                    "armed".to_string()
+                detail: if self.state.collision_markers > 0 {
+                    "visible disagreement".to_string()
+                } else if self.state.ai_pressure >= 3 {
+                    "pressure armed".to_string()
                 } else {
-                    "building".to_string()
+                    "pressure building".to_string()
                 },
             },
         ]
@@ -501,21 +583,39 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
     fn objective_panel(&self, current_room: &str) -> Vec<String> {
         match current_room {
             "table" if !self.state.persona_chosen => {
-                vec!["Choose a designer persona, then go board.".to_string()]
+                vec![
+                    "Choose a designer persona so every later claim has a point of view."
+                        .to_string(),
+                    "Inspect the table if the Axis Pool and AI chair feel abstract.".to_string(),
+                ]
             }
-            "table" => vec!["Go board to start the solo AI-opponent loop.".to_string()],
+            "table" => vec![
+                "Go board to turn the seated persona into a visible argument.".to_string(),
+                "Watch for the minimum-score reminder: adoption without defended proof is hollow."
+                    .to_string(),
+            ],
             "board" => vec![
                 "Draft an axis, stake a claim, reveal collision, place a tiger, then end turn."
                     .to_string(),
-                "Challenge the AI once pressure reaches 3.".to_string(),
+                "Use the collision lane and pressure dial to decide when challenge ai is worth it."
+                    .to_string(),
             ],
             "score" if !self.state.amendment_scored => {
-                vec!["Inspect AI, then score amendment to classify adoption.".to_string()]
+                vec![
+                    "Inspect AI or ledger, then score amendment to classify adoption.".to_string(),
+                    "Only scored evidence should produce a next-session rubric mark.".to_string(),
+                ]
             }
             "score" if !self.state.parliament_closed => {
-                vec!["Close parliament after amendment scoring.".to_string()]
+                vec![
+                    "Close parliament after amendment scoring.".to_string(),
+                    "The close badge should mean governance, not just victory text.".to_string(),
+                ]
             }
-            "score" => vec!["Parliament closed; reset or review transcript.".to_string()],
+            "score" => vec![
+                "Parliament closed; reset or review transcript.".to_string(),
+                "Next session inherits the visible Tension Budget adoption record.".to_string(),
+            ],
             _ => Vec::new(),
         }
     }
@@ -589,6 +689,9 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
             )
             .with_layer(30)
             .with_rect(3, 0, 6, 1),
+            MuddleVisualNode::text("phase-readout", "Phase", self.phase_label())
+                .with_layer(30)
+                .with_rect(9, 0, 3, 1),
             MuddleVisualNode::text(
                 "parliament-prompt",
                 "Player read",
@@ -621,6 +724,28 @@ impl MuddleHost for TigrisAiOpponentMuddleHost {
             .with_layer(12)
             .with_rect(2, 1, 2, 1)
             .with_frame("tigris-ink"),
+            MuddleVisualNode::sprite(
+                "subject-card",
+                "Subject card",
+                "sprites/tigris/subject-card.png",
+                self.subject_card(),
+            )
+            .with_layer(13)
+            .with_rect(0, 3, 2, 1)
+            .with_frame("tigris-ink"),
+            MuddleVisualNode::sprite(
+                "argument-clock",
+                "Argument clock",
+                "sprites/tigris/argument-clock.png",
+                format!("Next action: {}", self.next_action(current_room)),
+            )
+            .with_layer(13)
+            .with_rect(2, 3, 2, 1)
+            .with_frame(if self.state.parliament_closed {
+                "tigris-closed"
+            } else {
+                "tigris-gold"
+            }),
             MuddleVisualNode::sprite(
                 "human-axis-card",
                 "Human axis card",
@@ -1190,11 +1315,17 @@ mod tests {
             .children
             .iter()
             .any(|node| node.id == "parliament-closed-badge"));
-        assert!(scene.children.len() >= 20);
+        assert!(scene.children.len() >= 24);
         assert!(scene
             .children
             .iter()
             .any(|node| node.id == "parliament-prompt"));
+        assert!(scene.children.iter().any(|node| node.id == "phase-readout"));
+        assert!(scene.children.iter().any(|node| node.id == "subject-card"));
+        assert!(scene
+            .children
+            .iter()
+            .any(|node| node.id == "argument-clock"));
         assert!(scene
             .children
             .iter()
