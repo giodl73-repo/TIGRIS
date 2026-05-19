@@ -51,6 +51,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3d7b894f5411737b7867f4827955924d7c254fc9f4d91a6aad6b097804b1018b"
 
 [[package]]
+name = "court-core"
+version = "0.1.0"
+
+[[package]]
 name = "crc32fast"
 version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -296,6 +300,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5a651516ddc9168ebd67b24afd085a718be02f8858fe406591b013d101ce2f40"
 
 [[package]]
+name = "racket-core"
+version = "0.1.0"
+dependencies = [
+ "court-core",
+]
+
+[[package]]
 name = "rally-core"
 version = "0.1.0"
 source = "git+https://github.com/giodl73-repo/RALLY.git#c2e4252c0b99999d7fed34345fe5dea969e9aff7"
@@ -310,11 +321,13 @@ checksum = "703d5c7ef118737c72f1af64ad2f6f8c5e1921f818cdcb97b8fe6fc69bf66214"
 name = "tigris-sim"
 version = "0.1.0"
 dependencies = [
+ "court-core",
  "macroquad",
  "muddle-cli",
  "muddle-core",
  "muddle-macroquad",
  "muddle-window",
+ "racket-core",
  "rally-core",
 ]
 

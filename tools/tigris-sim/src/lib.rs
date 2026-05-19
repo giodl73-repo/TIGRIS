@@ -1,5 +1,12 @@
 use std::collections::HashMap;
 
+use court_core::{
+    CourtAction, CourtActionAvailability, CourtAssessmentClaim, CourtAssessmentTarget,
+    CourtCompletionOutcome, CourtCritiqueFinding, CourtExperience, CourtExperienceIntent,
+    CourtFindingSeverity, CourtFindingSource, CourtFocusTestFinding, CourtPlaytestSession,
+    CourtPostmortemNote, CourtPrototypeRevision, CourtProvenance, CourtSceneNode, CourtSceneRole,
+    CourtSnapshot, CourtSnapshotMetadata, CourtSurfaceKind, CourtValidationPacket,
+};
 use muddle_core::{
     MuddleCommand, MuddleCommandHint, MuddleCommandOutcome, MuddleError, MuddleExit, MuddleHost,
     MuddleInventoryItem, MuddleResource, MuddleRoom, MuddleVisualNode,
@@ -191,6 +198,171 @@ pub fn parliament_ai_muddle_surface() -> TigrisMuddleSurface {
 
 pub fn parliament_ai_muddle_host() -> TigrisAiOpponentMuddleHost {
     TigrisAiOpponentMuddleHost::new(parliament_ai_muddle_surface())
+}
+
+pub fn parliament_ai_court_snapshot() -> CourtSnapshot {
+    let surface = parliament_ai_muddle_surface();
+    let mut scene: Vec<CourtSceneNode> = surface
+        .rooms
+        .iter()
+        .enumerate()
+        .map(|(index, room)| CourtSceneNode {
+            id: room.id.to_string(),
+            label: room.title.to_string(),
+            player_read_label: room.title.to_string(),
+            product_meaning: room.description.to_string(),
+            role: if room.id == surface.start_room {
+                CourtSceneRole::Surface
+            } else {
+                CourtSceneRole::Zone
+            },
+            x: (index as i32) * 3,
+            y: index as i32,
+            width: 3,
+            height: 2,
+            provenance: Some(CourtProvenance::product_authored(format!(
+                "tigris:parliament-ai:{}",
+                room.id
+            ))),
+            unsupported_features: Vec::new(),
+        })
+        .collect();
+    scene.extend([
+        CourtSceneNode {
+            id: "ai-chair".to_string(),
+            label: "AI chair".to_string(),
+            player_read_label: "AI pressure chair".to_string(),
+            product_meaning: "The deterministic opponent pressure source for the table loop."
+                .to_string(),
+            role: CourtSceneRole::Actor,
+            x: 9,
+            y: 1,
+            width: 2,
+            height: 1,
+            provenance: Some(CourtProvenance::product_authored(
+                "tigris:parliament-ai:ai-chair",
+            )),
+            unsupported_features: Vec::new(),
+        },
+        CourtSceneNode {
+            id: "rubric-ledger".to_string(),
+            label: "Rubric ledger".to_string(),
+            player_read_label: "Amendment ledger".to_string(),
+            product_meaning:
+                "The product-owned closeout surface that records adopted axes and amendment state."
+                    .to_string(),
+            role: CourtSceneRole::Prop,
+            x: 4,
+            y: 5,
+            width: 3,
+            height: 1,
+            provenance: Some(CourtProvenance::product_authored(
+                "tigris:parliament-ai:rubric-ledger",
+            )),
+            unsupported_features: Vec::new(),
+        },
+    ]);
+
+    CourtSnapshot {
+        metadata: CourtSnapshotMetadata {
+            experience_id: surface.host_name.to_string(),
+            experience_version: "0.1.0".to_string(),
+            surface: CourtSurfaceKind::Native2d,
+            scene_contract_version: "court.scene.v1".to_string(),
+        },
+        experience: CourtExperience {
+            id: surface.host_name.to_string(),
+            title: surface.title.to_string(),
+            surface: CourtSurfaceKind::Native2d,
+            intent: CourtExperienceIntent {
+                product_owner: "TIGRIS".to_string(),
+                audience: "board-game design table and adapter reviewers".to_string(),
+                design_thesis:
+                    "Parliament can be described as a portable COURT table experience while TIGRIS keeps the design rules and MUDDLE remains the playable path."
+                        .to_string(),
+                non_goals: vec![
+                    "Do not migrate Parliament rules out of TIGRIS.".to_string(),
+                    "Do not replace the MUDDLE table launcher.".to_string(),
+                    "Do not turn COURT into a RALLY simulation runner.".to_string(),
+                ],
+            },
+            provenance: CourtProvenance::product_authored("tigris:parliament-ai"),
+        },
+        state_label: "muddle-table-path-intact".to_string(),
+        actions: surface
+            .commands
+            .iter()
+            .map(|command| CourtAction {
+                id: command.command.replace(' ', "-"),
+                label: command.description.to_string(),
+                command: command.command.to_string(),
+                availability: CourtActionAvailability::Legal,
+            })
+            .collect(),
+        scene,
+    }
+}
+
+pub fn parliament_ai_court_validation_packet() -> CourtValidationPacket {
+    CourtValidationPacket {
+        experience_id: "tigris-parliament-ai".to_string(),
+        prototype_revisions: vec![CourtPrototypeRevision {
+            experience_id: "tigris-parliament-ai".to_string(),
+            revision_id: "second-fixture-001".to_string(),
+            design_thesis:
+                "Use COURT to describe a board-game table slice, not another escape room."
+                    .to_string(),
+            changed_areas: vec!["court-snapshot-fixture".to_string()],
+            non_goals: vec![
+                "No TIGRIS rule migration.".to_string(),
+                "No RALLY run migration.".to_string(),
+            ],
+        }],
+        playtest_sessions: vec![CourtPlaytestSession {
+            session_id: "parliament-table-smoke".to_string(),
+            audience: "adapter reviewers".to_string(),
+            build_revision: "second-fixture-001".to_string(),
+            script_ref: "existing-parliament-ai-muddle-path-test".to_string(),
+            observed_blockers: Vec::new(),
+            completion_outcome: CourtCompletionOutcome::Completed,
+        }],
+        critique_findings: vec![CourtCritiqueFinding {
+            reviewer_role: "Framework Steward".to_string(),
+            finding_id: "second-fixture-non-escape-shape".to_string(),
+            source: CourtFindingSource::Experience("tigris-parliament-ai".to_string()),
+            severity: CourtFindingSeverity::Info,
+            recommendation:
+                "Keep COURT fixture descriptive until at least one non-static adapter consumes product-owned table state."
+                    .to_string(),
+        }],
+        focus_test_findings: vec![CourtFocusTestFinding {
+            prompt_ref: "existing-parliament-ai-command-arc".to_string(),
+            action_ref: Some("close-parliament".to_string()),
+            observed_comprehension:
+                "The current MUDDLE Parliament path already proves table closeout comprehension."
+                    .to_string(),
+            follow_up_change: "Use COURT fixture for cross-product adapter diagnostics only."
+                .to_string(),
+        }],
+        assessment_targets: vec![CourtAssessmentTarget {
+            claim: CourtAssessmentClaim::Simulation,
+            evidence_needed:
+                "Existing TIGRIS/RALLY and MUDDLE tests continue to own table mechanics evidence."
+                    .to_string(),
+            pass_fail_rule:
+                "Pass when the MUDDLE table path, COURT fixture, and RACKET diagnostics/runtime smoke all validate."
+                    .to_string(),
+        }],
+        postmortem_notes: vec![CourtPostmortemNote {
+            release_id: "second-fixture-001".to_string(),
+            worked: "COURT described a tabletop Parliament slice without becoming a simulator."
+                .to_string(),
+            failed: "No live product-rule adapter attempted in this fixture.".to_string(),
+            next_design_constraint:
+                "Only consider richer state adapters after two product fixtures stay clean."
+                    .to_string(),
+        }],
+    }
 }
 
 impl TigrisAiOpponentMuddleHost {
@@ -1280,6 +1452,7 @@ fn parse_checkpoint_u32(key: &str, value: &str) -> Result<u32, MuddleError> {
 mod tests {
     use super::*;
     use muddle_core::MuddleSession;
+    use racket_core::{run_runtime_loop, RacketFramePlan, RacketRuntimeConfig};
 
     #[test]
     fn ai_opponent_advances_after_end_turn() {
@@ -1297,6 +1470,42 @@ mod tests {
         assert_eq!(host.state().round, 2);
         assert_eq!(host.state().human_score, 1);
         assert_eq!(host.state().ai_score, 1);
+    }
+
+    #[test]
+    fn parliament_ai_has_court_fixture_beside_muddle_path() {
+        let snapshot = parliament_ai_court_snapshot();
+        let validation = parliament_ai_court_validation_packet();
+        let plan = RacketFramePlan::from_snapshot(&snapshot);
+
+        assert_eq!(snapshot.experience.id, "tigris-parliament-ai");
+        assert_eq!(snapshot.metadata.scene_contract_version, "court.scene.v1");
+        assert!(snapshot
+            .available_commands()
+            .any(|command| command == "close parliament"));
+        assert!(snapshot.has_scene_role(CourtSceneRole::Surface));
+        assert!(snapshot.has_scene_role(CourtSceneRole::Zone));
+        assert!(snapshot.has_scene_role(CourtSceneRole::Actor));
+        assert!(snapshot.has_scene_role(CourtSceneRole::Prop));
+        assert_eq!(validation.experience_id, snapshot.experience.id);
+        assert!(validation.has_assessment_claim(CourtAssessmentClaim::Simulation));
+        assert_eq!(plan.title, "TIGRIS Parliament AI Table");
+        assert_eq!(plan.player_command_count, snapshot.actions.len());
+        assert_eq!(plan.diagnostics.len(), 0);
+        assert!(plan.is_scene_ready());
+    }
+
+    #[test]
+    fn parliament_ai_court_fixture_runs_through_racket_runtime_loop() {
+        let snapshot = parliament_ai_court_snapshot();
+        let report = run_runtime_loop(&snapshot, RacketRuntimeConfig { max_frames: 3 });
+
+        assert!(report.completed);
+        assert_eq!(report.frames.len(), 3);
+        assert_eq!(report.ready_frame_count(), 3);
+        assert_eq!(report.frames[0].plan.title, "TIGRIS Parliament AI Table");
+        assert_eq!(report.frames[2].frame_index, 2);
+        assert_eq!(report.diagnostics.len(), 0);
     }
 
     #[test]

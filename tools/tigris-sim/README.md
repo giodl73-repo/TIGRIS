@@ -44,6 +44,8 @@ cargo run --quiet --bin tigris-muddle-window -- --save target\tigris-ai.window.m
   action beats, and optional inspect beats.
 - RALLY tabletop primitives for AI-opponent turn order, score tracking, and
   pressure/token bookkeeping.
+- COURT fixture coverage for Parliament as a non-escape-room table surface, plus
+  clean RACKET frame-plan diagnostics and windowless runtime-loop smoke.
 
 ## MUDDLE AI opponent host
 
@@ -55,6 +57,11 @@ challenged by the human chair. Shared table bookkeeping uses RALLY's
 `TurnOrder`, `ScoreTrack`, and `TokenPool`; TIGRIS keeps Parliament policy local.
 The host exports/imports checkpoints for round, score, pressure, marker, axis,
 and last-AI-move state so MUDDLE saves do not depend only on command replay.
+
+The same Parliament slice now exposes `parliament_ai_court_snapshot()` and
+`parliament_ai_court_validation_packet()` as a COURT adoption fixture. This is a
+descriptive adapter fixture only: TIGRIS still owns Parliament rules and RALLY
+simulation evidence, while MUDDLE remains the playable table path.
 
 ```powershell
 @("go board", "draft axis", "place tiger", "end turn", "challenge ai", "quit") |

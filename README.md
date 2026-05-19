@@ -104,6 +104,12 @@ next-action guidance. The first visible table arc is:
 `place tiger`, `end turn`, `challenge ai`, `go score`, `inspect ai`,
 `score amendment`, `close parliament`.
 
+`tools\tigris-sim` also exposes Parliament as a COURT adoption fixture through
+`parliament_ai_court_snapshot()` and
+`parliament_ai_court_validation_packet()`. This proves COURT/RACKET can describe
+a product-owned tabletop slice beyond escape rooms without moving TIGRIS rules
+or RALLY simulation evidence into COURT.
+
 ## Status
 
 Rubric v2.24.85 · 153 games · 32-axis Pool · latest: [RITE #153](games/0153-rite/) (Gap 1 entered) + [UPSTAGE](parlor/games/0001-upstage/) (PARLOR party-game pipeline launched). Resume point: [`docs/handoff/2026-04-23-post-rite-upstage.md`](docs/handoff/2026-04-23-post-rite-upstage.md). Full architecture spec: [`docs/specs/2026-04-19-tigris-v2.0-design.md`](docs/specs/2026-04-19-tigris-v2.0-design.md).
