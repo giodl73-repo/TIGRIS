@@ -1,4 +1,4 @@
-# TIGRIS
+﻿# TIGRIS
 
 **A board game factory.** Named for *Tigris & Euphrates* (Knizia, 1997).
 
@@ -124,6 +124,14 @@ Six papers document the TIGER BEAT framework and its corpus. LaTeX sources in [`
 - [Design Fingerprinting: Within-Game Normalization](research/publications/tiger-fingerprinting/main.pdf)
 - [Predicting Player Experience from TIGER Profiles](research/publications/tiger-experience-prediction/main.pdf)
 - [Filling the Design Space: Using TIGER Profiles to Identify Gaps](research/publications/tiger-design-gaps/main.pdf)
+
+## Games infrastructure
+
+TIGRIS shares its simulation and UX layer with the rest of the Games Design series:
+
+- **[MUDDLE](https://github.com/giodl73-repo/MUDDLE)** — shared room-command UX engine. TIGRIS hosts the Parliament AI table and UPSTAGE sessions through MUDDLE's adapter contracts, with CLI, browser-window, and native Macroquad clients.
+- **[RALLY](https://github.com/giodl73-repo/RALLY)** — shared simulation and validation substrate. `tools/tigris-sim/` uses RALLY for seeded Parliament axis-collision, adoption, and chair-activity telemetry.
+- **[COURT](https://github.com/giodl73-repo/COURT) / [RACKET](https://github.com/giodl73-repo/RACKET)** — scalable experience framework and engine adapter. `tools/tigris-sim/` exposes Parliament as a COURT adoption fixture that RACKET consumes for compatibility diagnostics beyond escape rooms.
 
 ## License
 
