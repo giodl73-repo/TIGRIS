@@ -22,7 +22,7 @@ name = "tigris-muddle-macroquad"
 path = "src/bin/tigris-muddle-macroquad.rs"
 
 [dependencies]
-court-core = { path = "..\\..\\..\\court\\crates\\court-core" }
+court-core = { git = "https://github.com/giodl73-repo/COURT.git", package = "court-core", branch = "master" }
 macroquad = "0.4"
 muddle-cli = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
 muddle-core = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
@@ -31,4 +31,4 @@ muddle-window = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
 rally-core = { git = "https://github.com/giodl73-repo/RALLY.git" }
 
 [dev-dependencies]
-racket-core = { path = "..\\..\\..\\racket\\crates\\racket-core" }
+racket-core = { git = "https://github.com/giodl73-repo/RACKET.git", package = "racket-core", branch = "master" }
