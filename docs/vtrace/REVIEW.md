@@ -22,6 +22,14 @@ Baseline date: 2026-06-01
 | `docs/vtrace/VALIDATION.md` | reviewed |
 | `docs/vtrace/TRACE.md` | reviewed |
 
+## Review Lanes
+
+| Lane | Required | Decision | Evidence / Rationale |
+|---|---|---|---|
+| Corpus and claim audit | yes | accepted | Corpus/research claim checklist work is tracked and closed by work packages. |
+| Parliament and simulator evidence | yes | accepted | Disagreement packets and simulator commands remain evidence-scoped. |
+| Shared-engine boundary | yes | accepted | Fixture proof keeps TIGRIS rules product-owned. |
+
 ## Fixed-Point Findings
 
 | Finding ID | Finding | Disposition |

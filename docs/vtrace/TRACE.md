@@ -26,6 +26,11 @@ Baseline date: 2026-06-01
 | GAP-TIG-002 | Simulator command ladder needs execution proof. | Create work package for simulator evidence packet. |
 | GAP-TIG-003 | Shared-engine fixture schemas need package-level proof. | Create work package for fixture boundary evidence. |
 
+Deferred specification visibility: SPEC-TIG-UNK-001, SPEC-TIG-UNK-002, and
+SPEC-TIG-UNK-003 are intentionally dispositioned through later verification,
+validation, interfaces, and work-package rows rather than treated as accepted
+implementation specs.
+
 ## Role Review Summary
 
 Role lenses applied from `.roles/`. No critical or major actionable trace gaps
