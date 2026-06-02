@@ -31,4 +31,4 @@ muddle-window = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
 rally-core = { git = "https://github.com/giodl73-repo/RALLY.git" }
 
 [dev-dependencies]
-racket-core = { git = "https://github.com/giodl73-repo/RACKET.git", package = "racket-core", branch = "master" }
+racket-core = { git = "https://github.com/giodl73-repo/RACKET.git", package = "racket-core", branch = "main" }
