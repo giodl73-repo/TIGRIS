@@ -22,7 +22,7 @@ name = "tigris-muddle-macroquad"
 path = "src/bin/tigris-muddle-macroquad.rs"
 
 [dependencies]
-court-core = { git = "https://github.com/giodl73-repo/COURT.git", package = "court-core", branch = "master" }
+court-core = { git = "https://github.com/giodl73-repo/COURT.git", package = "court-core", branch = "main" }
 macroquad = "0.4"
 muddle-cli = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
 muddle-core = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
