@@ -44,9 +44,9 @@ Parliament-style disagreement rather than smoothed consensus.
 ```powershell
 cd tools\tigris-sim
 cargo test --quiet
-cargo run --quiet -- --seed parliament-smoke
-cargo run --quiet -- --seed parliament-smoke --compare-variants --runs 20 --players 4
-cargo run --quiet -- --game upstage --seed upstage-smoke --players 8 --compare-variants --runs 24
+cargo run --quiet --bin tigris-sim -- --seed parliament-smoke
+cargo run --quiet --bin tigris-sim -- --seed parliament-smoke --compare-variants --runs 20 --players 4
+cargo run --quiet --bin tigris-sim -- --game upstage --seed upstage-smoke --players 8 --compare-variants --runs 24
 ```
 
 ## Role Review Summary
