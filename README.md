@@ -140,6 +140,21 @@ TIGRIS shares its simulation and UX layer with the rest of the Games Design seri
 - **[RALLY](https://github.com/giodl73-repo/RALLY)** — shared simulation and validation substrate. `tools/tigris-sim/` uses RALLY for seeded Parliament axis-collision, adoption, and chair-activity telemetry.
 - **[COURT](https://github.com/giodl73-repo/COURT) / [RACKET](https://github.com/giodl73-repo/RACKET)** — scalable experience framework and engine adapter. `tools/tigris-sim/` exposes Parliament as a COURT adoption fixture that RACKET consumes for compatibility diagnostics beyond escape rooms.
 
+## Portfolio reuse posture
+
+TIGRIS is intentionally a specialist board-game product and evidence corpus,
+not a shared portfolio foundation. Its stable cross-repository seam is
+outbound: `repo-map.toml` records the COURT, RACKET, RALLY, and MUDDLE contracts
+that `tools/tigris-sim/` adopts. The exported Parliament `CourtSnapshot` and
+`CourtValidationPacket` are product-owned compatibility fixtures for those
+contracts, not a reusable TIGRIS library.
+
+Other repositories should not copy or depend on TIGRIS game rules, personas,
+rubric axes, corpus scores, generated reviews, or skill workflows as stable
+APIs. A future inbound reuse claim requires a separately versioned data or
+library contract, a downstream manifest, and a consumer-owned compatibility
+test; fixture diagnostics alone do not satisfy that bar.
+
 ## License
 
 [MIT](LICENSE) — © 2026 Gio Della-Libera.
