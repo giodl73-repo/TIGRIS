@@ -81,5 +81,6 @@ the same spectrum (r = -0.738 between A1 and B1).
 | `scripts/pca-analysis.py` | Runs PCA on axis-matrix.csv |
 | `scripts/tiger-beat-gap.py` | TIGER BEAT gap analysis and design opportunity finder |
 
-**Do not use:** `data/archive/axis-matrix-v2.csv`, `data/archive/axis-residuals-v2.csv`
-— these are archived broken files, superseded by the above.
+The broken `axis-matrix-v2.csv` and `axis-residuals-v2.csv` snapshots were
+removed after supersession; Git history retains them for archaeology. Use only
+the current files above.

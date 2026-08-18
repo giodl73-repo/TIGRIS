@@ -22,6 +22,7 @@ Thumbs.db
 *.out
 *.synctex.gz
 *.toc
+research/publications/*/main.pdf
 
 # Local/editor state (not public)
 .claude/settings.local.json

@@ -116,14 +116,21 @@ Rubric v2.24.85 · 153 games · 32-axis Pool · latest: [RITE #153](games/0153-r
 
 ## Research
 
-Six papers document the TIGER BEAT framework and its corpus. LaTeX sources in [`research/publications/`](research/publications/); build all PDFs with `make -C research`.
+**Maintenance owner:** Gio (`giodl73-repo`). Generated publication PDFs and the
+two superseded broken v2 matrix snapshots are not maintained as parallel source
+artifacts; Git history retains prior copies. The LaTeX papers, current corpus,
+analysis scripts, and reproducible build entry point remain authoritative.
 
-- [TIGER: A Five-Dimensional Framework for Game Design Analysis](research/publications/tiger-framework/main.pdf) — core framework
-- [The TIGRIS Corpus: Methodology for Multi-Axis Game Design Scoring](research/publications/tiger-corpus-methodology/main.pdf)
-- [Five Independent Dimensions of Game Design Space](research/publications/tiger-pca-dimensions/main.pdf)
-- [Design Fingerprinting: Within-Game Normalization](research/publications/tiger-fingerprinting/main.pdf)
-- [Predicting Player Experience from TIGER Profiles](research/publications/tiger-experience-prediction/main.pdf)
-- [Filling the Design Space: Using TIGER Profiles to Identify Gaps](research/publications/tiger-design-gaps/main.pdf)
+Six papers document the TIGER BEAT framework and its corpus. LaTeX sources live
+in [`research/publications/`](research/publications/); build all PDFs with
+`make -C research`.
+
+- [TIGER: A Five-Dimensional Framework for Game Design Analysis](research/publications/tiger-framework/main.tex) — core framework
+- [The TIGRIS Corpus: Methodology for Multi-Axis Game Design Scoring](research/publications/tiger-corpus-methodology/main.tex)
+- [Five Independent Dimensions of Game Design Space](research/publications/tiger-pca-dimensions/main.tex)
+- [Design Fingerprinting: Within-Game Normalization](research/publications/tiger-fingerprinting/main.tex)
+- [Predicting Player Experience from TIGER Profiles](research/publications/tiger-experience-prediction/main.tex)
+- [Filling the Design Space: Using TIGER Profiles to Identify Gaps](research/publications/tiger-design-gaps/main.tex)
 
 ## Games infrastructure
 
