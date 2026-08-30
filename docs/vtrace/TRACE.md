@@ -12,11 +12,11 @@ Baseline date: 2026-06-01
 
 | Trace ID | Mission / CONOPS | Requirements | Specs | Architecture | Interfaces | Verification | Validation | Status |
 |---|---|---|---|---|---|---|---|---|
-| TR-TIG-001 | NEED-TIG-001, CON-TIG-002 | REQ-TIG-001, REQ-TIG-008 | SPEC-TIG-001 | ARCH-TIG-001 | IF-TIG-001 | VER-TIG-001 | VAL-TIG-001 | traced_with_work_package_needed |
-| TR-TIG-002 | NEED-TIG-003, CON-TIG-001 | REQ-TIG-002, REQ-TIG-003, REQ-TIG-004 | SPEC-TIG-002, SPEC-TIG-003 | ARCH-TIG-002 | IF-TIG-002 | VER-TIG-002 | VAL-TIG-002 | traced_with_work_package_needed |
-| TR-TIG-003 | NEED-TIG-002, CON-TIG-003 | REQ-TIG-005 | SPEC-TIG-004 | ARCH-TIG-003 | IF-TIG-003 | VER-TIG-006 | VAL-TIG-003 | traced_with_work_package_needed |
-| TR-TIG-004 | NEED-TIG-004, CON-TIG-004 | REQ-TIG-006 | SPEC-TIG-005 | ARCH-TIG-004 | IF-TIG-004 | VER-TIG-003, VER-TIG-004, VER-TIG-005 | VAL-TIG-004 | traced_with_work_package_needed |
-| TR-TIG-005 | NEED-TIG-004, CON-TIG-005 | REQ-TIG-007 | SPEC-TIG-006 | ARCH-TIG-005 | IF-TIG-005 | VER-TIG-007 | VAL-TIG-005 | traced_with_work_package_needed |
+| TR-TIG-001 | NEED-TIG-001, CON-TIG-002 | REQ-TIG-001, REQ-TIG-008 | SPEC-TIG-001; PITFALL `TIGRIS-I-03`, `TIGRIS-PF-03` | ARCH-TIG-001 | IF-TIG-001 | VER-TIG-001 | VAL-TIG-001 | traced_with_work_package_needed |
+| TR-TIG-002 | NEED-TIG-003, CON-TIG-001 | REQ-TIG-002, REQ-TIG-003, REQ-TIG-004 | SPEC-TIG-002, SPEC-TIG-003; PITFALL `TIGRIS-P-01`, `TIGRIS-P-02`, `TIGRIS-I-01`, `TIGRIS-I-02`, `TIGRIS-PF-01`, `TIGRIS-PF-02` | ARCH-TIG-002 | IF-TIG-002 | VER-TIG-002 | VAL-TIG-002 | traced_with_work_package_needed |
+| TR-TIG-003 | NEED-TIG-002, CON-TIG-003 | REQ-TIG-005 | SPEC-TIG-004; PITFALL `TIGRIS-I-03`, `TIGRIS-PF-03` | ARCH-TIG-003 | IF-TIG-003 | VER-TIG-006 | VAL-TIG-003 | traced_with_work_package_needed |
+| TR-TIG-004 | NEED-TIG-004, CON-TIG-004 | REQ-TIG-006 | SPEC-TIG-005; PITFALL `TIGRIS-I-04` | ARCH-TIG-004 | IF-TIG-004 | VER-TIG-003, VER-TIG-004, VER-TIG-005 | VAL-TIG-004 | traced_with_work_package_needed |
+| TR-TIG-005 | NEED-TIG-004, CON-TIG-005 | REQ-TIG-007 | SPEC-TIG-006; PITFALL `TIGRIS-P-03`, `TIGRIS-PF-04` | ARCH-TIG-005 | IF-TIG-005 | VER-TIG-007 | VAL-TIG-005 | traced_with_work_package_needed |
 
 ## Open Trace Gaps
 
