@@ -2,8 +2,13 @@
 name = "tigris-sim"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
 
 [workspace]
+
+[features]
+default = ["native-hosts"]
+native-hosts = ["dep:macroquad", "dep:muddle-cli", "dep:muddle-macroquad", "dep:muddle-window"]
 
 [[bin]]
 name = "tigris-sim"
@@ -12,22 +17,25 @@ path = "src/main.rs"
 [[bin]]
 name = "tigris-muddle"
 path = "src/bin/tigris-muddle.rs"
+required-features = ["native-hosts"]
 
 [[bin]]
 name = "tigris-muddle-window"
 path = "src/bin/tigris-muddle-window.rs"
+required-features = ["native-hosts"]
 
 [[bin]]
 name = "tigris-muddle-macroquad"
 path = "src/bin/tigris-muddle-macroquad.rs"
+required-features = ["native-hosts"]
 
 [dependencies]
 court-core = { git = "https://github.com/giodl73-repo/COURT.git", package = "court-core", branch = "main" }
-macroquad = "0.4"
-muddle-cli = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
+macroquad = { version = "0.4", optional = true }
+muddle-cli = { git = "https://github.com/giodl73-repo/MUDDLE.git", optional = true }
 muddle-core = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
-muddle-macroquad = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
-muddle-window = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
+muddle-macroquad = { git = "https://github.com/giodl73-repo/MUDDLE.git", optional = true }
+muddle-window = { git = "https://github.com/giodl73-repo/MUDDLE.git", optional = true }
 rally-core = { git = "https://github.com/giodl73-repo/RALLY.git" }
 
 [dev-dependencies]
