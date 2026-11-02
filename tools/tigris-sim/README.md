@@ -12,6 +12,22 @@ deterministic run, actor trace, metric, validation, and comparison primitives.
 
 ## Commands
 
+Native launchers remain enabled by the default `native-hosts` feature. Library
+consumers can disable that feature to use the same Parliament policy without
+desktop CLI/window/Macroquad dependencies:
+
+```powershell
+cargo test --locked --all-targets
+cargo test --locked --no-default-features --all-targets
+cargo check --locked --no-default-features --lib --target wasm32-unknown-unknown
+```
+
+This portability boundary does not yet publish a browser player. The
+[Parliament WASM wave](../../context/waves/2026-11-02-parliament-wasm/WAVE.md)
+tracks native controls, shared transport, bounded own-save admission and later
+hosted/live qualification. Pilot scores and checkpoints remain local game state,
+not corpus review evidence or authority to amend the rubric.
+
 ```powershell
 cargo test --quiet
 cargo run --quiet -- --seed parliament-smoke

@@ -1,0 +1,90 @@
+name: Parliament Rust WASM Pages
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: parliament-pages-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CARGO_TARGET_DIR: ${{ github.workspace }}/target/cargo
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dtolnay/rust-toolchain@1.95.0
+        with:
+          targets: wasm32-unknown-unknown
+          components: rustfmt, clippy
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: browser/parliament/package-lock.json
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: |
+            tools/tigris-sim -> ../../target/cargo
+            browser/parliament -> ../../target/cargo
+      - name: Original native and portable tests, adapter tests and strict lint
+        run: |
+          cargo fmt --manifest-path tools/tigris-sim/Cargo.toml --all -- --check
+          cargo fmt --manifest-path browser/parliament/Cargo.toml --all -- --check
+          cargo test --manifest-path tools/tigris-sim/Cargo.toml --all-targets --locked
+          cargo test --manifest-path tools/tigris-sim/Cargo.toml --no-default-features --all-targets --locked
+          cargo clippy --manifest-path tools/tigris-sim/Cargo.toml --all-targets --locked -- -D warnings
+          cargo clippy --manifest-path tools/tigris-sim/Cargo.toml --no-default-features --lib --target wasm32-unknown-unknown --locked -- -D warnings
+          cargo test --manifest-path browser/parliament/Cargo.toml --all-targets --locked
+          cargo clippy --manifest-path browser/parliament/Cargo.toml --all-targets --locked -- -D warnings
+          cargo clippy --manifest-path browser/parliament/Cargo.toml --lib --target wasm32-unknown-unknown --locked -- -D warnings
+      - name: Install pinned WASM packaging tool
+        run: cargo install wasm-bindgen-cli --version 0.2.127 --locked
+      - name: Build real WASM and independently compare original native CLI
+        run: python browser/parliament/build-prototype.py --bindgen "$HOME/.cargo/bin/wasm-bindgen"
+      - name: Install browser qualification tools
+        working-directory: browser/parliament
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+      - name: Task and real deadline/recovery qualification
+        working-directory: browser/parliament
+        run: npm run test:pages
+      - name: Package exact committed software and original legal notices
+        run: python browser/parliament/package-site.py
+      - name: Check complete packaged delivery
+        run: python browser/parliament/verify-release.py
+      - name: Rebuild delivered source outside Git
+        run: python browser/parliament/verify-source.py --bindgen "$HOME/.cargo/bin/wasm-bindgen"
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: parliament-qualification
+          include-hidden-files: true
+          path: |
+            browser/parliament/.cache/
+            browser/parliament/test-results/
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: target/parliament-release/TIGRIS
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy tested Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@v4

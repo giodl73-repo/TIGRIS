@@ -686,7 +686,7 @@ fn simulate_upstage(seed: &str, player_count: usize, variant: UpstageVariant) ->
     for scene in 0..scenes {
         players[holder].trace.record_action();
         let mut committed = Vec::new();
-        for idx in 0..players.len() {
+        for (idx, player) in players.iter_mut().enumerate() {
             if idx == holder {
                 continue;
             }
@@ -698,10 +698,10 @@ fn simulate_upstage(seed: &str, player_count: usize, variant: UpstageVariant) ->
             let commitment_chance =
                 (72 + variant.commitment_bonus - player_count as i32).clamp(35, 95) as u32;
             if rng.percent_chance(commitment_chance) {
-                players[idx].trace.record_action();
+                player.trace.record_action();
                 committed.push(idx);
             } else {
-                players[idx].trace.record_blocked_turn();
+                player.trace.record_blocked_turn();
                 false_upstages += 1;
             }
         }
