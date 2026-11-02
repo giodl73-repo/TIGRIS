@@ -32,10 +32,10 @@ required-features = ["native-hosts"]
 [dependencies]
 court-core = { git = "https://github.com/giodl73-repo/COURT.git", package = "court-core", branch = "main" }
 macroquad = { version = "0.4", optional = true }
-muddle-cli = { git = "https://github.com/giodl73-repo/MUDDLE.git", optional = true }
-muddle-core = { git = "https://github.com/giodl73-repo/MUDDLE.git" }
-muddle-macroquad = { git = "https://github.com/giodl73-repo/MUDDLE.git", optional = true }
-muddle-window = { git = "https://github.com/giodl73-repo/MUDDLE.git", optional = true }
+muddle-cli = { git = "https://github.com/giodl73-repo/MUDDLE.git", rev = "08aea37b9849a2e4ec69ea3786efbc09ba57f8d1", optional = true }
+muddle-core = { git = "https://github.com/giodl73-repo/MUDDLE.git", rev = "08aea37b9849a2e4ec69ea3786efbc09ba57f8d1" }
+muddle-macroquad = { git = "https://github.com/giodl73-repo/MUDDLE.git", rev = "08aea37b9849a2e4ec69ea3786efbc09ba57f8d1", optional = true }
+muddle-window = { git = "https://github.com/giodl73-repo/MUDDLE.git", rev = "08aea37b9849a2e4ec69ea3786efbc09ba57f8d1", optional = true }
 rally-core = { git = "https://github.com/giodl73-repo/RALLY.git" }
 
 [dev-dependencies]
