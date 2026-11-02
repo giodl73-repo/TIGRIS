@@ -1,0 +1,1 @@
+{"name":"tigris-parliament-browser-qa","private":true,"type":"module","scripts":{"test:pages":"playwright test player.spec.js recovery.spec.js","test:release":"playwright test"},"devDependencies":{"@playwright/test":"1.61.1"}}

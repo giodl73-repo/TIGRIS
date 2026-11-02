@@ -50,3 +50,9 @@ target/
 .env.local
 
 .cargo/config.toml
+
+# Parliament browser tooling
+browser/parliament/.cache/
+browser/parliament/node_modules/
+browser/parliament/test-results/
+browser/parliament/playwright-report/
