@@ -4,7 +4,7 @@ use serde::Deserialize;
 use serde_json::{json, Value};
 use wasm_bindgen::prelude::*;
 
-const REQUEST_BYTES: usize = 524_288;
+pub const REQUEST_BYTES: usize = 524_288;
 const REPORT_BYTES: usize = 2_097_152;
 const SAVE_BYTES: usize = 131_072;
 const ATTEMPTS: usize = 128;

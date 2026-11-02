@@ -83,7 +83,7 @@ for sequence in paths:
         for field in ['save_text', 'replay_save_text']:
             records.append(evaluate({'save_text': case['response'][field], 'commands': ['look']}))
 initial = evaluate({})['response']['save_text']
-for request in ['{', 'null', '{"commands":[],"commands":[]}', {'unknown': True}, {'commands': ['<script>alert(1)</script>', 'look']}, {'commands': ['look']*128}, {'commands': ['look']*129}, {'commands': ['é'*513]}, {'save_text': 'broken'}, {'save_text': 'x'*131073}, ' '*524289]:
+for request in ['{', 'null', '{"commands":[],"commands":[]}', {'unknown': True}, {'commands': ['<script>alert(1)</script>', 'look']}, {'commands': ['look']*128}, {'commands': ['look']*129}, {'commands': ['é'*513]}, {'save_text': 'broken'}, {'save_text': 'x'*131073}, {'save_text':'é'*300000}, ' '*524289]:
     records.append(evaluate(request))
 for field, value in [('round', '4294967295'), ('round', '4096'), ('round', '4097'), ('human_score', '-2147483648'), ('ai_pressure', '4097')]:
     # Native field encoding escapes semicolons/equal signs in its checkpoint line.
