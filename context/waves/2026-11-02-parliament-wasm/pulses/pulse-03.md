@@ -39,6 +39,15 @@ all 52 original outcomes and 12 independent CLI byte pairs, then passes all
 memory check now grows to exactly 64 MiB before proving one more page is refused.
 Hosted/default/live qualification remains open.
 
+Hosted implementation4c28a2e and handoff77e1b26 both pass all gates. Inspection
+of the artifact list found only github-pages: upload-artifact's default hidden
+file exclusion omitted .cache qualification receipts. Explicitly include hidden
+files for the named synthetic QA directories, preserving native fixtures and
+outside-Git evidence without expanding source/publication scope. The dependency
+audit also rejects same-name shared package version drift, in addition to exact
+version/source/checksum comparisons. The corrected current candidate must pass
+again and retain both artifacts before merge.
+
 QA history is retained in ignored .cache logs and trace archives. The first
 full nine-case run failed at initial rendering: the shared native map is
 optional text, not a list. Correcting the renderer yielded all nine passes.

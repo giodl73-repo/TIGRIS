@@ -34,6 +34,10 @@ adapter = tomllib.loads((B/'Cargo.lock').read_text(encoding='utf-8'))['package']
 def identities(packages):
     return {(p['name'], p['version']): (p.get('source'), p.get('checksum')) for p in packages}
 n, a = identities(native), identities(adapter)
+native_names = {p['name'] for p in native}
+for key in a:
+    if key[0] in native_names:
+        assert key in n, ('Shared package version drift', key)
 for key in n.keys() & a.keys():
     assert n[key] == a[key], ('Shared package source drift', key)
 for package in adapter:

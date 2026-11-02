@@ -67,6 +67,7 @@ jobs:
         if: always()
         with:
           name: parliament-qualification
+          include-hidden-files: true
           path: |
             browser/parliament/.cache/
             browser/parliament/test-results/
