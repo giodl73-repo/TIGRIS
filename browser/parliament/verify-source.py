@@ -43,4 +43,4 @@ with tempfile.TemporaryDirectory(prefix='tigris delivered source ') as tmp:
     npm='npm.cmd' if os.name=='nt' else 'npm'
     run([npm,'ci'],cwd=companion)
     run([npm,'run','test:pages'],cwd=companion)
-    (B/'.cache/source-replay.json').write_text(json.dumps({'commit':record['commit'],'source_files':len(record['files']),'native_cases_identical':len(rebuilt),'original_cli_pairs_identical':len(controls['independent_cli_pairs']),'browser_task_and_recovery_checks':16,'native_tests_default_and_portable_each':18,'adapter_tests':7,'temporary_root_outside_git':str(root),'binary_identity_claim':False},indent=2)+'\n',encoding='utf-8')
+    (B/'.cache/source-replay.json').write_text(json.dumps({'commit':record['commit'],'source_files':len(record['files']),'native_cases_identical':len(rebuilt),'original_cli_pairs_identical':len(controls['independent_cli_pairs']),'browser_task_and_recovery_checks':16,'native_tests_default_and_portable_each':18,'adapter_tests':8,'temporary_root_outside_git':str(root),'binary_identity_claim':False},indent=2)+'\n',encoding='utf-8')

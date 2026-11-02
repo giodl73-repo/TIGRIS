@@ -129,3 +129,29 @@ fn oversized_and_unknown_requests_are_typed_whole_failures() {
     let result: Value = serde_json::from_str(&evaluate(&" ".repeat(524289))).unwrap();
     assert_eq!(result["kind"], "browser_refusal");
 }
+
+#[test]
+fn native_control_preserves_refusal_when_a_byte_prefix_splits_utf8() {
+    use std::io::Write;
+    use std::process::{Command, Stdio};
+    let request = json!({"save_text":"é".repeat(300000)}).to_string();
+    let mut child = Command::new(env!("CARGO_BIN_EXE_tigris-parliament-control"))
+        .stdin(Stdio::piped())
+        .stdout(Stdio::piped())
+        .stderr(Stdio::piped())
+        .spawn()
+        .unwrap();
+    if let Err(error) = child.stdin.take().unwrap().write_all(request.as_bytes()) {
+        assert_eq!(error.kind(), std::io::ErrorKind::BrokenPipe);
+    }
+    let output = child.wait_with_output().unwrap();
+    assert!(
+        output.status.success(),
+        "{}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    assert_eq!(
+        String::from_utf8(output.stdout).unwrap().trim(),
+        evaluate(&request)
+    );
+}
