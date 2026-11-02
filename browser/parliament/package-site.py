@@ -65,7 +65,7 @@ for package in metadata['packages']:
     folder = Path(package['manifest_path']).parent
     # Walk to dependency checkout root for workspace-scoped original notices.
     root = R if not package.get('source') else folder
-    if package.get('source','').startswith('git+'):
+    if (package.get('source') or '').startswith('git+'):
         root = Path(subprocess.check_output(['git','rev-parse','--show-toplevel'],cwd=folder).decode().strip())
     notices = []
     current = folder
