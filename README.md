@@ -8,6 +8,21 @@ Claude Code-driven. Markdown-first. Euro tradition. TIGRIS reviews published gam
 [ROLES](https://github.com/giodl73-repo/ROLES), the `.roles` convention for
 repository-local review panels.
 
+## Play the Rust pilot
+
+[Open the Parliament table](https://giodl73-repo.github.io/TIGRIS/) to play the
+existing deterministic AI pilot in your browser. Use typed/native-hint commands,
+inspect phase/resources and complete turn history, and export or resume your own
+native save and transcript. The same Rust host and shared MUDDLE session run in
+WebAssembly; no server or account is required.
+
+This is local pilot state: scores, adopted-axis counters and close flags do not
+conduct a corpus review or amend the factory rubric. Edited checkpoints are not
+authenticated. [Source, build and limits](browser/parliament/BUILD.md) and
+[software/content scope](browser/parliament/SOURCE-SCOPE.md) retain the original
+native hosts, all 18 original tests and split licensing. The browser provides
+software-source and compiled-WASM downloads independently of engine startup.
+
 ## What TIGRIS has done
 
 **Reviewed 150 games.** Every review is a Parliament: eight designer personas (Knizia, Rosenberg, Feld, Lacerda, Chvátil, Kramer–Kiesling, Stegmaier, Vaccarino) plant incompatible stakes against the design, then a narrated playthrough attacks, defends, and collides them. 69 games went through the full three-phase pipeline; 81 more went through a faster variant to build out the corpus. [`TRACKER.md`](TRACKER.md) has every row.

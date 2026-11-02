@@ -15,10 +15,12 @@ test('real WASM matches every native response and exported memory has a 64 MiB m
       const actual=JSON.parse(evaluate(records[i].request));
       if(JSON.stringify(actual)!==JSON.stringify(records[i].response))mismatches.push(i);
     }
-    let refused=false;try{module.memory.grow(1024);}catch{refused=true;}
-    return {mismatches,refused};
+    module.memory.grow(1024-module.memory.buffer.byteLength/65536);
+    const maximumBytes=module.memory.buffer.byteLength;
+    let refused=false;try{module.memory.grow(1);}catch{refused=true;}
+    return {mismatches,maximumBytes,refused};
   },cases);
-  expect(result).toEqual({mismatches:[],refused:true});
+  expect(result).toEqual({mismatches:[],maximumBytes:67108864,refused:true});
 });
 
 test('keyboard play and native hints show the actual table and full turn history',async({page})=>{

@@ -29,6 +29,16 @@ custody. Actual memory.grow beyond the compiled 64 MiB maximum is rejected.
 Source/legal/package delivery, outside-Git replay and hosted/default/live gates
 are next; this is not yet a browser release or canonical snapshot.
 
+Local packaging follow-up: 18 complete packaged checks pass over 95 files,
+38 dependency notice groups and 12 Rust notices. Runtime is approximately
+309 KiB (1 MiB budget). The ZIP contains 32 exact corresponding software files;
+all omitted tracked paths are listed separately. An outside-Git directory with
+spaces rebuilds both 18-test native matrices and seven adapter tests, matches
+all 52 original outcomes and 12 independent CLI byte pairs, then passes all
+16 task/recovery checks. No cross-directory binary identity is claimed. The
+memory check now grows to exactly 64 MiB before proving one more page is refused.
+Hosted/default/live qualification remains open.
+
 QA history is retained in ignored .cache logs and trace archives. The first
 full nine-case run failed at initial rendering: the shared native map is
 optional text, not a list. Correcting the renderer yielded all nine passes.

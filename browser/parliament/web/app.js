@@ -58,7 +58,7 @@ function render(){
   $('hints').replaceChildren(...snapshot.commands.map(x=>{const n=document.createElement('button');n.type='button';n.textContent=x.command;n.title=x.description;n.onclick=()=>command(x.command);return n;}));
   $('history').replaceChildren(...snapshot.history.map(x=>{const n=document.createElement('li');n.append(pre(`${x.turn} · ${x.room} · ${x.command}\n${x.response}`));return n;}));
   $('attempt-list').replaceChildren(...allAttempts.map(x=>{const n=document.createElement('li');n.append(pre(`${x.input}\n${x.kind}: ${x.response??x.error}`));return n;}));
-  const visuals=[];function visit(nodes){for(const x of nodes){const n=document.createElement('span');n.textContent=[x.label,x.text].filter(Boolean).join(': ');visuals.push(n);visit(x.children??[]);}}visit(snapshot.visual_nodes);$('visual').replaceChildren(...visuals);
+  const visuals=[];function visit(nodes){for(const x of nodes){const n=document.createElement('span');n.textContent=[x.label,x.text].filter(Boolean).join(': ');n.title=x.sprite?.alt??x.text??x.label;visuals.push(n);visit(x.children??[]);}}visit(snapshot.visual_nodes);$('visual').replaceChildren(...visuals);
   $('snapshot').textContent=JSON.stringify(snapshot,null,2);
 }
 function download(name,body,type='text/plain;charset=utf-8'){
